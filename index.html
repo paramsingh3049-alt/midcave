@@ -39,8 +39,11 @@
       <li><a href="#ecosystem" id="nav-eco">Ecosystem</a></li>
       <li><a href="#partnerships" id="nav-partner">Partners</a></li>
       <li><a href="#careers" id="nav-careers">Careers</a></li>
-      <li><a href="#contact" class="nav-cta" id="nav-contact">Let's Talk</a></li>
     </ul>
+
+    <div class="nav-actions">
+      <a href="#contact" class="nav-cta" id="nav-contact">Let's Talk</a>
+    </div>
 
     <button class="hamburger" id="hamburger" aria-label="Toggle Menu" aria-expanded="false">
       <span></span><span></span><span></span>
@@ -70,7 +73,6 @@
         <div class="hero-grid"></div>
         <div class="hero-orb hero-orb-1"></div>
         <div class="hero-orb hero-orb-2"></div>
-        <div class="hero-orb hero-orb-3"></div>
         <div class="hero-vignette"></div>
       </div>
 
@@ -79,66 +81,195 @@
 
           <!-- Left: Copy -->
           <div class="hero-left">
-            <div class="hero-badge reveal">
-              <span class="hero-badge-dot"></span>
-              Creative Intelligence × Digital Innovation
+            <div class="hero-label reveal">
+              WHAT WE DO
             </div>
 
             <h1 class="hero-headline reveal reveal-delay-1">
-              <span class="line1">WE CREATE</span>
-              <span class="line2">WHAT'S NEXT.</span>
+              WE DON’T JUST<br/>
+              MAKE THINGS LOOK<br/>
+              GOOD.<br/>
+              <span class="grad">WE MAKE THEM<br/>MATTER.</span>
             </h1>
 
             <p class="hero-sub reveal reveal-delay-2">
-              MIDCAV is a Creative-Tech ecosystem where strategy, creativity, media and technology come together to build brands, experiences and stories that move people.
+              From a brand identity to a digital campaign. From a film to an immersive experience. From a sound to a story. We turn ideas into lasting impact across every medium.
             </p>
 
             <div class="hero-actions reveal reveal-delay-3">
               <a href="#about" class="btn-primary" id="hero-explore-btn">
-                Explore MIDCAV <span class="arrow">→</span>
+                EXPLORE MIDCAV <span class="arrow">↗</span>
               </a>
-              <a href="#services" class="btn-ghost">View Services ↓</a>
-            </div>
-
-            <!-- Discipline Chips -->
-            <div class="hero-chips reveal reveal-delay-4" role="list" aria-label="Six Disciplines">
-              <span class="hero-chip" role="listitem">
-                <span class="hero-chip-dot"></span> Method — Think.
-              </span>
-              <span class="hero-chip" role="listitem">
-                <span class="hero-chip-dot"></span> Image — Capture.
-              </span>
-              <span class="hero-chip" role="listitem">
-                <span class="hero-chip-dot"></span> Design — Shape.
-              </span>
-              <span class="hero-chip" role="listitem">
-                <span class="hero-chip-dot"></span> Content — Tell.
-              </span>
-              <span class="hero-chip" role="listitem">
-                <span class="hero-chip-dot"></span> Audio — Feel.
-              </span>
-              <span class="hero-chip" role="listitem">
-                <span class="hero-chip-dot"></span> Video — Move.
-              </span>
+              <a href="#work" class="btn-text-link">VIEW OUR WORK ↗</a>
             </div>
           </div>
 
-          <!-- Right: Floating Mockups -->
+          <!-- Right: Floating Overlapping Mockups -->
           <div class="hero-right reveal reveal-delay-2" aria-hidden="true">
-            <!-- Floating card: main mockup -->
-            <div class="floating-card floating-card-main">
-              <img src="mockup1.jpg" alt="Digital dashboard mockup" />
+            
+            <!-- SVG Winding Vector Waves behind elements -->
+            <svg class="hero-waves-svg" viewBox="0 0 500 500" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <path d="M-50,320 C120,220 180,480 320,280 C420,130 460,380 580,240" stroke="url(#wave-gradient-1)" stroke-width="1.8" opacity="0.75" />
+              <path d="M-50,360 C100,270 200,500 300,320 C400,140 480,340 580,280" stroke="url(#wave-gradient-2)" stroke-width="1.2" opacity="0.45" />
+              <path d="M-50,290 C140,200 160,430 340,220 C440,110 440,400 580,200" stroke="url(#wave-gradient-3)" stroke-width="0.9" opacity="0.35" />
+              <defs>
+                <linearGradient id="wave-gradient-1" x1="0%" y1="0%" x2="100%" y2="0%">
+                  <stop offset="0%" stop-color="#00f2fe" />
+                  <stop offset="45%" stop-color="#4facfe" />
+                  <stop offset="100%" stop-color="#7f00ff" />
+                </linearGradient>
+                <linearGradient id="wave-gradient-2" x1="0%" y1="0%" x2="100%" y2="0%">
+                  <stop offset="0%" stop-color="#4facfe" />
+                  <stop offset="100%" stop-color="#8b5cf6" />
+                </linearGradient>
+                <linearGradient id="wave-gradient-3" x1="0%" y1="0%" x2="100%" y2="0%">
+                  <stop offset="0%" stop-color="#00f2fe" opacity="0" />
+                  <stop offset="50%" stop-color="#00f2fe" />
+                  <stop offset="100%" stop-color="#7f00ff" />
+                </linearGradient>
+              </defs>
+            </svg>
+
+            <!-- Card 1: VR HUD Telemetry Card (Right) -->
+            <div class="floating-card vr-card">
+              <div class="vr-hud">
+                <div class="hud-top">
+                  <div class="hud-item battery">BATTERY: 88%</div>
+                  <div class="hud-item status">SYS: ONLINE</div>
+                </div>
+                <div class="hud-grid-dots"></div>
+                <div class="hud-ring"></div>
+                <div class="hud-tag">MIDCAV // LABS.VR</div>
+              </div>
             </div>
 
-            <!-- Mini stat floating widget -->
-            <div class="mini-stat-card">
-              <div class="mini-stat-val">24+</div>
-              <div class="mini-stat-label">Years of Experience</div>
-              <div class="mini-stat-change">↑ 6 Core Disciplines</div>
+            <!-- Card 2: Camera Viewfinder View (Top Middle) -->
+            <div class="floating-card camera-card">
+              <div class="viewfinder-header">
+                <div class="rec-indicator"><span class="rec-dot"></span>REC</div>
+                <div class="fps-counter">4K 60FPS</div>
+              </div>
+              <div class="viewfinder-grid">
+                <div class="focus-corners"></div>
+                <div class="crosshairs"></div>
+              </div>
+              <div class="viewfinder-footer">
+                <div class="iso-info">ISO 800</div>
+                <div class="lens-info">50mm F/1.8</div>
+                <div class="timecode" id="live-timecode">01:24:58:12</div>
+              </div>
             </div>
+
+            <!-- Card 3: Code Workstation Mockup (Left Middle) -->
+            <div class="floating-card code-card">
+              <div class="code-header">
+                <div class="code-dots">
+                  <span class="dot red"></span>
+                  <span class="dot yellow"></span>
+                  <span class="dot green"></span>
+                </div>
+                <span class="code-title">midcav_core.js</span>
+              </div>
+              <pre class="code-content"><code><span class="keyword">const</span> <span class="variable">midcav</span> <span class="operator">=</span> <span class="keyword">new</span> <span class="class">Ecosystem</span>({
+  <span class="property">strategy</span>: <span class="string">"Method"</span>,
+  <span class="property">creativity</span>: <span class="string">"Image & Design"</span>,
+  <span class="property">technology</span>: <span class="string">"Video & Audio"</span>
+});
+
+<span class="variable">midcav</span>.<span class="method">makeItMatter</span>();</code></pre>
+            </div>
+
+            <!-- Card 4: Control Center Screen Mockup (Bottom Right) -->
+            <div class="floating-card dashboard-card">
+              <div class="dashboard-header">
+                <span class="dash-title">SYSTEM MONITOR</span>
+                <span class="dash-status">ACTIVE</span>
+              </div>
+              <div class="dashboard-metrics">
+                <div class="metric-item">
+                  <div class="metric-val">99.4%</div>
+                  <div class="metric-lbl">ACCURACY</div>
+                </div>
+                <div class="metric-item">
+                  <div class="metric-val">5.8M</div>
+                  <div class="metric-lbl">REACH</div>
+                </div>
+              </div>
+              <div class="dashboard-chart">
+                <svg viewBox="0 0 100 30" class="sparkline">
+                  <path d="M0,25 Q15,5 30,20 T60,8 T90,22 L100,5" fill="none" stroke="url(#cyan-purple-grad)" stroke-width="1.5" />
+                </svg>
+              </div>
+            </div>
+
           </div>
 
         </div>
+
+        <!-- =================== GRID OF 4 FEATURE CARDS =================== -->
+        <div class="hero-grid-row">
+          
+          <!-- Card 01 -->
+          <div class="feature-card reveal" tabindex="0">
+            <div class="feature-card-header">
+              <div class="feature-icon-box">
+                <svg viewBox="0 0 24 24" class="feature-icon" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                  <path d="M4.5 16.5c-1.5 1.25-2.5 3.5-2.5 3.5s2.25-1 3.5-2.5M12 2C6 2 2 6 2 12c0 2.5 1 4.5 2.5 6l11.5-11.5C14.5 5 12.5 4 12 2z" />
+                  <path d="M13 11l6-6M19 5l3-3M22 2l-3 3M11 13l-6 6" />
+                </svg>
+              </div>
+              <span class="feature-number">01</span>
+            </div>
+            <h3 class="feature-title">Creative Solutions</h3>
+            <p class="feature-desc">Bold ideas and smart strategies that create real impact.</p>
+          </div>
+
+          <!-- Card 02 -->
+          <div class="feature-card reveal reveal-delay-1" tabindex="0">
+            <div class="feature-card-header">
+              <div class="feature-icon-box">
+                <svg viewBox="0 0 24 24" class="feature-icon" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                  <rect x="4" y="4" width="16" height="16" rx="2" />
+                  <path d="M9 9h6v6H9zM9 1v3M15 1v3M9 20v3M15 20v3M20 9h3M20 15h3M1 9h3M1 15h3" />
+                </svg>
+              </div>
+              <span class="feature-number">02</span>
+            </div>
+            <h3 class="feature-title">Digital Innovation</h3>
+            <p class="feature-desc">Cutting-edge technology that drives meaningful results.</p>
+          </div>
+
+          <!-- Card 03 -->
+          <div class="feature-card reveal reveal-delay-2" tabindex="0">
+            <div class="feature-card-header">
+              <div class="feature-icon-box">
+                <svg viewBox="0 0 24 24" class="feature-icon" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                  <rect x="2" y="2" width="20" height="20" rx="2.18" ry="2.18" />
+                  <path d="M7 2v20M17 2v20M2 12h20M2 7h5M2 17h5M17 17h5M17 7h5" />
+                </svg>
+              </div>
+              <span class="feature-number">03</span>
+            </div>
+            <h3 class="feature-title">Storytelling That Connects</h3>
+            <p class="feature-desc">We craft stories that engage, inspire and stay with people.</p>
+          </div>
+
+          <!-- Card 04 -->
+          <div class="feature-card reveal reveal-delay-3" tabindex="0">
+            <div class="feature-card-header">
+              <div class="feature-icon-box">
+                <svg viewBox="0 0 24 24" class="feature-icon" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                  <path d="M3 18v-6a9 9 0 0 1 18 0v6M21 19a2 2 0 0 1-2 2h-1a2 2 0 0 1-2-2v-3a2 2 0 0 1 2-2h3M3 19a2 2 0 0 0 2 2h1a2 2 0 0 0 2-2v-3a2 2 0 0 0-2-2H3" />
+                </svg>
+              </div>
+              <span class="feature-number">04</span>
+            </div>
+            <h3 class="feature-title">Sound. Vision. Emotion.</h3>
+            <p class="feature-desc">We blend audio, visuals and emotion to create experiences.</p>
+          </div>
+
+        </div>
+
       </div>
     </section>
 
@@ -150,7 +281,7 @@
       <div class="stats-content">
         <div class="stats-header">
           <div class="reveal">
-            <span class="section-tag">// Numbers</span>
+            <span class="section-tag">Numbers</span>
             <h2 class="stats-headline">
               Built for <span class="accent">Impact.</span><br/>
               Designed to <span class="accent">Scale.</span>
@@ -309,11 +440,11 @@
       </div>
     </div>
 
-    <!-- =================== 02 ABOUT =================== -->
+    <!-- =================== ABOUT =================== -->
     <section id="about" aria-label="About MIDCAV">
       <div class="about-intro">
         <div>
-          <span class="section-tag reveal">02 — About</span>
+          <span class="section-tag reveal">About</span>
           <h2 class="about-headline reveal reveal-delay-1">
             NOT AN AGENCY.<br/>
             <span class="gradient-text">AN ECOSYSTEM.</span>
@@ -385,10 +516,10 @@
       </div>
     </section>
 
-    <!-- =================== 03 SERVICES =================== -->
+    <!-- =================== SERVICES =================== -->
     <section id="services" aria-label="Services">
       <div class="services-intro">
-        <span class="section-tag reveal">03 — Services</span>
+        <span class="section-tag reveal">Services</span>
         <h2 class="services-headline reveal reveal-delay-1">
           THINK.<br/>
           <span class="grad">CREATE.</span><br/>
@@ -526,11 +657,11 @@
       </div>
     </section>
 
-    <!-- =================== 04 OUR WORK =================== -->
+    <!-- =================== OUR WORK =================== -->
     <section id="work" aria-label="Our Work">
       <div class="work-intro">
         <div>
-          <span class="section-tag reveal">04 — Our Work</span>
+          <span class="section-tag reveal">Our Work</span>
           <h2 class="work-headline reveal reveal-delay-1">
             IDEAS.<br/>
             <span class="grad">MADE REAL.</span>
@@ -641,10 +772,10 @@
       </div>
     </section>
 
-    <!-- =================== 05 WHY MIDCAV =================== -->
+    <!-- =================== WHY MIDCAV =================== -->
     <section id="why" aria-label="Why MIDCAV">
       <div class="why-header">
-        <span class="section-tag reveal">05 — Why MIDCAV</span>
+        <span class="section-tag reveal">Why MIDCAV</span>
         <h2 class="why-headline reveal reveal-delay-1">
           MORE THAN A SERVICE PROVIDER.<br/>
           <span class="grad">A CREATIVE-TECH PARTNER.</span>
@@ -682,9 +813,9 @@
       </div>
     </section>
 
-    <!-- =================== 06 ECOSYSTEM =================== -->
+    <!-- =================== ECOSYSTEM =================== -->
     <section id="ecosystem" aria-label="Our Ecosystem">
-      <span class="section-tag reveal" style="display: inline-flex;">06 — Our Ecosystem</span>
+      <span class="section-tag reveal" style="display: inline-flex;">Ecosystem</span>
       <h2 class="ecosystem-headline reveal reveal-delay-1">
         CONNECTED TO SOMETHING<br/>
         <span class="grad">BIGGER.</span>
@@ -726,10 +857,10 @@
       </div>
     </section>
 
-    <!-- =================== 07 PARTNERSHIPS =================== -->
+    <!-- =================== PARTNERSHIPS =================== -->
     <section id="partnerships" aria-label="Partnerships">
       <div class="partner-header">
-        <span class="section-tag reveal" style="display: inline-flex;">07 — Partnerships</span>
+        <span class="section-tag reveal" style="display: inline-flex;">Partnerships</span>
         <h2 class="partner-headline reveal reveal-delay-1">
           GREAT IDEAS NEED<br/>
           <span class="grad">GREAT PEOPLE.</span>
@@ -774,12 +905,12 @@
       </div>
     </section>
 
-    <!-- =================== 08 CAREERS =================== -->
+    <!-- =================== CAREERS =================== -->
     <section id="careers" aria-label="Careers">
       <div class="careers-bg-text" aria-hidden="true">NEXT.</div>
 
       <div class="careers-content">
-        <span class="section-tag reveal">08 — Careers</span>
+        <span class="section-tag reveal">Careers</span>
         <h2 class="careers-headline reveal reveal-delay-1">
           DON'T LOOK FOR A JOB.<br/>
           <span class="grad">LOOK FOR WHAT'S NEXT.</span>
@@ -813,11 +944,11 @@
       </div>
     </section>
 
-    <!-- =================== 09 CONTACT =================== -->
+    <!-- =================== CONTACT =================== -->
     <section id="contact" aria-label="Contact">
       <div class="contact-grid">
         <div class="contact-left">
-          <span class="section-tag reveal">09 — Contact</span>
+          <span class="section-tag reveal">Contact</span>
           <h2 class="reveal reveal-delay-1">
             HAVE AN IDEA?<br/>
             <span class="grad">LET'S MAKE IT REAL.</span>
