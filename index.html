@@ -13,10 +13,14 @@
   <link rel="stylesheet" href="style.css" />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@200;300;400;500;600;700;800;900&family=Inter:wght@300;400;500;600;700&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet" />
 </head>
 <body>
 
-  <!-- =================== PROGRESS BAR =================== -->
+  <!-- Cursor Glow -->
+  <div class="cursor-glow" id="cursor-glow" aria-hidden="true"></div>
+
+  <!-- Progress Bar -->
   <div id="progress-bar" aria-hidden="true"></div>
 
   <!-- =================== NAVIGATION =================== -->
@@ -58,98 +62,134 @@
 
   <main>
 
-    <!-- =================== 01 HOME / HERO =================== -->
+    <!-- =================== 01 HERO =================== -->
     <section id="home" aria-label="Hero Section">
+      <!-- Background -->
       <div class="hero-bg" aria-hidden="true">
+        <img src="hero_wave.jpg" alt="" class="hero-wave-img" />
         <div class="hero-grid"></div>
         <div class="hero-orb hero-orb-1"></div>
         <div class="hero-orb hero-orb-2"></div>
         <div class="hero-orb hero-orb-3"></div>
+        <div class="hero-vignette"></div>
       </div>
 
       <div class="hero-content">
-        <div class="hero-label reveal">
-          01 — Creative Intelligence × Digital Innovation
+        <div class="hero-layout">
+
+          <!-- Left: Copy -->
+          <div class="hero-left">
+            <div class="hero-badge reveal">
+              <span class="hero-badge-dot"></span>
+              Creative Intelligence × Digital Innovation
+            </div>
+
+            <h1 class="hero-headline reveal reveal-delay-1">
+              <span class="line1">WE CREATE</span>
+              <span class="line2">WHAT'S NEXT.</span>
+            </h1>
+
+            <p class="hero-sub reveal reveal-delay-2">
+              MIDCAV is a Creative-Tech ecosystem where strategy, creativity, media and technology come together to build brands, experiences and stories that move people.
+            </p>
+
+            <div class="hero-actions reveal reveal-delay-3">
+              <a href="#about" class="btn-primary" id="hero-explore-btn">
+                Explore MIDCAV <span class="arrow">→</span>
+              </a>
+              <a href="#services" class="btn-ghost">View Services ↓</a>
+            </div>
+
+            <!-- Discipline Chips -->
+            <div class="hero-chips reveal reveal-delay-4" role="list" aria-label="Six Disciplines">
+              <span class="hero-chip" role="listitem">
+                <span class="hero-chip-dot"></span> Method — Think.
+              </span>
+              <span class="hero-chip" role="listitem">
+                <span class="hero-chip-dot"></span> Image — Capture.
+              </span>
+              <span class="hero-chip" role="listitem">
+                <span class="hero-chip-dot"></span> Design — Shape.
+              </span>
+              <span class="hero-chip" role="listitem">
+                <span class="hero-chip-dot"></span> Content — Tell.
+              </span>
+              <span class="hero-chip" role="listitem">
+                <span class="hero-chip-dot"></span> Audio — Feel.
+              </span>
+              <span class="hero-chip" role="listitem">
+                <span class="hero-chip-dot"></span> Video — Move.
+              </span>
+            </div>
+          </div>
+
+          <!-- Right: Floating Mockups -->
+          <div class="hero-right reveal reveal-delay-2" aria-hidden="true">
+            <!-- Floating card: main mockup -->
+            <div class="floating-card floating-card-main">
+              <img src="mockup1.jpg" alt="Digital dashboard mockup" />
+            </div>
+
+            <!-- Mini stat floating widget -->
+            <div class="mini-stat-card">
+              <div class="mini-stat-val">24+</div>
+              <div class="mini-stat-label">Years of Experience</div>
+              <div class="mini-stat-change">↑ 6 Core Disciplines</div>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- =================== 02 STATS =================== -->
+    <section id="stats" aria-label="Key Statistics">
+      <img src="stats_bg.jpg" alt="" class="stats-bg-img" aria-hidden="true" />
+      <div class="stats-overlay" aria-hidden="true"></div>
+
+      <div class="stats-content">
+        <div class="stats-header">
+          <div class="reveal">
+            <span class="section-tag">// Numbers</span>
+            <h2 class="stats-headline">
+              Built for <span class="accent">Impact.</span><br/>
+              Designed to <span class="accent">Scale.</span>
+            </h2>
+          </div>
+          <p class="stats-desc reveal reveal-delay-1">
+            At MIDCAV, we measure our success by the reach and resonance of the work we create — and the brands we help build.
+          </p>
         </div>
 
-        <h1 class="hero-headline reveal reveal-delay-1">
-          <span class="line1">WE CREATE</span>
-          <span class="line2">WHAT'S NEXT.</span>
-        </h1>
-
-        <p class="hero-sub reveal reveal-delay-2">
-          MIDCAV is a Creative-Tech ecosystem where strategy, creativity, media and technology come together to build brands, experiences and stories that move people.
-        </p>
-
-        <div class="hero-actions reveal reveal-delay-3">
-          <a href="#about" class="btn-primary" id="hero-explore-btn">
-            Explore MIDCAV <span class="arrow">→</span>
-          </a>
-          <a href="#services" class="btn-ghost">View Services ↓</a>
-        </div>
-
-        <!-- Six Disciplines -->
-        <div class="disciplines reveal reveal-delay-4">
-          <p class="disciplines-title">SIX DISCIPLINES. ONE ECOSYSTEM.</p>
-          <div class="disciplines-grid" role="list">
-            <div class="discipline-card" role="listitem" tabindex="0" aria-label="M - Method: Think">
-              <div class="disc-letter">M</div>
-              <div class="disc-word">METHOD</div>
-              <div class="disc-action">Think.</div>
-            </div>
-            <div class="discipline-card" role="listitem" tabindex="0" aria-label="I - Image: Capture">
-              <div class="disc-letter">I</div>
-              <div class="disc-word">IMAGE</div>
-              <div class="disc-action">Capture.</div>
-            </div>
-            <div class="discipline-card" role="listitem" tabindex="0" aria-label="D - Design: Shape">
-              <div class="disc-letter">D</div>
-              <div class="disc-word">DESIGN</div>
-              <div class="disc-action">Shape.</div>
-            </div>
-            <div class="discipline-card" role="listitem" tabindex="0" aria-label="C - Content: Tell">
-              <div class="disc-letter">C</div>
-              <div class="disc-word">CONTENT</div>
-              <div class="disc-action">Tell.</div>
-            </div>
-            <div class="discipline-card" role="listitem" tabindex="0" aria-label="A - Audio: Feel">
-              <div class="disc-letter">A</div>
-              <div class="disc-word">AUDIO</div>
-              <div class="disc-action">Feel.</div>
-            </div>
-            <div class="discipline-card" role="listitem" tabindex="0" aria-label="V - Video: Move">
-              <div class="disc-letter">V</div>
-              <div class="disc-word">VIDEO</div>
-              <div class="disc-action">Move.</div>
-            </div>
+        <div class="stats-grid">
+          <div class="stat-block reveal">
+            <div class="stat-block-bg-num">24</div>
+            <div class="stat-block-num" data-count="24" data-suffix="+">24+</div>
+            <div class="stat-block-label">Years of Experience</div>
+            <div class="stat-block-desc">Decades of creative & industry mastery across media, film, digital and branding.</div>
           </div>
-        </div>
-
-        <!-- Stats -->
-        <div class="hero-stats reveal reveal-delay-5">
-          <div class="stat-item">
-            <div class="stat-number">24+</div>
-            <div class="stat-label">Years of Experience</div>
+          <div class="stat-block reveal reveal-delay-1">
+            <div class="stat-block-bg-num">6</div>
+            <div class="stat-block-num">6</div>
+            <div class="stat-block-label">Core Disciplines</div>
+            <div class="stat-block-desc">Method. Image. Design. Content. Audio. Video. One integrated creative ecosystem.</div>
           </div>
-          <div class="stat-divider" aria-hidden="true"></div>
-          <div class="stat-item">
-            <div class="stat-number">6</div>
-            <div class="stat-label">Core Disciplines</div>
+          <div class="stat-block reveal reveal-delay-2">
+            <div class="stat-block-bg-num">∞</div>
+            <div class="stat-block-num">∞</div>
+            <div class="stat-block-label">Creative Boundaries</div>
+            <div class="stat-block-desc">We believe creativity is limitless when strategy, technology and vision align.</div>
           </div>
-          <div class="stat-divider" aria-hidden="true"></div>
-          <div class="stat-item">
-            <div class="stat-number">∞</div>
-            <div class="stat-label">Creative Boundaries</div>
-          </div>
-          <div class="stat-divider" aria-hidden="true"></div>
-          <div class="stat-item">
-            <div class="stat-number">1</div>
-            <div class="stat-label">Unified Ecosystem</div>
+          <div class="stat-block reveal reveal-delay-3">
+            <div class="stat-block-bg-num">1</div>
+            <div class="stat-block-num">1</div>
+            <div class="stat-block-label">Unified Ecosystem</div>
+            <div class="stat-block-desc">One vision. Many disciplines. Zero silos. A truly integrated creative-tech partner.</div>
           </div>
         </div>
 
         <!-- Ticker -->
-        <div class="hero-ticker" aria-label="Industry domains" aria-hidden="true">
+        <div class="stats-ticker" aria-hidden="true">
           <div class="ticker-track">
             <span class="ticker-item">Media</span>
             <span class="ticker-item">Entertainment</span>
@@ -163,6 +203,8 @@
             <span class="ticker-item">Design</span>
             <span class="ticker-item">Talent</span>
             <span class="ticker-item">Experiences</span>
+            <span class="ticker-item">Innovation</span>
+            <span class="ticker-item">Strategy</span>
             <span class="ticker-item">Media</span>
             <span class="ticker-item">Entertainment</span>
             <span class="ticker-item">Digital</span>
@@ -175,81 +217,93 @@
             <span class="ticker-item">Design</span>
             <span class="ticker-item">Talent</span>
             <span class="ticker-item">Experiences</span>
+            <span class="ticker-item">Innovation</span>
+            <span class="ticker-item">Strategy</span>
           </div>
         </div>
       </div>
     </section>
 
-    <!-- =================== WHAT WE DO / EDGE STRIP =================== -->
+    <!-- =================== WHAT WE DO =================== -->
     <div class="edge-section" aria-label="What We Do">
-      <div class="reveal">
-        <span class="section-tag">What We Do</span>
-        <h2 class="edge-headline">
-          WE DON'T JUST MAKE THINGS LOOK GOOD.<br/>
-          <em>WE MAKE THEM MATTER.</em>
-        </h2>
-        <p class="edge-desc">
-          From a brand identity to a digital campaign. From a film to an immersive experience. From a sound to a story. We turn ideas into impact.
-        </p>
-      </div>
+      <div class="edge-inner">
+        <div class="edge-top">
+          <div class="reveal">
+            <span class="section-tag">What We Do</span>
+            <h2 class="edge-headline">
+              WE DON'T JUST MAKE THINGS LOOK GOOD.<br/>
+              <em>WE MAKE THEM MATTER.</em>
+            </h2>
+          </div>
+          <p class="edge-desc reveal reveal-delay-1">
+            From a brand identity to a digital campaign. From a film to an immersive experience. From a sound to a story. We turn ideas into lasting impact across every medium.
+          </p>
+        </div>
 
-      <div class="what-we-do-grid">
-        <div class="wwd-card reveal reveal-delay-1">
-          <div class="wwd-card-label">Brand</div>
-          <div class="wwd-card-title">Build identities people remember.</div>
-          <p class="wwd-card-desc">Crafting brand systems that resonate, differentiate and endure across every touchpoint.</p>
+        <div class="what-we-do-grid">
+          <div class="wwd-card reveal">
+            <div class="wwd-card-num">01</div>
+            <div class="wwd-card-icon">🏷</div>
+            <div class="wwd-card-label">Brand</div>
+            <div class="wwd-card-title">Build identities people remember across every touchpoint.</div>
+            <div class="wwd-card-link">Explore →</div>
+          </div>
+          <div class="wwd-card reveal reveal-delay-1">
+            <div class="wwd-card-num">02</div>
+            <div class="wwd-card-icon">📲</div>
+            <div class="wwd-card-label">Digital</div>
+            <div class="wwd-card-title">Create experiences that turn attention into measurable action.</div>
+            <div class="wwd-card-link">Explore →</div>
+          </div>
+          <div class="wwd-card reveal reveal-delay-2">
+            <div class="wwd-card-num">03</div>
+            <div class="wwd-card-icon">✍️</div>
+            <div class="wwd-card-label">Content</div>
+            <div class="wwd-card-title">Tell stories people connect with — across all platforms.</div>
+            <div class="wwd-card-link">Explore →</div>
+          </div>
+          <div class="wwd-card reveal reveal-delay-3">
+            <div class="wwd-card-num">04</div>
+            <div class="wwd-card-icon">🎬</div>
+            <div class="wwd-card-label">Film</div>
+            <div class="wwd-card-title">Make cinematic moments that people feel and remember.</div>
+            <div class="wwd-card-link">Explore →</div>
+          </div>
+          <div class="wwd-card reveal reveal-delay-4">
+            <div class="wwd-card-num">05</div>
+            <div class="wwd-card-icon">🎵</div>
+            <div class="wwd-card-label">Audio</div>
+            <div class="wwd-card-title">Give brands a distinctive voice that resonates deeply.</div>
+            <div class="wwd-card-link">Explore →</div>
+          </div>
+          <div class="wwd-card reveal reveal-delay-5">
+            <div class="wwd-card-num">06</div>
+            <div class="wwd-card-icon">🎪</div>
+            <div class="wwd-card-label">Experience</div>
+            <div class="wwd-card-title">Turn interaction into lasting memory through technology.</div>
+            <div class="wwd-card-link">Explore →</div>
+          </div>
         </div>
-        <div class="wwd-card reveal reveal-delay-2">
-          <div class="wwd-card-label">Digital</div>
-          <div class="wwd-card-title">Create experiences people engage with.</div>
-          <p class="wwd-card-desc">Performance-driven digital strategies that turn attention into measurable action.</p>
-        </div>
-        <div class="wwd-card reveal reveal-delay-3">
-          <div class="wwd-card-label">Content</div>
-          <div class="wwd-card-title">Tell stories people connect with.</div>
-          <p class="wwd-card-desc">Narratives crafted with purpose — from social content to long-form editorial.</p>
-        </div>
-        <div class="wwd-card reveal reveal-delay-4">
-          <div class="wwd-card-label">Film</div>
-          <div class="wwd-card-title">Make moments people feel.</div>
-          <p class="wwd-card-desc">Cinematic storytelling for commercials, documentaries, digital films and OTT content.</p>
-        </div>
-        <div class="wwd-card reveal reveal-delay-5">
-          <div class="wwd-card-label">Audio</div>
-          <div class="wwd-card-title">Give brands a voice.</div>
-          <p class="wwd-card-desc">Sonic branding, music production, voice-over and podcasts that define how a brand sounds.</p>
-        </div>
-        <div class="wwd-card reveal reveal-delay-6">
-          <div class="wwd-card-label">Experience</div>
-          <div class="wwd-card-title">Turn interaction into memory.</div>
-          <p class="wwd-card-desc">Live events, immersive installations and technology-driven experiences that leave a mark.</p>
-        </div>
-      </div>
-
-      <div class="reveal" style="margin-top: 4rem; text-align: center;">
-        <p style="font-family: var(--font-head); font-size: clamp(1.2rem, 2.5vw, 1.8rem); font-weight: 700; color: rgba(255,255,255,0.5); letter-spacing: 0.08em;">
-          THE MIDCAV EDGE — <span style="background: var(--gradient-text); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text;">STRATEGY. CREATIVITY. TECHNOLOGY. CONNECTED.</span>
-        </p>
-        <p style="font-family: var(--font-mono); font-size: 0.72rem; letter-spacing: 0.25em; color: var(--clr-muted); text-transform: uppercase; margin-top: 1rem;">One ecosystem. Multiple capabilities. Zero creative boundaries.</p>
       </div>
     </div>
 
-    <!-- Built for new generation strip -->
-    <div style="background: var(--clr-bg); padding: 80px 5%; border-top: 1px solid var(--clr-border);">
-      <div class="reveal" style="display: grid; grid-template-columns: 1fr 1fr; gap: 4rem; align-items: center; max-width: 1400px; margin: 0 auto;">
-        <div>
+    <!-- Built For Strip -->
+    <div class="built-for-strip">
+      <div class="built-for-inner">
+        <div class="reveal">
           <span class="section-tag">Built For</span>
-          <h2 style="font-family: var(--font-head); font-size: clamp(2rem, 4vw, 3.5rem); font-weight: 700; line-height: 1.05; letter-spacing: -0.02em;">
+          <h2 class="built-for-headline">
             BUILT FOR THE NEW GENERATION OF
-            <span style="background: var(--gradient-text); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text; display: block;">BRANDS.</span>
+            <span class="gradient-text"> BRANDS.</span>
           </h2>
         </div>
-        <div>
-          <p style="font-size: 1.05rem; color: var(--clr-muted); line-height: 1.85; margin-bottom: 1.5rem;">
-            We work with brands, businesses, creators, artists, institutions and ambitious ideas ready to move forward.
+        <div class="reveal reveal-delay-1">
+          <p class="built-for-desc">
+            We work with brands, businesses, creators, artists, institutions and ambitious ideas ready to move forward. Our work sits at the intersection of strategy, creative vision and technical precision.
           </p>
-          <p style="font-family: var(--font-head); font-size: 1.1rem; font-weight: 600; letter-spacing: 0.05em;">
-            Think different. Create boldly. <span style="background: var(--gradient-text); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text;">Move culture.</span>
+          <p class="built-for-tagline">
+            Think different. Create boldly.
+            <span class="gradient-text"> Move culture.</span>
           </p>
         </div>
       </div>
@@ -270,19 +324,19 @@
             MIDCAV Digital Technologies is a Creative-Tech company built at the intersection of creativity, culture, media and technology.
           </p>
           <p>
-            We bring multiple disciplines together to create work that is strategic, distinctive and relevant.
+            We bring multiple disciplines together to create work that is strategic, distinctive and relevant — work that doesn't just look good, but drives real outcomes.
           </p>
 
           <div class="about-pillars">
             <div class="pillar-card">
               <div class="pillar-tag">Our Belief</div>
               <div class="pillar-title">Great Ideas Deserve Great Execution.</div>
-              <p class="pillar-text">We believe the strongest brands are created when strategy meets creativity and technology amplifies the idea.</p>
+              <p class="pillar-text">The strongest brands emerge when strategy meets creativity and technology amplifies the idea.</p>
             </div>
             <div class="pillar-card">
               <div class="pillar-tag">Our Vision</div>
               <div class="pillar-title">To Create What's Next.</div>
-              <p class="pillar-text">To build a globally relevant Creative-Tech ecosystem from India — connecting ideas, people, creativity, media and technology to create meaningful impact.</p>
+              <p class="pillar-text">A globally relevant Creative-Tech ecosystem from India — connecting ideas, people and technology to create meaningful impact.</p>
             </div>
           </div>
         </div>
@@ -295,15 +349,15 @@
       <div class="mission-grid">
         <div class="mission-item reveal reveal-delay-1">
           <div class="mission-kw">THINK SMARTER.</div>
-          <p class="mission-desc">Build strategy around purpose.</p>
+          <p class="mission-desc">Build strategy around purpose and long-term brand vision.</p>
         </div>
         <div class="mission-item reveal reveal-delay-2">
           <div class="mission-kw">CREATE BETTER.</div>
-          <p class="mission-desc">Turn ideas into distinctive experiences.</p>
+          <p class="mission-desc">Turn ideas into distinctive, high-quality creative experiences.</p>
         </div>
         <div class="mission-item reveal reveal-delay-3">
           <div class="mission-kw">MOVE FASTER.</div>
-          <p class="mission-desc">Use technology to accelerate execution.</p>
+          <p class="mission-desc">Use technology to accelerate execution without losing precision.</p>
         </div>
         <div class="mission-item reveal reveal-delay-4">
           <div class="mission-kw">GROW TOGETHER.</div>
@@ -315,11 +369,10 @@
       <div class="founder-section reveal">
         <div class="founder-avatar" aria-label="Founder Avatar">JSP</div>
         <div class="founder-info">
-          <div class="founder-title">Founder</div>
+          <div class="founder-title">Founder & Creative-Tech Entrepreneur</div>
           <h3 class="founder-name">Jitender Sharma Parashar</h3>
           <p class="founder-bio">
-            Founder • Creative-Tech Entrepreneur • Media &amp; Entertainment Professional.<br/>
-            24+ years across film, content, marketing, digital, syndication and production.
+            Media & Entertainment Professional with 24+ years across film, content, marketing, digital, syndication and production. Founder of MIDCAV Digital Technologies — building India's premier Creative-Tech ecosystem.
           </p>
         </div>
       </div>
@@ -510,7 +563,6 @@
             <div class="work-card-meta">
               <div class="meta-row"><strong>Challenge —</strong> Redefine a legacy brand for the next generation.</div>
               <div class="meta-row"><strong>Idea —</strong> Strip it back to its core and rebuild with purpose.</div>
-              <div class="meta-row"><strong>Execution —</strong> A full identity system across every touchpoint.</div>
               <div class="meta-row"><strong>Impact —</strong> 300% increase in brand recall within 6 months.</div>
             </div>
             <div class="work-card-cta">View Case Study →</div>
@@ -525,8 +577,7 @@
             <div class="work-card-meta">
               <div class="meta-row"><strong>Challenge —</strong> Break through digital noise in a saturated market.</div>
               <div class="meta-row"><strong>Idea —</strong> Lead with story, not product.</div>
-              <div class="meta-row"><strong>Execution —</strong> Multi-platform narrative-first campaign.</div>
-              <div class="meta-row"><strong>Impact —</strong> 5x ROI, 2M+ organic reach in 30 days.</div>
+              <div class="meta-row"><strong>Impact —</strong> 5× ROI, 2M+ organic reach in 30 days.</div>
             </div>
             <div class="work-card-cta">View Case Study →</div>
           </div>
@@ -540,7 +591,6 @@
             <div class="work-card-meta">
               <div class="meta-row"><strong>Challenge —</strong> Humanise a corporate brand for a skeptical audience.</div>
               <div class="meta-row"><strong>Idea —</strong> Tell the people story, not the product story.</div>
-              <div class="meta-row"><strong>Execution —</strong> 4-part documentary series, cinema-grade production.</div>
               <div class="meta-row"><strong>Impact —</strong> 1.5M+ views, featured in national media.</div>
             </div>
             <div class="work-card-cta">View Case Study →</div>
@@ -555,7 +605,6 @@
             <div class="work-card-meta">
               <div class="meta-row"><strong>Challenge —</strong> Create a consistent content engine from scratch.</div>
               <div class="meta-row"><strong>Idea —</strong> Build a universe, not just a content calendar.</div>
-              <div class="meta-row"><strong>Execution —</strong> 12-month editorial strategy across all platforms.</div>
               <div class="meta-row"><strong>Impact —</strong> 400% audience growth in 90 days.</div>
             </div>
             <div class="work-card-cta">View Case Study →</div>
@@ -570,7 +619,6 @@
             <div class="work-card-meta">
               <div class="meta-row"><strong>Challenge —</strong> Give a visual-first brand an audio identity.</div>
               <div class="meta-row"><strong>Idea —</strong> Sound that feels as distinctive as a logo.</div>
-              <div class="meta-row"><strong>Execution —</strong> Full sonic branding suite — logo to podcast.</div>
               <div class="meta-row"><strong>Impact —</strong> Adopted across 12 countries in 3 months.</div>
             </div>
             <div class="work-card-cta">View Case Study →</div>
@@ -585,7 +633,6 @@
             <div class="work-card-meta">
               <div class="meta-row"><strong>Challenge —</strong> Launch a premium product in a crowded market.</div>
               <div class="meta-row"><strong>Idea —</strong> Don't launch a product. Create an event.</div>
-              <div class="meta-row"><strong>Execution —</strong> Multi-sensory immersive experience, 500+ guests.</div>
               <div class="meta-row"><strong>Impact —</strong> Sold out 3 months before launch date.</div>
             </div>
             <div class="work-card-cta">View Case Study →</div>
@@ -637,7 +684,7 @@
 
     <!-- =================== 06 ECOSYSTEM =================== -->
     <section id="ecosystem" aria-label="Our Ecosystem">
-      <span class="section-tag reveal" style="display: block; text-align: center;">06 — Our Ecosystem</span>
+      <span class="section-tag reveal" style="display: inline-flex;">06 — Our Ecosystem</span>
       <h2 class="ecosystem-headline reveal reveal-delay-1">
         CONNECTED TO SOMETHING<br/>
         <span class="grad">BIGGER.</span>
@@ -671,18 +718,18 @@
         </div>
       </div>
 
-      <div class="reveal" style="text-align: center; margin-top: 4rem;">
-        <p style="font-family: var(--font-head); font-size: clamp(1.5rem, 3vw, 2.5rem); font-weight: 700; color: rgba(255,255,255,0.15); letter-spacing: 0.08em;">
+      <div class="reveal" style="text-align: center; margin-top: 5rem;">
+        <p style="font-family: var(--font-head); font-size: clamp(1.2rem, 2.5vw, 1.8rem); font-weight: 700; color: rgba(255,255,255,0.08); letter-spacing: 0.08em;">
           BRANDING • DIGITAL • CONTENT • FILM • AUDIO • DESIGN • TALENT • EXPERIENCES • TECHNOLOGY
         </p>
-        <p style="font-family: var(--font-mono); font-size: 0.75rem; letter-spacing: 0.3em; color: var(--clr-muted); text-transform: uppercase; margin-top: 1rem;">One creative universe.</p>
+        <p style="font-family: var(--font-mono); font-size: 0.68rem; letter-spacing: 0.3em; color: var(--clr-muted); text-transform: uppercase; margin-top: 1rem;">One creative universe.</p>
       </div>
     </section>
 
     <!-- =================== 07 PARTNERSHIPS =================== -->
     <section id="partnerships" aria-label="Partnerships">
       <div class="partner-header">
-        <span class="section-tag reveal" style="display: block;">07 — Partnerships</span>
+        <span class="section-tag reveal" style="display: inline-flex;">07 — Partnerships</span>
         <h2 class="partner-headline reveal reveal-delay-1">
           GREAT IDEAS NEED<br/>
           <span class="grad">GREAT PEOPLE.</span>
@@ -752,9 +799,9 @@
           <span>→</span> Technologists &amp; Digital Specialists
         </div>
 
-        <div class="reveal" style="background: var(--clr-surface); border: 1px solid var(--clr-border); border-radius: var(--radius-md); padding: 2rem; max-width: 500px; margin-bottom: 2.5rem;">
-          <p style="font-family: var(--font-head); font-size: 1.2rem; font-weight: 700; margin-bottom: 0.5rem; background: var(--gradient-text); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text;">YOUR NEXT CHAPTER COULD START HERE.</p>
-          <p style="font-size: 0.88rem; color: var(--clr-muted);">Be part of building something that connects creativity with technology at scale.</p>
+        <div class="reveal" style="background: var(--clr-surface); border: 1px solid var(--clr-border2); border-radius: var(--radius-md); padding: 2rem; max-width: 500px; margin-bottom: 2.5rem;">
+          <p style="font-family: var(--font-head); font-size: 1.15rem; font-weight: 800; margin-bottom: 0.5rem; background: var(--gradient-text); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text;">YOUR NEXT CHAPTER COULD START HERE.</p>
+          <p style="font-size: 0.86rem; color: var(--clr-muted);">Be part of building something that connects creativity with technology at scale.</p>
         </div>
 
         <div class="careers-actions reveal reveal-delay-4">
@@ -784,7 +831,7 @@
             <p>Developing something <strong>completely new?</strong></p>
           </div>
 
-          <p style="font-family: var(--font-mono); font-size: 0.72rem; letter-spacing: 0.3em; color: var(--clr-cyan); text-transform: uppercase; margin-bottom: 2rem;" class="reveal">Start Here.</p>
+          <p style="font-family: var(--font-mono); font-size: 0.68rem; letter-spacing: 0.3em; color: var(--clr-cyan); text-transform: uppercase; margin-bottom: 2rem;" class="reveal">Start Here.</p>
 
           <div class="contact-direct reveal reveal-delay-3">
             <div class="contact-direct-item">
@@ -799,75 +846,65 @@
               <span class="contact-direct-label">Careers</span>
               <a href="mailto:careers@midcav.com" class="contact-direct-value">careers@midcav.com</a>
             </div>
-            <div class="contact-direct-item">
-              <span class="contact-direct-label">Location</span>
-              <span class="contact-direct-value">New Delhi, India</span>
-            </div>
           </div>
         </div>
 
-        <div class="contact-right reveal reveal-delay-2">
+        <div class="contact-right">
           <form class="contact-form" id="contact-form" novalidate aria-label="Contact Form">
             <div class="form-group">
-              <label class="form-label" for="contact-name">Name</label>
-              <input type="text" id="contact-name" name="name" class="form-input" placeholder="Your full name" required autocomplete="name" />
+              <label class="form-label" for="name">Your Name</label>
+              <input class="form-input" type="text" id="name" name="name" placeholder="What should we call you?" required />
             </div>
             <div class="form-group">
-              <label class="form-label" for="contact-email">Email</label>
-              <input type="email" id="contact-email" name="email" class="form-input" placeholder="your@email.com" required autocomplete="email" />
+              <label class="form-label" for="email">Email Address</label>
+              <input class="form-input" type="email" id="email" name="email" placeholder="your@email.com" required />
             </div>
             <div class="form-group">
-              <label class="form-label" for="contact-phone">Phone</label>
-              <input type="tel" id="contact-phone" name="phone" class="form-input" placeholder="+91 00000 00000" autocomplete="tel" />
+              <label class="form-label" for="company">Company / Brand</label>
+              <input class="form-input" type="text" id="company" name="company" placeholder="Who are you building for?" />
             </div>
             <div class="form-group">
-              <label class="form-label" for="contact-company">Company / Organisation</label>
-              <input type="text" id="contact-company" name="company" class="form-input" placeholder="Your company or organisation" autocomplete="organization" />
+              <label class="form-label" for="message">Tell Us About Your Idea</label>
+              <textarea class="form-textarea" id="message" name="message" placeholder="What are you creating? What do you need? Let's talk..." required></textarea>
             </div>
-            <div class="form-group">
-              <label class="form-label" for="contact-message">What Are You Building?</label>
-              <textarea id="contact-message" name="message" class="form-textarea" placeholder="Tell us about your idea, project or challenge..." required></textarea>
-            </div>
-            <button type="submit" class="form-submit" id="contact-submit-btn">Start A Conversation →</button>
+            <button type="submit" class="form-submit" id="form-submit-btn">
+              Send Message →
+            </button>
           </form>
-
-          <div class="form-success" id="form-success" role="alert" aria-live="polite">
-            <div style="font-size: 2.5rem; margin-bottom: 1rem;">✅</div>
-            <h3>Message Sent!</h3>
-            <p>Thanks for reaching out. We'll be in touch within 24 hours to start the conversation.</p>
+          <div class="form-success" id="form-success" aria-live="polite">
+            <h3>Message Received.</h3>
+            <p>We'll be in touch within 24 hours. Let's create something great together.</p>
           </div>
         </div>
       </div>
     </section>
 
-    <!-- =================== 10 FINAL CTA =================== -->
-    <section id="cta" aria-label="Final Call to Action">
+    <!-- =================== FINAL CTA =================== -->
+    <section id="cta" aria-label="Call to Action">
       <div class="cta-bg-orb" aria-hidden="true"></div>
+
       <div class="cta-content">
-        <p class="cta-pre reveal">10 — Let's Create What's Next</p>
+        <p class="cta-pre reveal">// The Future is Creative + Technology</p>
+
         <h2 class="cta-headline reveal reveal-delay-1">
-          <span class="line1">YOUR IDEA.</span>
-          <span class="line2">OUR ECOSYSTEM.</span>
+          <span class="line1">READY TO</span>
+          <span class="line2">CREATE?</span>
         </h2>
-        <p style="font-family: var(--font-mono); font-size: clamp(1rem, 2vw, 1.5rem); font-weight: 700; letter-spacing: 0.15em; color: var(--clr-muted); margin-bottom: 2rem;" class="reveal reveal-delay-2">WHAT'S NEXT?</p>
 
-        <div class="cta-pillars reveal reveal-delay-3">
-          <span class="cta-pillar highlight">Strategy.</span>
-          <span class="cta-pillar">Creativity.</span>
-          <span class="cta-pillar highlight">Technology.</span>
-          <span class="cta-pillar">Production.</span>
+        <div class="cta-pillars reveal reveal-delay-2">
+          <span class="cta-pillar highlight">Strategy</span>
+          <span class="cta-pillar highlight">Creativity</span>
+          <span class="cta-pillar highlight">Technology</span>
+          <span class="cta-pillar">Connected.</span>
         </div>
-        <p class="cta-connected reveal reveal-delay-4">ALL CONNECTED.</p>
 
-        <p style="font-family: var(--font-head); font-size: clamp(1.5rem, 3vw, 2.5rem); font-weight: 700; margin-bottom: 3rem;" class="reveal reveal-delay-5">
-          LET'S CREATE WHAT'S NEXT.
-        </p>
+        <p class="cta-connected reveal reveal-delay-3">One ecosystem. Multiple capabilities. Zero creative boundaries.</p>
 
-        <div class="cta-actions reveal reveal-delay-6">
-          <a href="#contact" class="btn-primary" id="cta-book-btn">
-            Book a Consultation <span class="arrow">→</span>
+        <div class="cta-actions reveal reveal-delay-4">
+          <a href="#contact" class="btn-primary" id="cta-main-btn">
+            Start a Project <span class="arrow">→</span>
           </a>
-          <a href="mailto:info@midcav.com" class="btn-ghost">info@midcav.com</a>
+          <a href="mailto:info@midcav.com" class="btn-ghost">Get in Touch</a>
         </div>
       </div>
     </section>
@@ -875,97 +912,52 @@
   </main>
 
   <!-- =================== FOOTER =================== -->
-  <footer role="contentinfo">
-    <div class="footer-top">
+  <footer id="footer" aria-label="Footer">
+    <div class="footer-main">
       <div class="footer-brand">
-        <div class="footer-brand-name">MIDCAV</div>
-        <div class="footer-brand-sub">
-          METHOD / IMAGE / DESIGN / CONTENT / AUDIO / VIDEO<br/>
-          Creative Intelligence × Digital Innovation
-        </div>
-        <p class="footer-tagline">A Creative-Tech ecosystem connecting strategy, creativity, media and technology to build brands, experiences and stories that move people.</p>
-        <div class="footer-location">📍 New Delhi, India</div>
-        <p style="font-family: var(--font-mono); font-size: 0.6rem; letter-spacing: 0.15em; color: rgba(255,255,255,0.2); text-transform: uppercase; margin-top: 1rem; line-height: 1.8;">A Venture of Mentor &amp; Mascot Group<br/>Powered by the MMIFF Ecosystem</p>
+        <div class="footer-logo-main">MIDCAV</div>
+        <div class="footer-logo-sub">Method · Image · Design · Content · Audio · Video</div>
+        <p class="footer-tagline">
+          A Creative-Tech ecosystem where strategy, creativity, media and technology come together to build brands, experiences and stories that move people.
+        </p>
       </div>
 
       <div class="footer-col">
         <div class="footer-col-title">Services</div>
-        <ul class="footer-links">
-          <li><a href="#services">Brand</a></li>
-          <li><a href="#services">Digital</a></li>
-          <li><a href="#services">Content</a></li>
-          <li><a href="#services">Film</a></li>
-          <li><a href="#services">Audio</a></li>
-          <li><a href="#services">Design</a></li>
-          <li><a href="#services">Talent</a></li>
-          <li><a href="#services">Experience</a></li>
-          <li><a href="#services">Media</a></li>
-        </ul>
+        <nav class="footer-links" aria-label="Services navigation">
+          <a href="#services">Brand</a>
+          <a href="#services">Digital</a>
+          <a href="#services">Content</a>
+          <a href="#services">Film</a>
+          <a href="#services">Audio</a>
+          <a href="#services">Design</a>
+          <a href="#services">Talent</a>
+          <a href="#services">Experience</a>
+        </nav>
       </div>
 
       <div class="footer-col">
         <div class="footer-col-title">Company</div>
-        <ul class="footer-links">
-          <li><a href="#about">About</a></li>
-          <li><a href="#work">Our Work</a></li>
-          <li><a href="#why">Why MIDCAV</a></li>
-          <li><a href="#ecosystem">Ecosystem</a></li>
-          <li><a href="#partnerships">Partnerships</a></li>
-          <li><a href="#careers">Careers</a></li>
-          <li><a href="#contact">Contact</a></li>
-        </ul>
-      </div>
-
-      <div class="footer-col">
-        <div class="footer-col-title">Connect</div>
-        <div class="footer-social-links">
-          <a href="#" class="social-link" aria-label="Instagram" id="footer-instagram">
-            <div class="social-icon">📸</div>
-            Instagram
-          </a>
-          <a href="#" class="social-link" aria-label="LinkedIn" id="footer-linkedin">
-            <div class="social-icon">💼</div>
-            LinkedIn
-          </a>
-          <a href="#" class="social-link" aria-label="YouTube" id="footer-youtube">
-            <div class="social-icon">▶️</div>
-            YouTube
-          </a>
-          <a href="#" class="social-link" aria-label="Facebook" id="footer-facebook">
-            <div class="social-icon">👤</div>
-            Facebook
-          </a>
-        </div>
-        <div style="margin-top: 2rem;">
-          <div class="footer-col-title">Email</div>
-          <ul class="footer-links">
-            <li><a href="mailto:info@midcav.com">info@midcav.com</a></li>
-            <li><a href="mailto:partnerships@midcav.com">partnerships@midcav.com</a></li>
-            <li><a href="mailto:careers@midcav.com">careers@midcav.com</a></li>
-          </ul>
-        </div>
+        <nav class="footer-links" aria-label="Company navigation">
+          <a href="#about">About MIDCAV</a>
+          <a href="#why">Why Us</a>
+          <a href="#ecosystem">Ecosystem</a>
+          <a href="#partnerships">Partnerships</a>
+          <a href="#careers">Careers</a>
+          <a href="#contact">Contact</a>
+        </nav>
       </div>
     </div>
 
     <div class="footer-bottom">
-      <div class="footer-bottom-left">
-        © 2024 MIDCAV Digital Technologies. All Rights Reserved.<br/>
-        A Venture of Mentor &amp; Mascot Group
+      <p class="footer-copy">© 2025 MIDCAV Digital Technologies. All rights reserved.</p>
+      <div class="footer-social">
+        <a href="#" aria-label="Instagram">Instagram</a>
+        <a href="#" aria-label="LinkedIn">LinkedIn</a>
+        <a href="#" aria-label="Twitter">Twitter</a>
+        <a href="#" aria-label="YouTube">YouTube</a>
       </div>
-      <nav class="footer-bottom-right" aria-label="Legal Links">
-        <a href="#">Privacy Policy</a>
-        <a href="#">Terms &amp; Conditions</a>
-        <a href="#">Disclaimer</a>
-        <a href="#contact">Contact</a>
-      </nav>
-    </div>
-
-    <!-- Brand Sign-off -->
-    <div class="footer-signoff" aria-hidden="true">
-      <div class="signoff-brand">MIDCAV</div>
-      <div class="signoff-lines">
-        THINK BEYOND. CREATE BETTER. MOVE WHAT'S NEXT.
-      </div>
+      <p class="footer-edge">Creative Intelligence × Digital Innovation</p>
     </div>
   </footer>
 
