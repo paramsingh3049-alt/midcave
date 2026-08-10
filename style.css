@@ -263,8 +263,8 @@ section { padding: 130px 5%; position: relative; overflow: hidden; }
 
 .hero-layout {
   display: grid;
-  grid-template-columns: 1.1fr 0.9fr;
-  gap: 5rem;
+  grid-template-columns: 1fr 1fr;
+  gap: 4rem;
   align-items: center;
 }
 
@@ -282,14 +282,14 @@ section { padding: 130px 5%; position: relative; overflow: hidden; }
 
 .hero-headline {
   font-family: var(--font-head);
-  font-size: clamp(3.5rem, 7.8vw, 6.8rem);
-  font-weight: 800; line-height: 0.95; letter-spacing: -0.02em; margin-bottom: 2rem;
+  font-size: clamp(2.8rem, 5.2vw, 5rem);
+  font-weight: 800; line-height: 1.0; letter-spacing: -0.02em; margin-bottom: 1.75rem;
 }
 
 .hero-sub {
-  font-size: clamp(0.98rem, 1.35vw, 1.15rem);
-  color: var(--clr-muted); max-width: 500px;
-  line-height: 1.85; margin-bottom: 3rem;
+  font-size: clamp(0.88rem, 1.1vw, 1rem);
+  color: var(--clr-muted); max-width: 460px;
+  line-height: 1.8; margin-bottom: 2.5rem;
   font-weight: 400;
 }
 
@@ -322,7 +322,7 @@ section { padding: 130px 5%; position: relative; overflow: hidden; }
   color: var(--clr-cyan);
 }
 
-/* === FLOATING CARDS (RIGHT COLUMN) === */
+/* === PHOTO MOSAIC (RIGHT COLUMN) === */
 .hero-right {
   position: relative;
   width: 100%;
@@ -337,6 +337,109 @@ section { padding: 130px 5%; position: relative; overflow: hidden; }
   width: 130%; height: 130%;
   z-index: 1; pointer-events: none;
   opacity: 0.85;
+  top: 50%; left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+/* Photo mosaic layout matching the reference */
+.photo-mosaic {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  z-index: 2;
+}
+
+.photo-frame {
+  position: absolute;
+  border-radius: 14px;
+  overflow: hidden;
+  box-shadow:
+    0 20px 60px rgba(0,0,0,0.7),
+    0 0 0 1px rgba(255,255,255,0.06),
+    0 0 40px rgba(0,242,254,0.06);
+  transition: transform 0.4s ease, box-shadow 0.4s ease;
+}
+
+.photo-frame img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+.photo-frame-overlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(135deg, rgba(0,242,254,0.06) 0%, rgba(127,0,255,0.08) 100%);
+  mix-blend-mode: screen;
+}
+
+.photo-frame:hover {
+  transform: scale(1.02) translateY(-4px);
+  box-shadow:
+    0 30px 80px rgba(0,0,0,0.8),
+    0 0 0 1px rgba(0,242,254,0.2),
+    0 0 60px rgba(0,242,254,0.12);
+}
+
+/* Camera card — tall, left side, top */
+.photo-frame--camera {
+  width: 46%;
+  height: 62%;
+  left: 1%;
+  top: 0;
+  animation: float-photo-a 8s ease-in-out infinite;
+  z-index: 2;
+}
+
+/* VR card — tall, right side, top */
+.photo-frame--vr {
+  width: 46%;
+  height: 65%;
+  right: 1%;
+  top: 0;
+  animation: float-photo-b 9s ease-in-out infinite;
+  animation-delay: -3s;
+  z-index: 3;
+}
+
+/* Team card — wide, bottom left */
+.photo-frame--team {
+  width: 57%;
+  height: 41%;
+  left: 1%;
+  bottom: 0;
+  animation: float-photo-c 10s ease-in-out infinite;
+  animation-delay: -5s;
+  z-index: 2;
+}
+
+/* Monitor card — wide, bottom right */
+.photo-frame--monitor {
+  width: 44%;
+  height: 36%;
+  right: 1%;
+  bottom: 0;
+  animation: float-photo-d 7.5s ease-in-out infinite;
+  animation-delay: -2s;
+  z-index: 2;
+}
+
+@keyframes float-photo-a {
+  0%, 100% { transform: translateY(0) rotate(-1deg); }
+  50% { transform: translateY(-10px) rotate(-0.5deg); }
+}
+@keyframes float-photo-b {
+  0%, 100% { transform: translateY(0) rotate(1.5deg); }
+  50% { transform: translateY(-14px) rotate(2deg); }
+}
+@keyframes float-photo-c {
+  0%, 100% { transform: translateY(0) rotate(0.5deg); }
+  50% { transform: translateY(-8px) rotate(-0.5deg); }
+}
+@keyframes float-photo-d {
+  0%, 100% { transform: translateY(0) rotate(-1deg); }
+  50% { transform: translateY(-12px) rotate(-0.3deg); }
 }
 
 .floating-card {
@@ -504,7 +607,7 @@ section { padding: 130px 5%; position: relative; overflow: hidden; }
   display: grid;
   grid-template-columns: repeat(4, 1fr);
   gap: 1.5rem;
-  margin-top: 6.5rem;
+  margin-top: 4.5rem;
   width: 100%;
 }
 
@@ -988,10 +1091,10 @@ section { padding: 130px 5%; position: relative; overflow: hidden; }
   .nav-links { gap: 1.8rem; }
   .hero-layout { grid-template-columns: 1fr; gap: 3rem; }
   .hero-right { height: 420px; }
-  .vr-card { width: 170px; height: 260px; right: 20px; top: 30px; }
-  .camera-card { width: 210px; height: 130px; left: 80px; top: 10px; }
-  .code-card { width: 180px; height: 210px; left: 10px; top: 110px; }
-  .dashboard-card { width: 210px; height: 130px; right: 60px; bottom: 10px; }
+  .photo-frame--camera { width: 46%; height: 62%; }
+  .photo-frame--vr { width: 46%; height: 65%; }
+  .photo-frame--team { width: 58%; height: 40%; }
+  .photo-frame--monitor { width: 44%; height: 35%; }
   .stats-grid { grid-template-columns: repeat(2, 1fr); }
   .footer-main { grid-template-columns: 1fr 1fr; }
   .footer-brand { grid-column: span 2; }

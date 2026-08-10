@@ -86,14 +86,17 @@
             </div>
 
             <h1 class="hero-headline reveal reveal-delay-1">
-              WE DON’T JUST<br/>
+              WE DON'T JUST<br/>
               MAKE THINGS LOOK<br/>
               GOOD.<br/>
               <span class="grad">WE MAKE THEM<br/>MATTER.</span>
             </h1>
 
             <p class="hero-sub reveal reveal-delay-2">
-              From a brand identity to a digital campaign. From a film to an immersive experience. From a sound to a story. We turn ideas into lasting impact across every medium.
+              From a brand identity to a digital campaign,<br/>
+              From a film to an immersive experience,<br/>
+              From a sound to a story. We turn ideas into<br/>
+              lasting impact across every medium.
             </p>
 
             <div class="hero-actions reveal reveal-delay-3">
@@ -103,11 +106,10 @@
               <a href="#work" class="btn-text-link">VIEW OUR WORK ↗</a>
             </div>
           </div>
-
-          <!-- Right: Floating Overlapping Mockups -->
+           <!-- Right: Photo Collage Mockup (matching reference) -->
           <div class="hero-right reveal reveal-delay-2" aria-hidden="true">
-            
-            <!-- SVG Winding Vector Waves behind elements -->
+
+            <!-- Wave SVG backdrop -->
             <svg class="hero-waves-svg" viewBox="0 0 500 500" fill="none" xmlns="http://www.w3.org/2000/svg">
               <path d="M-50,320 C120,220 180,480 320,280 C420,130 460,380 580,240" stroke="url(#wave-gradient-1)" stroke-width="1.8" opacity="0.75" />
               <path d="M-50,360 C100,270 200,500 300,320 C400,140 480,340 580,280" stroke="url(#wave-gradient-2)" stroke-width="1.2" opacity="0.45" />
@@ -130,76 +132,33 @@
               </defs>
             </svg>
 
-            <!-- Card 1: VR HUD Telemetry Card (Right) -->
-            <div class="floating-card vr-card">
-              <div class="vr-hud">
-                <div class="hud-top">
-                  <div class="hud-item battery">BATTERY: 88%</div>
-                  <div class="hud-item status">SYS: ONLINE</div>
-                </div>
-                <div class="hud-grid-dots"></div>
-                <div class="hud-ring"></div>
-                <div class="hud-tag">MIDCAV // LABS.VR</div>
-              </div>
-            </div>
+            <!-- Photo Mosaic: 4 overlapping frames -->
+            <div class="photo-mosaic">
 
-            <!-- Card 2: Camera Viewfinder View (Top Middle) -->
-            <div class="floating-card camera-card">
-              <div class="viewfinder-header">
-                <div class="rec-indicator"><span class="rec-dot"></span>REC</div>
-                <div class="fps-counter">4K 60FPS</div>
+              <!-- Top-Left: Camera tall card -->
+              <div class="photo-frame photo-frame--camera">
+                <img src="hero_camera.jpg" alt="Cinema Camera" />
+                <div class="photo-frame-overlay"></div>
               </div>
-              <div class="viewfinder-grid">
-                <div class="focus-corners"></div>
-                <div class="crosshairs"></div>
-              </div>
-              <div class="viewfinder-footer">
-                <div class="iso-info">ISO 800</div>
-                <div class="lens-info">50mm F/1.8</div>
-                <div class="timecode" id="live-timecode">01:24:58:12</div>
-              </div>
-            </div>
 
-            <!-- Card 3: Code Workstation Mockup (Left Middle) -->
-            <div class="floating-card code-card">
-              <div class="code-header">
-                <div class="code-dots">
-                  <span class="dot red"></span>
-                  <span class="dot yellow"></span>
-                  <span class="dot green"></span>
-                </div>
-                <span class="code-title">midcav_core.js</span>
+              <!-- Top-Right: VR tall card -->
+              <div class="photo-frame photo-frame--vr">
+                <img src="hero_vr_img.jpg" alt="VR Experience" />
+                <div class="photo-frame-overlay"></div>
               </div>
-              <pre class="code-content"><code><span class="keyword">const</span> <span class="variable">midcav</span> <span class="operator">=</span> <span class="keyword">new</span> <span class="class">Ecosystem</span>({
-  <span class="property">strategy</span>: <span class="string">"Method"</span>,
-  <span class="property">creativity</span>: <span class="string">"Image & Design"</span>,
-  <span class="property">technology</span>: <span class="string">"Video & Audio"</span>
-});
 
-<span class="variable">midcav</span>.<span class="method">makeItMatter</span>();</code></pre>
-            </div>
+              <!-- Bottom-Left: Team card -->
+              <div class="photo-frame photo-frame--team">
+                <img src="hero_team.jpg" alt="Creative Team" />
+                <div class="photo-frame-overlay"></div>
+              </div>
 
-            <!-- Card 4: Control Center Screen Mockup (Bottom Right) -->
-            <div class="floating-card dashboard-card">
-              <div class="dashboard-header">
-                <span class="dash-title">SYSTEM MONITOR</span>
-                <span class="dash-status">ACTIVE</span>
+              <!-- Bottom-Right: Monitor card -->
+              <div class="photo-frame photo-frame--monitor">
+                <img src="hero_monitor.jpg" alt="Editing Suite" />
+                <div class="photo-frame-overlay"></div>
               </div>
-              <div class="dashboard-metrics">
-                <div class="metric-item">
-                  <div class="metric-val">99.4%</div>
-                  <div class="metric-lbl">ACCURACY</div>
-                </div>
-                <div class="metric-item">
-                  <div class="metric-val">5.8M</div>
-                  <div class="metric-lbl">REACH</div>
-                </div>
-              </div>
-              <div class="dashboard-chart">
-                <svg viewBox="0 0 100 30" class="sparkline">
-                  <path d="M0,25 Q15,5 30,20 T60,8 T90,22 L100,5" fill="none" stroke="url(#cyan-purple-grad)" stroke-width="1.5" />
-                </svg>
-              </div>
+
             </div>
 
           </div>
