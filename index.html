@@ -67,22 +67,33 @@
 
     <!-- =================== 01 HERO =================== -->
     <section id="home" aria-label="Hero Section">
-      <!-- Background -->
+
+      <!-- Left dark gradient overlay -->
       <div class="hero-bg" aria-hidden="true">
-        <img src="hero_wave.jpg" alt="" class="hero-wave-img" />
-        <div class="hero-grid"></div>
         <div class="hero-orb hero-orb-1"></div>
         <div class="hero-orb hero-orb-2"></div>
-        <div class="hero-vignette"></div>
+        <!-- Left-to-right fade so left stays dark, right shows photo -->
+        <div class="hero-left-fade"></div>
       </div>
 
+      <!-- RIGHT: Full-bleed photo fills right side -->
+      <div class="hero-photo-panel" aria-hidden="true">
+        <img src="hero_photo.png" alt="MIDCAV Creative Production" class="hero-photo-img" />
+        <!-- gradient fades photo into dark on the left edge -->
+        <div class="hero-photo-fade"></div>
+        <!-- subtle bottom fade -->
+        <div class="hero-photo-bottom-fade"></div>
+      </div>
+
+      <!-- CONTENT: sits on top of everything -->
       <div class="hero-content">
         <div class="hero-layout">
 
           <!-- Left: Copy -->
           <div class="hero-left">
+
             <div class="hero-label reveal">
-              WHAT WE DO
+              WE'RE MIDCAV
             </div>
 
             <h1 class="hero-headline reveal reveal-delay-1">
@@ -93,146 +104,100 @@
             </h1>
 
             <p class="hero-sub reveal reveal-delay-2">
-              From a brand identity to a digital campaign,<br/>
-              From a film to an immersive experience,<br/>
-              From a sound to a story. We turn ideas into<br/>
-              lasting impact across every medium.
+              From a brand identity to a digital campaign. From a film to
+              an immersive experience. From a sound to a story.
+              We turn ideas into lasting impact across every medium.
             </p>
 
             <div class="hero-actions reveal reveal-delay-3">
               <a href="#about" class="btn-primary" id="hero-explore-btn">
-                EXPLORE MIDCAV <span class="arrow">↗</span>
+                Explore Our Work
               </a>
-              <a href="#work" class="btn-text-link">VIEW OUR WORK ↗</a>
-            </div>
-          </div>
-           <!-- Right: Photo Collage Mockup (matching reference) -->
-          <div class="hero-right reveal reveal-delay-2" aria-hidden="true">
-
-            <!-- Wave SVG backdrop -->
-            <svg class="hero-waves-svg" viewBox="0 0 500 500" fill="none" xmlns="http://www.w3.org/2000/svg">
-              <path d="M-50,320 C120,220 180,480 320,280 C420,130 460,380 580,240" stroke="url(#wave-gradient-1)" stroke-width="1.8" opacity="0.75" />
-              <path d="M-50,360 C100,270 200,500 300,320 C400,140 480,340 580,280" stroke="url(#wave-gradient-2)" stroke-width="1.2" opacity="0.45" />
-              <path d="M-50,290 C140,200 160,430 340,220 C440,110 440,400 580,200" stroke="url(#wave-gradient-3)" stroke-width="0.9" opacity="0.35" />
-              <defs>
-                <linearGradient id="wave-gradient-1" x1="0%" y1="0%" x2="100%" y2="0%">
-                  <stop offset="0%" stop-color="#00f2fe" />
-                  <stop offset="45%" stop-color="#4facfe" />
-                  <stop offset="100%" stop-color="#7f00ff" />
-                </linearGradient>
-                <linearGradient id="wave-gradient-2" x1="0%" y1="0%" x2="100%" y2="0%">
-                  <stop offset="0%" stop-color="#4facfe" />
-                  <stop offset="100%" stop-color="#8b5cf6" />
-                </linearGradient>
-                <linearGradient id="wave-gradient-3" x1="0%" y1="0%" x2="100%" y2="0%">
-                  <stop offset="0%" stop-color="#00f2fe" opacity="0" />
-                  <stop offset="50%" stop-color="#00f2fe" />
-                  <stop offset="100%" stop-color="#7f00ff" />
-                </linearGradient>
-              </defs>
-            </svg>
-
-            <!-- Photo Mosaic: 4 overlapping frames -->
-            <div class="photo-mosaic">
-
-              <!-- Top-Left: Camera tall card -->
-              <div class="photo-frame photo-frame--camera">
-                <img src="hero_camera.jpg" alt="Cinema Camera" />
-                <div class="photo-frame-overlay"></div>
-              </div>
-
-              <!-- Top-Right: VR tall card -->
-              <div class="photo-frame photo-frame--vr">
-                <img src="hero_vr_img.jpg" alt="VR Experience" />
-                <div class="photo-frame-overlay"></div>
-              </div>
-
-              <!-- Bottom-Left: Team card -->
-              <div class="photo-frame photo-frame--team">
-                <img src="hero_team.jpg" alt="Creative Team" />
-                <div class="photo-frame-overlay"></div>
-              </div>
-
-              <!-- Bottom-Right: Monitor card -->
-              <div class="photo-frame photo-frame--monitor">
-                <img src="hero_monitor.jpg" alt="Editing Suite" />
-                <div class="photo-frame-overlay"></div>
-              </div>
-
+              <a href="#work" class="btn-showreel" id="hero-showreel-btn">
+                <span class="showreel-play">
+                  <svg viewBox="0 0 16 16" fill="currentColor" width="12" height="12"><polygon points="5,3 13,8 5,13"/></svg>
+                </span>
+                Play Showreel
+              </a>
             </div>
 
           </div>
+
+          <!-- Right: empty — photo panel is behind as absolute -->
+          <div class="hero-right-spacer"></div>
 
         </div>
-
-        <!-- =================== GRID OF 4 FEATURE CARDS =================== -->
-        <div class="hero-grid-row">
-          
-          <!-- Card 01 -->
-          <div class="feature-card reveal" tabindex="0">
-            <div class="feature-card-header">
-              <div class="feature-icon-box">
-                <svg viewBox="0 0 24 24" class="feature-icon" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                  <path d="M4.5 16.5c-1.5 1.25-2.5 3.5-2.5 3.5s2.25-1 3.5-2.5M12 2C6 2 2 6 2 12c0 2.5 1 4.5 2.5 6l11.5-11.5C14.5 5 12.5 4 12 2z" />
-                  <path d="M13 11l6-6M19 5l3-3M22 2l-3 3M11 13l-6 6" />
-                </svg>
-              </div>
-              <span class="feature-number">01</span>
-            </div>
-            <h3 class="feature-title">Creative Solutions</h3>
-            <p class="feature-desc">Bold ideas and smart strategies that create real impact.</p>
-          </div>
-
-          <!-- Card 02 -->
-          <div class="feature-card reveal reveal-delay-1" tabindex="0">
-            <div class="feature-card-header">
-              <div class="feature-icon-box">
-                <svg viewBox="0 0 24 24" class="feature-icon" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                  <rect x="4" y="4" width="16" height="16" rx="2" />
-                  <path d="M9 9h6v6H9zM9 1v3M15 1v3M9 20v3M15 20v3M20 9h3M20 15h3M1 9h3M1 15h3" />
-                </svg>
-              </div>
-              <span class="feature-number">02</span>
-            </div>
-            <h3 class="feature-title">Digital Innovation</h3>
-            <p class="feature-desc">Cutting-edge technology that drives meaningful results.</p>
-          </div>
-
-          <!-- Card 03 -->
-          <div class="feature-card reveal reveal-delay-2" tabindex="0">
-            <div class="feature-card-header">
-              <div class="feature-icon-box">
-                <svg viewBox="0 0 24 24" class="feature-icon" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                  <rect x="2" y="2" width="20" height="20" rx="2.18" ry="2.18" />
-                  <path d="M7 2v20M17 2v20M2 12h20M2 7h5M2 17h5M17 17h5M17 7h5" />
-                </svg>
-              </div>
-              <span class="feature-number">03</span>
-            </div>
-            <h3 class="feature-title">Storytelling That Connects</h3>
-            <p class="feature-desc">We craft stories that engage, inspire and stay with people.</p>
-          </div>
-
-          <!-- Card 04 -->
-          <div class="feature-card reveal reveal-delay-3" tabindex="0">
-            <div class="feature-card-header">
-              <div class="feature-icon-box">
-                <svg viewBox="0 0 24 24" class="feature-icon" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                  <path d="M3 18v-6a9 9 0 0 1 18 0v6M21 19a2 2 0 0 1-2 2h-1a2 2 0 0 1-2-2v-3a2 2 0 0 1 2-2h3M3 19a2 2 0 0 0 2 2h1a2 2 0 0 0 2-2v-3a2 2 0 0 0-2-2H3" />
-                </svg>
-              </div>
-              <span class="feature-number">04</span>
-            </div>
-            <h3 class="feature-title">Sound. Vision. Emotion.</h3>
-            <p class="feature-desc">We blend audio, visuals and emotion to create experiences.</p>
-          </div>
-
-        </div>
-
       </div>
+
+      <!-- SERVICE PILLS STRIP -->
+      <div class="hero-services-strip">
+        <div class="hero-services-inner">
+
+          <div class="service-pill reveal">
+            <span class="service-pill-icon">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" width="18" height="18">
+                <path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"/>
+              </svg>
+            </span>
+            <span class="service-pill-label">Branding</span>
+            <a href="#services" class="service-pill-arrow" aria-label="Branding">→</a>
+          </div>
+
+          <div class="service-pill reveal reveal-delay-1">
+            <span class="service-pill-icon">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" width="18" height="18">
+                <rect x="3" y="3" width="18" height="18" rx="2"/><path d="M3 9h18M9 21V9"/>
+              </svg>
+            </span>
+            <span class="service-pill-label">Digital</span>
+            <a href="#services" class="service-pill-arrow" aria-label="Digital">→</a>
+          </div>
+
+          <div class="service-pill reveal reveal-delay-2">
+            <span class="service-pill-icon">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" width="18" height="18">
+                <path d="M12 19l7-7 3 3-7 7-3-3z"/><path d="M18 13l-1.5-7.5L2 2l3.5 14.5L13 18l5-5z"/><path d="M2 2l7.586 7.586"/><circle cx="11" cy="11" r="2"/>
+              </svg>
+            </span>
+            <span class="service-pill-label">Design</span>
+            <a href="#services" class="service-pill-arrow" aria-label="Design">→</a>
+          </div>
+
+          <div class="service-pill reveal reveal-delay-2">
+            <span class="service-pill-icon">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" width="18" height="18">
+                <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/><polyline points="10 9 9 9 8 9"/>
+              </svg>
+            </span>
+            <span class="service-pill-label">Content</span>
+            <a href="#services" class="service-pill-arrow" aria-label="Content">→</a>
+          </div>
+
+          <div class="service-pill reveal reveal-delay-3">
+            <span class="service-pill-icon">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" width="18" height="18">
+                <path d="M3 18v-6a9 9 0 0 1 18 0v6"/><path d="M21 19a2 2 0 0 1-2 2h-1a2 2 0 0 1-2-2v-3a2 2 0 0 1 2-2h3zM3 19a2 2 0 0 0 2 2h1a2 2 0 0 0 2-2v-3a2 2 0 0 0-2-2H3z"/>
+              </svg>
+            </span>
+            <span class="service-pill-label">Audio</span>
+            <a href="#services" class="service-pill-arrow" aria-label="Audio">→</a>
+          </div>
+
+          <div class="service-pill reveal reveal-delay-3">
+            <span class="service-pill-icon">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" width="18" height="18">
+                <polygon points="23 7 16 12 23 17 23 7"/><rect x="1" y="5" width="15" height="14" rx="2" ry="2"/>
+              </svg>
+            </span>
+            <span class="service-pill-label">Video</span>
+            <a href="#services" class="service-pill-arrow" aria-label="Video">→</a>
+          </div>
+
+        </div>
+      </div>
+
     </section>
 
-    <!-- =================== 02 STATS =================== -->
     <section id="stats" aria-label="Key Statistics">
       <img src="stats_bg.jpg" alt="" class="stats-bg-img" aria-hidden="true" />
       <div class="stats-overlay" aria-hidden="true"></div>
