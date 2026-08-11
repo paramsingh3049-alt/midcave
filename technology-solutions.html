@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Technology Solutions - MIDCAV Digital Technologies</title>
+  <link rel="stylesheet" href="style.css" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet" />
+</head>
+<body>
+
+  <!-- NAVIGATION -->
+  <nav id="navbar">
+    <div class="nav-logo">
+      <span class="nav-logo-main"><a href="index.html">MIDCAV</a></span>
+      <span class="nav-logo-sub">DIGITAL TECHNOLOGIES</span>
+    </div>
+
+    <ul class="nav-links">
+      <li class="has-dropdown">
+        <a href="index.html#services">Services <svg width="10" height="6" viewBox="0 0 10 6" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M1 1L5 5L9 1" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
+        <div class="dropdown-menu">
+          <a href="technology-solutions.html">Technology Solutions</a>
+          <a href="digital-marketing.html">Digital Marketing</a>
+          <a href="software-development.html">Software & App Development</a>
+        </div>
+      </li>
+      <li><a href="index.html#work">Work</a></li>
+      <li><a href="index.html#about">About</a></li>
+      <li><a href="index.html#process">Process</a></li>
+      <li><a href="index.html#insights">Insights</a></li>
+      <li><a href="index.html#contact">Contact</a></li>
+    </ul>
+
+    <div class="nav-actions">
+      <a href="index.html#contact" class="nav-cta-outline">Let's Talk</a>
+      <button class="hamburger-btn">
+        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <path d="M4 6H20M4 12H20M4 18H20" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+        </svg>
+      </button>
+    </div>
+  </nav>
+
+  <main>
+    <!-- HERO SECTION -->
+    <section id="hero" style="min-height: 70vh;">
+      <div class="hero-bg-container" style="width: 100%;">
+        <img src="hero_monitor.jpg" alt="Technology Solutions" class="hero-bg-img" style="opacity: 0.5;" />
+        <div class="hero-fade-overlay" style="background: linear-gradient(0deg, var(--clr-bg) 0%, rgba(3,4,7,0.5) 100%);"></div>
+      </div>
+
+      <div class="hero-content">
+        <div class="hero-left" style="max-width: 800px;">
+          <div class="hero-label">ENTERPRISE GRADE</div>
+          <h1 class="hero-headline">
+            FUTURE-PROOF YOUR BUSINESS WITH<br />
+            <span class="grad">ADVANCED TECHNOLOGY.</span>
+          </h1>
+          <p class="hero-sub">
+            From intelligent AI systems and robust cloud architectures to automation and unbreachable cybersecurity. We build the technological foundation for tomorrow's leaders.
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <!-- SERVICES CARDS STRIP -->
+    <section id="services-strip" style="margin-top: -120px;">
+      <div class="services-grid" style="grid-template-columns: repeat(4, 1fr);">
+        <!-- 01 AI -->
+        <div class="service-card">
+          <div class="service-img" style="background-image: url('hero_wave.jpg');"></div>
+          <div class="service-card-content">
+            <div class="service-icon"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M2 12h4l3-9 5 18 3-9h5"/></svg></div>
+            <div class="service-num">01</div>
+            <h3 class="service-title">Artificial Intelligence</h3>
+            <p class="service-desc">Leverage machine learning and neural networks to automate decisions and unlock new capabilities.</p>
+          </div>
+        </div>
+
+        <!-- 02 Cloud -->
+        <div class="service-card">
+          <div class="service-img" style="background-image: url('hero_monitor.jpg');"></div>
+          <div class="service-card-content">
+            <div class="service-icon"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M17.5 19H9a7 7 0 1 1 6.71-9h1.79a4.5 4.5 0 1 1 0 9Z"/></svg></div>
+            <div class="service-num">02</div>
+            <h3 class="service-title">Cloud Infrastructure</h3>
+            <p class="service-desc">Scalable, secure, and resilient cloud architectures designed for high availability and performance.</p>
+          </div>
+        </div>
+
+        <!-- 03 Automation -->
+        <div class="service-card">
+          <div class="service-img" style="background-image: url('hero_team.jpg');"></div>
+          <div class="service-card-content">
+            <div class="service-icon"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="3"/><path d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 0 1 0 2.83 2 2 0 0 1-2.83 0l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 0 1-2 2 2 2 0 0 1-2-2v-.09A1.65 1.65 0 0 0 9 19.4a1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 0 1-2.83 0 2 2 0 0 1 0-2.83l.06-.06a1.65 1.65 0 0 0 .33-1.82 1.65 1.65 0 0 0-1.51-1H3a2 2 0 0 1-2-2 2 2 0 0 1 2-2h.09A1.65 1.65 0 0 0 4.6 9a1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 0 1 0-2.83 2 2 0 0 1 2.83 0l.06.06a1.65 1.65 0 0 0 1.82.33H9a1.65 1.65 0 0 0 1-1.51V3a2 2 0 0 1 2-2 2 2 0 0 1 2 2v.09a1.65 1.65 0 0 0 1 1.51 1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 0 1 2.83 0 2 2 0 0 1 0 2.83l-.06.06a1.65 1.65 0 0 0-.33 1.82V9a1.65 1.65 0 0 0 1.51 1H21a2 2 0 0 1 2 2 2 2 0 0 1-2 2h-.09a1.65 1.65 0 0 0-1.51 1Z"/></svg></div>
+            <div class="service-num">03</div>
+            <h3 class="service-title">Intelligent Automation</h3>
+            <p class="service-desc">Streamline complex workflows and operational bottlenecks with advanced robotic process automation.</p>
+          </div>
+        </div>
+
+        <!-- 04 Cybersecurity -->
+        <div class="service-card">
+          <div class="service-img" style="background-image: url('hero_camera.jpg');"></div>
+          <div class="service-card-content">
+            <div class="service-icon"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg></div>
+            <div class="service-num">04</div>
+            <h3 class="service-title">Cybersecurity</h3>
+            <p class="service-desc">Enterprise-grade security protocols, threat detection, and zero-trust architectures to protect your assets.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ABOUT US & CTA SECTION -->
+    <section id="about-cta">
+      <div class="about-container">
+        <div class="about-left">
+          <div class="section-label">READY TO UPGRADE?</div>
+          <h2 class="section-title about-title">Harness the power of<br/>modern tech.</h2>
+        </div>
+        <div class="about-mid">
+          <p class="about-desc">
+            We partner with businesses to evaluate, integrate, and optimize advanced technological solutions that deliver measurable ROI and competitive advantage.
+          </p>
+        </div>
+        <div class="about-right">
+          <div class="about-img-container">
+            <img src="mockup1.jpg" alt="Tech" class="about-img" />
+            <div class="cta-card">
+              <h3 class="cta-title">Need a technical<br/>consultation?</h3>
+              <p class="cta-desc">Speak with our engineers.</p>
+              <a href="index.html#contact" class="btn-outline-pill cta-btn">
+                Let's Talk <svg width="14" height="10" viewBox="0 0 14 10" fill="none"><path d="M1 5H13M13 5L9 1M13 5L9 9" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+  </main>
+  
+  <script src="script.js"></script>
+</body>
+</html>

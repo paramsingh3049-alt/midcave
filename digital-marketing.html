@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Digital Marketing - MIDCAV Digital Technologies</title>
+  <link rel="stylesheet" href="style.css" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet" />
+</head>
+<body>
+
+  <!-- NAVIGATION -->
+  <nav id="navbar">
+    <div class="nav-logo">
+      <span class="nav-logo-main"><a href="index.html">MIDCAV</a></span>
+      <span class="nav-logo-sub">DIGITAL TECHNOLOGIES</span>
+    </div>
+
+    <ul class="nav-links">
+      <li class="has-dropdown">
+        <a href="index.html#services">Services <svg width="10" height="6" viewBox="0 0 10 6" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M1 1L5 5L9 1" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
+        <div class="dropdown-menu">
+          <a href="technology-solutions.html">Technology Solutions</a>
+          <a href="digital-marketing.html">Digital Marketing</a>
+          <a href="software-development.html">Software & App Development</a>
+        </div>
+      </li>
+      <li><a href="index.html#work">Work</a></li>
+      <li><a href="index.html#about">About</a></li>
+      <li><a href="index.html#process">Process</a></li>
+      <li><a href="index.html#insights">Insights</a></li>
+      <li><a href="index.html#contact">Contact</a></li>
+    </ul>
+
+    <div class="nav-actions">
+      <a href="index.html#contact" class="nav-cta-outline">Let's Talk</a>
+      <button class="hamburger-btn">
+        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <path d="M4 6H20M4 12H20M4 18H20" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+        </svg>
+      </button>
+    </div>
+  </nav>
+
+  <main>
+    <!-- HERO SECTION -->
+    <section id="hero" style="min-height: 70vh;">
+      <div class="hero-bg-container" style="width: 100%;">
+        <img src="hero_camera.jpg" alt="Digital Marketing" class="hero-bg-img" style="opacity: 0.5;" />
+        <div class="hero-fade-overlay" style="background: linear-gradient(0deg, var(--clr-bg) 0%, rgba(3,4,7,0.5) 100%);"></div>
+      </div>
+
+      <div class="hero-content">
+        <div class="hero-left" style="max-width: 800px;">
+          <div class="hero-label">GROWTH & VISIBILITY</div>
+          <h1 class="hero-headline">
+            DATA-DRIVEN CAMPAIGNS FOR<br />
+            <span class="grad">MAXIMUM IMPACT.</span>
+          </h1>
+          <p class="hero-sub">
+            From SEO and content strategy to precision PPC and social media marketing. We engineer digital growth engines that convert attention into revenue.
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <!-- SERVICES CARDS STRIP -->
+    <section id="services-strip" style="margin-top: -120px;">
+      <div class="services-grid" style="grid-template-columns: repeat(4, 1fr);">
+        <!-- 01 SEO -->
+        <div class="service-card">
+          <div class="service-img" style="background-image: url('hero_monitor.jpg');"></div>
+          <div class="service-card-content">
+            <div class="service-icon"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.3-4.3"/></svg></div>
+            <div class="service-num">01</div>
+            <h3 class="service-title">Search Engine Optimization</h3>
+            <p class="service-desc">Dominate search rankings with technical, on-page, and off-page SEO strategies designed for long-term growth.</p>
+          </div>
+        </div>
+
+        <!-- 02 Social Media -->
+        <div class="service-card">
+          <div class="service-img" style="background-image: url('hero_team.jpg');"></div>
+          <div class="service-card-content">
+            <div class="service-icon"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"/></svg></div>
+            <div class="service-num">02</div>
+            <h3 class="service-title">Social Media Marketing</h3>
+            <p class="service-desc">Build loyal communities and amplify your brand voice across Instagram, LinkedIn, X, and TikTok.</p>
+          </div>
+        </div>
+
+        <!-- 03 PPC -->
+        <div class="service-card">
+          <div class="service-img" style="background-image: url('mockup1.jpg');"></div>
+          <div class="service-card-content">
+            <div class="service-icon"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2v20M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"/></svg></div>
+            <div class="service-num">03</div>
+            <h3 class="service-title">PPC & Paid Advertising</h3>
+            <p class="service-desc">Highly targeted ad campaigns that minimize customer acquisition costs and maximize return on ad spend.</p>
+          </div>
+        </div>
+
+        <!-- 04 Analytics -->
+        <div class="service-card">
+          <div class="service-img" style="background-image: url('hero_wave.jpg');"></div>
+          <div class="service-card-content">
+            <div class="service-icon"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="18" y1="20" x2="18" y2="10"/><line x1="12" y1="20" x2="12" y2="4"/><line x1="6" y1="20" x2="6" y2="14"/></svg></div>
+            <div class="service-num">04</div>
+            <h3 class="service-title">Analytics & Strategy</h3>
+            <p class="service-desc">Turn raw data into actionable insights with comprehensive tracking, reporting, and campaign optimization.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ABOUT US & CTA SECTION -->
+    <section id="about-cta">
+      <div class="about-container">
+        <div class="about-left">
+          <div class="section-label">SCALE YOUR REACH</div>
+          <h2 class="section-title about-title">Stop guessing.<br/>Start growing.</h2>
+        </div>
+        <div class="about-mid">
+          <p class="about-desc">
+            We don't believe in vanity metrics. We focus on what matters: conversions, revenue, and sustainable market share growth through intelligent digital strategies.
+          </p>
+        </div>
+        <div class="about-right">
+          <div class="about-img-container">
+            <img src="stats_bg.jpg" alt="Marketing" class="about-img" />
+            <div class="cta-card">
+              <h3 class="cta-title">Ready for a<br/>marketing audit?</h3>
+              <p class="cta-desc">Let's analyze your current standing.</p>
+              <a href="index.html#contact" class="btn-outline-pill cta-btn">
+                Get Started <svg width="14" height="10" viewBox="0 0 14 10" fill="none"><path d="M1 5H13M13 5L9 1M13 5L9 9" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+  </main>
+  
+  <script src="script.js"></script>
+</body>
+</html>
