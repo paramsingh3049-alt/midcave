@@ -3,1019 +3,243 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <meta name="description" content="MIDCAV Digital Technologies — A Creative-Tech ecosystem where strategy, creativity, media and technology come together to build brands, experiences and stories that move people." />
-  <meta name="keywords" content="MIDCAV, Digital Technologies, Creative Tech, Branding, Digital Marketing, Film, Audio, Design, Content, India" />
-  <meta name="author" content="MIDCAV Digital Technologies" />
-  <meta property="og:title" content="MIDCAV Digital Technologies — Creative Intelligence × Digital Innovation" />
-  <meta property="og:description" content="We Create What's Next. A Creative-Tech ecosystem from India." />
-  <meta property="og:type" content="website" />
-  <title>MIDCAV Digital Technologies — Creative Intelligence × Digital Innovation</title>
+  <title>MIDCAV Digital Technologies</title>
   <link rel="stylesheet" href="style.css" />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@200;300;400;500;600;700;800;900&family=Inter:wght@300;400;500;600;700&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet" />
 </head>
 <body>
 
-  <!-- Cursor Glow -->
-  <div class="cursor-glow" id="cursor-glow" aria-hidden="true"></div>
-
-  <!-- Progress Bar -->
-  <div id="progress-bar" aria-hidden="true"></div>
-
-  <!-- =================== NAVIGATION =================== -->
-  <nav id="navbar" role="navigation" aria-label="Main Navigation">
-    <a href="#home" class="nav-logo" aria-label="MIDCAV Home">
+  <!-- NAVIGATION -->
+  <nav id="navbar">
+    <div class="nav-logo">
       <span class="nav-logo-main">MIDCAV</span>
-      <span class="nav-logo-sub">Method · Image · Design · Content · Audio · Video</span>
-    </a>
+      <span class="nav-logo-sub">DIGITAL TECHNOLOGIES</span>
+    </div>
 
-    <ul class="nav-links" role="list">
-      <li><a href="#home" id="nav-home">Home</a></li>
-      <li><a href="#about" id="nav-about">About</a></li>
-      <li><a href="#services" id="nav-services">Services</a></li>
-      <li><a href="#work" id="nav-work">Work</a></li>
-      <li><a href="#why" id="nav-why">Why Us</a></li>
-      <li><a href="#ecosystem" id="nav-eco">Ecosystem</a></li>
-      <li><a href="#partnerships" id="nav-partner">Partners</a></li>
-      <li><a href="#careers" id="nav-careers">Careers</a></li>
+    <ul class="nav-links">
+      <li class="has-dropdown">
+        <a href="#services">Services <svg width="10" height="6" viewBox="0 0 10 6" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M1 1L5 5L9 1" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
+      </li>
+      <li><a href="#work">Work</a></li>
+      <li><a href="#about">About</a></li>
+      <li><a href="#process">Process</a></li>
+      <li><a href="#insights">Insights</a></li>
+      <li><a href="#contact">Contact</a></li>
     </ul>
 
     <div class="nav-actions">
-      <a href="#contact" class="nav-cta" id="nav-contact">Let's Talk</a>
+      <a href="#contact" class="nav-cta-outline">Let's Talk</a>
+      <button class="hamburger-btn">
+        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <path d="M4 6H20M4 12H20M4 18H20" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+        </svg>
+      </button>
     </div>
-
-    <button class="hamburger" id="hamburger" aria-label="Toggle Menu" aria-expanded="false">
-      <span></span><span></span><span></span>
-    </button>
   </nav>
 
-  <!-- Mobile Nav Overlay -->
-  <div class="mobile-nav" id="mobile-nav" role="dialog" aria-label="Mobile Navigation">
-    <a href="#home" class="mobile-link">Home</a>
-    <a href="#about" class="mobile-link">About</a>
-    <a href="#services" class="mobile-link">Services</a>
-    <a href="#work" class="mobile-link">Our Work</a>
-    <a href="#why" class="mobile-link">Why MIDCAV</a>
-    <a href="#ecosystem" class="mobile-link">Ecosystem</a>
-    <a href="#partnerships" class="mobile-link">Partnerships</a>
-    <a href="#careers" class="mobile-link">Careers</a>
-    <a href="#contact" class="mobile-link">Contact</a>
-  </div>
-
   <main>
-
-    <!-- =================== 01 HERO =================== -->
-    <section id="home" aria-label="Hero Section">
-
-      <!-- Left dark gradient overlay -->
-      <div class="hero-bg" aria-hidden="true">
-        <div class="hero-orb hero-orb-1"></div>
-        <div class="hero-orb hero-orb-2"></div>
-        <!-- Left-to-right fade so left stays dark, right shows photo -->
-        <div class="hero-left-fade"></div>
+    <!-- HERO SECTION -->
+    <section id="hero">
+      <div class="hero-bg-container">
+        <img src="hero_monitor.jpg" alt="Hero Background" class="hero-bg-img" />
+        <div class="hero-fade-overlay"></div>
       </div>
 
-      <!-- RIGHT: Full-bleed photo fills right side -->
-      <div class="hero-photo-panel" aria-hidden="true">
-        <img src="hero_photo.png" alt="MIDCAV Creative Production" class="hero-photo-img" />
-        <!-- gradient fades photo into dark on the left edge -->
-        <div class="hero-photo-fade"></div>
-        <!-- subtle bottom fade -->
-        <div class="hero-photo-bottom-fade"></div>
-      </div>
-
-      <!-- CONTENT: sits on top of everything -->
       <div class="hero-content">
-        <div class="hero-layout">
-
-          <!-- Left: Copy -->
-          <div class="hero-left">
-
-            <div class="hero-label reveal">
-              WE'RE MIDCAV
-            </div>
-
-            <h1 class="hero-headline reveal reveal-delay-1">
-              WE DON'T JUST<br/>
-              MAKE THINGS LOOK<br/>
-              GOOD.<br/>
-              <span class="grad">WE MAKE THEM<br/>MATTER.</span>
-            </h1>
-
-            <p class="hero-sub reveal reveal-delay-2">
-              From a brand identity to a digital campaign. From a film to
-              an immersive experience. From a sound to a story.
-              We turn ideas into lasting impact across every medium.
-            </p>
-
-            <div class="hero-actions reveal reveal-delay-3">
-              <a href="#about" class="btn-primary" id="hero-explore-btn">
-                Explore Our Work
-              </a>
-              <a href="#work" class="btn-showreel" id="hero-showreel-btn">
-                <span class="showreel-play">
-                  <svg viewBox="0 0 16 16" fill="currentColor" width="12" height="12"><polygon points="5,3 13,8 5,13"/></svg>
-                </span>
-                Play Showreel
-              </a>
-            </div>
-
-          </div>
-
-          <!-- Right: empty — photo panel is behind as absolute -->
-          <div class="hero-right-spacer"></div>
-
-        </div>
-      </div>
-
-      <!-- SERVICE PILLS STRIP -->
-      <div class="hero-services-strip">
-        <div class="hero-services-inner">
-
-          <div class="service-pill reveal">
-            <span class="service-pill-icon">
-              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" width="18" height="18">
-                <path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"/>
-              </svg>
-            </span>
-            <span class="service-pill-label">Branding</span>
-            <a href="#services" class="service-pill-arrow" aria-label="Branding">→</a>
-          </div>
-
-          <div class="service-pill reveal reveal-delay-1">
-            <span class="service-pill-icon">
-              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" width="18" height="18">
-                <rect x="3" y="3" width="18" height="18" rx="2"/><path d="M3 9h18M9 21V9"/>
-              </svg>
-            </span>
-            <span class="service-pill-label">Digital</span>
-            <a href="#services" class="service-pill-arrow" aria-label="Digital">→</a>
-          </div>
-
-          <div class="service-pill reveal reveal-delay-2">
-            <span class="service-pill-icon">
-              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" width="18" height="18">
-                <path d="M12 19l7-7 3 3-7 7-3-3z"/><path d="M18 13l-1.5-7.5L2 2l3.5 14.5L13 18l5-5z"/><path d="M2 2l7.586 7.586"/><circle cx="11" cy="11" r="2"/>
-              </svg>
-            </span>
-            <span class="service-pill-label">Design</span>
-            <a href="#services" class="service-pill-arrow" aria-label="Design">→</a>
-          </div>
-
-          <div class="service-pill reveal reveal-delay-2">
-            <span class="service-pill-icon">
-              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" width="18" height="18">
-                <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/><polyline points="10 9 9 9 8 9"/>
-              </svg>
-            </span>
-            <span class="service-pill-label">Content</span>
-            <a href="#services" class="service-pill-arrow" aria-label="Content">→</a>
-          </div>
-
-          <div class="service-pill reveal reveal-delay-3">
-            <span class="service-pill-icon">
-              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" width="18" height="18">
-                <path d="M3 18v-6a9 9 0 0 1 18 0v6"/><path d="M21 19a2 2 0 0 1-2 2h-1a2 2 0 0 1-2-2v-3a2 2 0 0 1 2-2h3zM3 19a2 2 0 0 0 2 2h1a2 2 0 0 0 2-2v-3a2 2 0 0 0-2-2H3z"/>
-              </svg>
-            </span>
-            <span class="service-pill-label">Audio</span>
-            <a href="#services" class="service-pill-arrow" aria-label="Audio">→</a>
-          </div>
-
-          <div class="service-pill reveal reveal-delay-3">
-            <span class="service-pill-icon">
-              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" width="18" height="18">
-                <polygon points="23 7 16 12 23 17 23 7"/><rect x="1" y="5" width="15" height="14" rx="2" ry="2"/>
-              </svg>
-            </span>
-            <span class="service-pill-label">Video</span>
-            <a href="#services" class="service-pill-arrow" aria-label="Video">→</a>
-          </div>
-
-        </div>
-      </div>
-
-    </section>
-
-    <section id="stats" aria-label="Key Statistics">
-      <img src="stats_bg.jpg" alt="" class="stats-bg-img" aria-hidden="true" />
-      <div class="stats-overlay" aria-hidden="true"></div>
-
-      <div class="stats-content">
-        <div class="stats-header">
-          <div class="reveal">
-            <span class="section-tag">Numbers</span>
-            <h2 class="stats-headline">
-              Built for <span class="accent">Impact.</span><br/>
-              Designed to <span class="accent">Scale.</span>
-            </h2>
-          </div>
-          <p class="stats-desc reveal reveal-delay-1">
-            At MIDCAV, we measure our success by the reach and resonance of the work we create — and the brands we help build.
+        <div class="hero-left">
+          <div class="hero-label">WE'RE MIDCAV</div>
+          <h1 class="hero-headline">
+            WE DON'T JUST<br />
+            MAKE THINGS LOOK GOOD.<br />
+            <span class="grad">WE MAKE THEM MATTER.</span>
+          </h1>
+          <p class="hero-sub">
+            From a brand identity to a digital campaign. From a film to<br/>
+            an immersive experience. From a sound to a story.<br/>
+            We turn ideas into lasting impact across every medium.
           </p>
-        </div>
-
-        <div class="stats-grid">
-          <div class="stat-block reveal">
-            <div class="stat-block-bg-num">24</div>
-            <div class="stat-block-num" data-count="24" data-suffix="+">24+</div>
-            <div class="stat-block-label">Years of Experience</div>
-            <div class="stat-block-desc">Decades of creative & industry mastery across media, film, digital and branding.</div>
-          </div>
-          <div class="stat-block reveal reveal-delay-1">
-            <div class="stat-block-bg-num">6</div>
-            <div class="stat-block-num">6</div>
-            <div class="stat-block-label">Core Disciplines</div>
-            <div class="stat-block-desc">Method. Image. Design. Content. Audio. Video. One integrated creative ecosystem.</div>
-          </div>
-          <div class="stat-block reveal reveal-delay-2">
-            <div class="stat-block-bg-num">∞</div>
-            <div class="stat-block-num">∞</div>
-            <div class="stat-block-label">Creative Boundaries</div>
-            <div class="stat-block-desc">We believe creativity is limitless when strategy, technology and vision align.</div>
-          </div>
-          <div class="stat-block reveal reveal-delay-3">
-            <div class="stat-block-bg-num">1</div>
-            <div class="stat-block-num">1</div>
-            <div class="stat-block-label">Unified Ecosystem</div>
-            <div class="stat-block-desc">One vision. Many disciplines. Zero silos. A truly integrated creative-tech partner.</div>
-          </div>
-        </div>
-
-        <!-- Ticker -->
-        <div class="stats-ticker" aria-hidden="true">
-          <div class="ticker-track">
-            <span class="ticker-item">Media</span>
-            <span class="ticker-item">Entertainment</span>
-            <span class="ticker-item">Digital</span>
-            <span class="ticker-item">Content</span>
-            <span class="ticker-item">Production</span>
-            <span class="ticker-item">Technology</span>
-            <span class="ticker-item">Branding</span>
-            <span class="ticker-item">Film</span>
-            <span class="ticker-item">Audio</span>
-            <span class="ticker-item">Design</span>
-            <span class="ticker-item">Talent</span>
-            <span class="ticker-item">Experiences</span>
-            <span class="ticker-item">Innovation</span>
-            <span class="ticker-item">Strategy</span>
-            <span class="ticker-item">Media</span>
-            <span class="ticker-item">Entertainment</span>
-            <span class="ticker-item">Digital</span>
-            <span class="ticker-item">Content</span>
-            <span class="ticker-item">Production</span>
-            <span class="ticker-item">Technology</span>
-            <span class="ticker-item">Branding</span>
-            <span class="ticker-item">Film</span>
-            <span class="ticker-item">Audio</span>
-            <span class="ticker-item">Design</span>
-            <span class="ticker-item">Talent</span>
-            <span class="ticker-item">Experiences</span>
-            <span class="ticker-item">Innovation</span>
-            <span class="ticker-item">Strategy</span>
+          <div class="hero-actions">
+            <a href="#work" class="btn-primary">
+              Explore Our Work <svg width="14" height="10" viewBox="0 0 14 10" fill="none"><path d="M1 5H13M13 5L9 1M13 5L9 9" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            </a>
+            <a href="#showreel" class="btn-showreel">
+              <span class="showreel-play">
+                <svg viewBox="0 0 16 16" fill="currentColor" width="10" height="10"><polygon points="5,3 13,8 5,13"/></svg>
+              </span>
+              Play Showreel <svg width="14" height="10" viewBox="0 0 14 10" fill="none"><path d="M1 5H13M13 5L9 1M13 5L9 9" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            </a>
           </div>
         </div>
       </div>
     </section>
 
-    <!-- =================== WHAT WE DO =================== -->
-    <div class="edge-section" aria-label="What We Do">
-      <div class="edge-inner">
-        <div class="edge-top">
-          <div class="reveal">
-            <span class="section-tag">What We Do</span>
-            <h2 class="edge-headline">
-              WE DON'T JUST MAKE THINGS LOOK GOOD.<br/>
-              <em>WE MAKE THEM MATTER.</em>
-            </h2>
-          </div>
-          <p class="edge-desc reveal reveal-delay-1">
-            From a brand identity to a digital campaign. From a film to an immersive experience. From a sound to a story. We turn ideas into lasting impact across every medium.
-          </p>
-        </div>
-
-        <div class="what-we-do-grid">
-          <div class="wwd-card reveal">
-            <div class="wwd-card-num">01</div>
-            <div class="wwd-card-icon">🏷</div>
-            <div class="wwd-card-label">Brand</div>
-            <div class="wwd-card-title">Build identities people remember across every touchpoint.</div>
-            <div class="wwd-card-link">Explore →</div>
-          </div>
-          <div class="wwd-card reveal reveal-delay-1">
-            <div class="wwd-card-num">02</div>
-            <div class="wwd-card-icon">📲</div>
-            <div class="wwd-card-label">Digital</div>
-            <div class="wwd-card-title">Create experiences that turn attention into measurable action.</div>
-            <div class="wwd-card-link">Explore →</div>
-          </div>
-          <div class="wwd-card reveal reveal-delay-2">
-            <div class="wwd-card-num">03</div>
-            <div class="wwd-card-icon">✍️</div>
-            <div class="wwd-card-label">Content</div>
-            <div class="wwd-card-title">Tell stories people connect with — across all platforms.</div>
-            <div class="wwd-card-link">Explore →</div>
-          </div>
-          <div class="wwd-card reveal reveal-delay-3">
-            <div class="wwd-card-num">04</div>
-            <div class="wwd-card-icon">🎬</div>
-            <div class="wwd-card-label">Film</div>
-            <div class="wwd-card-title">Make cinematic moments that people feel and remember.</div>
-            <div class="wwd-card-link">Explore →</div>
-          </div>
-          <div class="wwd-card reveal reveal-delay-4">
-            <div class="wwd-card-num">05</div>
-            <div class="wwd-card-icon">🎵</div>
-            <div class="wwd-card-label">Audio</div>
-            <div class="wwd-card-title">Give brands a distinctive voice that resonates deeply.</div>
-            <div class="wwd-card-link">Explore →</div>
-          </div>
-          <div class="wwd-card reveal reveal-delay-5">
-            <div class="wwd-card-num">06</div>
-            <div class="wwd-card-icon">🎪</div>
-            <div class="wwd-card-label">Experience</div>
-            <div class="wwd-card-title">Turn interaction into lasting memory through technology.</div>
-            <div class="wwd-card-link">Explore →</div>
-          </div>
-        </div>
-      </div>
-    </div>
-
-    <!-- Built For Strip -->
-    <div class="built-for-strip">
-      <div class="built-for-inner">
-        <div class="reveal">
-          <span class="section-tag">Built For</span>
-          <h2 class="built-for-headline">
-            BUILT FOR THE NEW GENERATION OF
-            <span class="gradient-text"> BRANDS.</span>
-          </h2>
-        </div>
-        <div class="reveal reveal-delay-1">
-          <p class="built-for-desc">
-            We work with brands, businesses, creators, artists, institutions and ambitious ideas ready to move forward. Our work sits at the intersection of strategy, creative vision and technical precision.
-          </p>
-          <p class="built-for-tagline">
-            Think different. Create boldly.
-            <span class="gradient-text"> Move culture.</span>
-          </p>
-        </div>
-      </div>
-    </div>
-
-    <!-- =================== ABOUT =================== -->
-    <section id="about" aria-label="About MIDCAV">
-      <div class="about-intro">
-        <div>
-          <span class="section-tag reveal">About</span>
-          <h2 class="about-headline reveal reveal-delay-1">
-            NOT AN AGENCY.<br/>
-            <span class="gradient-text">AN ECOSYSTEM.</span>
-          </h2>
-        </div>
-        <div class="about-body reveal reveal-delay-2">
-          <p>
-            MIDCAV Digital Technologies is a Creative-Tech company built at the intersection of creativity, culture, media and technology.
-          </p>
-          <p>
-            We bring multiple disciplines together to create work that is strategic, distinctive and relevant — work that doesn't just look good, but drives real outcomes.
-          </p>
-
-          <div class="about-pillars">
-            <div class="pillar-card">
-              <div class="pillar-tag">Our Belief</div>
-              <div class="pillar-title">Great Ideas Deserve Great Execution.</div>
-              <p class="pillar-text">The strongest brands emerge when strategy meets creativity and technology amplifies the idea.</p>
-            </div>
-            <div class="pillar-card">
-              <div class="pillar-tag">Our Vision</div>
-              <div class="pillar-title">To Create What's Next.</div>
-              <p class="pillar-text">A globally relevant Creative-Tech ecosystem from India — connecting ideas, people and technology to create meaningful impact.</p>
-            </div>
-          </div>
-        </div>
-      </div>
-
-      <!-- Mission Grid -->
-      <div class="reveal">
-        <span class="section-tag">Our Mission</span>
-      </div>
-      <div class="mission-grid">
-        <div class="mission-item reveal reveal-delay-1">
-          <div class="mission-kw">THINK SMARTER.</div>
-          <p class="mission-desc">Build strategy around purpose and long-term brand vision.</p>
-        </div>
-        <div class="mission-item reveal reveal-delay-2">
-          <div class="mission-kw">CREATE BETTER.</div>
-          <p class="mission-desc">Turn ideas into distinctive, high-quality creative experiences.</p>
-        </div>
-        <div class="mission-item reveal reveal-delay-3">
-          <div class="mission-kw">MOVE FASTER.</div>
-          <p class="mission-desc">Use technology to accelerate execution without losing precision.</p>
-        </div>
-        <div class="mission-item reveal reveal-delay-4">
-          <div class="mission-kw">GROW TOGETHER.</div>
-          <p class="mission-desc">Build long-term relationships with brands, creators and partners.</p>
-        </div>
-      </div>
-
-      <!-- Founder -->
-      <div class="founder-section reveal">
-        <div class="founder-avatar" aria-label="Founder Avatar">JSP</div>
-        <div class="founder-info">
-          <div class="founder-title">Founder & Creative-Tech Entrepreneur</div>
-          <h3 class="founder-name">Jitender Sharma Parashar</h3>
-          <p class="founder-bio">
-            Media & Entertainment Professional with 24+ years across film, content, marketing, digital, syndication and production. Founder of MIDCAV Digital Technologies — building India's premier Creative-Tech ecosystem.
-          </p>
-        </div>
-      </div>
-
-      <!-- Quote -->
-      <div class="about-quote reveal">
-        <blockquote class="quote-text">
-          "The Future Belongs To Those Who Connect Creativity With Technology."
-        </blockquote>
-      </div>
-    </section>
-
-    <!-- =================== SERVICES =================== -->
-    <section id="services" aria-label="Services">
-      <div class="services-intro">
-        <span class="section-tag reveal">Services</span>
-        <h2 class="services-headline reveal reveal-delay-1">
-          THINK.<br/>
-          <span class="grad">CREATE.</span><br/>
-          PRODUCE.<br/>
-          <span class="grad">AMPLIFY.</span>
-        </h2>
-      </div>
-
+    <!-- SERVICES CARDS STRIP -->
+    <section id="services-strip">
       <div class="services-grid">
-        <article class="service-card reveal reveal-delay-1" tabindex="0">
-          <div class="service-num">01</div>
-          <div class="service-icon" aria-hidden="true">🏷</div>
-          <h3 class="service-title">Brand</h3>
-          <p class="service-sub">Build identities people remember.</p>
-          <div class="service-tags">
-            <span class="service-tag-pill">Brand Strategy</span>
-            <span class="service-tag-pill">Identity Systems</span>
-            <span class="service-tag-pill">Packaging</span>
-            <span class="service-tag-pill">Visual Communication</span>
-            <span class="service-tag-pill">Brand Guidelines</span>
+        <!-- 01 Branding -->
+        <div class="service-card">
+          <div class="service-img" style="background-image: url('mockup1.jpg');"></div>
+          <div class="service-card-content">
+            <div class="service-icon"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 20h9M16.5 3.5a2.121 2.121 0 0 1 3 3L7 19l-4 1 1-4L16.5 3.5z"/></svg></div>
+            <div class="service-num">01</div>
+            <h3 class="service-title">Branding</h3>
+            <p class="service-desc">We create identities that speak, stand out and stay remembered.</p>
+            <a href="#" class="service-arrow"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg></a>
           </div>
-        </article>
-
-        <article class="service-card reveal reveal-delay-2" tabindex="0">
-          <div class="service-num">02</div>
-          <div class="service-icon" aria-hidden="true">📲</div>
-          <h3 class="service-title">Digital</h3>
-          <p class="service-sub">Turn attention into action.</p>
-          <div class="service-tags">
-            <span class="service-tag-pill">Social Media</span>
-            <span class="service-tag-pill">Performance Marketing</span>
-            <span class="service-tag-pill">SEO / SEM</span>
-            <span class="service-tag-pill">Digital Campaigns</span>
-            <span class="service-tag-pill">Growth Strategy</span>
-          </div>
-        </article>
-
-        <article class="service-card reveal reveal-delay-3" tabindex="0">
-          <div class="service-num">03</div>
-          <div class="service-icon" aria-hidden="true">✍️</div>
-          <h3 class="service-title">Content</h3>
-          <p class="service-sub">Give your brand a voice.</p>
-          <div class="service-tags">
-            <span class="service-tag-pill">Storytelling</span>
-            <span class="service-tag-pill">Campaigns</span>
-            <span class="service-tag-pill">Copywriting</span>
-            <span class="service-tag-pill">Editorial</span>
-            <span class="service-tag-pill">Social Content</span>
-          </div>
-        </article>
-
-        <article class="service-card reveal reveal-delay-4" tabindex="0">
-          <div class="service-num">04</div>
-          <div class="service-icon" aria-hidden="true">🎬</div>
-          <h3 class="service-title">Film</h3>
-          <p class="service-sub">Make moments matter.</p>
-          <div class="service-tags">
-            <span class="service-tag-pill">Commercials</span>
-            <span class="service-tag-pill">Corporate Films</span>
-            <span class="service-tag-pill">Digital Films</span>
-            <span class="service-tag-pill">Documentaries</span>
-            <span class="service-tag-pill">OTT / Web Content</span>
-          </div>
-        </article>
-
-        <article class="service-card reveal reveal-delay-5" tabindex="0">
-          <div class="service-num">05</div>
-          <div class="service-icon" aria-hidden="true">🎵</div>
-          <h3 class="service-title">Audio</h3>
-          <p class="service-sub">Give brands a sound.</p>
-          <div class="service-tags">
-            <span class="service-tag-pill">Music Production</span>
-            <span class="service-tag-pill">Voice-Over</span>
-            <span class="service-tag-pill">Podcasts</span>
-            <span class="service-tag-pill">Sonic Branding</span>
-            <span class="service-tag-pill">Sound Design</span>
-          </div>
-        </article>
-
-        <article class="service-card reveal reveal-delay-6" tabindex="0">
-          <div class="service-num">06</div>
-          <div class="service-icon" aria-hidden="true">🎨</div>
-          <h3 class="service-title">Design</h3>
-          <p class="service-sub">Make ideas visible.</p>
-          <div class="service-tags">
-            <span class="service-tag-pill">UI / UX</span>
-            <span class="service-tag-pill">Motion Graphics</span>
-            <span class="service-tag-pill">Visual Systems</span>
-            <span class="service-tag-pill">Packaging</span>
-            <span class="service-tag-pill">Creative Design</span>
-          </div>
-        </article>
-
-        <article class="service-card reveal reveal-delay-1" tabindex="0">
-          <div class="service-num">07</div>
-          <div class="service-icon" aria-hidden="true">🌟</div>
-          <h3 class="service-title">Talent</h3>
-          <p class="service-sub">Connect brands with influence.</p>
-          <div class="service-tags">
-            <span class="service-tag-pill">Artists</span>
-            <span class="service-tag-pill">Influencers</span>
-            <span class="service-tag-pill">Creators</span>
-            <span class="service-tag-pill">Endorsements</span>
-            <span class="service-tag-pill">Talent Partnerships</span>
-          </div>
-        </article>
-
-        <article class="service-card reveal reveal-delay-2" tabindex="0">
-          <div class="service-num">08</div>
-          <div class="service-icon" aria-hidden="true">🎪</div>
-          <h3 class="service-title">Experience</h3>
-          <p class="service-sub">Turn interaction into memory.</p>
-          <div class="service-tags">
-            <span class="service-tag-pill">Live Events</span>
-            <span class="service-tag-pill">Launches</span>
-            <span class="service-tag-pill">Immersive Experiences</span>
-            <span class="service-tag-pill">Interactive Installations</span>
-            <span class="service-tag-pill">Tech Integration</span>
-          </div>
-        </article>
-
-        <article class="service-card reveal reveal-delay-3" tabindex="0">
-          <div class="service-num">09</div>
-          <div class="service-icon" aria-hidden="true">📦</div>
-          <h3 class="service-title">Media</h3>
-          <p class="service-sub">Manage what you've created.</p>
-          <div class="service-tags">
-            <span class="service-tag-pill">Digital Assets</span>
-            <span class="service-tag-pill">Archiving</span>
-            <span class="service-tag-pill">Metadata</span>
-            <span class="service-tag-pill">Distribution</span>
-            <span class="service-tag-pill">Platform Delivery</span>
-          </div>
-        </article>
-      </div>
-    </section>
-
-    <!-- =================== OUR WORK =================== -->
-    <section id="work" aria-label="Our Work">
-      <div class="work-intro">
-        <div>
-          <span class="section-tag reveal">Our Work</span>
-          <h2 class="work-headline reveal reveal-delay-1">
-            IDEAS.<br/>
-            <span class="grad">MADE REAL.</span>
-          </h2>
-        </div>
-        <div class="work-right reveal reveal-delay-2">
-          <p>Don't just browse projects. <strong style="color: var(--clr-white);">Experience the work.</strong></p>
-          <p>Every project is an intersection of strategy, creativity and craft — built for impact.</p>
-        </div>
-      </div>
-
-      <!-- Filter Tabs -->
-      <div class="filter-tabs reveal" role="group" aria-label="Work Filter">
-        <button class="filter-btn active" data-filter="all" id="filter-all">All</button>
-        <button class="filter-btn" data-filter="brand" id="filter-brand">Brand</button>
-        <button class="filter-btn" data-filter="digital" id="filter-digital">Digital</button>
-        <button class="filter-btn" data-filter="film" id="filter-film">Film</button>
-        <button class="filter-btn" data-filter="content" id="filter-content">Content</button>
-        <button class="filter-btn" data-filter="design" id="filter-design">Design</button>
-        <button class="filter-btn" data-filter="audio" id="filter-audio">Audio</button>
-        <button class="filter-btn" data-filter="experience" id="filter-experience">Experience</button>
-      </div>
-
-      <div class="work-grid" id="work-grid">
-        <article class="work-card reveal reveal-delay-1" data-cat="brand" tabindex="0" aria-label="Brand Identity Project">
-          <div class="work-card-thumb" aria-hidden="true" style="background: linear-gradient(135deg, rgba(0,242,254,0.12), rgba(127,0,255,0.08));">🏷</div>
-          <div class="work-card-body">
-            <div class="work-card-cat">Brand</div>
-            <h3 class="work-card-title">Brand Identity Overhaul</h3>
-            <div class="work-card-meta">
-              <div class="meta-row"><strong>Challenge —</strong> Redefine a legacy brand for the next generation.</div>
-              <div class="meta-row"><strong>Idea —</strong> Strip it back to its core and rebuild with purpose.</div>
-              <div class="meta-row"><strong>Impact —</strong> 300% increase in brand recall within 6 months.</div>
-            </div>
-            <div class="work-card-cta">View Case Study →</div>
-          </div>
-        </article>
-
-        <article class="work-card reveal reveal-delay-2" data-cat="digital" tabindex="0" aria-label="Digital Campaign Project">
-          <div class="work-card-thumb" aria-hidden="true" style="background: linear-gradient(135deg, rgba(79,172,254,0.12), rgba(0,242,254,0.08));">📲</div>
-          <div class="work-card-body">
-            <div class="work-card-cat">Digital</div>
-            <h3 class="work-card-title">Digital Growth Campaign</h3>
-            <div class="work-card-meta">
-              <div class="meta-row"><strong>Challenge —</strong> Break through digital noise in a saturated market.</div>
-              <div class="meta-row"><strong>Idea —</strong> Lead with story, not product.</div>
-              <div class="meta-row"><strong>Impact —</strong> 5× ROI, 2M+ organic reach in 30 days.</div>
-            </div>
-            <div class="work-card-cta">View Case Study →</div>
-          </div>
-        </article>
-
-        <article class="work-card reveal reveal-delay-3" data-cat="film" tabindex="0" aria-label="Film Production Project">
-          <div class="work-card-thumb" aria-hidden="true" style="background: linear-gradient(135deg, rgba(127,0,255,0.12), rgba(168,85,247,0.08));">🎬</div>
-          <div class="work-card-body">
-            <div class="work-card-cat">Film</div>
-            <h3 class="work-card-title">Corporate Documentary Series</h3>
-            <div class="work-card-meta">
-              <div class="meta-row"><strong>Challenge —</strong> Humanise a corporate brand for a skeptical audience.</div>
-              <div class="meta-row"><strong>Idea —</strong> Tell the people story, not the product story.</div>
-              <div class="meta-row"><strong>Impact —</strong> 1.5M+ views, featured in national media.</div>
-            </div>
-            <div class="work-card-cta">View Case Study →</div>
-          </div>
-        </article>
-
-        <article class="work-card reveal reveal-delay-4" data-cat="content" tabindex="0" aria-label="Content Strategy Project">
-          <div class="work-card-thumb" aria-hidden="true" style="background: linear-gradient(135deg, rgba(0,242,254,0.08), rgba(79,172,254,0.12));">✍️</div>
-          <div class="work-card-body">
-            <div class="work-card-cat">Content</div>
-            <h3 class="work-card-title">Content Universe Build</h3>
-            <div class="work-card-meta">
-              <div class="meta-row"><strong>Challenge —</strong> Create a consistent content engine from scratch.</div>
-              <div class="meta-row"><strong>Idea —</strong> Build a universe, not just a content calendar.</div>
-              <div class="meta-row"><strong>Impact —</strong> 400% audience growth in 90 days.</div>
-            </div>
-            <div class="work-card-cta">View Case Study →</div>
-          </div>
-        </article>
-
-        <article class="work-card reveal reveal-delay-5" data-cat="audio" tabindex="0" aria-label="Sonic Branding Project">
-          <div class="work-card-thumb" aria-hidden="true" style="background: linear-gradient(135deg, rgba(127,0,255,0.1), rgba(0,242,254,0.1));">🎵</div>
-          <div class="work-card-body">
-            <div class="work-card-cat">Audio</div>
-            <h3 class="work-card-title">Sonic Identity System</h3>
-            <div class="work-card-meta">
-              <div class="meta-row"><strong>Challenge —</strong> Give a visual-first brand an audio identity.</div>
-              <div class="meta-row"><strong>Idea —</strong> Sound that feels as distinctive as a logo.</div>
-              <div class="meta-row"><strong>Impact —</strong> Adopted across 12 countries in 3 months.</div>
-            </div>
-            <div class="work-card-cta">View Case Study →</div>
-          </div>
-        </article>
-
-        <article class="work-card reveal reveal-delay-6" data-cat="experience" tabindex="0" aria-label="Immersive Experience Project">
-          <div class="work-card-thumb" aria-hidden="true" style="background: linear-gradient(135deg, rgba(0,242,254,0.1), rgba(127,0,255,0.12));">🎪</div>
-          <div class="work-card-body">
-            <div class="work-card-cat">Experience</div>
-            <h3 class="work-card-title">Immersive Brand Launch</h3>
-            <div class="work-card-meta">
-              <div class="meta-row"><strong>Challenge —</strong> Launch a premium product in a crowded market.</div>
-              <div class="meta-row"><strong>Idea —</strong> Don't launch a product. Create an event.</div>
-              <div class="meta-row"><strong>Impact —</strong> Sold out 3 months before launch date.</div>
-            </div>
-            <div class="work-card-cta">View Case Study →</div>
-          </div>
-        </article>
-      </div>
-    </section>
-
-    <!-- =================== WHY MIDCAV =================== -->
-    <section id="why" aria-label="Why MIDCAV">
-      <div class="why-header">
-        <span class="section-tag reveal">Why MIDCAV</span>
-        <h2 class="why-headline reveal reveal-delay-1">
-          MORE THAN A SERVICE PROVIDER.<br/>
-          <span class="grad">A CREATIVE-TECH PARTNER.</span>
-        </h2>
-      </div>
-
-      <div class="why-grid">
-        <div class="why-card reveal reveal-delay-1">
-          <div class="why-card-num" aria-hidden="true">01</div>
-          <div class="why-card-kw">ONE VISION</div>
-          <div class="why-card-title">Everything moves in one direction.</div>
-          <p class="why-card-desc">Every discipline, every department, every decision — aligned to a single strategic north star for your brand.</p>
         </div>
 
-        <div class="why-card reveal reveal-delay-2">
-          <div class="why-card-num" aria-hidden="true">02</div>
-          <div class="why-card-kw">MANY DISCIPLINES</div>
-          <div class="why-card-title">Strategy, creative, digital, production and technology.</div>
-          <p class="why-card-desc">Six integrated disciplines working in concert — not separately — to deliver work that's greater than the sum of its parts.</p>
+        <!-- 02 Digital -->
+        <div class="service-card">
+          <div class="service-img" style="background-image: url('hero_monitor.jpg');"></div>
+          <div class="service-card-content">
+            <div class="service-icon"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="3" width="20" height="14" rx="2" ry="2"/><line x1="8" y1="21" x2="16" y2="21"/><line x1="12" y1="17" x2="12" y2="21"/></svg></div>
+            <div class="service-num">02</div>
+            <h3 class="service-title">Digital</h3>
+            <p class="service-desc">Digital experiences that engage, convert and build relationships.</p>
+            <a href="#" class="service-arrow"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg></a>
+          </div>
         </div>
 
-        <div class="why-card reveal reveal-delay-3">
-          <div class="why-card-num" aria-hidden="true">03</div>
-          <div class="why-card-kw">ONE ECOSYSTEM</div>
-          <div class="why-card-title">Less fragmentation. More collaboration.</div>
-          <p class="why-card-desc">No siloed vendors. No brief-to-brief handovers. One integrated ecosystem that thinks and creates as one.</p>
+        <!-- 03 Design -->
+        <div class="service-card">
+          <div class="service-img" style="background-image: url('hero_wave.jpg');"></div>
+          <div class="service-card-content">
+            <div class="service-icon"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 20h9M16.5 3.5a2.121 2.121 0 0 1 3 3L7 19l-4 1 1-4L16.5 3.5z"/></svg></div>
+            <div class="service-num">03</div>
+            <h3 class="service-title">Design</h3>
+            <p class="service-desc">Designs that communicate clearly and leave a strong impression.</p>
+            <a href="#" class="service-arrow"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg></a>
+          </div>
         </div>
 
-        <div class="why-card reveal reveal-delay-4">
-          <div class="why-card-num" aria-hidden="true">04</div>
-          <div class="why-card-kw">BUILT TO SCALE</div>
-          <div class="why-card-title">Ideas designed to evolve with your brand.</div>
-          <p class="why-card-desc">We don't build for today. We build systems, strategies and stories that grow with you — scalable from day one.</p>
+        <!-- 04 Content -->
+        <div class="service-card">
+          <div class="service-img" style="background-image: url('hero_team.jpg');"></div>
+          <div class="service-card-content">
+            <div class="service-icon"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/><polyline points="10 9 9 9 8 9"/></svg></div>
+            <div class="service-num">04</div>
+            <h3 class="service-title">Content</h3>
+            <p class="service-desc">Content that connects people to your brand and your story.</p>
+            <a href="#" class="service-arrow"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg></a>
+          </div>
+        </div>
+
+        <!-- 05 Audio -->
+        <div class="service-card">
+          <div class="service-img" style="background-image: url('hero_wave.jpg');"></div>
+          <div class="service-card-content">
+            <div class="service-icon"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2v20M17 5v14M22 10v4M7 5v14M2 10v4"/></svg></div>
+            <div class="service-num">05</div>
+            <h3 class="service-title">Audio</h3>
+            <p class="service-desc">Sound that sets the mood, builds emotion and stays with you.</p>
+            <a href="#" class="service-arrow"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg></a>
+          </div>
+        </div>
+
+        <!-- 06 Video -->
+        <div class="service-card">
+          <div class="service-img" style="background-image: url('hero_camera.jpg');"></div>
+          <div class="service-card-content">
+            <div class="service-icon"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="7" width="16" height="10" rx="2" ry="2"/><path d="M22 7l-4 3v4l4 3V7z"/></svg></div>
+            <div class="service-num">06</div>
+            <h3 class="service-title">Video</h3>
+            <p class="service-desc">Visual stories that captivate, inspire and drive impact.</p>
+            <a href="#" class="service-arrow"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg></a>
+          </div>
         </div>
       </div>
     </section>
 
-    <!-- =================== ECOSYSTEM =================== -->
-    <section id="ecosystem" aria-label="Our Ecosystem">
-      <span class="section-tag reveal" style="display: inline-flex;">Ecosystem</span>
-      <h2 class="ecosystem-headline reveal reveal-delay-1">
-        CONNECTED TO SOMETHING<br/>
-        <span class="grad">BIGGER.</span>
-      </h2>
-      <p class="ecosystem-sub reveal reveal-delay-2">
-        MIDCAV operates within the broader Mentor &amp; Mascot ecosystem, creating opportunities across creative, media, entertainment, talent, events and technology.
-      </p>
-
-      <!-- Ecosystem visual -->
-      <div class="ecosystem-visual reveal reveal-delay-3" aria-hidden="true">
-        <div class="eco-rings">
-          <div class="eco-ring eco-ring-1"></div>
-          <div class="eco-ring eco-ring-2"></div>
-          <div class="eco-ring eco-ring-3"></div>
-        </div>
-        <div class="eco-center">
-          <div class="eco-center-text">MIDCAV</div>
-        </div>
-      </div>
-
-      <div class="eco-nodes reveal reveal-delay-4">
-        <div class="eco-node">
-          <div class="eco-node-label">Parent Group</div>
-          <h3 class="eco-node-title">Mentor &amp; Mascot Group</h3>
-          <p class="eco-node-sub">Creative • Media • Entertainment • Entrepreneurship</p>
-        </div>
-        <div class="eco-node">
-          <div class="eco-node-label">Connected Network</div>
-          <h3 class="eco-node-title">MMIFF Ecosystem</h3>
-          <p class="eco-node-sub">Mentor &amp; Mascot Indian Film Federation</p>
-        </div>
-      </div>
-
-      <div class="reveal" style="text-align: center; margin-top: 5rem;">
-        <p style="font-family: var(--font-head); font-size: clamp(1.2rem, 2.5vw, 1.8rem); font-weight: 700; color: rgba(255,255,255,0.08); letter-spacing: 0.08em;">
-          BRANDING • DIGITAL • CONTENT • FILM • AUDIO • DESIGN • TALENT • EXPERIENCES • TECHNOLOGY
-        </p>
-        <p style="font-family: var(--font-mono); font-size: 0.68rem; letter-spacing: 0.3em; color: var(--clr-muted); text-transform: uppercase; margin-top: 1rem;">One creative universe.</p>
-      </div>
-    </section>
-
-    <!-- =================== PARTNERSHIPS =================== -->
-    <section id="partnerships" aria-label="Partnerships">
-      <div class="partner-header">
-        <span class="section-tag reveal" style="display: inline-flex;">Partnerships</span>
-        <h2 class="partner-headline reveal reveal-delay-1">
-          GREAT IDEAS NEED<br/>
-          <span class="grad">GREAT PEOPLE.</span>
-        </h2>
-        <p class="partner-collab-strip reveal reveal-delay-2">We collaborate with: Brands • Creators • Artists • Agencies • Institutions • Technology Partners</p>
-      </div>
-
-      <div class="partner-grid">
-        <div class="partner-card reveal reveal-delay-1" tabindex="0" id="partner-brands">
-          <div class="partner-for">For Brands</div>
-          <h3 class="partner-title">Need an integrated Creative-Tech partner?</h3>
-          <p class="partner-desc">We embed ourselves into your brand's world and build from the inside out — strategy, creative, digital and production. All in one place.</p>
-          <div class="partner-cta-text">LET'S BUILD.</div>
-        </div>
-
-        <div class="partner-card reveal reveal-delay-2" tabindex="0" id="partner-agencies">
-          <div class="partner-for">For Agencies</div>
-          <h3 class="partner-title">Need creative, production, content or digital capabilities?</h3>
-          <p class="partner-desc">White-label or collaborate directly. We bring the production power, creative depth and technical capability you need.</p>
-          <div class="partner-cta-text">LET'S COLLABORATE.</div>
-        </div>
-
-        <div class="partner-card reveal reveal-delay-3" tabindex="0" id="partner-creators">
-          <div class="partner-for">For Creators</div>
-          <h3 class="partner-title">Have an idea, talent or creative vision?</h3>
-          <p class="partner-desc">We work with artists, influencers and independent creators to build, package and amplify their creative universe.</p>
-          <div class="partner-cta-text">LET'S CREATE.</div>
-        </div>
-
-        <div class="partner-card reveal reveal-delay-4" tabindex="0" id="partner-tech">
-          <div class="partner-for">For Technology Partners</div>
-          <h3 class="partner-title">Want to build something new?</h3>
-          <p class="partner-desc">We bring the creative intelligence. You bring the technical innovation. Together we build products and experiences that have never existed before.</p>
-          <div class="partner-cta-text">LET'S INNOVATE.</div>
-        </div>
-      </div>
-
-      <div class="partner-main-cta reveal">
-        <a href="#contact" class="btn-primary" id="partner-cta-btn">
-          Partner With MIDCAV <span class="arrow">→</span>
-        </a>
-      </div>
-    </section>
-
-    <!-- =================== CAREERS =================== -->
-    <section id="careers" aria-label="Careers">
-      <div class="careers-bg-text" aria-hidden="true">NEXT.</div>
-
-      <div class="careers-content">
-        <span class="section-tag reveal">Careers</span>
-        <h2 class="careers-headline reveal reveal-delay-1">
-          DON'T LOOK FOR A JOB.<br/>
-          <span class="grad">LOOK FOR WHAT'S NEXT.</span>
-        </h2>
-
-        <p class="careers-body reveal reveal-delay-2">
-          We are looking for thinkers, designers, storytellers, filmmakers, strategists, creators, technologists and problem-solvers.<br/><br/>
-          People who question the ordinary. People who build the extraordinary.
-        </p>
-
-        <div class="careers-looking reveal reveal-delay-3">
-          <span>→</span> Thinkers &amp; Strategists<br/>
-          <span>→</span> Designers &amp; Art Directors<br/>
-          <span>→</span> Storytellers &amp; Copywriters<br/>
-          <span>→</span> Filmmakers &amp; Cinematographers<br/>
-          <span>→</span> Creators &amp; Content Producers<br/>
-          <span>→</span> Technologists &amp; Digital Specialists
-        </div>
-
-        <div class="reveal" style="background: var(--clr-surface); border: 1px solid var(--clr-border2); border-radius: var(--radius-md); padding: 2rem; max-width: 500px; margin-bottom: 2.5rem;">
-          <p style="font-family: var(--font-head); font-size: 1.15rem; font-weight: 800; margin-bottom: 0.5rem; background: var(--gradient-text); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text;">YOUR NEXT CHAPTER COULD START HERE.</p>
-          <p style="font-size: 0.86rem; color: var(--clr-muted);">Be part of building something that connects creativity with technology at scale.</p>
-        </div>
-
-        <div class="careers-actions reveal reveal-delay-4">
-          <a href="mailto:careers@midcav.com" class="btn-primary" id="careers-cta-btn">
-            Create With Us <span class="arrow">→</span>
+    <!-- OUR WORK SECTION -->
+    <section id="our-work">
+      <div class="work-container">
+        <div class="work-left">
+          <div class="section-label">OUR WORK</div>
+          <h2 class="section-title">Ideas brought<br/>to life</h2>
+          <p class="section-desc">A glimpse of our work and<br/>the impact we create.</p>
+          <a href="#" class="btn-outline-pill">
+            View All Work <svg width="14" height="10" viewBox="0 0 14 10" fill="none"><path d="M1 5H13M13 5L9 1M13 5L9 9" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
           </a>
-          <a href="mailto:careers@midcav.com" class="careers-email">careers@midcav.com</a>
         </div>
-      </div>
-    </section>
-
-    <!-- =================== CONTACT =================== -->
-    <section id="contact" aria-label="Contact">
-      <div class="contact-grid">
-        <div class="contact-left">
-          <span class="section-tag reveal">Contact</span>
-          <h2 class="reveal reveal-delay-1">
-            HAVE AN IDEA?<br/>
-            <span class="grad">LET'S MAKE IT REAL.</span>
-          </h2>
-
-          <div class="contact-prompts reveal reveal-delay-2">
-            <p>Launching a <strong>brand?</strong></p>
-            <p>Building a <strong>campaign?</strong></p>
-            <p>Producing a <strong>film?</strong></p>
-            <p>Creating <strong>content?</strong></p>
-            <p>Developing something <strong>completely new?</strong></p>
-          </div>
-
-          <p style="font-family: var(--font-mono); font-size: 0.68rem; letter-spacing: 0.3em; color: var(--clr-cyan); text-transform: uppercase; margin-bottom: 2rem;" class="reveal">Start Here.</p>
-
-          <div class="contact-direct reveal reveal-delay-3">
-            <div class="contact-direct-item">
-              <span class="contact-direct-label">General</span>
-              <a href="mailto:info@midcav.com" class="contact-direct-value">info@midcav.com</a>
+        
+        <div class="work-right">
+          <div class="work-projects">
+            <!-- Project 1 -->
+            <div class="project-card">
+              <div class="project-img-container">
+                <img src="mockup1.jpg" alt="Auraa" class="project-img" />
+              </div>
+              <div class="project-info">
+                <h4 class="project-name">AURAA</h4>
+                <p class="project-cat">Brand Film</p>
+              </div>
             </div>
-            <div class="contact-direct-item">
-              <span class="contact-direct-label">Partnerships</span>
-              <a href="mailto:partnerships@midcav.com" class="contact-direct-value">partnerships@midcav.com</a>
+            <!-- Project 2 -->
+            <div class="project-card">
+              <div class="project-img-container">
+                <img src="mockup1.jpg" alt="Vortex" class="project-img" />
+              </div>
+              <div class="project-info">
+                <h4 class="project-name">VORTEX</h4>
+                <p class="project-cat">Digital Campaign</p>
+              </div>
             </div>
-            <div class="contact-direct-item">
-              <span class="contact-direct-label">Careers</span>
-              <a href="mailto:careers@midcav.com" class="contact-direct-value">careers@midcav.com</a>
+            <!-- Project 3 -->
+            <div class="project-card">
+              <div class="project-img-container">
+                <img src="hero_camera.jpg" alt="Behind The Frame" class="project-img" />
+              </div>
+              <div class="project-info">
+                <h4 class="project-name">BEHIND THE FRAME</h4>
+                <p class="project-cat">Documentary</p>
+              </div>
             </div>
-          </div>
-        </div>
-
-        <div class="contact-right">
-          <form class="contact-form" id="contact-form" novalidate aria-label="Contact Form">
-            <div class="form-group">
-              <label class="form-label" for="name">Your Name</label>
-              <input class="form-input" type="text" id="name" name="name" placeholder="What should we call you?" required />
+            <!-- Project 4 -->
+            <div class="project-card">
+              <div class="project-img-container">
+                <img src="hero_wave.jpg" alt="Sound of Soul" class="project-img" />
+              </div>
+              <div class="project-info">
+                <h4 class="project-name">SOUND OF SOUL</h4>
+                <p class="project-cat">Audio Production</p>
+              </div>
             </div>
-            <div class="form-group">
-              <label class="form-label" for="email">Email Address</label>
-              <input class="form-input" type="email" id="email" name="email" placeholder="your@email.com" required />
-            </div>
-            <div class="form-group">
-              <label class="form-label" for="company">Company / Brand</label>
-              <input class="form-input" type="text" id="company" name="company" placeholder="Who are you building for?" />
-            </div>
-            <div class="form-group">
-              <label class="form-label" for="message">Tell Us About Your Idea</label>
-              <textarea class="form-textarea" id="message" name="message" placeholder="What are you creating? What do you need? Let's talk..." required></textarea>
-            </div>
-            <button type="submit" class="form-submit" id="form-submit-btn">
-              Send Message →
-            </button>
-          </form>
-          <div class="form-success" id="form-success" aria-live="polite">
-            <h3>Message Received.</h3>
-            <p>We'll be in touch within 24 hours. Let's create something great together.</p>
           </div>
         </div>
       </div>
     </section>
 
-    <!-- =================== FINAL CTA =================== -->
-    <section id="cta" aria-label="Call to Action">
-      <div class="cta-bg-orb" aria-hidden="true"></div>
-
-      <div class="cta-content">
-        <p class="cta-pre reveal">// The Future is Creative + Technology</p>
-
-        <h2 class="cta-headline reveal reveal-delay-1">
-          <span class="line1">READY TO</span>
-          <span class="line2">CREATE?</span>
-        </h2>
-
-        <div class="cta-pillars reveal reveal-delay-2">
-          <span class="cta-pillar highlight">Strategy</span>
-          <span class="cta-pillar highlight">Creativity</span>
-          <span class="cta-pillar highlight">Technology</span>
-          <span class="cta-pillar">Connected.</span>
+    <!-- ABOUT US & CTA SECTION -->
+    <section id="about-cta">
+      <div class="about-container">
+        <div class="about-left">
+          <div class="section-label">ABOUT US</div>
+          <h2 class="section-title">We're a team of<br/>creators, thinkers<br/>and storytellers.</h2>
         </div>
-
-        <p class="cta-connected reveal reveal-delay-3">One ecosystem. Multiple capabilities. Zero creative boundaries.</p>
-
-        <div class="cta-actions reveal reveal-delay-4">
-          <a href="#contact" class="btn-primary" id="cta-main-btn">
-            Start a Project <span class="arrow">→</span>
-          </a>
-          <a href="mailto:info@midcav.com" class="btn-ghost">Get in Touch</a>
+        <div class="about-mid">
+          <p class="about-desc">
+            We believe in collaboration, curiosity<br/>and craft. We partner with brands and<br/>businesses to create work that not only<br/>looks great, but truly makes a difference.
+          </p>
+        </div>
+        <div class="about-right">
+          <div class="about-img-container">
+            <img src="hero_team.jpg" alt="Team" class="about-img" />
+            <div class="cta-card">
+              <h3 class="cta-title">Have a project<br/>in mind?</h3>
+              <p class="cta-desc">Let's create something<br/>amazing together.</p>
+              <a href="#contact" class="btn-outline-pill cta-btn">
+                Let's Talk <svg width="14" height="10" viewBox="0 0 14 10" fill="none"><path d="M1 5H13M13 5L9 1M13 5L9 9" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+              </a>
+            </div>
+          </div>
         </div>
       </div>
     </section>
 
   </main>
-
-  <!-- =================== FOOTER =================== -->
-  <footer id="footer" aria-label="Footer">
-    <div class="footer-main">
-      <div class="footer-brand">
-        <div class="footer-logo-main">MIDCAV</div>
-        <div class="footer-logo-sub">Method · Image · Design · Content · Audio · Video</div>
-        <p class="footer-tagline">
-          A Creative-Tech ecosystem where strategy, creativity, media and technology come together to build brands, experiences and stories that move people.
-        </p>
-      </div>
-
-      <div class="footer-col">
-        <div class="footer-col-title">Services</div>
-        <nav class="footer-links" aria-label="Services navigation">
-          <a href="#services">Brand</a>
-          <a href="#services">Digital</a>
-          <a href="#services">Content</a>
-          <a href="#services">Film</a>
-          <a href="#services">Audio</a>
-          <a href="#services">Design</a>
-          <a href="#services">Talent</a>
-          <a href="#services">Experience</a>
-        </nav>
-      </div>
-
-      <div class="footer-col">
-        <div class="footer-col-title">Company</div>
-        <nav class="footer-links" aria-label="Company navigation">
-          <a href="#about">About MIDCAV</a>
-          <a href="#why">Why Us</a>
-          <a href="#ecosystem">Ecosystem</a>
-          <a href="#partnerships">Partnerships</a>
-          <a href="#careers">Careers</a>
-          <a href="#contact">Contact</a>
-        </nav>
-      </div>
-    </div>
-
-    <div class="footer-bottom">
-      <p class="footer-copy">© 2025 MIDCAV Digital Technologies. All rights reserved.</p>
-      <div class="footer-social">
-        <a href="#" aria-label="Instagram">Instagram</a>
-        <a href="#" aria-label="LinkedIn">LinkedIn</a>
-        <a href="#" aria-label="Twitter">Twitter</a>
-        <a href="#" aria-label="YouTube">YouTube</a>
-      </div>
-      <p class="footer-edge">Creative Intelligence × Digital Innovation</p>
-    </div>
-  </footer>
-
+  
   <script src="script.js"></script>
 </body>
 </html>
