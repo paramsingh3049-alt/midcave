@@ -3,216 +3,496 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>MIDCAV - What Is MIDCAV?</title>
-  <link rel="stylesheet" href="style.css" />
+  <meta name="description" content="MIDCAV Digital Technologies — Creative Technology Studio where strategy, imagination and technology converge to create distinctive digital experiences." />
+  <meta property="og:title" content="MIDCAV Digital Technologies" />
+  <meta property="og:description" content="IDEAS. ENGINEERED DIFFERENTLY. A Creative Technology Studio." />
+  <title>MIDCAV Digital Technologies — Creative Technology Studio</title>
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&family=Space+Mono:wght@400;700&family=Syne:wght@400;600;700;800&family=Cormorant+Garamond:ital,wght@0,300;0,400;1,300;1,400&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="style.css" />
 </head>
 <body>
 
   <!-- NAVIGATION -->
-  <nav id="navbar">
-    <div class="nav-logo">
-      <span class="nav-logo-main"><a href="index.html">MIDCAV</a></span>
-      <span class="nav-logo-sub">DIGITAL TECHNOLOGIES</span>
-    </div>
-
-    <ul class="nav-links">
-      <li><a href="index.html">Home</a></li>
-      <li><a href="agency.html">Agency</a></li>
-      <li class="has-dropdown">
-        <a href="#services">Services <svg width="10" height="6" viewBox="0 0 10 6" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M1 1L5 5L9 1" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
-        <div class="dropdown-menu">
-          <a href="technology-solutions.html">Technology Solutions</a>
-          <a href="digital-marketing.html">Digital Marketing</a>
-          <a href="software-development.html">Software & App Development</a>
-        </div>
-      </li>
-      <li><a href="agency.html#work">Work</a></li>
-      <li><a href="agency.html#contact">Contact</a></li>
-    </ul>
-
-    <div class="nav-actions">
-      <a href="agency.html#contact" class="nav-cta-outline">Let's Talk</a>
-      <button class="hamburger-btn">
-        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-          <path d="M4 6H20M4 12H20M4 18H20" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-        </svg>
+  <nav id="navbar" class="navbar">
+    <div class="nav-inner">
+      <a href="#home" class="nav-logo" id="nav-logo-link">
+        <span class="logo-text">MIDCAV</span>
+        <span class="logo-dot">.</span>
+      </a>
+      <div class="nav-links" id="nav-links">
+        <a href="#method" class="nav-link">Method</a>
+        <a href="#dimensions" class="nav-link">Dimensions</a>
+        <a href="#edge" class="nav-link">Our Edge</a>
+        <a href="#contact" class="nav-link">Contact</a>
+      </div>
+      <button class="nav-cta" id="nav-cta-btn">
+        <span>Start a Project</span>
+        <svg width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M3 8h10M9 4l4 4-4 4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
       </button>
+      <button class="hamburger" id="hamburger-btn" aria-label="Toggle navigation">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+    <div class="nav-mobile" id="nav-mobile">
+      <a href="#method" class="nav-mobile-link">Method</a>
+      <a href="#dimensions" class="nav-mobile-link">Dimensions</a>
+      <a href="#edge" class="nav-mobile-link">Our Edge</a>
+      <a href="#contact" class="nav-mobile-link">Contact</a>
     </div>
   </nav>
 
-  <main>
-    <!-- HERO SECTION -->
-    <section id="hero-new" class="home-hero">
-      <div class="hero-content" style="display: flex; align-items: center; justify-content: space-between; gap: 4rem; padding: 120px 4% 80px 4%;">
-        <div class="hero-left" style="flex: 1; max-width: 600px; position: relative; z-index: 2;">
-          <div class="hero-label" style="color: var(--clr-cyan); font-weight: 700; letter-spacing: 0.1em; margin-bottom: 1rem;">WHAT IS MIDCAV?</div>
-          <h1 class="hero-headline" style="font-size: clamp(2.5rem, 4vw, 3.5rem); font-weight: 800; line-height: 1.1; margin-bottom: 1.5rem;">
-            Where <span class="text-cyan">Technology</span>, <span class="text-purple">Creativity</span> &amp; <span class="text-cyan">Strategy</span> Drive Real Impact.
-          </h1>
-          <p class="hero-sub" style="font-size: 1.1rem; color: var(--clr-muted-light); line-height: 1.6; margin-bottom: 2.5rem;">
-            MIDCAV is a premier digital technology and creative agency. We transform businesses by blending cutting-edge engineering with world-class design and data-driven marketing.
+  <!-- HERO SECTION -->
+  <section id="home" class="hero">
+    <canvas id="hero-canvas" class="hero-canvas"></canvas>
+    <div class="hero-overlay"></div>
+    <div class="hero-content">
+      <div class="hero-eyebrow reveal-up" data-delay="0">
+        <span class="eyebrow-dot"></span>
+        <span>Creative Technology Studio</span>
+        <span class="eyebrow-dot"></span>
+      </div>
+      <h1 class="hero-headline reveal-up" data-delay="100">
+        <span class="headline-line">IDEAS.</span>
+        <span class="headline-line accent-text">ENGINEERED</span>
+        <span class="headline-line">DIFFERENTLY.</span>
+      </h1>
+      <p class="hero-sub reveal-up" data-delay="300">
+        MIDCAV is a Creative Technology Studio where strategy,<br class="hide-mobile" />
+        imagination and technology converge to create<br class="hide-mobile" />
+        <em>distinctive digital experiences.</em>
+      </p>
+      <p class="hero-manifesto reveal-up" data-delay="500">
+        We don't just create. <strong>We engineer perception.</strong>
+      </p>
+      <div class="hero-tagline-strip reveal-up" data-delay="700">
+        <span>METHOD</span>
+        <span class="strip-bullet">•</span>
+        <span>IMAGE</span>
+        <span class="strip-bullet">•</span>
+        <span>DESIGN</span>
+        <span class="strip-bullet">•</span>
+        <span>CONTENT</span>
+        <span class="strip-bullet">•</span>
+        <span>AUDIO</span>
+        <span class="strip-bullet">•</span>
+        <span>VIDEO</span>
+      </div>
+      <div class="hero-ctas reveal-up" data-delay="900">
+        <a href="#dimensions" class="btn-primary" id="hero-explore-btn">
+          <span>Explore MIDCAV</span>
+          <svg class="btn-arrow" width="20" height="20" viewBox="0 0 20 20" fill="none">
+            <path d="M4 10h12M12 6l4 4-4 4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+          </svg>
+        </a>
+        <a href="#edge" class="btn-ghost" id="hero-edge-btn">Our Edge</a>
+      </div>
+    </div>
+    <div class="hero-scroll-indicator" id="hero-scroll-ind">
+      <div class="scroll-line"></div>
+      <span>Scroll</span>
+    </div>
+  </section>
+
+  <!-- SIX DIMENSIONS INTRO -->
+  <section id="method" class="dimensions-intro">
+    <div class="container">
+      <div class="section-label reveal-up" data-delay="0">
+        <span class="label-line"></span>
+        <span>The Six Dimensions</span>
+        <span class="label-line"></span>
+      </div>
+      <h2 class="section-title reveal-up" data-delay="100">
+        ONE CREATIVE ENGINE.<br /><em>SIX DIMENSIONS.</em>
+      </h2>
+      <p class="section-sub reveal-up" data-delay="200">
+        Every idea needs a complete system to become reality.<br />
+        MIDCAV is that system.
+      </p>
+      <div class="midcav-journey reveal-up" data-delay="300">
+        <div class="journey-letters" id="journey-letters">
+          <div class="journey-letter" data-letter="M" data-name="METHOD">
+            <span class="jl-char">M</span>
+            <span class="jl-label">Method</span>
+          </div>
+          <div class="journey-arrow">&#8594;</div>
+          <div class="journey-letter" data-letter="I" data-name="IMAGE">
+            <span class="jl-char">I</span>
+            <span class="jl-label">Image</span>
+          </div>
+          <div class="journey-arrow">&#8594;</div>
+          <div class="journey-letter" data-letter="D" data-name="DESIGN">
+            <span class="jl-char">D</span>
+            <span class="jl-label">Design</span>
+          </div>
+          <div class="journey-arrow">&#8594;</div>
+          <div class="journey-letter" data-letter="C" data-name="CONTENT">
+            <span class="jl-char">C</span>
+            <span class="jl-label">Content</span>
+          </div>
+          <div class="journey-arrow">&#8594;</div>
+          <div class="journey-letter" data-letter="A" data-name="AUDIO">
+            <span class="jl-char">A</span>
+            <span class="jl-label">Audio</span>
+          </div>
+          <div class="journey-arrow">&#8594;</div>
+          <div class="journey-letter" data-letter="V" data-name="VIDEO">
+            <span class="jl-char">V</span>
+            <span class="jl-label">Video</span>
+          </div>
+        </div>
+        <div class="journey-philosophy reveal-up" data-delay="400">
+          <div class="philosophy-item"><span>From thinking to seeing.</span></div>
+          <div class="philosophy-divider"></div>
+          <div class="philosophy-item"><span>From seeing to feeling.</span></div>
+          <div class="philosophy-divider"></div>
+          <div class="philosophy-item"><span>From feeling to remembering.</span></div>
+        </div>
+        <p class="experience-trademark reveal-up" data-delay="500">
+          That's the <strong>MIDCAV Experience&#8482;</strong>
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- SIX DIMENSIONS CARDS -->
+  <section id="dimensions" class="dimensions-section">
+    <div class="container">
+      <div class="dimensions-grid">
+        <article class="dim-card dim-method reveal-card" data-index="0" id="dim-m">
+          <div class="dim-card-visual">
+            <canvas class="dim-canvas" id="canvas-method" data-type="method"></canvas>
+          </div>
+          <div class="dim-card-content">
+            <div class="dim-header">
+              <span class="dim-letter">M</span>
+              <span class="dim-separator">&#8212;</span>
+              <span class="dim-name">METHOD</span>
+            </div>
+            <h3 class="dim-engine">THINKING ENGINE</h3>
+            <p class="dim-description">Strategy, insight and creative intelligence that give every idea direction.</p>
+            <div class="dim-tag">Strategic Intelligence</div>
+          </div>
+          <div class="dim-card-glow dim-glow-method"></div>
+        </article>
+
+        <article class="dim-card dim-image reveal-card" data-index="1" id="dim-i">
+          <div class="dim-card-visual">
+            <canvas class="dim-canvas" id="canvas-image" data-type="image"></canvas>
+          </div>
+          <div class="dim-card-content">
+            <div class="dim-header">
+              <span class="dim-letter">I</span>
+              <span class="dim-separator">&#8212;</span>
+              <span class="dim-name">IMAGE</span>
+            </div>
+            <h3 class="dim-engine">VISUAL ENGINE</h3>
+            <p class="dim-description">Imagery that captures attention, creates desire and builds recognition.</p>
+            <div class="dim-tag">Visual Craft</div>
+          </div>
+          <div class="dim-card-glow dim-glow-image"></div>
+        </article>
+
+        <article class="dim-card dim-design reveal-card" data-index="2" id="dim-d">
+          <div class="dim-card-visual">
+            <canvas class="dim-canvas" id="canvas-design" data-type="design"></canvas>
+          </div>
+          <div class="dim-card-content">
+            <div class="dim-header">
+              <span class="dim-letter">D</span>
+              <span class="dim-separator">&#8212;</span>
+              <span class="dim-name">DESIGN</span>
+            </div>
+            <h3 class="dim-engine">EXPERIENCE ENGINE</h3>
+            <p class="dim-description">Identities and interfaces designed to make brands instantly recognisable.</p>
+            <div class="dim-tag">Brand Experience</div>
+          </div>
+          <div class="dim-card-glow dim-glow-design"></div>
+        </article>
+
+        <article class="dim-card dim-content reveal-card" data-index="3" id="dim-c">
+          <div class="dim-card-visual">
+            <canvas class="dim-canvas" id="canvas-content" data-type="content"></canvas>
+          </div>
+          <div class="dim-card-content">
+            <div class="dim-header">
+              <span class="dim-letter">C</span>
+              <span class="dim-separator">&#8212;</span>
+              <span class="dim-name">CONTENT</span>
+            </div>
+            <h3 class="dim-engine">STORY ENGINE</h3>
+            <p class="dim-description">Words, narratives and ideas engineered to make brands matter.</p>
+            <div class="dim-tag">Narrative Craft</div>
+          </div>
+          <div class="dim-card-glow dim-glow-content"></div>
+        </article>
+
+        <article class="dim-card dim-audio reveal-card" data-index="4" id="dim-a">
+          <div class="dim-card-visual">
+            <canvas class="dim-canvas" id="canvas-audio" data-type="audio"></canvas>
+          </div>
+          <div class="dim-card-content">
+            <div class="dim-header">
+              <span class="dim-letter">A</span>
+              <span class="dim-separator">&#8212;</span>
+              <span class="dim-name">AUDIO</span>
+            </div>
+            <h3 class="dim-engine">SONIC ENGINE</h3>
+            <p class="dim-description">Voices, sound and sonic identities that make brands memorable.</p>
+            <div class="dim-tag">Sonic Identity</div>
+          </div>
+          <div class="dim-card-glow dim-glow-audio"></div>
+        </article>
+
+        <article class="dim-card dim-video reveal-card" data-index="5" id="dim-v">
+          <div class="dim-card-visual">
+            <canvas class="dim-canvas" id="canvas-video" data-type="video"></canvas>
+          </div>
+          <div class="dim-card-content">
+            <div class="dim-header">
+              <span class="dim-letter">V</span>
+              <span class="dim-separator">&#8212;</span>
+              <span class="dim-name">VIDEO</span>
+            </div>
+            <h3 class="dim-engine">MOTION ENGINE</h3>
+            <p class="dim-description">Cinematic stories, motion and visual experiences designed to move people.</p>
+            <div class="dim-tag">Motion &amp; Film</div>
+          </div>
+          <div class="dim-card-glow dim-glow-video"></div>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- OUR EDGE SECTION -->
+  <section id="edge" class="edge-section">
+    <div class="edge-bg-canvas-wrap">
+      <canvas id="edge-canvas"></canvas>
+    </div>
+    <div class="container">
+      <div class="section-label reveal-up" data-delay="0">
+        <span class="label-line"></span>
+        <span>Our Edge</span>
+        <span class="label-line"></span>
+      </div>
+      <div class="edge-grid">
+        <div class="edge-left reveal-up" data-delay="100">
+          <h2 class="edge-headline">
+            WHERE<br/>
+            <em>CREATIVITY</em><br/>
+            MEETS<br/>
+            ENGINEERING.
+          </h2>
+          <p class="edge-body">
+            We bring everything together under one creative ecosystem —
+            a single studio capable of thinking, creating and delivering
+            across every dimension of your brand.
           </p>
-          <div class="hero-actions" style="display: flex; gap: 1rem;">
-            <a href="#services" class="btn-cyan">Explore Our Services</a>
-            <a href="agency.html#work" class="btn-outline-pill" style="padding: 0.8rem 1.8rem; font-size: 0.95rem;">View Our Work</a>
-          </div>
         </div>
-        <div class="hero-right" style="flex: 1.2; position: relative;">
-          <div class="glow-bg" style="position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%); width: 100%; height: 100%; background: radial-gradient(circle, rgba(0,242,254,0.15) 0%, transparent 70%); z-index: 0;"></div>
-          <img src="home_hero.jpg" alt="Futuristic Tech Office" style="width: 100%; border-radius: var(--radius-lg); box-shadow: 0 20px 50px rgba(0,0,0,0.5); position: relative; z-index: 1;" />
+        <div class="edge-right">
+          <div class="edge-pillar reveal-up" data-delay="150" id="edge-p1">
+            <div class="pillar-number">01</div>
+            <div class="pillar-content">
+              <h3 class="pillar-title">STRATEGY WITH IMAGINATION.</h3>
+              <div class="pillar-bar"><div class="pillar-fill"></div></div>
+            </div>
+          </div>
+          <div class="edge-pillar reveal-up" data-delay="200" id="edge-p2">
+            <div class="pillar-number">02</div>
+            <div class="pillar-content">
+              <h3 class="pillar-title">CREATIVITY WITH TECHNOLOGY.</h3>
+              <div class="pillar-bar"><div class="pillar-fill"></div></div>
+            </div>
+          </div>
+          <div class="edge-pillar reveal-up" data-delay="250" id="edge-p3">
+            <div class="pillar-number">03</div>
+            <div class="pillar-content">
+              <h3 class="pillar-title">DESIGN WITH PURPOSE.</h3>
+              <div class="pillar-bar"><div class="pillar-fill"></div></div>
+            </div>
+          </div>
+          <div class="edge-pillar reveal-up" data-delay="300" id="edge-p4">
+            <div class="pillar-number">04</div>
+            <div class="pillar-content">
+              <h3 class="pillar-title">CONTENT WITH CHARACTER.</h3>
+              <div class="pillar-bar"><div class="pillar-fill"></div></div>
+            </div>
+          </div>
         </div>
       </div>
-    </section>
+    </div>
+  </section>
 
-    <!-- WHAT IS MIDCAV CORE SECTION -->
-    <section id="what-is-midcav" style="padding: 6rem 4%; position: relative;">
-      <div style="text-align: center; margin-bottom: 4rem;">
-        <h2 style="font-size: 2.5rem; font-weight: 800; margin-bottom: 1rem;">The Core of MIDCAV</h2>
-        <p style="color: var(--clr-muted); max-width: 600px; margin: 0 auto;">Our ecosystem is built on four interconnected pillars that guarantee success.</p>
+  <!-- CREATE WHAT'S NEXT -->
+  <section id="create" class="create-section">
+    <div class="container">
+      <div class="create-inner">
+        <div class="create-label reveal-up" data-delay="0">
+          <span class="label-line"></span>
+          <span>Manifesto</span>
+          <span class="label-line"></span>
+        </div>
+        <h2 class="create-headline reveal-up" data-delay="100">
+          CREATE<br/>
+          <span class="create-accent">WHAT'S NEXT.</span>
+        </h2>
+        <p class="create-body reveal-up" data-delay="200">
+          Ideas are everywhere.<br/>
+          <strong>The difference is how you engineer them.</strong>
+        </p>
+        <div class="create-engine-display reveal-up" data-delay="300">
+          <div class="engine-label">ONE CREATIVE ENGINE</div>
+          <div class="engine-flow">
+            <span class="ef-item ef-m">METHOD</span>
+            <span class="ef-arrow">&#8594;</span>
+            <span class="ef-item ef-i">IMAGE</span>
+            <span class="ef-arrow">&#8594;</span>
+            <span class="ef-item ef-d">DESIGN</span>
+            <span class="ef-arrow">&#8594;</span>
+            <span class="ef-item ef-c">CONTENT</span>
+            <span class="ef-arrow">&#8594;</span>
+            <span class="ef-item ef-a">AUDIO</span>
+            <span class="ef-arrow">&#8594;</span>
+            <span class="ef-item ef-v">VIDEO</span>
+          </div>
+        </div>
+        <a href="#contact" class="btn-primary btn-large reveal-up" data-delay="400" id="create-cta-btn">
+          <span>Start Your Project</span>
+          <svg class="btn-arrow" width="24" height="24" viewBox="0 0 24 24" fill="none">
+            <path d="M5 12h14M14 7l5 5-5 5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+          </svg>
+        </a>
       </div>
+    </div>
+    <div class="create-bg-orbs">
+      <div class="orb orb-1"></div>
+      <div class="orb orb-2"></div>
+      <div class="orb orb-3"></div>
+    </div>
+  </section>
 
-      <div class="core-container" style="display: flex; justify-content: center; align-items: center; position: relative; max-width: 1000px; margin: 0 auto; height: 500px;">
-        <!-- Center Hub -->
-        <div class="core-hub" style="position: absolute; z-index: 10; text-align: center;">
-          <img src="midcav_core.jpg" alt="MIDCAV Core" style="width: 250px; height: 250px; border-radius: 50%; object-fit: cover; box-shadow: 0 0 40px rgba(0, 242, 254, 0.4); border: 2px solid var(--clr-cyan);" />
+  <!-- CONTACT SECTION -->
+  <section id="contact" class="contact-section">
+    <div class="container">
+      <div class="contact-grid">
+        <div class="contact-left reveal-up" data-delay="0">
+          <div class="section-label">
+            <span class="label-line"></span>
+            <span>Get In Touch</span>
+            <span class="label-line"></span>
+          </div>
+          <h2 class="contact-headline">
+            LET'S BUILD<br/>
+            <em>SOMETHING</em><br/>
+            REMARKABLE.
+          </h2>
+          <p class="contact-body">
+            Ready to engineer your next big idea?<br/>
+            The MIDCAV creative engine is ready.
+          </p>
+          <div class="contact-info">
+            <div class="contact-item">
+              <span class="ci-label">Studio</span>
+              <span class="ci-value">MIDCAV Digital Technologies</span>
+            </div>
+            <div class="contact-item">
+              <span class="ci-label">Approach</span>
+              <span class="ci-value">Full-service Creative Technology</span>
+            </div>
+          </div>
         </div>
-        
-        <!-- Connected Nodes -->
-        <!-- Technology -->
-        <div class="core-node glass-card" style="position: absolute; top: 0; left: 10%; padding: 1.5rem; width: 220px; text-align: center;">
-          <h4 style="color: var(--clr-cyan); margin-bottom: 0.5rem;">Technology</h4>
-          <p style="font-size: 0.8rem; color: var(--clr-muted);">Advanced engineering and resilient architectures.</p>
+        <div class="contact-right reveal-up" data-delay="200">
+          <form class="contact-form" id="contact-form" novalidate>
+            <div class="form-row">
+              <div class="form-group">
+                <label for="cf-name">Your Name</label>
+                <input type="text" id="cf-name" name="name" placeholder="Full Name" required />
+              </div>
+              <div class="form-group">
+                <label for="cf-email">Email Address</label>
+                <input type="email" id="cf-email" name="email" placeholder="you@company.com" required />
+              </div>
+            </div>
+            <div class="form-group">
+              <label for="cf-project">Project Type</label>
+              <select id="cf-project" name="project">
+                <option value="" disabled selected>Select a dimension...</option>
+                <option value="method">M &#8212; Method / Strategy</option>
+                <option value="image">I &#8212; Image / Visual</option>
+                <option value="design">D &#8212; Design / Identity</option>
+                <option value="content">C &#8212; Content / Story</option>
+                <option value="audio">A &#8212; Audio / Sonic</option>
+                <option value="video">V &#8212; Video / Motion</option>
+                <option value="full">Full Creative Engine</option>
+              </select>
+            </div>
+            <div class="form-group">
+              <label for="cf-message">Tell us about your project</label>
+              <textarea id="cf-message" name="message" rows="4" placeholder="Describe your vision..."></textarea>
+            </div>
+            <button type="submit" class="btn-primary btn-submit" id="form-submit-btn">
+              <span>Send Message</span>
+              <svg class="btn-arrow" width="20" height="20" viewBox="0 0 20 20" fill="none">
+                <path d="M3 10h14M13 6l4 4-4 4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+              </svg>
+            </button>
+          </form>
         </div>
-        
-        <!-- Creativity -->
-        <div class="core-node glass-card" style="position: absolute; top: 0; right: 10%; padding: 1.5rem; width: 220px; text-align: center;">
-          <h4 style="color: var(--clr-cyan); margin-bottom: 0.5rem;">Creativity</h4>
-          <p style="font-size: 0.8rem; color: var(--clr-muted);">Stunning designs that captivate audiences.</p>
-        </div>
-
-        <!-- Strategy -->
-        <div class="core-node glass-card" style="position: absolute; bottom: 0; left: 10%; padding: 1.5rem; width: 220px; text-align: center;">
-          <h4 style="color: var(--clr-cyan); margin-bottom: 0.5rem;">Strategy</h4>
-          <p style="font-size: 0.8rem; color: var(--clr-muted);">Data-driven planning and market positioning.</p>
-        </div>
-
-        <!-- Growth -->
-        <div class="core-node glass-card" style="position: absolute; bottom: 0; right: 10%; padding: 1.5rem; width: 220px; text-align: center;">
-          <h4 style="color: var(--clr-cyan); margin-bottom: 0.5rem;">Growth</h4>
-          <p style="font-size: 0.8rem; color: var(--clr-muted);">Scalable results that boost your bottom line.</p>
-        </div>
-        
-        <!-- SVG connecting lines could go here, but visual spacing implies connection -->
       </div>
-    </section>
+    </div>
+  </section>
 
-    <!-- STATS SECTION -->
-    <section id="home-stats" style="padding: 4rem 4%; display: flex; justify-content: center;">
-      <div class="stats-box glass-card" style="position: relative; width: 100%; max-width: 1200px; left: auto; bottom: auto; margin: 0;">
-        <div class="stat-item">
-          <div class="stat-icon"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="var(--clr-cyan)" stroke-width="2"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg></div>
-          <h3 class="stat-num">50+</h3>
-          <p class="stat-label">Experts</p>
+  <!-- FOOTER -->
+  <footer class="footer">
+    <div class="footer-top">
+      <div class="footer-brand">
+        <div class="footer-logo">MIDCAV<span class="footer-logo-dot">.</span></div>
+        <p class="footer-tagline">Creative Intelligence &#8226; Digital Experiences &#8226; Visual Innovation</p>
+        <p class="footer-mantra">Think Different. Create Remarkable.</p>
+      </div>
+      <div class="footer-nav-cols">
+        <div class="footer-col">
+          <h4>The Engine</h4>
+          <a href="#dim-m">Method</a>
+          <a href="#dim-i">Image</a>
+          <a href="#dim-d">Design</a>
         </div>
-        <div class="stat-item">
-          <div class="stat-icon"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="var(--clr-cyan)" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="M8 14s1.5 2 4 2 4-2 4-2"/><line x1="9" y1="9" x2="9.01" y2="9"/><line x1="15" y1="9" x2="15.01" y2="9"/></svg></div>
-          <h3 class="stat-num">120+</h3>
-          <p class="stat-label">Clients</p>
+        <div class="footer-col">
+          <h4>Dimensions</h4>
+          <a href="#dim-c">Content</a>
+          <a href="#dim-a">Audio</a>
+          <a href="#dim-v">Video</a>
         </div>
-        <div class="stat-item">
-          <div class="stat-icon"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="var(--clr-cyan)" stroke-width="2"><path d="M4.5 16.5c-1.5 1.26-2 5-2 5s3.74-.5 5-2l.5-.5m-3-3l-.5.5m3 3L18 8m3-3a3.15 3.15 0 0 0-4.46 0l-7.72 7.71M21 3l-6 6"/></svg></div>
-          <h3 class="stat-num">250+</h3>
-          <p class="stat-label">Projects</p>
-        </div>
-        <div class="stat-item">
-          <div class="stat-icon"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="var(--clr-cyan)" stroke-width="2"><path d="M6 9H4.5a2.5 2.5 0 0 1 0-5H6"/><path d="M18 9h1.5a2.5 2.5 0 0 0 0-5H18"/><path d="M4 22h16"/><path d="M10 14.66V17c0 .55-.47.98-.97 1.21C7.85 18.75 7 20.24 7 22"/><path d="M14 14.66V17c0 .55.47.98.97 1.21C16.15 18.75 17 20.24 17 22"/><path d="M18 2H6v7a6 6 0 0 0 12 0V2Z"/></svg></div>
-          <h3 class="stat-num">98%</h3>
-          <p class="stat-label">Client Satisfaction</p>
+        <div class="footer-col">
+          <h4>Studio</h4>
+          <a href="#edge">Our Edge</a>
+          <a href="#create">Manifesto</a>
+          <a href="#contact">Contact</a>
         </div>
       </div>
-    </section>
-
-    <!-- OUR DIGITAL SOLUTIONS SECTION -->
-    <section id="services" style="padding: 6rem 4%; background: linear-gradient(180deg, var(--clr-bg) 0%, rgba(10,14,25,0.8) 100%);">
-      <div style="text-align: center; margin-bottom: 4rem;">
-        <div class="section-label">OUR EXPERTISE</div>
-        <h2 style="font-size: 2.5rem; font-weight: 800; margin-bottom: 1rem;">Digital Solutions</h2>
-        <p style="color: var(--clr-muted); max-width: 600px; margin: 0 auto;">Comprehensive services designed to elevate your brand and optimize your operations.</p>
+    </div>
+    <div class="footer-bottom">
+      <div class="footer-separator"></div>
+      <div class="footer-bottom-inner">
+        <p class="footer-copy">&#169; 2026 MIDCAV Digital Technologies. All rights reserved.</p>
+        <div class="footer-pills">
+          <span class="footer-pill">METHOD</span>
+          <span class="footer-pill">IMAGE</span>
+          <span class="footer-pill">DESIGN</span>
+          <span class="footer-pill">CONTENT</span>
+          <span class="footer-pill">AUDIO</span>
+          <span class="footer-pill">VIDEO</span>
+        </div>
       </div>
+    </div>
+  </footer>
 
-      <div class="services-grid" style="grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 1.5rem; max-width: 1400px; margin: 0 auto;">
-        
-        <div class="service-card glass-card" style="border: 1px solid var(--clr-border);">
-          <div class="service-img" style="background-image: url('hero_monitor.jpg'); height: 140px;"></div>
-          <div class="service-card-content" style="padding: 1.5rem;">
-            <div class="service-icon"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.3-4.3"/></svg></div>
-            <h3 class="service-title" style="margin-top: 0.5rem;">Digital Marketing</h3>
-            <p class="service-desc">Data-driven strategies to grow your audience and conversions.</p>
-          </div>
-        </div>
+  <div class="custom-cursor" id="custom-cursor">
+    <div class="cursor-dot"></div>
+    <div class="cursor-ring"></div>
+  </div>
 
-        <div class="service-card glass-card" style="border: 1px solid var(--clr-border);">
-          <div class="service-img" style="background-image: url('hero_wave.jpg'); height: 140px;"></div>
-          <div class="service-card-content" style="padding: 1.5rem;">
-            <div class="service-icon"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 20h9M16.5 3.5a2.121 2.121 0 0 1 3 3L7 19l-4 1 1-4L16.5 3.5z"/></svg></div>
-            <h3 class="service-title" style="margin-top: 0.5rem;">Branding & Design</h3>
-            <p class="service-desc">Memorable identities and stunning visuals that stand out.</p>
-          </div>
-        </div>
-
-        <div class="service-card glass-card" style="border: 1px solid var(--clr-border);">
-          <div class="service-img" style="background-image: url('mockup1.jpg'); height: 140px;"></div>
-          <div class="service-card-content" style="padding: 1.5rem;">
-            <div class="service-icon"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="16 18 22 12 16 6"/><polyline points="8 6 2 12 8 18"/></svg></div>
-            <h3 class="service-title" style="margin-top: 0.5rem;">Web Development</h3>
-            <p class="service-desc">High-performance websites built on modern tech stacks.</p>
-          </div>
-        </div>
-
-        <div class="service-card glass-card" style="border: 1px solid var(--clr-border);">
-          <div class="service-img" style="background-image: url('hero_camera.jpg'); height: 140px;"></div>
-          <div class="service-card-content" style="padding: 1.5rem;">
-            <div class="service-icon"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="5" y="2" width="14" height="20" rx="2" ry="2"/><line x1="12" y1="18" x2="12.01" y2="18"/></svg></div>
-            <h3 class="service-title" style="margin-top: 0.5rem;">App Development</h3>
-            <p class="service-desc">Native and cross-platform mobile experiences.</p>
-          </div>
-        </div>
-
-        <div class="service-card glass-card" style="border: 1px solid var(--clr-border);">
-          <div class="service-img" style="background-image: url('hero_team.jpg'); height: 140px;"></div>
-          <div class="service-card-content" style="padding: 1.5rem;">
-            <div class="service-icon"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z"/><polyline points="3.27 6.96 12 12.01 20.73 6.96"/><line x1="12" y1="22.08" x2="12" y2="12"/></svg></div>
-            <h3 class="service-title" style="margin-top: 0.5rem;">Software Dev</h3>
-            <p class="service-desc">Custom enterprise software to streamline your operations.</p>
-          </div>
-        </div>
-
-        <div class="service-card glass-card" style="border: 1px solid var(--clr-border);">
-          <div class="service-img" style="background-image: url('hero_wave.jpg'); height: 140px;"></div>
-          <div class="service-card-content" style="padding: 1.5rem;">
-            <div class="service-icon"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/></svg></div>
-            <h3 class="service-title" style="margin-top: 0.5rem;">Content Creation</h3>
-            <p class="service-desc">Engaging multimedia content that tells your story.</p>
-          </div>
-        </div>
-
-        <div class="service-card glass-card" style="border: 1px solid var(--clr-border);">
-          <div class="service-img" style="background-image: url('stats_bg.jpg'); height: 140px;"></div>
-          <div class="service-card-content" style="padding: 1.5rem;">
-            <div class="service-icon"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="18" y1="20" x2="18" y2="10"/><line x1="12" y1="20" x2="12" y2="4"/><line x1="6" y1="20" x2="6" y2="14"/></svg></div>
-            <h3 class="service-title" style="margin-top: 0.5rem;">Analytics & Reporting</h3>
-            <p class="service-desc">Deep insights to optimize your campaigns and ROI.</p>
-          </div>
-        </div>
-
-      </div>
-    </section>
-
-  </main>
-  
   <script src="script.js"></script>
 </body>
 </html>
