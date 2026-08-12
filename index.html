@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>MIDCAV Digital Technologies</title>
+  <title>MIDCAV - What Is MIDCAV?</title>
   <link rel="stylesheet" href="style.css" />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
@@ -14,28 +14,27 @@
   <!-- NAVIGATION -->
   <nav id="navbar">
     <div class="nav-logo">
-      <span class="nav-logo-main">MIDCAV</span>
+      <span class="nav-logo-main"><a href="index.html">MIDCAV</a></span>
       <span class="nav-logo-sub">DIGITAL TECHNOLOGIES</span>
     </div>
 
     <ul class="nav-links">
+      <li><a href="index.html">Home</a></li>
+      <li><a href="agency.html">Agency</a></li>
       <li class="has-dropdown">
-        <a href="index.html#services">Services <svg width="10" height="6" viewBox="0 0 10 6" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M1 1L5 5L9 1" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
+        <a href="#services">Services <svg width="10" height="6" viewBox="0 0 10 6" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M1 1L5 5L9 1" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
         <div class="dropdown-menu">
           <a href="technology-solutions.html">Technology Solutions</a>
           <a href="digital-marketing.html">Digital Marketing</a>
           <a href="software-development.html">Software & App Development</a>
         </div>
       </li>
-      <li><a href="index.html#work">Work</a></li>
-      <li><a href="index.html#about">About</a></li>
-      <li><a href="index.html#process">Process</a></li>
-      <li><a href="index.html#insights">Insights</a></li>
-      <li><a href="index.html#contact">Contact</a></li>
+      <li><a href="agency.html#work">Work</a></li>
+      <li><a href="agency.html#contact">Contact</a></li>
     </ul>
 
     <div class="nav-actions">
-      <a href="index.html#contact" class="nav-cta-outline">Let's Talk</a>
+      <a href="agency.html#contact" class="nav-cta-outline">Let's Talk</a>
       <button class="hamburger-btn">
         <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
           <path d="M4 6H20M4 12H20M4 18H20" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
@@ -46,260 +45,169 @@
 
   <main>
     <!-- HERO SECTION -->
-    <section id="hero">
-      <div class="hero-bg-container">
-        <img src="hero_monitor.jpg" alt="Hero Background" class="hero-bg-img" />
-        <div class="hero-fade-overlay"></div>
-      </div>
-
-      <div class="hero-content">
-        <div class="hero-left">
-          <div class="hero-label">WE'RE MIDCAV</div>
-          <h1 class="hero-headline">
-            WE DON'T JUST<br />
-            MAKE THINGS LOOK GOOD.<br />
-            <span class="grad">WE MAKE THEM MATTER.</span>
+    <section id="hero-new" class="home-hero">
+      <div class="hero-content" style="display: flex; align-items: center; justify-content: space-between; gap: 4rem; padding: 120px 4% 80px 4%;">
+        <div class="hero-left" style="flex: 1; max-width: 600px; position: relative; z-index: 2;">
+          <div class="hero-label" style="color: var(--clr-cyan); font-weight: 700; letter-spacing: 0.1em; margin-bottom: 1rem;">WHAT IS MIDCAV?</div>
+          <h1 class="hero-headline" style="font-size: clamp(2.5rem, 4vw, 3.5rem); font-weight: 800; line-height: 1.1; margin-bottom: 1.5rem;">
+            Where <span class="text-cyan">Technology</span>, <span class="text-purple">Creativity</span> &amp; <span class="text-cyan">Strategy</span> Drive Real Impact.
           </h1>
-          <p class="hero-sub">
-            From a brand identity to a digital campaign. From a film to<br/>
-            an immersive experience. From a sound to a story.<br/>
-            We turn ideas into lasting impact across every medium.
+          <p class="hero-sub" style="font-size: 1.1rem; color: var(--clr-muted-light); line-height: 1.6; margin-bottom: 2.5rem;">
+            MIDCAV is a premier digital technology and creative agency. We transform businesses by blending cutting-edge engineering with world-class design and data-driven marketing.
           </p>
-          <div class="hero-actions">
-            <a href="#work" class="btn-primary">
-              Explore Our Work <svg width="14" height="10" viewBox="0 0 14 10" fill="none"><path d="M1 5H13M13 5L9 1M13 5L9 9" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
-            </a>
-            <a href="#showreel" class="btn-showreel">
-              <span class="showreel-play">
-                <svg viewBox="0 0 16 16" fill="currentColor" width="10" height="10"><polygon points="5,3 13,8 5,13"/></svg>
-              </span>
-              Play Showreel <svg width="14" height="10" viewBox="0 0 14 10" fill="none"><path d="M1 5H13M13 5L9 1M13 5L9 9" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
-            </a>
+          <div class="hero-actions" style="display: flex; gap: 1rem;">
+            <a href="#services" class="btn-cyan">Explore Our Services</a>
+            <a href="agency.html#work" class="btn-outline-pill" style="padding: 0.8rem 1.8rem; font-size: 0.95rem;">View Our Work</a>
           </div>
+        </div>
+        <div class="hero-right" style="flex: 1.2; position: relative;">
+          <div class="glow-bg" style="position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%); width: 100%; height: 100%; background: radial-gradient(circle, rgba(0,242,254,0.15) 0%, transparent 70%); z-index: 0;"></div>
+          <img src="home_hero.jpg" alt="Futuristic Tech Office" style="width: 100%; border-radius: var(--radius-lg); box-shadow: 0 20px 50px rgba(0,0,0,0.5); position: relative; z-index: 1;" />
         </div>
       </div>
     </section>
 
-    <!-- SERVICES CARDS STRIP -->
-    <section id="services-strip">
-      <div class="services-grid">
-        <!-- 01 Branding -->
-        <div class="service-card">
-          <div class="service-img" style="background-image: url('mockup1.jpg');"></div>
-          <div class="service-card-content">
-            <div class="service-icon"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 20h9M16.5 3.5a2.121 2.121 0 0 1 3 3L7 19l-4 1 1-4L16.5 3.5z"/></svg></div>
-            <div class="service-num">01</div>
-            <h3 class="service-title">Branding</h3>
-            <p class="service-desc">We create identities that speak, stand out and stay remembered.</p>
-            <a href="#" class="service-arrow"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg></a>
-          </div>
+    <!-- WHAT IS MIDCAV CORE SECTION -->
+    <section id="what-is-midcav" style="padding: 6rem 4%; position: relative;">
+      <div style="text-align: center; margin-bottom: 4rem;">
+        <h2 style="font-size: 2.5rem; font-weight: 800; margin-bottom: 1rem;">The Core of MIDCAV</h2>
+        <p style="color: var(--clr-muted); max-width: 600px; margin: 0 auto;">Our ecosystem is built on four interconnected pillars that guarantee success.</p>
+      </div>
+
+      <div class="core-container" style="display: flex; justify-content: center; align-items: center; position: relative; max-width: 1000px; margin: 0 auto; height: 500px;">
+        <!-- Center Hub -->
+        <div class="core-hub" style="position: absolute; z-index: 10; text-align: center;">
+          <img src="midcav_core.jpg" alt="MIDCAV Core" style="width: 250px; height: 250px; border-radius: 50%; object-fit: cover; box-shadow: 0 0 40px rgba(0, 242, 254, 0.4); border: 2px solid var(--clr-cyan);" />
+        </div>
+        
+        <!-- Connected Nodes -->
+        <!-- Technology -->
+        <div class="core-node glass-card" style="position: absolute; top: 0; left: 10%; padding: 1.5rem; width: 220px; text-align: center;">
+          <h4 style="color: var(--clr-cyan); margin-bottom: 0.5rem;">Technology</h4>
+          <p style="font-size: 0.8rem; color: var(--clr-muted);">Advanced engineering and resilient architectures.</p>
+        </div>
+        
+        <!-- Creativity -->
+        <div class="core-node glass-card" style="position: absolute; top: 0; right: 10%; padding: 1.5rem; width: 220px; text-align: center;">
+          <h4 style="color: var(--clr-cyan); margin-bottom: 0.5rem;">Creativity</h4>
+          <p style="font-size: 0.8rem; color: var(--clr-muted);">Stunning designs that captivate audiences.</p>
         </div>
 
-        <!-- 02 Digital -->
-        <div class="service-card">
-          <div class="service-img" style="background-image: url('hero_monitor.jpg');"></div>
-          <div class="service-card-content">
-            <div class="service-icon"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="3" width="20" height="14" rx="2" ry="2"/><line x1="8" y1="21" x2="16" y2="21"/><line x1="12" y1="17" x2="12" y2="21"/></svg></div>
-            <div class="service-num">02</div>
-            <h3 class="service-title">Digital</h3>
-            <p class="service-desc">Digital experiences that engage, convert and build relationships.</p>
-            <a href="#" class="service-arrow"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg></a>
-          </div>
+        <!-- Strategy -->
+        <div class="core-node glass-card" style="position: absolute; bottom: 0; left: 10%; padding: 1.5rem; width: 220px; text-align: center;">
+          <h4 style="color: var(--clr-cyan); margin-bottom: 0.5rem;">Strategy</h4>
+          <p style="font-size: 0.8rem; color: var(--clr-muted);">Data-driven planning and market positioning.</p>
         </div>
 
-        <!-- 03 Design -->
-        <div class="service-card">
-          <div class="service-img" style="background-image: url('hero_wave.jpg');"></div>
-          <div class="service-card-content">
-            <div class="service-icon"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 20h9M16.5 3.5a2.121 2.121 0 0 1 3 3L7 19l-4 1 1-4L16.5 3.5z"/></svg></div>
-            <div class="service-num">03</div>
-            <h3 class="service-title">Design</h3>
-            <p class="service-desc">Designs that communicate clearly and leave a strong impression.</p>
-            <a href="#" class="service-arrow"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg></a>
-          </div>
+        <!-- Growth -->
+        <div class="core-node glass-card" style="position: absolute; bottom: 0; right: 10%; padding: 1.5rem; width: 220px; text-align: center;">
+          <h4 style="color: var(--clr-cyan); margin-bottom: 0.5rem;">Growth</h4>
+          <p style="font-size: 0.8rem; color: var(--clr-muted);">Scalable results that boost your bottom line.</p>
         </div>
+        
+        <!-- SVG connecting lines could go here, but visual spacing implies connection -->
+      </div>
+    </section>
 
-        <!-- 04 Content -->
-        <div class="service-card">
-          <div class="service-img" style="background-image: url('hero_team.jpg');"></div>
-          <div class="service-card-content">
-            <div class="service-icon"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/><polyline points="10 9 9 9 8 9"/></svg></div>
-            <div class="service-num">04</div>
-            <h3 class="service-title">Content</h3>
-            <p class="service-desc">Content that connects people to your brand and your story.</p>
-            <a href="#" class="service-arrow"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg></a>
-          </div>
+    <!-- STATS SECTION -->
+    <section id="home-stats" style="padding: 4rem 4%; display: flex; justify-content: center;">
+      <div class="stats-box glass-card" style="position: relative; width: 100%; max-width: 1200px; left: auto; bottom: auto; margin: 0;">
+        <div class="stat-item">
+          <div class="stat-icon"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="var(--clr-cyan)" stroke-width="2"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg></div>
+          <h3 class="stat-num">50+</h3>
+          <p class="stat-label">Experts</p>
         </div>
-
-        <!-- 05 Audio -->
-        <div class="service-card">
-          <div class="service-img" style="background-image: url('hero_wave.jpg');"></div>
-          <div class="service-card-content">
-            <div class="service-icon"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2v20M17 5v14M22 10v4M7 5v14M2 10v4"/></svg></div>
-            <div class="service-num">05</div>
-            <h3 class="service-title">Audio</h3>
-            <p class="service-desc">Sound that sets the mood, builds emotion and stays with you.</p>
-            <a href="#" class="service-arrow"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg></a>
-          </div>
+        <div class="stat-item">
+          <div class="stat-icon"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="var(--clr-cyan)" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="M8 14s1.5 2 4 2 4-2 4-2"/><line x1="9" y1="9" x2="9.01" y2="9"/><line x1="15" y1="9" x2="15.01" y2="9"/></svg></div>
+          <h3 class="stat-num">120+</h3>
+          <p class="stat-label">Clients</p>
         </div>
-
-        <!-- 06 Video -->
-        <div class="service-card">
-          <div class="service-img" style="background-image: url('hero_camera.jpg');"></div>
-          <div class="service-card-content">
-            <div class="service-icon"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="7" width="16" height="10" rx="2" ry="2"/><path d="M22 7l-4 3v4l4 3V7z"/></svg></div>
-            <div class="service-num">06</div>
-            <h3 class="service-title">Video</h3>
-            <p class="service-desc">Visual stories that captivate, inspire and drive impact.</p>
-            <a href="#" class="service-arrow"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg></a>
-          </div>
+        <div class="stat-item">
+          <div class="stat-icon"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="var(--clr-cyan)" stroke-width="2"><path d="M4.5 16.5c-1.5 1.26-2 5-2 5s3.74-.5 5-2l.5-.5m-3-3l-.5.5m3 3L18 8m3-3a3.15 3.15 0 0 0-4.46 0l-7.72 7.71M21 3l-6 6"/></svg></div>
+          <h3 class="stat-num">250+</h3>
+          <p class="stat-label">Projects</p>
+        </div>
+        <div class="stat-item">
+          <div class="stat-icon"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="var(--clr-cyan)" stroke-width="2"><path d="M6 9H4.5a2.5 2.5 0 0 1 0-5H6"/><path d="M18 9h1.5a2.5 2.5 0 0 0 0-5H18"/><path d="M4 22h16"/><path d="M10 14.66V17c0 .55-.47.98-.97 1.21C7.85 18.75 7 20.24 7 22"/><path d="M14 14.66V17c0 .55.47.98.97 1.21C16.15 18.75 17 20.24 17 22"/><path d="M18 2H6v7a6 6 0 0 0 12 0V2Z"/></svg></div>
+          <h3 class="stat-num">98%</h3>
+          <p class="stat-label">Client Satisfaction</p>
         </div>
       </div>
     </section>
 
-    <!-- OUR WORK SECTION -->
-    <section id="our-work">
-      <div class="work-container">
-        <div class="work-left">
-          <div class="section-label">OUR WORK</div>
-          <h2 class="section-title">Ideas brought<br/>to life</h2>
-          <p class="section-desc">A glimpse of our work and<br/>the impact we create.</p>
-          <a href="#" class="btn-outline-pill">
-            View All Work <svg width="14" height="10" viewBox="0 0 14 10" fill="none"><path d="M1 5H13M13 5L9 1M13 5L9 9" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
-          </a>
-        </div>
-        
-        <div class="work-right">
-          <div class="work-projects">
-            <!-- Project 1 -->
-            <div class="project-card">
-              <div class="project-img-container">
-                <img src="mockup1.jpg" alt="Auraa" class="project-img" />
-              </div>
-              <div class="project-info">
-                <h4 class="project-name">AURAA</h4>
-                <p class="project-cat">Brand Film</p>
-              </div>
-            </div>
-            <!-- Project 2 -->
-            <div class="project-card">
-              <div class="project-img-container">
-                <img src="mockup1.jpg" alt="Vortex" class="project-img" />
-              </div>
-              <div class="project-info">
-                <h4 class="project-name">VORTEX</h4>
-                <p class="project-cat">Digital Campaign</p>
-              </div>
-            </div>
-            <!-- Project 3 -->
-            <div class="project-card">
-              <div class="project-img-container">
-                <img src="hero_camera.jpg" alt="Behind The Frame" class="project-img" />
-              </div>
-              <div class="project-info">
-                <h4 class="project-name">BEHIND THE FRAME</h4>
-                <p class="project-cat">Documentary</p>
-              </div>
-            </div>
-            <!-- Project 4 -->
-            <div class="project-card">
-              <div class="project-img-container">
-                <img src="hero_wave.jpg" alt="Sound of Soul" class="project-img" />
-              </div>
-              <div class="project-info">
-                <h4 class="project-name">SOUND OF SOUL</h4>
-                <p class="project-cat">Audio Production</p>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <!-- ABOUT US REDESIGN -->
-    <section id="about-redesign">
-      <div class="about-top">
-        <div class="about-info">
-          <div class="section-label">ABOUT US</div>
-          <h2 class="about-main-title">
-            We're a team of<br/>
-            <span class="text-cyan">creators, thinkers</span><br/>
-            and <span class="text-cyan">storytellers.</span>
-          </h2>
-          <p class="about-para">
-            We believe in collaboration, curiosity and the power of ideas. We partner with brands and businesses to create work that not only looks good, but truly makes a difference.
-          </p>
-          <div class="about-actions">
-            <a href="index.html#contact" class="btn-cyan">Let's Talk <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg></a>
-            <a href="#showreel" class="btn-play">
-              <span class="play-icon-circle"><svg viewBox="0 0 16 16" fill="currentColor" width="10" height="10"><polygon points="5,3 13,8 5,13"/></svg></span>
-              Play Showreel
-            </a>
-          </div>
-        </div>
-        
-        <div class="about-image-wrapper">
-          <img src="workspace_vibe.jpg" alt="MIDCAV Workspace" class="workspace-img" />
-          
-          <!-- Floating Stats Box -->
-          <div class="stats-box glass-card">
-            <div class="stat-item">
-              <div class="stat-icon"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="var(--clr-cyan)" stroke-width="2"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg></div>
-              <h3 class="stat-num">50+</h3>
-              <p class="stat-label">Experts<br/>On Board</p>
-            </div>
-            <div class="stat-item">
-              <div class="stat-icon"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="var(--clr-cyan)" stroke-width="2"><path d="M4.5 16.5c-1.5 1.26-2 5-2 5s3.74-.5 5-2l.5-.5m-3-3l-.5.5m3 3L18 8m3-3a3.15 3.15 0 0 0-4.46 0l-7.72 7.71M21 3l-6 6"/></svg></div>
-              <h3 class="stat-num">250+</h3>
-              <p class="stat-label">Projects<br/>Delivered</p>
-            </div>
-            <div class="stat-item">
-              <div class="stat-icon"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="var(--clr-cyan)" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="M8 14s1.5 2 4 2 4-2 4-2"/><line x1="9" y1="9" x2="9.01" y2="9"/><line x1="15" y1="9" x2="15.01" y2="9"/></svg></div>
-              <h3 class="stat-num">120+</h3>
-              <p class="stat-label">Happy<br/>Clients</p>
-            </div>
-            <div class="stat-item">
-              <div class="stat-icon"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="var(--clr-cyan)" stroke-width="2"><path d="M6 9H4.5a2.5 2.5 0 0 1 0-5H6"/><path d="M18 9h1.5a2.5 2.5 0 0 0 0-5H18"/><path d="M4 22h16"/><path d="M10 14.66V17c0 .55-.47.98-.97 1.21C7.85 18.75 7 20.24 7 22"/><path d="M14 14.66V17c0 .55.47.98.97 1.21C16.15 18.75 17 20.24 17 22"/><path d="M18 2H6v7a6 6 0 0 0 12 0V2Z"/></svg></div>
-              <h3 class="stat-num">98%</h3>
-              <p class="stat-label">Client<br/>Satisfaction</p>
-            </div>
-          </div>
-        </div>
+    <!-- OUR DIGITAL SOLUTIONS SECTION -->
+    <section id="services" style="padding: 6rem 4%; background: linear-gradient(180deg, var(--clr-bg) 0%, rgba(10,14,25,0.8) 100%);">
+      <div style="text-align: center; margin-bottom: 4rem;">
+        <div class="section-label">OUR EXPERTISE</div>
+        <h2 style="font-size: 2.5rem; font-weight: 800; margin-bottom: 1rem;">Digital Solutions</h2>
+        <p style="color: var(--clr-muted); max-width: 600px; margin: 0 auto;">Comprehensive services designed to elevate your brand and optimize your operations.</p>
       </div>
 
-      <div class="about-bottom">
-        <div class="values-header">
-          <div class="section-label">WHAT DRIVES US</div>
-          <h2 class="values-title">The values behind<br/>everything we do.</h2>
-          <div class="values-line"></div>
-        </div>
+      <div class="services-grid" style="grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 1.5rem; max-width: 1400px; margin: 0 auto;">
         
-        <div class="values-grid">
-          <!-- Card 1 -->
-          <div class="value-card glass-card">
-            <div class="value-icon"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="var(--clr-cyan)" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="M12 2v20M2 12h20"/><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/></svg></div>
-            <h4 class="value-title">Creative<br/>Thinking</h4>
-            <p class="value-desc">We turn ideas into impactful digital experiences.</p>
-          </div>
-          <!-- Card 2 -->
-          <div class="value-card glass-card">
-            <div class="value-icon"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="var(--clr-cyan)" stroke-width="2"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg></div>
-            <h4 class="value-title">Collaborative<br/>Approach</h4>
-            <p class="value-desc">We work closely with you to achieve shared success.</p>
-          </div>
-          <!-- Card 3 -->
-          <div class="value-card glass-card">
-            <div class="value-icon"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="var(--clr-cyan)" stroke-width="2"><polyline points="16 18 22 12 16 6"/><polyline points="8 6 2 12 8 18"/></svg></div>
-            <h4 class="value-title">Tech-Driven<br/>Solutions</h4>
-            <p class="value-desc">We leverage the latest technologies to build future-ready solutions.</p>
-          </div>
-          <!-- Card 4 -->
-          <div class="value-card glass-card">
-            <div class="value-icon"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="var(--clr-cyan)" stroke-width="2"><circle cx="12" cy="12" r="10"/><circle cx="12" cy="12" r="6"/><circle cx="12" cy="12" r="2"/></svg></div>
-            <h4 class="value-title">Results<br/>Focused</h4>
-            <p class="value-desc">We focus on strategies that drive real results and growth.</p>
+        <div class="service-card glass-card" style="border: 1px solid var(--clr-border);">
+          <div class="service-img" style="background-image: url('hero_monitor.jpg'); height: 140px;"></div>
+          <div class="service-card-content" style="padding: 1.5rem;">
+            <div class="service-icon"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.3-4.3"/></svg></div>
+            <h3 class="service-title" style="margin-top: 0.5rem;">Digital Marketing</h3>
+            <p class="service-desc">Data-driven strategies to grow your audience and conversions.</p>
           </div>
         </div>
+
+        <div class="service-card glass-card" style="border: 1px solid var(--clr-border);">
+          <div class="service-img" style="background-image: url('hero_wave.jpg'); height: 140px;"></div>
+          <div class="service-card-content" style="padding: 1.5rem;">
+            <div class="service-icon"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 20h9M16.5 3.5a2.121 2.121 0 0 1 3 3L7 19l-4 1 1-4L16.5 3.5z"/></svg></div>
+            <h3 class="service-title" style="margin-top: 0.5rem;">Branding & Design</h3>
+            <p class="service-desc">Memorable identities and stunning visuals that stand out.</p>
+          </div>
+        </div>
+
+        <div class="service-card glass-card" style="border: 1px solid var(--clr-border);">
+          <div class="service-img" style="background-image: url('mockup1.jpg'); height: 140px;"></div>
+          <div class="service-card-content" style="padding: 1.5rem;">
+            <div class="service-icon"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="16 18 22 12 16 6"/><polyline points="8 6 2 12 8 18"/></svg></div>
+            <h3 class="service-title" style="margin-top: 0.5rem;">Web Development</h3>
+            <p class="service-desc">High-performance websites built on modern tech stacks.</p>
+          </div>
+        </div>
+
+        <div class="service-card glass-card" style="border: 1px solid var(--clr-border);">
+          <div class="service-img" style="background-image: url('hero_camera.jpg'); height: 140px;"></div>
+          <div class="service-card-content" style="padding: 1.5rem;">
+            <div class="service-icon"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="5" y="2" width="14" height="20" rx="2" ry="2"/><line x1="12" y1="18" x2="12.01" y2="18"/></svg></div>
+            <h3 class="service-title" style="margin-top: 0.5rem;">App Development</h3>
+            <p class="service-desc">Native and cross-platform mobile experiences.</p>
+          </div>
+        </div>
+
+        <div class="service-card glass-card" style="border: 1px solid var(--clr-border);">
+          <div class="service-img" style="background-image: url('hero_team.jpg'); height: 140px;"></div>
+          <div class="service-card-content" style="padding: 1.5rem;">
+            <div class="service-icon"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z"/><polyline points="3.27 6.96 12 12.01 20.73 6.96"/><line x1="12" y1="22.08" x2="12" y2="12"/></svg></div>
+            <h3 class="service-title" style="margin-top: 0.5rem;">Software Dev</h3>
+            <p class="service-desc">Custom enterprise software to streamline your operations.</p>
+          </div>
+        </div>
+
+        <div class="service-card glass-card" style="border: 1px solid var(--clr-border);">
+          <div class="service-img" style="background-image: url('hero_wave.jpg'); height: 140px;"></div>
+          <div class="service-card-content" style="padding: 1.5rem;">
+            <div class="service-icon"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/></svg></div>
+            <h3 class="service-title" style="margin-top: 0.5rem;">Content Creation</h3>
+            <p class="service-desc">Engaging multimedia content that tells your story.</p>
+          </div>
+        </div>
+
+        <div class="service-card glass-card" style="border: 1px solid var(--clr-border);">
+          <div class="service-img" style="background-image: url('stats_bg.jpg'); height: 140px;"></div>
+          <div class="service-card-content" style="padding: 1.5rem;">
+            <div class="service-icon"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="18" y1="20" x2="18" y2="10"/><line x1="12" y1="20" x2="12" y2="4"/><line x1="6" y1="20" x2="6" y2="14"/></svg></div>
+            <h3 class="service-title" style="margin-top: 0.5rem;">Analytics & Reporting</h3>
+            <p class="service-desc">Deep insights to optimize your campaigns and ROI.</p>
+          </div>
+        </div>
+
       </div>
     </section>
 

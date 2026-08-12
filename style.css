@@ -853,6 +853,31 @@ ul {
   .values-grid {
     grid-template-columns: 1fr;
   }
+  .core-container {
+    height: auto !important;
+    flex-direction: column;
+    gap: 2rem;
+  }
+  .core-node {
+    position: relative !important;
+    top: auto !important;
+    left: auto !important;
+    right: auto !important;
+    bottom: auto !important;
+    width: 100% !important;
+  }
+  .core-hub {
+    position: relative !important;
+    margin-bottom: 2rem;
+  }
+  .home-hero .hero-content {
+    flex-direction: column;
+    padding-top: 100px !important;
+    text-align: center;
+  }
+  .home-hero .hero-actions {
+    justify-content: center;
+  }
 }
 
 @media (max-width: 500px) {
@@ -862,5 +887,8 @@ ul {
   .hero-actions {
     flex-direction: column;
     align-items: flex-start;
+  }
+  .home-hero .hero-actions {
+    align-items: center;
   }
 }
