@@ -1271,3 +1271,102 @@ body:has(button:hover) .cursor-ring {
   0% { background-position: -200% 0; }
   100% { background-position: 200% 0; }
 }
+
+/* ═══════════════════════════════════════════════════════════════
+   MIDCAV CINEMATIC SCROLL BACKGROUND — Section Transparency
+   Allows the fixed z-index:-10 background stage to show through
+   all page sections while keeping content fully readable.
+   ═══════════════════════════════════════════════════════════════ */
+
+/* Make all primary sections semi-transparent / layered */
+.hero {
+  background: transparent !important;
+}
+
+.dimensions-intro {
+  background: rgba(3,5,8,0.70) !important;
+  backdrop-filter: blur(0px);
+}
+
+.dimensions-section {
+  background: rgba(7,11,18,0.72) !important;
+}
+
+.edge-section {
+  background: rgba(3,5,8,0.68) !important;
+}
+
+.create-section {
+  background: rgba(7,11,18,0.72) !important;
+}
+
+.contact-section {
+  background: rgba(3,5,8,0.80) !important;
+}
+
+.footer {
+  background: rgba(10,15,26,0.90) !important;
+}
+
+/* Dimension cards get subtle glass effect */
+.dim-card {
+  background: rgba(10,15,26,0.78) !important;
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+}
+.dim-card:hover {
+  background: rgba(13,20,34,0.88) !important;
+}
+
+/* Edge canvas wrap stays subtle */
+.edge-bg-canvas-wrap {
+  opacity: 0.25 !important;
+}
+
+/* Orbs in create section */
+.create-bg-orbs { opacity: 0.8; }
+
+/* Contact items glass */
+.contact-item {
+  background: rgba(13,20,34,0.75) !important;
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+}
+
+/* Journey philosophy block */
+.journey-philosophy {
+  background: rgba(13,20,34,0.75) !important;
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+}
+
+/* Form inputs */
+.form-group input,
+.form-group select,
+.form-group textarea {
+  background: rgba(13,20,34,0.80) !important;
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+}
+
+/* Navbar glassmorphism enhancement */
+.navbar {
+  background: rgba(3,5,8,0.30) !important;
+  backdrop-filter: blur(16px) saturate(1.8) !important;
+  -webkit-backdrop-filter: blur(16px) saturate(1.8) !important;
+  border-bottom: 1px solid rgba(255,255,255,0.05) !important;
+}
+.navbar.scrolled {
+  background: rgba(3,5,8,0.82) !important;
+  backdrop-filter: blur(24px) saturate(2) !important;
+  -webkit-backdrop-filter: blur(24px) saturate(2) !important;
+  border-color: rgba(255,255,255,0.07) !important;
+}
+
+/* Mobile nav overlay */
+.nav-mobile {
+  background: rgba(3,5,8,0.97) !important;
+  backdrop-filter: blur(20px) !important;
+  -webkit-backdrop-filter: blur(20px) !important;
+}
+
