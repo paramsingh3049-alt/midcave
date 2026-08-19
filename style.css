@@ -1379,13 +1379,20 @@ body:has(button:hover) .cursor-ring {
   position: relative;
   padding: calc(var(--nav-h) + 5rem) 0 6rem;
   overflow: hidden;
-  background: linear-gradient(
-    175deg,
-    #04070f 0%,
-    #050b16 30%,
-    #060d1b 60%,
-    #030508 100%
-  );
+  /* Background image with cinematic dark overlay */
+  background:
+    linear-gradient(
+      to bottom,
+      rgba(3,5,8,0.72) 0%,
+      rgba(4,7,15,0.60) 40%,
+      rgba(3,5,8,0.78) 100%
+    ),
+    linear-gradient(
+      105deg,
+      rgba(3,5,8,0.55) 0%,
+      transparent 60%
+    ),
+    url('home_intro_bg.jpg') center center / cover no-repeat fixed;
 }
 
 /* ─── Ambient Background ─── */
