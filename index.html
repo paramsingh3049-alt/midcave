@@ -3,1169 +3,354 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <meta name="description" content="MIDCAV — Creative Technology & Digital Media Studio. Strategy, technology, design, content, audio, video and digital marketing — engineered through one creative ecosystem." />
-  <meta property="og:title" content="MIDCAV Digital Technologies" />
-  <meta property="og:description" content="IDEAS. ENGINEERED DIFFERENTLY. Creative Technology. Digital Media. Built Differently." />
-  <title>MIDCAV Digital Technologies — Creative Technology Studio</title>
+  <meta name="description" content="MIDCAV — Premium Digital Marketing & Creative Agency. We build brands, digital experiences and campaigns that get noticed." />
+  <title>MIDCAV | Premium Creative & Digital Agency</title>
+  
+  <!-- Premium elegant fonts (Satoshi/Clash Display style via Google Fonts) -->
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&family=Space+Mono:wght@400;700&family=Syne:wght@400;600;700;800&family=Cormorant+Garamond:ital,wght@0,300;0,400;1,300;1,400&display=swap" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700&family=Playfair+Display:ital,wght@0,400;0,600;1,400&display=swap" rel="stylesheet" />
+  
   <link rel="stylesheet" href="style.css" />
 </head>
 <body>
 
-  <!-- CUSTOM CURSOR -->
-  <div class="custom-cursor" id="custom-cursor">
-    <div class="cursor-dot"></div>
-    <div class="cursor-ring"></div>
-  </div>
+  <!-- Custom Cursor -->
+  <div class="cursor-follower" id="cursor-follower"></div>
 
   <!-- NAVIGATION -->
-  <nav id="navbar" class="navbar">
-    <div class="nav-inner">
-      <a href="#hero" class="nav-logo" id="nav-logo-link">
-        <span class="logo-text">MIDCAV</span>
-        <span class="logo-dot">.</span>
-      </a>
-      <div class="nav-links" id="nav-links">
-        <a href="#engine" class="nav-link">Ecosystem</a>
-        <a href="#technology" class="nav-link">Technology</a>
-        <a href="#marketing" class="nav-link">Marketing</a>
-        <a href="#work" class="nav-link">Work</a>
-        <a href="#about" class="nav-link">About</a>
-        <a href="#contact" class="nav-link">Contact</a>
-        <button class="theme-toggle" aria-label="Toggle dark/light mode">
-          <svg class="icon-sun" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="display: none;"><circle cx="12" cy="12" r="5"></circle><line x1="12" y1="1" x2="12" y2="3"></line><line x1="12" y1="21" x2="12" y2="23"></line><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line><line x1="1" y1="12" x2="3" y2="12"></line><line x1="21" y1="12" x2="23" y2="12"></line><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line></svg>
-          <svg class="icon-moon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path></svg>
+  <nav class="navbar" id="navbar">
+    <div class="nav-container">
+      <a href="#hero" class="nav-brand">MIDCAV<span>.</span></a>
+      
+      <div class="nav-links">
+        <a href="#hero">Home</a>
+        <a href="#about">About</a>
+        <a href="#services">Services</a>
+        <a href="#work">Work</a>
+        <a href="#digital-marketing">Digital Marketing</a>
+        <a href="#contact">Contact</a>
+      </div>
+
+      <div class="nav-actions">
+        <button id="theme-toggle" class="theme-toggle" aria-label="Toggle Theme">
+          <svg class="icon-sun" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="5"></circle><line x1="12" y1="1" x2="12" y2="3"></line><line x1="12" y1="21" x2="12" y2="23"></line><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line><line x1="1" y1="12" x2="3" y2="12"></line><line x1="21" y1="12" x2="23" y2="12"></line><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line></svg>
+          <svg class="icon-moon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path></svg>
+        </button>
+        <button class="menu-toggle" id="menu-toggle">
+          <span></span><span></span>
         </button>
       </div>
-      <a href="#contact" class="nav-cta" id="nav-cta-btn">
-        <span>Start a Project</span>
-        <svg width="14" height="14" viewBox="0 0 16 16" fill="none"><path d="M3 8h10M9 4l4 4-4 4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
-      </a>
-      <button class="hamburger" id="hamburger-btn" aria-label="Toggle navigation">
-        <span></span><span></span><span></span>
-      </button>
     </div>
-    <div class="nav-mobile" id="nav-mobile">
-      <div class="nav-mobile-theme">
-        <span>Theme</span>
-        <button class="theme-toggle" aria-label="Toggle dark/light mode">
-          <svg class="icon-sun" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="display: none;"><circle cx="12" cy="12" r="5"></circle><line x1="12" y1="1" x2="12" y2="3"></line><line x1="12" y1="21" x2="12" y2="23"></line><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line><line x1="1" y1="12" x2="3" y2="12"></line><line x1="21" y1="12" x2="23" y2="12"></line><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line></svg>
-          <svg class="icon-moon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path></svg>
-        </button>
+    
+    <!-- Mobile Menu -->
+    <div class="mobile-menu" id="mobile-menu">
+      <div class="mobile-links">
+        <a href="#hero">Home</a>
+        <a href="#about">About</a>
+        <a href="#services">Services</a>
+        <a href="#work">Work</a>
+        <a href="#digital-marketing">Digital Marketing</a>
+        <a href="#contact">Contact</a>
       </div>
-      <a href="#hero" class="nav-mobile-link">Home</a>
-      <a href="#engine" class="nav-mobile-link">Ecosystem</a>
-      <a href="#technology" class="nav-mobile-link">Technology</a>
-      <a href="#marketing" class="nav-mobile-link">Marketing</a>
-      <a href="#brand" class="nav-mobile-link">Brand</a>
-      <a href="#work" class="nav-mobile-link">Work</a>
-      <a href="#about" class="nav-mobile-link">About</a>
-      <a href="#contact" class="nav-mobile-link">Contact</a>
     </div>
   </nav>
 
-  <!-- ═══════════════════════════════════════ -->
-  <!-- 1. HERO SECTION                        -->
-  <!-- ═══════════════════════════════════════ -->
-  <section id="hero" class="hero">
-    <canvas id="hero-canvas" class="hero-canvas"></canvas>
-    <div class="hero-bg" style="background-image: url('hero_bg_new.jpg')"></div>
+  <!-- 1. HERO SECTION -->
+  <section id="hero" class="hero-section">
+    <div class="hero-bg" style="background-image: url('workspace_vibe.jpg')"></div>
     <div class="hero-overlay"></div>
-
-    <!-- Floating MIDCAV letters -->
-    <div class="hero-floating-letters" aria-hidden="true">
-      <span class="float-letter fl-m" style="--clr: var(--clr-m)">M</span>
-      <span class="float-letter fl-i" style="--clr: var(--clr-i)">I</span>
-      <span class="float-letter fl-d" style="--clr: var(--clr-d)">D</span>
-      <span class="float-letter fl-c" style="--clr: var(--clr-c)">C</span>
-      <span class="float-letter fl-a" style="--clr: var(--clr-a)">A</span>
-      <span class="float-letter fl-v" style="--clr: var(--clr-v)">V</span>
-    </div>
-
-    <div class="hero-content" id="hero-content">
-      <div class="hero-eyebrow reveal-up" data-delay="0">
-        <span class="eyebrow-line"></span>
-        <span class="eyebrow-mono">IDEAS. ENGINEERED DIFFERENTLY.</span>
-        <span class="eyebrow-line"></span>
-      </div>
-
-      <h1 class="hero-headline reveal-up" data-delay="100">
-        <span class="headline-line">Creative Technology.</span>
-        <span class="headline-line">Digital Media.</span>
-        <span class="headline-line accent-gradient">Built Differently.</span>
+    
+    <div class="hero-content">
+      <h1 class="hero-title reveal-text">
+        <span>DIGITAL.</span>
+        <span>CREATIVE.</span>
+        <span>DIFFERENT.</span>
       </h1>
-
-      <p class="hero-sub reveal-up" data-delay="300">
-        Strategy, technology, design, content, audio, video and digital marketing —<br class="hide-mobile" />
-        engineered through one creative ecosystem.
+      <p class="hero-subtitle reveal-fade">
+        We build brands, digital experiences and campaigns that get noticed.
       </p>
-
-      <div class="hero-tagline-strip reveal-up" data-delay="500">
-        <span>METHOD</span><span class="strip-bullet">•</span>
-        <span>IMAGE</span><span class="strip-bullet">•</span>
-        <span>DESIGN</span><span class="strip-bullet">•</span>
-        <span>CONTENT</span><span class="strip-bullet">•</span>
-        <span>AUDIO</span><span class="strip-bullet">•</span>
-        <span>VIDEO</span>
-      </div>
-
-      <div class="hero-ctas reveal-up" data-delay="700">
-        <a href="#engine" class="btn-primary magnetic-btn" id="hero-explore-btn">
-          <span>Explore Our Ecosystem</span>
-          <svg class="btn-arrow" width="20" height="20" viewBox="0 0 20 20" fill="none">
-            <path d="M4 10h12M12 6l4 4-4 4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
-          </svg>
-        </a>
-        <a href="#work" class="btn-ghost magnetic-btn" id="hero-work-btn">View Our Work</a>
-      </div>
-    </div>
-
-    <div class="hero-scroll-indicator" id="hero-scroll-ind">
-      <div class="scroll-line"></div>
-      <span>Scroll</span>
-    </div>
-
-    <!-- Manifesto ticker -->
-    <div class="hero-ticker" aria-hidden="true">
-      <div class="ticker-track">
-        <span>WE DON'T JUST CREATE</span><span class="ticker-sep">✦</span>
-        <span>WE ENGINEER PERCEPTION</span><span class="ticker-sep">✦</span>
-        <span>THINK → CREATE → DESIGN → PRODUCE → DISTRIBUTE → MEASURE → GROW</span><span class="ticker-sep">✦</span>
-        <span>WE DON'T JUST CREATE</span><span class="ticker-sep">✦</span>
-        <span>WE ENGINEER PERCEPTION</span><span class="ticker-sep">✦</span>
-        <span>THINK → CREATE → DESIGN → PRODUCE → DISTRIBUTE → MEASURE → GROW</span><span class="ticker-sep">✦</span>
+      
+      <div class="hero-ctas reveal-fade">
+        <a href="#work" class="btn btn-primary">Explore Our Work</a>
+        <a href="#contact" class="btn btn-outline">Start a Project</a>
       </div>
     </div>
   </section>
 
-  <!-- ═══════════════════════════════════════ -->
-  <!-- 2. THE CREATIVE ENGINE (MIDCAV)        -->
-  <!-- ═══════════════════════════════════════ -->
-  <section id="engine" class="engine-section">
-    <div class="engine-bg-orbs" aria-hidden="true">
-      <div class="e-orb e-orb-1"></div>
-      <div class="e-orb e-orb-2"></div>
-    </div>
-    <div class="container">
-      <div class="section-header reveal-up" data-delay="0">
-        <div class="section-label">
-          <span class="label-line"></span>
-          <span>The Creative Engine</span>
-          <span class="label-line"></span>
-        </div>
-        <h2 class="section-title">
-          One Creative Ecosystem.<br/>
-          <em>Six Dimensions.</em>
-        </h2>
-        <p class="section-sub">
-          MIDCAV is a Creative Technology and Digital Media Studio where strategy, technology,<br class="hide-mobile"/>
-          imagination and execution come together to create powerful digital experiences.
-        </p>
-      </div>
-
-      <!-- Circular Engine Diagram -->
-      <div class="engine-diagram reveal-up" data-delay="200">
-        <div class="engine-center">
-          <div class="engine-center-ring"></div>
-          <div class="engine-center-core">
-            <span class="engine-core-text">MIDCAV</span>
-            <span class="engine-core-sub">Creative Engine</span>
-          </div>
-        </div>
-        <div class="engine-nodes">
-          <div class="engine-node en-m" data-dim="M" style="--clr: var(--clr-m); --angle: -90deg">
-            <div class="en-connector"></div>
-            <div class="en-card">
-              <span class="en-letter">M</span>
-              <span class="en-name">METHOD</span>
-              <p class="en-desc">Strategy, mathematics, research, data and creative intelligence.</p>
-            </div>
-          </div>
-          <div class="engine-node en-i" data-dim="I" style="--clr: var(--clr-i); --angle: -30deg">
-            <div class="en-connector"></div>
-            <div class="en-card">
-              <span class="en-letter">I</span>
-              <span class="en-name">IMAGE</span>
-              <p class="en-desc">Photography, visual direction, AI imagery and visual communication.</p>
-            </div>
-          </div>
-          <div class="engine-node en-d" data-dim="D" style="--clr: var(--clr-d); --angle: 30deg">
-            <div class="en-connector"></div>
-            <div class="en-card">
-              <span class="en-letter">D</span>
-              <span class="en-name">DESIGN</span>
-              <p class="en-desc">Brand identity, UI/UX, websites, interfaces and digital experiences.</p>
-            </div>
-          </div>
-          <div class="engine-node en-c" data-dim="C" style="--clr: var(--clr-c); --angle: 90deg">
-            <div class="en-connector"></div>
-            <div class="en-card">
-              <span class="en-letter">C</span>
-              <span class="en-name">CONTENT</span>
-              <p class="en-desc">Storytelling, copywriting, social media, campaigns and digital communication.</p>
-            </div>
-          </div>
-          <div class="engine-node en-a" data-dim="A" style="--clr: var(--clr-a); --angle: 150deg">
-            <div class="en-connector"></div>
-            <div class="en-card">
-              <span class="en-letter">A</span>
-              <span class="en-name">AUDIO</span>
-              <p class="en-desc">Sound design, music, voice, podcasts and sonic branding.</p>
-            </div>
-          </div>
-          <div class="engine-node en-v" data-dim="V" style="--clr: var(--clr-v); --angle: 210deg">
-            <div class="en-connector"></div>
-            <div class="en-card">
-              <span class="en-letter">V</span>
-              <span class="en-name">VIDEO</span>
-              <p class="en-desc">Cinematic production, motion graphics, reels, advertisements and storytelling.</p>
-            </div>
-          </div>
-        </div>
-        <!-- SVG connecting lines -->
-        <svg class="engine-svg" viewBox="0 0 600 600" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
-          <defs>
-            <radialGradient id="rg-m" cx="50%" cy="50%">
-              <stop offset="0%" stop-color="var(--clr-m)" stop-opacity="0.6"/>
-              <stop offset="100%" stop-color="var(--clr-m)" stop-opacity="0"/>
-            </radialGradient>
-            <filter id="glow-filter">
-              <feGaussianBlur stdDeviation="2" result="coloredBlur"/>
-              <feMerge><feMergeNode in="coloredBlur"/><feMergeNode in="SourceGraphic"/></feMerge>
-            </filter>
-          </defs>
-          <!-- Lines from center to each node -->
-          <line class="eng-line el-m" x1="300" y1="300" x2="300" y2="90" stroke="var(--clr-m)" stroke-opacity="0.3" stroke-width="1"/>
-          <line class="eng-line el-i" x1="300" y1="300" x2="472" y2="195" stroke="var(--clr-i)" stroke-opacity="0.3" stroke-width="1"/>
-          <line class="eng-line el-d" x1="300" y1="300" x2="472" y2="405" stroke="var(--clr-d)" stroke-opacity="0.3" stroke-width="1"/>
-          <line class="eng-line el-c" x1="300" y1="300" x2="300" y2="510" stroke="var(--clr-c)" stroke-opacity="0.3" stroke-width="1"/>
-          <line class="eng-line el-a" x1="300" y1="300" x2="128" y2="405" stroke="var(--clr-a)" stroke-opacity="0.3" stroke-width="1"/>
-          <line class="eng-line el-v" x1="300" y1="300" x2="128" y2="195" stroke="var(--clr-v)" stroke-opacity="0.3" stroke-width="1"/>
-          <!-- Orbit circle -->
-          <circle cx="300" cy="300" r="210" fill="none" stroke="rgba(255,255,255,0.04)" stroke-width="1" stroke-dasharray="4 8"/>
-          <circle cx="300" cy="300" r="80" fill="none" stroke="rgba(255,255,255,0.06)" stroke-width="1"/>
-        </svg>
-      </div>
-
-      <!-- Philosophy strip -->
-      <div class="engine-philosophy reveal-up" data-delay="400">
-        <div class="ep-item"><em>From thinking to seeing.</em></div>
-        <div class="ep-dot">✦</div>
-        <div class="ep-item"><em>From seeing to feeling.</em></div>
-        <div class="ep-dot">✦</div>
-        <div class="ep-item"><em>From feeling to remembering.</em></div>
-        <div class="ep-dot">✦</div>
-        <div class="ep-item"><em>That's the <strong>MIDCAV Experience™</strong></em></div>
-      </div>
-    </div>
-  </section>
-
-  <!-- ═══════════════════════════════════════ -->
-  <!-- 3. TECHNOLOGY                          -->
-  <!-- ═══════════════════════════════════════ -->
-  <section id="technology" class="tech-section">
-    <div class="tech-bg-image" style="background-image: url('tech_dashboard.jpg')"></div>
-    <div class="tech-overlay"></div>
-    <div class="container">
-      <div class="tech-grid">
-        <div class="tech-left reveal-up" data-delay="0">
-          <div class="section-label">
-            <span class="label-line"></span>
-            <span>Technology</span>
-            <span class="label-line"></span>
-          </div>
-          <h2 class="tech-headline">
-            Futuristic<br/>
-            <em>Technology</em><br/>
-            Stack.
-          </h2>
-          <p class="tech-body">
-            We build cutting-edge digital products, AI-powered systems, immersive experiences and intelligent platforms that put your brand at the frontier of innovation.
-          </p>
-          <a href="#contact" class="btn-primary" id="tech-cta-btn">
-            <span>Build with Technology</span>
-            <svg class="btn-arrow" width="18" height="18" viewBox="0 0 20 20" fill="none">
-              <path d="M4 10h12M12 6l4 4-4 4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
-            </svg>
-          </a>
-        </div>
-        <div class="tech-right">
-          <div class="tech-services-grid">
-            <div class="tech-card reveal-card" data-index="0" id="tc-web">
-              <div class="tc-icon">
-                <svg width="24" height="24" viewBox="0 0 24 24" fill="none"><circle cx="12" cy="12" r="9" stroke="currentColor" stroke-width="1.5"/><path d="M3 12h18M12 3c-2.5 3-4 5.5-4 9s1.5 6 4 9M12 3c2.5 3 4 5.5 4 9s-1.5 6-4 9" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg>
-              </div>
-              <h3>Web Development</h3>
-              <p>Premium websites, portals & web applications</p>
-            </div>
-            <div class="tech-card reveal-card" data-index="1" id="tc-app">
-              <div class="tc-icon">
-                <svg width="24" height="24" viewBox="0 0 24 24" fill="none"><rect x="5" y="2" width="14" height="20" rx="3" stroke="currentColor" stroke-width="1.5"/><circle cx="12" cy="18" r="1" fill="currentColor"/></svg>
-              </div>
-              <h3>App Development</h3>
-              <p>iOS, Android & cross-platform applications</p>
-            </div>
-            <div class="tech-card reveal-card" data-index="2" id="tc-ai">
-              <div class="tc-icon">
-                <svg width="24" height="24" viewBox="0 0 24 24" fill="none"><path d="M12 2v4M12 18v4M4.93 4.93l2.83 2.83M16.24 16.24l2.83 2.83M2 12h4M18 12h4M4.93 19.07l2.83-2.83M16.24 7.76l2.83-2.83" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg>
-              </div>
-              <h3>AI & Automation</h3>
-              <p>Intelligent systems & automated workflows</p>
-            </div>
-            <div class="tech-card reveal-card" data-index="3" id="tc-code">
-              <div class="tc-icon">
-                <svg width="24" height="24" viewBox="0 0 24 24" fill="none"><polyline points="16 18 22 12 16 6" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/><polyline points="8 6 2 12 8 18" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
-              </div>
-              <h3>Creative Coding</h3>
-              <p>Interactive & generative digital experiences</p>
-            </div>
-            <div class="tech-card reveal-card" data-index="4" id="tc-3d">
-              <div class="tc-icon">
-                <svg width="24" height="24" viewBox="0 0 24 24" fill="none"><path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
-              </div>
-              <h3>3D Experiences</h3>
-              <p>WebGL, Three.js & immersive 3D worlds</p>
-            </div>
-            <div class="tech-card reveal-card" data-index="5" id="tc-platform">
-              <div class="tc-icon">
-                <svg width="24" height="24" viewBox="0 0 24 24" fill="none"><rect x="3" y="3" width="7" height="7" rx="1" stroke="currentColor" stroke-width="1.5"/><rect x="14" y="3" width="7" height="7" rx="1" stroke="currentColor" stroke-width="1.5"/><rect x="3" y="14" width="7" height="7" rx="1" stroke="currentColor" stroke-width="1.5"/><rect x="14" y="14" width="7" height="7" rx="1" stroke="currentColor" stroke-width="1.5"/></svg>
-              </div>
-              <h3>Digital Platforms</h3>
-              <p>SaaS, e-commerce & custom platforms</p>
-            </div>
-            <div class="tech-card reveal-card" data-index="6" id="tc-data">
-              <div class="tc-icon">
-                <svg width="24" height="24" viewBox="0 0 24 24" fill="none"><path d="M21 21H4.6C4.04 21 3 20.6 3 20V3" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/><path d="M7 14l4-4 4 4 4-6" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
-              </div>
-              <h3>Data & Analytics</h3>
-              <p>Dashboards, BI & data-driven intelligence</p>
-            </div>
-            <div class="tech-card reveal-card" data-index="7" id="tc-xr">
-              <div class="tc-icon">
-                <svg width="24" height="24" viewBox="0 0 24 24" fill="none"><path d="M2 8l10 6 10-6" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/><rect x="2" y="6" width="20" height="12" rx="4" stroke="currentColor" stroke-width="1.5"/><circle cx="8" cy="12" r="1.5" fill="currentColor"/><circle cx="16" cy="12" r="1.5" fill="currentColor"/></svg>
-              </div>
-              <h3>Interactive Experiences</h3>
-              <p>AR, VR & mixed reality activations</p>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- ═══════════════════════════════════════ -->
-  <!-- 4. DIGITAL MARKETING                   -->
-  <!-- ═══════════════════════════════════════ -->
-  <section id="marketing" class="marketing-section">
-    <div class="container">
-      <div class="section-header reveal-up" data-delay="0">
-        <div class="section-label">
-          <span class="label-line"></span>
-          <span>Digital Marketing</span>
-          <span class="label-line"></span>
-        </div>
-        <h2 class="section-title">
-          Performance Marketing<br/>
-          <em>That Moves the Needle.</em>
-        </h2>
-        <p class="section-sub">From brand awareness to conversion — we engineer campaigns that deliver measurable results.</p>
-      </div>
-
-      <div class="marketing-layout">
-        <!-- Stats bar -->
-        <div class="marketing-stats reveal-up" data-delay="100">
-          <div class="mstat">
-            <span class="mstat-num" data-target="180">0</span>
-            <span class="mstat-unit">%</span>
-            <span class="mstat-label">Avg. Engagement Growth</span>
-          </div>
-          <div class="mstat-div"></div>
-          <div class="mstat">
-            <span class="mstat-num" data-target="65">0</span>
-            <span class="mstat-unit">%</span>
-            <span class="mstat-label">Avg. Conversion Increase</span>
-          </div>
-          <div class="mstat-div"></div>
-          <div class="mstat">
-            <span class="mstat-num" data-target="3">0</span>
-            <span class="mstat-unit">.2M+</span>
-            <span class="mstat-label">Combined Campaign Reach</span>
-          </div>
-          <div class="mstat-div"></div>
-          <div class="mstat">
-            <span class="mstat-num" data-target="120">0</span>
-            <span class="mstat-unit">%</span>
-            <span class="mstat-label">Brand Visibility Increase</span>
-          </div>
-        </div>
-
-        <div class="marketing-content-grid">
-          <div class="marketing-services reveal-up" data-delay="200">
-            <div class="mservice-item" id="ms-social">
-              <span class="ms-num">01</span>
-              <div class="ms-content">
-                <h3>Social Media Marketing</h3>
-                <p>Platform strategy, content calendars & community management</p>
-              </div>
-              <div class="ms-arrow">→</div>
-            </div>
-            <div class="mservice-item" id="ms-perf">
-              <span class="ms-num">02</span>
-              <div class="ms-content">
-                <h3>Performance Marketing</h3>
-                <p>ROI-driven paid campaigns across all channels</p>
-              </div>
-              <div class="ms-arrow">→</div>
-            </div>
-            <div class="mservice-item" id="ms-seo">
-              <span class="ms-num">03</span>
-              <div class="ms-content">
-                <h3>SEO & Organic Growth</h3>
-                <p>Technical SEO, content strategy & search dominance</p>
-              </div>
-              <div class="ms-arrow">→</div>
-            </div>
-            <div class="mservice-item" id="ms-paid">
-              <span class="ms-num">04</span>
-              <div class="ms-content">
-                <h3>Paid Advertising</h3>
-                <p>Google Ads, Meta Ads, LinkedIn & programmatic</p>
-              </div>
-              <div class="ms-arrow">→</div>
-            </div>
-            <div class="mservice-item" id="ms-inf">
-              <span class="ms-num">05</span>
-              <div class="ms-content">
-                <h3>Influencer Marketing</h3>
-                <p>Creator partnerships, collaborations & amplification</p>
-              </div>
-              <div class="ms-arrow">→</div>
-            </div>
-            <div class="mservice-item" id="ms-brand">
-              <span class="ms-num">06</span>
-              <div class="ms-content">
-                <h3>Brand Campaigns</h3>
-                <p>360° integrated brand storytelling campaigns</p>
-              </div>
-              <div class="ms-arrow">→</div>
-            </div>
-            <div class="mservice-item" id="ms-analytics">
-              <span class="ms-num">07</span>
-              <div class="ms-content">
-                <h3>Marketing Analytics</h3>
-                <p>Data intelligence, attribution & performance dashboards</p>
-              </div>
-              <div class="ms-arrow">→</div>
-            </div>
-            <div class="mservice-item" id="ms-growth">
-              <span class="ms-num">08</span>
-              <div class="ms-content">
-                <h3>Growth Strategy</h3>
-                <p>Market expansion, customer acquisition & retention</p>
-              </div>
-              <div class="ms-arrow">→</div>
-            </div>
-          </div>
-          <div class="marketing-visual reveal-card" data-index="0">
-            <div class="marketing-dashboard-img" style="background-image: url('marketing_dashboard.jpg')"></div>
-            <div class="marketing-dashboard-overlay">
-              <div class="mdo-card">
-                <span class="mdo-label">Campaign Performance</span>
-                <div class="mdo-bar-wrap">
-                  <div class="mdo-bar" style="width: 85%; background: var(--clr-i)"></div>
-                  <span>85% Target</span>
-                </div>
-                <div class="mdo-bar-wrap">
-                  <div class="mdo-bar" style="width: 72%; background: var(--clr-m)"></div>
-                  <span>72% Reach</span>
-                </div>
-                <div class="mdo-bar-wrap">
-                  <div class="mdo-bar" style="width: 94%; background: var(--clr-d)"></div>
-                  <span>94% ROI</span>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- ═══════════════════════════════════════ -->
-  <!-- 5. BRAND & DESIGN                      -->
-  <!-- ═══════════════════════════════════════ -->
-  <section id="brand" class="brand-section">
-    <div class="container">
-      <div class="brand-layout">
-        <div class="brand-visual reveal-card" data-index="0">
-          <div class="brand-img" style="background-image: url('brand_mockup.jpg')"></div>
-          <div class="brand-img-overlay">
-            <span class="bio-tag">Brand Identity</span>
-            <span class="bio-tag">UI/UX Design</span>
-            <span class="bio-tag">Visual Systems</span>
-          </div>
-        </div>
-        <div class="brand-content reveal-up" data-delay="0">
-          <div class="section-label">
-            <span class="label-line"></span>
-            <span>Brand & Design</span>
-            <span class="label-line"></span>
-          </div>
-          <h2 class="brand-headline">
-            Design That<br/>
-            <em>Builds Identity.</em>
-          </h2>
-          <p class="brand-body">
-            We create brand identities, visual systems, interfaces and digital experiences that command attention, build recognition and drive emotional connection.
-          </p>
-          <div class="brand-services-list">
-            <div class="bsl-item" id="bsl-strategy"><span class="bsl-dot" style="background:var(--clr-m)"></span>Brand Strategy</div>
-            <div class="bsl-item" id="bsl-identity"><span class="bsl-dot" style="background:var(--clr-i)"></span>Brand Identity</div>
-            <div class="bsl-item" id="bsl-logo"><span class="bsl-dot" style="background:var(--clr-d)"></span>Logo Systems</div>
-            <div class="bsl-item" id="bsl-visual"><span class="bsl-dot" style="background:var(--clr-c)"></span>Visual Identity</div>
-            <div class="bsl-item" id="bsl-uiux"><span class="bsl-dot" style="background:var(--clr-a)"></span>UI/UX Design</div>
-            <div class="bsl-item" id="bsl-website"><span class="bsl-dot" style="background:var(--clr-v)"></span>Website Design</div>
-            <div class="bsl-item" id="bsl-pack"><span class="bsl-dot" style="background:var(--clr-m)"></span>Packaging Design</div>
-            <div class="bsl-item" id="bsl-campaign"><span class="bsl-dot" style="background:var(--clr-i)"></span>Campaign Design</div>
-          </div>
-          <a href="#contact" class="btn-primary" id="brand-cta-btn">
-            <span>Build Your Brand</span>
-            <svg class="btn-arrow" width="18" height="18" viewBox="0 0 20 20" fill="none">
-              <path d="M4 10h12M12 6l4 4-4 4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
-            </svg>
-          </a>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- ═══════════════════════════════════════ -->
-  <!-- 6. CONTENT & SOCIAL MEDIA             -->
-  <!-- ═══════════════════════════════════════ -->
-  <section id="content" class="content-section">
-    <div class="container">
-      <div class="section-header reveal-up" data-delay="0">
-        <div class="section-label">
-          <span class="label-line"></span>
-          <span>Content & Social Media</span>
-          <span class="label-line"></span>
-        </div>
-        <h2 class="section-title">
-          Stories That<br/>
-          <em>Create Connection.</em>
-        </h2>
-      </div>
-      <div class="content-grid">
-        <!-- Social cards -->
-        <div class="content-cards-grid">
-          <div class="social-card sc-large reveal-card" data-index="0" id="sc-insta">
-            <div class="sc-img" style="background: linear-gradient(135deg, #f093fb, #f5576c, #4facfe)"></div>
-            <div class="sc-body">
-              <span class="sc-platform">Instagram Campaigns</span>
-              <p>Visual storytelling that captivates and converts</p>
-            </div>
-          </div>
-          <div class="social-card reveal-card" data-index="1" id="sc-reels">
-            <div class="sc-img" style="background: linear-gradient(135deg, #43e97b, #38f9d7)"></div>
-            <div class="sc-body">
-              <span class="sc-platform">Reels & Short Video</span>
-              <p>Viral-ready content for maximum reach</p>
-            </div>
-          </div>
-          <div class="social-card reveal-card" data-index="2" id="sc-copy">
-            <div class="sc-img" style="background: linear-gradient(135deg, #fa709a, #fee140)"></div>
-            <div class="sc-body">
-              <span class="sc-platform">Copywriting</span>
-              <p>Words that persuade, engage and inspire action</p>
-            </div>
-          </div>
-          <div class="social-card reveal-card" data-index="3" id="sc-editorial">
-            <div class="sc-img" style="background: linear-gradient(135deg, #a18cd1, #fbc2eb)"></div>
-            <div class="sc-body">
-              <span class="sc-platform">Editorial Content</span>
-              <p>Long-form storytelling & branded journalism</p>
-            </div>
-          </div>
-          <div class="social-card reveal-card" data-index="4" id="sc-ai">
-            <div class="sc-img" style="background: linear-gradient(135deg, #0093E9, #80D0C7)"></div>
-            <div class="sc-body">
-              <span class="sc-platform">AI-Generated Creative</span>
-              <p>Next-gen visual content powered by AI</p>
-            </div>
-          </div>
-          <div class="social-card reveal-card" data-index="5" id="sc-campaign">
-            <div class="sc-img" style="background: linear-gradient(135deg, #f77062, #fe5196)"></div>
-            <div class="sc-body">
-              <span class="sc-platform">Creative Campaigns</span>
-              <p>360° campaign concepts that move markets</p>
-            </div>
-          </div>
-        </div>
-
-        <div class="content-services-list reveal-up" data-delay="200">
-          <h3 class="csl-title">Content Studio Services</h3>
-          <div class="csl-items">
-            <div class="csl-item"><span>✦</span> Instagram & Facebook Campaigns</div>
-            <div class="csl-item"><span>✦</span> Reels & Short-Form Video Scripts</div>
-            <div class="csl-item"><span>✦</span> Brand Storytelling & Narrative</div>
-            <div class="csl-item"><span>✦</span> Copywriting & Brand Voice</div>
-            <div class="csl-item"><span>✦</span> Campaign Concept Development</div>
-            <div class="csl-item"><span>✦</span> Editorial & Blog Content</div>
-            <div class="csl-item"><span>✦</span> Social Media Management</div>
-            <div class="csl-item"><span>✦</span> AI-Generated Creative Content</div>
-          </div>
-          <a href="#contact" class="btn-ghost" id="content-cta-btn">Explore Content Studio</a>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- ═══════════════════════════════════════ -->
-  <!-- 7. AUDIO + VIDEO STUDIO               -->
-  <!-- ═══════════════════════════════════════ -->
-  <section id="studio" class="studio-section">
-    <div class="studio-split">
-      <!-- AUDIO -->
-      <div class="studio-half studio-audio">
-        <div class="studio-half-bg" style="background-image: url('audio_studio.jpg')"></div>
-        <div class="studio-half-overlay"></div>
-        <div class="studio-half-content reveal-up" data-delay="0">
-          <div class="sh-label">
-            <span style="color: var(--clr-a)">A</span> — AUDIO STUDIO
-          </div>
-          <h2 class="sh-headline">Sound That<br/><em>Builds Recall.</em></h2>
-          <p class="sh-body">From sonic branding to cinematic soundscapes — we craft audio that resonates and sticks.</p>
-          <!-- Waveform animation -->
-          <div class="waveform-display" aria-hidden="true">
-            <canvas id="waveform-canvas" width="320" height="60"></canvas>
-          </div>
-          <ul class="sh-services">
-            <li><span class="shs-dot" style="background:var(--clr-a)"></span>Sound Design</li>
-            <li><span class="shs-dot" style="background:var(--clr-a)"></span>Sonic Branding</li>
-            <li><span class="shs-dot" style="background:var(--clr-a)"></span>Voiceovers & Narration</li>
-            <li><span class="shs-dot" style="background:var(--clr-a)"></span>Music & Jingles</li>
-            <li><span class="shs-dot" style="background:var(--clr-a)"></span>Podcasts & Audio Shows</li>
-          </ul>
-        </div>
-      </div>
-      <!-- VIDEO -->
-      <div class="studio-half studio-video">
-        <div class="studio-half-bg" style="background-image: url('video_production.jpg')"></div>
-        <div class="studio-half-overlay" style="background: linear-gradient(to right, rgba(3,5,8,0.9) 0%, rgba(3,5,8,0.5) 100%)"></div>
-        <div class="studio-half-content reveal-up" data-delay="150">
-          <div class="sh-label">
-            <span style="color: var(--clr-v)">V</span> — VIDEO STUDIO
-          </div>
-          <h2 class="sh-headline">Stories That<br/><em>Move Audiences.</em></h2>
-          <p class="sh-body">Cinematic productions, commercials, reels and motion experiences that capture imagination.</p>
-          <!-- Film frame decoration -->
-          <div class="film-frame-deco" aria-hidden="true">
-            <div class="ff-track">
-              <div class="ff-hole"></div><div class="ff-hole"></div><div class="ff-hole"></div><div class="ff-hole"></div>
-            </div>
-            <div class="ff-body">
-              <span class="ff-text">CINEMATIC PRODUCTION</span>
-            </div>
-            <div class="ff-track">
-              <div class="ff-hole"></div><div class="ff-hole"></div><div class="ff-hole"></div><div class="ff-hole"></div>
-            </div>
-          </div>
-          <ul class="sh-services">
-            <li><span class="shs-dot" style="background:var(--clr-v)"></span>Brand Films & Commercials</li>
-            <li><span class="shs-dot" style="background:var(--clr-v)"></span>Reels & Social Video</li>
-            <li><span class="shs-dot" style="background:var(--clr-v)"></span>Motion Graphics</li>
-            <li><span class="shs-dot" style="background:var(--clr-v)"></span>3D Animation</li>
-            <li><span class="shs-dot" style="background:var(--clr-v)"></span>Product & Corporate Films</li>
-          </ul>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- ═══════════════════════════════════════ -->
-  <!-- 8. OUR WORK / PROJECTS                -->
-  <!-- ═══════════════════════════════════════ -->
-  <section id="work" class="work-section">
-    <div class="container">
-      <div class="work-header">
-        <div class="reveal-up" data-delay="0">
-          <div class="section-label">
-            <span class="label-line"></span>
-            <span>Our Work</span>
-            <span class="label-line"></span>
-          </div>
-          <h2 class="section-title">
-            Projects That<br/>
-            <em>Define the Field.</em>
-          </h2>
-        </div>
-        <div class="work-filters reveal-up" data-delay="100">
-          <button class="work-filter active" data-filter="all" id="wf-all">All</button>
-          <button class="work-filter" data-filter="brand" id="wf-brand">Brand</button>
-          <button class="work-filter" data-filter="digital" id="wf-digital">Digital</button>
-          <button class="work-filter" data-filter="video" id="wf-video">Video</button>
-          <button class="work-filter" data-filter="tech" id="wf-tech">Tech</button>
-        </div>
-      </div>
-    </div>
-
-    <!-- Horizontal scroll container -->
-    <div class="work-scroll-wrap" id="work-scroll-wrap">
-      <div class="work-scroll-track" id="work-scroll-track">
-        <div class="work-card" data-category="brand" id="wc-1">
-          <div class="wc-img" style="background: linear-gradient(135deg, #1a1a2e 0%, #16213e 50%, #0f3460 100%)">
-            <div class="wc-img-content">
-              <div class="wc-logo-mock">Brand Identity</div>
-            </div>
-          </div>
-          <div class="wc-overlay">
-            <span class="wc-cat">Brand Identity</span>
-            <h3>Luxury Fashion Brand Rebrand</h3>
-            <p>Complete visual identity overhaul for a premium fashion label</p>
-            <span class="wc-link">View Case Study →</span>
-          </div>
-        </div>
-
-        <div class="work-card" data-category="digital" id="wc-2">
-          <div class="wc-img" style="background: linear-gradient(135deg, #0d0d0d 0%, #1a1a3e 50%, #000 100%)">
-            <div class="wc-img-content">
-              <div class="wc-logo-mock" style="color: var(--clr-i)">Digital Campaign</div>
-            </div>
-          </div>
-          <div class="wc-overlay">
-            <span class="wc-cat">Digital Marketing</span>
-            <h3>Global Product Launch Campaign</h3>
-            <p>3.2M+ reach across 12 markets in 6 weeks</p>
-            <span class="wc-link">View Case Study →</span>
-          </div>
-        </div>
-
-        <div class="work-card" data-category="video" id="wc-3">
-          <div class="wc-img" style="background: linear-gradient(135deg, #0a0a1a 0%, #1c0a3e 50%, #2d0a7a 100%)">
-            <div class="wc-img-content">
-              <div class="wc-logo-mock" style="color: var(--clr-v)">Brand Film</div>
-            </div>
-          </div>
-          <div class="wc-overlay">
-            <span class="wc-cat">Video Production</span>
-            <h3>Cinematic Brand Film</h3>
-            <p>Award-winning 90-second brand manifesto film</p>
-            <span class="wc-link">View Case Study →</span>
-          </div>
-        </div>
-
-        <div class="work-card" data-category="tech" id="wc-4">
-          <div class="wc-img" style="background: linear-gradient(135deg, #000d1a 0%, #001f3e 50%, #003870 100%)">
-            <div class="wc-img-content">
-              <div class="wc-logo-mock" style="color: var(--clr-d)">Web Platform</div>
-            </div>
-          </div>
-          <div class="wc-overlay">
-            <span class="wc-cat">Technology</span>
-            <h3>AI-Powered E-Commerce Platform</h3>
-            <p>Custom platform with predictive recommendation engine</p>
-            <span class="wc-link">View Case Study →</span>
-          </div>
-        </div>
-
-        <div class="work-card" data-category="brand" id="wc-5">
-          <div class="wc-img" style="background: linear-gradient(135deg, #1a0a0a 0%, #3e1616 50%, #7a0a0a 100%)">
-            <div class="wc-img-content">
-              <div class="wc-logo-mock" style="color: var(--clr-a)">Sonic Brand</div>
-            </div>
-          </div>
-          <div class="wc-overlay">
-            <span class="wc-cat">Audio & Sonic Branding</span>
-            <h3>Corporate Sonic Identity System</h3>
-            <p>Complete audio brand toolkit for a global corporation</p>
-            <span class="wc-link">View Case Study →</span>
-          </div>
-        </div>
-
-        <div class="work-card" data-category="digital" id="wc-6">
-          <div class="wc-img" style="background: linear-gradient(135deg, #0a1a0a 0%, #163e16 50%, #0a7a0a 100%)">
-            <div class="wc-img-content">
-              <div class="wc-logo-mock" style="color: var(--clr-c)">Social Campaign</div>
-            </div>
-          </div>
-          <div class="wc-overlay">
-            <span class="wc-cat">Social Media</span>
-            <h3>Viral Social Media Campaign</h3>
-            <p>+180% engagement growth in 30 days across 5 platforms</p>
-            <span class="wc-link">View Case Study →</span>
-          </div>
-        </div>
-      </div>
-    </div>
-    <div class="work-scroll-hint reveal-up" data-delay="200">
-      <span>← Drag to explore →</span>
-    </div>
-  </section>
-
-  <!-- ═══════════════════════════════════════ -->
-  <!-- 9. CASE STUDIES                        -->
-  <!-- ═══════════════════════════════════════ -->
-  <section id="cases" class="cases-section">
-    <div class="container">
-      <div class="section-header reveal-up" data-delay="0">
-        <div class="section-label">
-          <span class="label-line"></span>
-          <span>Case Studies</span>
-          <span class="label-line"></span>
-        </div>
-        <h2 class="section-title">
-          Results That<br/>
-          <em>Speak Loudly.</em>
-        </h2>
-      </div>
-
-      <div class="case-study reveal-up" data-delay="100" id="cs-1">
-        <div class="cs-flow">
-          <div class="cs-step" id="css-1">
-            <span class="cs-step-num">01</span>
-            <h4>Challenge</h4>
-            <p>Low brand visibility in a crowded market, declining engagement and stagnant digital growth.</p>
-          </div>
-          <div class="cs-connector"><div class="cs-line"></div><span>→</span></div>
-          <div class="cs-step" id="css-2">
-            <span class="cs-step-num">02</span>
-            <h4>Strategy</h4>
-            <p>Data-driven audience insights, multi-platform content architecture and performance framework.</p>
-          </div>
-          <div class="cs-connector"><div class="cs-line"></div><span>→</span></div>
-          <div class="cs-step" id="css-3">
-            <span class="cs-step-num">03</span>
-            <h4>Creative</h4>
-            <p>Brand refresh, visual identity system, campaign concept and premium content production.</p>
-          </div>
-          <div class="cs-connector"><div class="cs-line"></div><span>→</span></div>
-          <div class="cs-step" id="css-4">
-            <span class="cs-step-num">04</span>
-            <h4>Technology</h4>
-            <p>New website, automation workflows, analytics stack and integrated marketing platform.</p>
-          </div>
-          <div class="cs-connector"><div class="cs-line"></div><span>→</span></div>
-          <div class="cs-step" id="css-5">
-            <span class="cs-step-num">05</span>
-            <h4>Execution</h4>
-            <p>Full-scale cross-channel campaign deployment across digital, social and performance channels.</p>
-          </div>
-        </div>
-        <div class="cs-results reveal-up" data-delay="300">
-          <h3 class="csr-title">Campaign Results</h3>
-          <div class="csr-metrics">
-            <div class="csr-metric" id="csm-1">
-              <span class="csr-num" data-target="180">0</span><span class="csr-unit">%</span>
-              <span class="csr-label">Engagement Growth</span>
-            </div>
-            <div class="csr-metric" id="csm-2">
-              <span class="csr-num" data-target="65">0</span><span class="csr-unit">%</span>
-              <span class="csr-label">Conversion Rate</span>
-            </div>
-            <div class="csr-metric" id="csm-3">
-              <span class="csr-prefix">3.2</span><span class="csr-unit">M+</span>
-              <span class="csr-label">Campaign Reach</span>
-            </div>
-            <div class="csr-metric" id="csm-4">
-              <span class="csr-num" data-target="120">0</span><span class="csr-unit">%</span>
-              <span class="csr-label">Brand Visibility</span>
-            </div>
-          </div>
-          <p class="csr-disclaimer">*Results from integrated brand campaigns. Individual results may vary.</p>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- ═══════════════════════════════════════ -->
-  <!-- 10. THE DIGITAL MEDIA ECOSYSTEM        -->
-  <!-- ═══════════════════════════════════════ -->
-  <section id="ecosystem" class="ecosystem-section">
-    <canvas id="eco-canvas" class="eco-canvas"></canvas>
-    <div class="eco-overlay"></div>
-    <div class="container">
-      <div class="section-header reveal-up" data-delay="0">
-        <div class="section-label">
-          <span class="label-line"></span>
-          <span>The Digital Media Ecosystem</span>
-          <span class="label-line"></span>
-        </div>
-        <h2 class="section-title">
-          One Flow.<br/>
-          <em>Infinite Possibilities.</em>
-        </h2>
-        <p class="section-sub">Every service we offer is part of one intelligent, connected creative engine.</p>
-      </div>
-
-      <div class="ecosystem-flow">
-        <div class="eco-node reveal-up" data-delay="0" id="en-method">
-          <div class="eco-node-glow" style="--glow: var(--clr-m)"></div>
-          <div class="eco-node-inner" style="--clr: var(--clr-m)">
-            <span class="eco-node-letter">M</span>
-            <span class="eco-node-name">METHOD</span>
-            <span class="eco-node-sub">Strategy & Intelligence</span>
-          </div>
-        </div>
-        <div class="eco-arrow reveal-up" data-delay="50">↓</div>
-        <div class="eco-node reveal-up" data-delay="100" id="en-tech">
-          <div class="eco-node-glow" style="--glow: var(--clr-i)"></div>
-          <div class="eco-node-inner" style="--clr: var(--clr-i)">
-            <span class="eco-node-letter">⚡</span>
-            <span class="eco-node-name">TECHNOLOGY</span>
-            <span class="eco-node-sub">Digital Infrastructure</span>
-          </div>
-        </div>
-        <div class="eco-arrow reveal-up" data-delay="150">↓</div>
-        <div class="eco-node reveal-up" data-delay="200" id="en-image">
-          <div class="eco-node-glow" style="--glow: var(--clr-d)"></div>
-          <div class="eco-node-inner" style="--clr: var(--clr-d)">
-            <span class="eco-node-letter">I</span>
-            <span class="eco-node-name">IMAGE</span>
-            <span class="eco-node-sub">Visual Communication</span>
-          </div>
-        </div>
-        <div class="eco-arrow reveal-up" data-delay="250">↓</div>
-        <div class="eco-node reveal-up" data-delay="300" id="en-design">
-          <div class="eco-node-glow" style="--glow: var(--clr-c)"></div>
-          <div class="eco-node-inner" style="--clr: var(--clr-c)">
-            <span class="eco-node-letter">D</span>
-            <span class="eco-node-name">DESIGN</span>
-            <span class="eco-node-sub">Brand & Experience</span>
-          </div>
-        </div>
-        <div class="eco-arrow reveal-up" data-delay="350">↓</div>
-        <div class="eco-node reveal-up" data-delay="400" id="en-content">
-          <div class="eco-node-glow" style="--glow: var(--clr-a)"></div>
-          <div class="eco-node-inner" style="--clr: var(--clr-a)">
-            <span class="eco-node-letter">C</span>
-            <span class="eco-node-name">CONTENT</span>
-            <span class="eco-node-sub">Story & Communication</span>
-          </div>
-        </div>
-        <div class="eco-arrow reveal-up" data-delay="450">↓</div>
-        <div class="eco-node reveal-up" data-delay="500" id="en-audio">
-          <div class="eco-node-glow" style="--glow: var(--clr-v)"></div>
-          <div class="eco-node-inner" style="--clr: var(--clr-v)">
-            <span class="eco-node-letter">A</span>
-            <span class="eco-node-name">AUDIO</span>
-            <span class="eco-node-sub">Sonic Identity</span>
-          </div>
-        </div>
-        <div class="eco-arrow reveal-up" data-delay="550">↓</div>
-        <div class="eco-node reveal-up" data-delay="600" id="en-video">
-          <div class="eco-node-glow" style="--glow: var(--clr-m)"></div>
-          <div class="eco-node-inner" style="--clr: var(--clr-m)">
-            <span class="eco-node-letter">V</span>
-            <span class="eco-node-name">VIDEO</span>
-            <span class="eco-node-sub">Motion & Cinema</span>
-          </div>
-        </div>
-        <div class="eco-arrow reveal-up" data-delay="650">↓</div>
-        <div class="eco-node eco-node-wide reveal-up" data-delay="700" id="en-dm">
-          <div class="eco-node-glow" style="--glow: var(--clr-i)"></div>
-          <div class="eco-node-inner eco-node-inner-wide" style="--clr: var(--clr-i)">
-            <span class="eco-node-name">DIGITAL MEDIA</span>
-            <span class="eco-node-sub">Multi-Platform Distribution</span>
-          </div>
-        </div>
-        <div class="eco-arrow reveal-up" data-delay="750">↓</div>
-        <div class="eco-node eco-node-final reveal-up" data-delay="800" id="en-mktg">
-          <div class="eco-node-glow" style="--glow: var(--clr-gold)"></div>
-          <div class="eco-node-inner eco-node-inner-final" style="--clr: var(--clr-gold)">
-            <span class="eco-node-letter">🚀</span>
-            <span class="eco-node-name">DIGITAL MARKETING</span>
-            <span class="eco-node-sub">Performance & Growth</span>
-          </div>
-        </div>
-      </div>
-
-      <div class="ecosystem-mantra reveal-up" data-delay="900">
-        <p>THINK <span class="em-arrow">→</span> CREATE <span class="em-arrow">→</span> DESIGN <span class="em-arrow">→</span> PRODUCE <span class="em-arrow">→</span> DISTRIBUTE <span class="em-arrow">→</span> MEASURE <span class="em-arrow">→</span> GROW</p>
-      </div>
-    </div>
-  </section>
-
-  <!-- ═══════════════════════════════════════ -->
-  <!-- 11. ABOUT MIDCAV                       -->
-  <!-- ═══════════════════════════════════════ -->
-  <section id="about" class="about-section">
+  <!-- 2. ABOUT & STATS -->
+  <section id="about" class="about-section pt-lg pb-lg">
     <div class="container">
       <div class="about-grid">
-        <div class="about-left reveal-up" data-delay="0">
-          <div class="section-label">
-            <span class="label-line"></span>
-            <span>About MIDCAV</span>
-            <span class="label-line"></span>
-          </div>
-          <h2 class="about-headline">
-            One Creative Engine.<br/>
-            <em>Multiple Possibilities.</em>
-          </h2>
-          <p class="about-body">
-            MIDCAV is a Creative Technology and Digital Media Studio that combines strategy, technology, creativity and media production under one intelligent ecosystem.
-          </p>
-          <p class="about-body">
-            We don't just create. <strong>We engineer perception.</strong> Every project we take on is a complete creative system — built from the inside out, designed to move people, command attention and deliver measurable impact.
-          </p>
-          <p class="about-body">
-            From the first strategic thought to the final digital experience, MIDCAV brings together the people, capabilities and technologies required to build, launch and grow brands in the digital age.
-          </p>
-          <div class="about-why-list">
-            <div class="awl-item" id="awl-1">
-              <span class="awl-icon">✦</span>
-              <div>
-                <strong>20+ Years of Industry Experience</strong>
-                <p>Deep expertise across media, entertainment, digital content, marketing, production and technology.</p>
-              </div>
-            </div>
-            <div class="awl-item" id="awl-2">
-              <span class="awl-icon">✦</span>
-              <div>
-                <strong>One Integrated Creative Ecosystem</strong>
-                <p>Strategy, creative, production and digital execution engineered under one roof.</p>
-              </div>
-            </div>
-            <div class="awl-item" id="awl-3">
-              <span class="awl-icon">✦</span>
-              <div>
-                <strong>Creative + Technology + Intelligence</strong>
-                <p>Human creativity combined with technology, data and digital intelligence.</p>
-              </div>
-            </div>
-            <div class="awl-item" id="awl-4">
-              <span class="awl-icon">✦</span>
-              <div>
-                <strong>End-to-End Execution</strong>
-                <p>From concept and planning to production, deployment and performance measurement.</p>
-              </div>
-            </div>
-          </div>
+        <div class="about-text reveal-fade">
+          <h2 class="section-title">WE CREATE <br/><em>DIGITAL EXPERIENCES</em> <br/>THAT MATTER.</h2>
+          <p class="section-desc">We are a premium digital creative agency merging strategy, creative media, and advanced technology into powerful brand experiences.</p>
         </div>
-        <div class="about-right reveal-card" data-index="0">
-          <div class="about-stats-grid">
-            <div class="ast-card" id="ast-1">
-              <span class="ast-num" data-target="20">0</span>
-              <span class="ast-suffix">+</span>
-              <span class="ast-label">Years Experience</span>
-            </div>
-            <div class="ast-card" id="ast-2">
-              <span class="ast-num" data-target="500">0</span>
-              <span class="ast-suffix">+</span>
-              <span class="ast-label">Projects Delivered</span>
-            </div>
-            <div class="ast-card" id="ast-3">
-              <span class="ast-num" data-target="6">0</span>
-              <span class="ast-suffix"></span>
-              <span class="ast-label">Creative Dimensions</span>
-            </div>
-            <div class="ast-card" id="ast-4">
-              <span class="ast-num" data-target="50">0</span>
-              <span class="ast-suffix">+</span>
-              <span class="ast-label">Brands Transformed</span>
-            </div>
-          </div>
-          <div class="about-img-card">
-            <div class="about-img-bg" style="background-image: url('workspace_vibe.jpg')"></div>
-            <div class="about-img-overlay">
-              <div class="aio-tag">Creative Technology Studio</div>
-              <div class="aio-tagline">METHOD • IMAGE • DESIGN<br/>CONTENT • AUDIO • VIDEO</div>
-            </div>
+        <div class="about-image-wrap reveal-image">
+          <img src="hero_team.jpg" alt="Creative Studio Team" class="img-fluid rounded" />
+        </div>
+      </div>
+      
+      <!-- 13. STATISTICS -->
+      <div class="stats-grid pt-md">
+        <div class="stat-item reveal-fade">
+          <h3 class="stat-number">120+</h3>
+          <p class="stat-label">Projects Delivered</p>
+        </div>
+        <div class="stat-item reveal-fade">
+          <h3 class="stat-number">50+</h3>
+          <p class="stat-label">Global Brands</p>
+        </div>
+        <div class="stat-item reveal-fade">
+          <h3 class="stat-number">15+</h3>
+          <p class="stat-label">Creative Services</p>
+        </div>
+        <div class="stat-item reveal-fade">
+          <h3 class="stat-number">10M+</h3>
+          <p class="stat-label">Digital Reach</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <div id="services"></div> <!-- Anchor -->
+
+  <!-- 3. DIGITAL MARKETING SECTION (Section 5) -->
+  <section id="digital-marketing" class="marketing-section pt-lg pb-lg bg-alt">
+    <div class="container">
+      <div class="section-header text-center reveal-fade">
+        <p class="eyebrow">Digital Marketing</p>
+        <h2 class="section-title">Reach. Engage. Grow.</h2>
+      </div>
+      
+      <div class="collage-grid">
+        <div class="collage-item large reveal-image" data-hover="Performance Marketing">
+          <div class="collage-img" style="background-image: url('marketing_dashboard.jpg')"></div>
+          <div class="collage-overlay"><h4>Performance Analytics</h4></div>
+        </div>
+        <div class="collage-item reveal-image" data-hover="Social Media">
+          <div class="collage-img" style="background-image: url('hero_camera.jpg')"></div>
+          <div class="collage-overlay"><h4>Social Media Campaigns</h4></div>
+        </div>
+        <div class="collage-item reveal-image" data-hover="SEO & Content">
+          <div class="collage-img" style="background-image: url('hero_monitor.jpg')"></div>
+          <div class="collage-overlay"><h4>SEO & Content Strategy</h4></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 4. BRANDING & DESIGN (Section 6) -->
+  <section class="branding-section pt-lg pb-lg">
+    <div class="container">
+      <div class="split-layout">
+        <div class="split-text reveal-fade">
+          <p class="eyebrow">Brand Identity</p>
+          <h2 class="section-title">Make your brand impossible to ignore.</h2>
+        </div>
+        <div class="split-visuals">
+          <div class="image-card reveal-image">
+            <img src="brand_mockup.jpg" alt="Brand Guidelines Mockup" class="img-fluid rounded shadow" />
           </div>
         </div>
       </div>
     </div>
   </section>
 
-  <!-- ═══════════════════════════════════════ -->
-  <!-- 12. CONTACT                            -->
-  <!-- ═══════════════════════════════════════ -->
-  <section id="contact" class="contact-section">
-    <div class="contact-bg-orbs" aria-hidden="true">
-      <div class="co-orb co-orb-1"></div>
-      <div class="co-orb co-orb-2"></div>
+  <!-- 5. SOCIAL MEDIA (Section 7) -->
+  <section class="social-section pb-lg">
+    <div class="container">
+      <div class="section-header reveal-fade">
+        <p class="eyebrow">Social Media</p>
+        <h2 class="section-title">Scroll-stopping creative content.</h2>
+      </div>
+      
+      <div class="social-grid">
+        <div class="social-post reveal-fade" style="background-image:url('mockup1.jpg')">
+          <div class="social-hover"><span>Instagram Campaign</span></div>
+        </div>
+        <div class="social-post reveal-fade" style="background-image:url('video_production.jpg')">
+          <div class="social-hover"><span>Reels Production</span></div>
+        </div>
+        <div class="social-post reveal-fade" style="background-image:url('hero_photo.png')">
+          <div class="social-hover"><span>Brand Stories</span></div>
+        </div>
+        <div class="social-post reveal-fade" style="background-image:url('hero_bg_new.jpg')">
+          <div class="social-hover"><span>Ad Creatives</span></div>
+        </div>
+      </div>
     </div>
+  </section>
+
+  <!-- 6. WEBSITE + APP DESIGN (Section 8) -->
+  <section class="digital-exp-section pt-lg pb-lg bg-alt">
+    <div class="container">
+      <div class="section-header text-center reveal-fade">
+        <p class="eyebrow">Digital Experiences</p>
+        <h2 class="section-title">Websites. Apps. Experiences.</h2>
+      </div>
+      
+      <div class="showcase-large reveal-image">
+        <img src="tech_dashboard.jpg" alt="App UI Design" class="img-fluid rounded shadow-lg" />
+      </div>
+    </div>
+  </section>
+
+  <!-- 7. CONTENT + VIDEO (Section 9) -->
+  <section class="content-studio-section pt-lg pb-lg">
+    <div class="container">
+      <div class="section-header reveal-fade">
+        <p class="eyebrow">Visual Storytelling</p>
+        <h2 class="section-title">Cinematic Video & Audio Production.</h2>
+      </div>
+      
+      <div class="video-grid">
+        <div class="video-card reveal-image">
+          <div class="video-thumb" style="background-image: url('video_production.jpg')"></div>
+          <div class="video-info">
+            <h4>Brand Films & Commercials</h4>
+          </div>
+        </div>
+        <div class="video-card reveal-image">
+          <div class="video-thumb" style="background-image: url('audio_studio.jpg')"></div>
+          <div class="video-info">
+            <h4>Sound Design & Podcasts</h4>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 8. TECHNOLOGY (Section 10) -->
+  <section class="technology-section pb-lg">
+    <div class="container">
+      <div class="split-layout reverse">
+        <div class="split-text reveal-fade">
+          <p class="eyebrow">Creative Technology</p>
+          <h2 class="section-title">Engineered for performance and scale.</h2>
+        </div>
+        <div class="split-visuals">
+          <div class="image-card reveal-image">
+            <img src="midcav_core.jpg" alt="Digital Platform Development" class="img-fluid rounded shadow" />
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 9. OUR WORK / PORTFOLIO (Section 11) -->
+  <section id="work" class="portfolio-section pt-lg pb-lg bg-alt">
+    <div class="container">
+      <div class="portfolio-header reveal-fade">
+        <h2 class="section-title">Selected Works</h2>
+        <div class="portfolio-filters">
+          <button class="filter-btn active" data-filter="all">ALL</button>
+          <button class="filter-btn" data-filter="branding">BRANDING</button>
+          <button class="filter-btn" data-filter="marketing">DIGITAL MARKETING</button>
+          <button class="filter-btn" data-filter="website">WEBSITE</button>
+          <button class="filter-btn" data-filter="video">VIDEO</button>
+        </div>
+      </div>
+      
+      <div class="masonry-gallery" id="masonry-gallery">
+        <!-- Masonry Item -->
+        <div class="masonry-item branding reveal-image">
+          <img src="brand_mockup.jpg" alt="Brand Identity" />
+          <div class="masonry-overlay">
+            <span class="m-category">BRANDING</span>
+            <h3 class="m-title">Lumina Luxury Identity</h3>
+          </div>
+        </div>
+        <div class="masonry-item website reveal-image">
+          <img src="mockup1.jpg" alt="Website Design" />
+          <div class="masonry-overlay">
+            <span class="m-category">WEBSITE</span>
+            <h3 class="m-title">Aura E-Commerce</h3>
+          </div>
+        </div>
+        <div class="masonry-item marketing reveal-image">
+          <img src="marketing_dashboard.jpg" alt="Digital Campaign" />
+          <div class="masonry-overlay">
+            <span class="m-category">DIGITAL MARKETING</span>
+            <h3 class="m-title">Global Growth Campaign</h3>
+          </div>
+        </div>
+        <div class="masonry-item video reveal-image">
+          <img src="video_production.jpg" alt="Brand Film" />
+          <div class="masonry-overlay">
+            <span class="m-category">VIDEO</span>
+            <h3 class="m-title">The Future in Motion</h3>
+          </div>
+        </div>
+        <div class="masonry-item website reveal-image">
+          <img src="tech_dashboard.jpg" alt="App Design" />
+          <div class="masonry-overlay">
+            <span class="m-category">APP</span>
+            <h3 class="m-title">Fintech Mobile App</h3>
+          </div>
+        </div>
+        <div class="masonry-item branding reveal-image">
+          <img src="hero_camera.jpg" alt="Creative Production" />
+          <div class="masonry-overlay">
+            <span class="m-category">BRANDING</span>
+            <h3 class="m-title">Studio Identity Overhaul</h3>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 10. CONTACT SECTION (Section 12) -->
+  <section id="contact" class="contact-section pt-lg pb-lg">
     <div class="container">
       <div class="contact-grid">
-        <div class="contact-left reveal-up" data-delay="0">
-          <div class="section-label">
-            <span class="label-line"></span>
-            <span>Let's Work Together</span>
-            <span class="label-line"></span>
-          </div>
-          <h2 class="contact-headline">
-            Let's Engineer<br/>
-            <em>Something Different.</em>
-          </h2>
-          <p class="contact-body">
-            Have an idea, brand, product or campaign?<br/>
-            Let's turn it into a digital experience.
-          </p>
-          <div class="contact-manifesto">
-            <blockquote>"We don't just create.<br/>We engineer perception."</blockquote>
-            <cite>— MIDCAV Studio</cite>
-          </div>
-          <div class="contact-info">
-            <div class="ci-item">
-              <span class="ci-label">Studio</span>
-              <span class="ci-value">MIDCAV Digital Technologies</span>
+        <div class="contact-info reveal-fade">
+          <h2 class="section-title">Let's Engineer Something Different.</h2>
+          <p class="section-desc">Have an idea, brand, product or campaign? Let's turn it into a premium digital experience.</p>
+          <div class="contact-details">
+            <div class="c-detail">
+              <span>Email Us</span>
+              <a href="mailto:hello@midcav.com">hello@midcav.com</a>
             </div>
-            <div class="ci-item">
-              <span class="ci-label">Approach</span>
-              <span class="ci-value">Full-Service Creative Technology</span>
-            </div>
-            <div class="ci-item">
-              <span class="ci-label">Positioning</span>
-              <span class="ci-value">METHOD • IMAGE • DESIGN • CONTENT • AUDIO • VIDEO</span>
+            <div class="c-detail">
+              <span>Call Us</span>
+              <a href="tel:+18001234567">+1 (800) 123-4567</a>
             </div>
           </div>
         </div>
-
-        <div class="contact-right reveal-up" data-delay="200">
-          <form class="contact-form" id="contact-form" novalidate>
+        
+        <div class="contact-form-wrap reveal-fade">
+          <form id="contact-form" class="contact-form">
             <div class="form-row">
               <div class="form-group">
-                <label for="cf-name">Your Name</label>
-                <input type="text" id="cf-name" name="name" placeholder="Full Name" required />
+                <label for="name">Name</label>
+                <input type="text" id="name" placeholder="John Doe" required />
               </div>
               <div class="form-group">
-                <label for="cf-email">Email Address</label>
-                <input type="email" id="cf-email" name="email" placeholder="you@company.com" required />
+                <label for="company">Company</label>
+                <input type="text" id="company" placeholder="Brand Inc." />
               </div>
             </div>
             <div class="form-group">
-              <label for="cf-company">Company / Brand</label>
-              <input type="text" id="cf-company" name="company" placeholder="Your company name" />
+              <label for="email">Email</label>
+              <input type="email" id="email" placeholder="john@example.com" required />
             </div>
             <div class="form-group">
-              <label for="cf-project">Project Type</label>
-              <select id="cf-project" name="project">
-                <option value="" disabled selected>Select a service dimension...</option>
-                <option value="method">M — Method / Strategy</option>
-                <option value="image">I — Image / Visual</option>
-                <option value="design">D — Design / Identity</option>
-                <option value="content">C — Content / Story</option>
-                <option value="audio">A — Audio / Sonic</option>
-                <option value="video">V — Video / Motion</option>
-                <option value="technology">Technology / Platform</option>
-                <option value="marketing">Digital Marketing</option>
-                <option value="full">Full Creative Engine</option>
+              <label for="type">Project Type</label>
+              <select id="type">
+                <option>Digital Marketing</option>
+                <option>Brand Identity</option>
+                <option>Website / App Design</option>
+                <option>Video / Audio Production</option>
+                <option>Other</option>
               </select>
             </div>
             <div class="form-group">
-              <label for="cf-message">Tell us about your project</label>
-              <textarea id="cf-message" name="message" rows="5" placeholder="Describe your vision, challenge or idea..."></textarea>
+              <label for="message">Message</label>
+              <textarea id="message" rows="4" placeholder="Tell us about your project..." required></textarea>
             </div>
-            <button type="submit" class="btn-primary btn-submit magnetic-btn" id="form-submit-btn">
-              <span>Start a Project</span>
-              <svg class="btn-arrow" width="20" height="20" viewBox="0 0 20 20" fill="none">
-                <path d="M3 10h14M13 6l4 4-4 4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
-              </svg>
-            </button>
-            <div class="form-success" id="form-success" style="display:none">
-              <span>✦</span> Message sent! We'll be in touch within 24 hours.
-            </div>
+            <button type="submit" class="btn btn-primary w-100">Start a Project</button>
+            <div id="form-success" class="form-success" style="display:none; margin-top:1rem;">Your message has been sent successfully.</div>
           </form>
         </div>
       </div>
@@ -1173,45 +358,26 @@
   </section>
 
   <!-- FOOTER -->
-  <footer class="footer">
-    <div class="footer-top">
-      <div class="footer-brand">
-        <div class="footer-logo">MIDCAV<span class="footer-logo-dot">.</span></div>
-        <p class="footer-tagline">Creative Technology • Digital Media • Built Differently</p>
-        <p class="footer-mantra">IDEAS. ENGINEERED DIFFERENTLY.</p>
-      </div>
-      <div class="footer-nav-cols">
-        <div class="footer-col">
-          <h4>The Ecosystem</h4>
-          <a href="#engine">Creative Engine</a>
-          <a href="#technology">Technology</a>
-          <a href="#marketing">Digital Marketing</a>
+  <footer class="footer pb-md">
+    <div class="container">
+      <div class="footer-top pt-md pb-md">
+        <div class="footer-brand">
+          <h3>MIDCAV<span>.</span></h3>
+          <p>Digital Marketing + Creative Media + Technology Agency</p>
         </div>
-        <div class="footer-col">
-          <h4>Services</h4>
-          <a href="#brand">Brand & Design</a>
-          <a href="#content">Content & Social</a>
-          <a href="#studio">Audio & Video</a>
-        </div>
-        <div class="footer-col">
-          <h4>Studio</h4>
-          <a href="#work">Our Work</a>
-          <a href="#about">About MIDCAV</a>
-          <a href="#contact">Start a Project</a>
+        <div class="footer-links">
+          <a href="#about">About</a>
+          <a href="#services">Services</a>
+          <a href="#work">Work</a>
+          <a href="#contact">Contact</a>
         </div>
       </div>
-    </div>
-    <div class="footer-bottom">
-      <div class="footer-separator"></div>
-      <div class="footer-bottom-inner">
-        <p class="footer-copy">© 2026 MIDCAV Digital Technologies. All rights reserved.</p>
-        <div class="footer-pills">
-          <span class="footer-pill">METHOD</span>
-          <span class="footer-pill">IMAGE</span>
-          <span class="footer-pill">DESIGN</span>
-          <span class="footer-pill">CONTENT</span>
-          <span class="footer-pill">AUDIO</span>
-          <span class="footer-pill">VIDEO</span>
+      <div class="footer-bottom">
+        <p>&copy; 2026 MIDCAV Studio. All rights reserved.</p>
+        <div class="social-links">
+          <a href="#">Instagram</a>
+          <a href="#">LinkedIn</a>
+          <a href="#">Behance</a>
         </div>
       </div>
     </div>
