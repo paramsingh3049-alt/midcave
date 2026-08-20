@@ -294,23 +294,38 @@
                   </linearGradient>
                 </defs>
                 
-                <!-- Outward pulses -->
-                <path d="M50 50 L22 20" class="data-pulse-out pulse-1" />
-                <path d="M50 50 L78 20" class="data-pulse-out pulse-2" />
-                <path d="M50 50 L12 45" class="data-pulse-out pulse-3" />
-                <path d="M50 50 L88 45" class="data-pulse-out pulse-4" />
-                <path d="M50 50 L25 80" class="data-pulse-out pulse-5" />
-                <path d="M50 50 L50 88" class="data-pulse-out pulse-6" />
-                <path d="M50 50 L75 80" class="data-pulse-out pulse-7" />
+                <!-- Smooth Curved Paths -->
+                <!-- Top Left -->
+                <path d="M 50 50 L 25 50 Q 15 50 15 40 L 15 20" class="data-pulse-out pulse-1" />
+                <path d="M 15 20 L 15 40 Q 15 50 25 50 L 50 50" class="data-pulse-in pulse-in-1" />
+                
+                <!-- Bottom Left -->
+                <path d="M 50 50 L 25 50 Q 15 50 15 60 L 15 80" class="data-pulse-out pulse-2" />
+                <path d="M 15 80 L 15 60 Q 15 50 25 50 L 50 50" class="data-pulse-in pulse-in-2" />
+                
+                <!-- Top Right -->
+                <path d="M 50 50 L 75 50 Q 85 50 85 40 L 85 20" class="data-pulse-out pulse-3" />
+                <path d="M 85 20 L 85 40 Q 85 50 75 50 L 50 50" class="data-pulse-in pulse-in-3" />
+                
+                <!-- Bottom Right -->
+                <path d="M 50 50 L 75 50 Q 85 50 85 60 L 85 80" class="data-pulse-out pulse-4" />
+                <path d="M 85 80 L 85 60 Q 85 50 75 50 L 50 50" class="data-pulse-in pulse-in-4" />
 
-                <!-- Inward pulses -->
-                <path d="M18 16 L50 50" class="data-pulse-in pulse-in-1" />
-                <path d="M82 16 L50 50" class="data-pulse-in pulse-in-2" />
-                <path d="M10 55 L50 50" class="data-pulse-in pulse-in-3" />
-                <path d="M90 55 L50 50" class="data-pulse-in pulse-in-4" />
-                <path d="M20 85 L50 50" class="data-pulse-in pulse-in-5" />
-                <path d="M50 92 L50 50" class="data-pulse-in pulse-in-6" />
-                <path d="M80 85 L50 50" class="data-pulse-in pulse-in-7" />
+                <!-- Top Center -->
+                <path d="M 50 50 L 50 20" class="data-pulse-out pulse-5" />
+                <path d="M 50 20 L 50 50" class="data-pulse-in pulse-in-5" />
+
+                <!-- Bottom Center -->
+                <path d="M 50 50 L 50 80" class="data-pulse-out pulse-6" />
+                <path d="M 50 80 L 50 50" class="data-pulse-in pulse-in-6" />
+
+                <!-- Far Left Horizontal -->
+                <path d="M 50 50 L 5 50" class="data-pulse-out pulse-7" />
+                <path d="M 5 50 L 50 50" class="data-pulse-in pulse-in-7" />
+
+                <!-- Far Right Horizontal -->
+                <path d="M 50 50 L 95 50" class="data-pulse-out pulse-8" />
+                <path d="M 95 50 L 50 50" class="data-pulse-in pulse-in-8" />
                 
                 <!-- Central Core Pulse -->
                 <circle cx="50" cy="50" r="10" class="core-pulse" />
