@@ -291,14 +291,28 @@ h1, h2, h3, h4 { font-weight: 400; line-height: 1.1; }
 /* ─── SPLIT LAYOUT (About, Branding, Technology) ─── */
 .about-grid, .split-layout { display: grid; grid-template-columns: 1fr 1fr; gap: 4rem; align-items: center; }
 .split-layout.reverse .split-visuals { order: -1; }
-.tech-split { grid-template-columns: 1.8fr 1fr; gap: 6rem; }
+.tech-split { grid-template-columns: 1fr; gap: 3rem; }
+.tech-split .split-text { order: 2; text-align: center; }
+.tech-split .split-visuals { order: 1; width: 100%; }
+
+/* ─── TECHNOLOGY SECTION FULL-PAGE ─── */
+.technology-section {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding: 4rem 0;
+}
+.technology-section .container { width: 100%; max-width: 100%; padding: 0 2rem; }
 .image-card { border-radius: 12px; overflow: hidden; }
 
 /* ─── INTERACTIVE NETWORK COMPONENT ─── */
 .interactive-network {
-  position: relative; width: 100%; aspect-ratio: 16/10;
+  position: relative; width: 100%; aspect-ratio: 21/9;
+  min-height: 70vh;
   background: radial-gradient(circle at center, rgba(30,10,60,1) 0%, rgba(10,5,20,1) 100%);
-  border-radius: 16px; overflow: hidden; box-shadow: 0 20px 40px rgba(0,0,0,0.5);
+  border-radius: 20px; overflow: hidden;
+  box-shadow: 0 30px 80px rgba(0,0,0,0.7), 0 0 80px rgba(100,50,255,0.15);
   display: flex; align-items: center; justify-content: center;
 }
 .network-grid-bg {
@@ -588,7 +602,9 @@ h1, h2, h3, h4 { font-weight: 400; line-height: 1.1; }
 @media (max-width: 1024px) {
   .nav-links { display: none; }
   .menu-toggle { display: flex; }
-  .about-grid, .split-layout, .tech-split, .contact-grid { grid-template-columns: 1fr; gap: 3rem; }
+  .about-grid, .split-layout, .contact-grid { grid-template-columns: 1fr; gap: 3rem; }
+  .tech-split { grid-template-columns: 1fr; gap: 2rem; }
+  .interactive-network { aspect-ratio: 4/3; min-height: 50vh; }
   .split-layout.reverse .split-visuals { order: -1; }
   .stats-grid { grid-template-columns: 1fr 1fr; }
   .collage-grid { grid-template-columns: 1fr; }
