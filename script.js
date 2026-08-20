@@ -740,3 +740,68 @@ console.log(
   'background:#c8a96e;color:#030508;font-weight:bold;font-size:14px;padding:4px 12px;',
   'color:#3b9eff;font-size:12px;padding:4px;'
 );
+
+/* ─────────────────────────────────────────────────────────────── */
+/*  THEME TOGGLE (LIGHT / DARK MODE)                               */
+/* ─────────────────────────────────────────────────────────────── */
+(function initThemeToggle() {
+  const toggleBtns = document.querySelectorAll('.theme-toggle');
+  if (!toggleBtns.length) return;
+
+  const html = document.documentElement;
+  const storageKey = 'midcav-theme';
+
+  // Determine initial theme
+  const savedTheme = localStorage.getItem(storageKey);
+  const systemPrefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
+  
+  let currentTheme = 'dark'; // Default
+  
+  if (savedTheme === 'light' || (!savedTheme && !systemPrefersDark)) {
+    currentTheme = 'light';
+  }
+
+  // Apply initial theme immediately (no transition)
+  if (currentTheme === 'light') {
+    html.setAttribute('data-theme', 'light');
+  }
+
+  function updateIconsCorrectly(theme) {
+    toggleBtns.forEach(btn => {
+      const sun = btn.querySelector('.icon-sun');
+      const moon = btn.querySelector('.icon-moon');
+      if (theme === 'light') {
+        if (sun) sun.style.display = 'none';
+        if (moon) moon.style.display = 'block';
+      } else {
+        if (sun) sun.style.display = 'block';
+        if (moon) moon.style.display = 'none';
+      }
+    });
+  }
+  
+  updateIconsCorrectly(currentTheme);
+
+  toggleBtns.forEach(btn => {
+    btn.addEventListener('click', () => {
+      currentTheme = currentTheme === 'dark' ? 'light' : 'dark';
+      
+      // Add transition class for smooth fade
+      html.classList.add('theme-transition-active');
+      
+      if (currentTheme === 'light') {
+        html.setAttribute('data-theme', 'light');
+      } else {
+        html.removeAttribute('data-theme');
+      }
+      
+      localStorage.setItem(storageKey, currentTheme);
+      updateIconsCorrectly(currentTheme);
+      
+      // Remove transition class after animation completes (400ms)
+      setTimeout(() => {
+        html.classList.remove('theme-transition-active');
+      }, 500);
+    });
+  });
+})();

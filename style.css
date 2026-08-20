@@ -1105,3 +1105,110 @@ body:has(button:hover) .cursor-ring { width: 56px; height: 56px; border-color: v
   .mservice-item { flex-direction: column; align-items: flex-start; gap: 0.4rem; }
   .ms-arrow { display: none; }
 }
+
+/* ─────────────────────────────────────────────────────────────── */
+/*  THEME TOGGLE BUTTON                                            */
+/* ─────────────────────────────────────────────────────────────── */
+.theme-toggle {
+  display: flex; align-items: center; justify-content: center;
+  width: 36px; height: 36px; border-radius: 50%;
+  color: var(--clr-text-muted); transition: color 0.3s, background 0.3s;
+  cursor: none; pointer-events: auto; background: transparent;
+}
+.theme-toggle:hover {
+  color: var(--clr-gold);
+  background: var(--clr-border);
+}
+.nav-mobile-theme {
+  display: flex; justify-content: space-between; align-items: center;
+  padding-bottom: 0.8rem; margin-bottom: 0.5rem;
+  border-bottom: 1px solid var(--clr-border);
+}
+.nav-mobile-theme span {
+  font-size: 1rem; font-weight: 500; color: var(--clr-text-muted);
+}
+
+/* ─────────────────────────────────────────────────────────────── */
+/*  LIGHT THEME ANIMATION                                          */
+/* ─────────────────────────────────────────────────────────────── */
+.theme-transition-active,
+.theme-transition-active *,
+.theme-transition-active *::before,
+.theme-transition-active *::after {
+  transition: background-color 0.4s ease, color 0.4s ease, border-color 0.4s ease, background 0.4s ease, opacity 0.4s ease !important;
+}
+
+/* ─────────────────────────────────────────────────────────────── */
+/*  LIGHT THEME VARIABLES & OVERRIDES                              */
+/* ─────────────────────────────────────────────────────────────── */
+:root[data-theme="light"] {
+  --clr-bg:           #ffffff;
+  --clr-bg-2:         #f6f8fb;
+  --clr-bg-3:         #edf0f5;
+  --clr-surface:      #ffffff;
+  --clr-surface-2:    #f6f8fb;
+  --clr-border:       rgba(0,0,0,0.08);
+  --clr-border-hover: rgba(0,0,0,0.16);
+
+  --clr-text:         #0a0f1a;
+  --clr-text-muted:   rgba(10,15,26,0.65);
+  --clr-text-dim:     rgba(10,15,26,0.40);
+
+  --clr-gold:         #b58c42;
+  --clr-gold-light:   #d4ae65;
+  --clr-gold-dim:     rgba(181,140,66,0.12);
+}
+
+[data-theme="light"] .navbar.scrolled {
+  background: rgba(255,255,255,0.92);
+}
+[data-theme="light"] .nav-mobile {
+  background: rgba(255,255,255,0.98);
+}
+[data-theme="light"] .hero-overlay {
+  background:
+    radial-gradient(ellipse 80% 60% at 50% 30%, rgba(255,255,255,0.2) 0%, rgba(255,255,255,0.85) 70%),
+    linear-gradient(to bottom, rgba(255,255,255,0.6) 0%, rgba(255,255,255,1) 100%);
+}
+[data-theme="light"] .hero-ticker {
+  background: rgba(255,255,255,0.8);
+}
+[data-theme="light"] .marketing-dashboard-overlay {
+  background: linear-gradient(to top, rgba(255,255,255,0.95) 0%, rgba(255,255,255,0.5) 60%, transparent 100%);
+}
+[data-theme="light"] .mdo-card {
+  background: rgba(255,255,255,0.9);
+}
+[data-theme="light"] .brand-img-overlay {
+  background: linear-gradient(to top, rgba(255,255,255,0.9) 0%, transparent 60%);
+}
+[data-theme="light"] .bio-tag {
+  background: rgba(255,255,255,0.9);
+  color: var(--clr-gold);
+}
+[data-theme="light"] .studio-half-overlay {
+  background: linear-gradient(to right, rgba(255,255,255,0.95) 0%, rgba(255,255,255,0.6) 100%);
+}
+[data-theme="light"] .wc-overlay {
+  background: linear-gradient(to top, rgba(255,255,255,1) 0%, rgba(255,255,255,0.75) 50%, transparent 100%);
+}
+[data-theme="light"] .eco-overlay {
+  background: radial-gradient(ellipse 80% 80% at 50% 50%, rgba(255,255,255,0.75) 0%, rgba(255,255,255,0.95) 100%);
+}
+[data-theme="light"] .about-img-overlay {
+  background: linear-gradient(to top, rgba(255,255,255,0.92) 0%, transparent 60%);
+}
+[data-theme="light"] .cursor-dot {
+  background: #000;
+}
+[data-theme="light"] .cursor-ring {
+  border-color: rgba(0,0,0,0.4);
+}
+[data-theme="light"] body:has(a:hover) .cursor-ring,
+[data-theme="light"] body:has(button:hover) .cursor-ring {
+  border-color: var(--clr-gold);
+}
+[data-theme="light"] .engine-center-core {
+  background: linear-gradient(135deg, var(--clr-surface) 0%, var(--clr-surface-2) 100%);
+  box-shadow: 0 0 60px rgba(181,140,66,0.1), inset 0 1px 0 rgba(0,0,0,0.05);
+}
