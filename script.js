@@ -227,4 +227,28 @@ document.querySelectorAll('a[href^="#"]').forEach(anchor => {
   });
 });
 
+/* ─────────────────────────────────────────────────────────────── */
+/*  MIDCAV SEQUENTIAL DIMENSION GLOW                               */
+/* ─────────────────────────────────────────────────────────────── */
+(function initDimGlow() {
+  const cards = document.querySelectorAll('.dim-card');
+  if (!cards.length) return;
+
+  let currentIndex = 0;
+
+  function activateCard(index) {
+    cards.forEach((c) => c.classList.remove('dim-active'));
+    cards[index].classList.add('dim-active');
+  }
+
+  // Start immediately with M
+  activateCard(0);
+
+  // Advance every 1100ms — slow, cinematic, premium
+  setInterval(() => {
+    currentIndex = (currentIndex + 1) % cards.length;
+    activateCard(currentIndex);
+  }, 1100);
+})();
+
 console.log('%c MIDCAV . %c Premium Digital & Creative Agency', 'background:#8952ff;color:#fff;padding:4px 8px;font-weight:bold;border-radius:4px;', 'color:#8952ff;');
