@@ -347,11 +347,11 @@ h1, h2, h3, h4 { font-weight: 400; line-height: 1.1; }
   border-radius: 12px;
 }
 .center-node {
-  left: 50%; top: 50%; width: 22%; aspect-ratio: 1;
-  background: rgba(15,10,35,0.8);
-  border: 1px solid rgba(130,80,255,0.5);
-  box-shadow: 0 0 30px rgba(100,50,255,0.4);
-  backdrop-filter: blur(8px); overflow: hidden;
+  left: 50%; top: 50%; width: 32%; aspect-ratio: 1;
+  background: rgba(15,10,35,0.85);
+  border: 1px solid rgba(130,80,255,0.6);
+  box-shadow: 0 0 50px rgba(100,50,255,0.55), 0 0 100px rgba(100,50,255,0.2);
+  backdrop-filter: blur(10px); overflow: hidden;
 }
 .center-core-glow {
   position: absolute; inset: -50%;
@@ -359,10 +359,10 @@ h1, h2, h3, h4 { font-weight: 400; line-height: 1.1; }
   animation: pulseGlow 3s ease-in-out infinite alternate;
 }
 .nexus-title {
-  font-family: var(--font-display); font-size: clamp(1.5rem, 2vw, 2.5rem);
-  font-weight: 700; letter-spacing: 0.1em; color: #fff;
+  font-family: var(--font-display); font-size: clamp(2.2rem, 3.5vw, 3.8rem);
+  font-weight: 800; letter-spacing: 0.15em; color: #fff;
   position: relative; z-index: 2; margin: 0;
-  text-shadow: 0 0 10px rgba(0,255,255,0.6), 0 0 20px rgba(0,255,255,0.4);
+  text-shadow: 0 0 15px rgba(0,255,255,0.7), 0 0 30px rgba(0,255,255,0.5), 0 0 60px rgba(0,255,255,0.2);
 }
 .outer-node {
   width: auto; min-width: 140px; padding: 0.5rem 1rem;
