@@ -291,6 +291,7 @@ h1, h2, h3, h4 { font-weight: 400; line-height: 1.1; }
 /* ─── SPLIT LAYOUT (About, Branding, Technology) ─── */
 .about-grid, .split-layout { display: grid; grid-template-columns: 1fr 1fr; gap: 4rem; align-items: center; }
 .split-layout.reverse .split-visuals { order: -1; }
+.tech-split { grid-template-columns: 1.8fr 1fr; gap: 6rem; }
 .image-card { border-radius: 12px; overflow: hidden; }
 
 /* ─── INTERACTIVE NETWORK COMPONENT ─── */
@@ -583,8 +584,8 @@ h1, h2, h3, h4 { font-weight: 400; line-height: 1.1; }
 @media (max-width: 1024px) {
   .nav-links { display: none; }
   .menu-toggle { display: flex; }
-  .about-grid, .split-layout, .contact-grid { grid-template-columns: 1fr; gap: 3rem; }
-  .split-layout.reverse .split-visuals { order: 1; }
+  .about-grid, .split-layout, .tech-split, .contact-grid { grid-template-columns: 1fr; gap: 3rem; }
+  .split-layout.reverse .split-visuals { order: -1; }
   .stats-grid { grid-template-columns: 1fr 1fr; }
   .collage-grid { grid-template-columns: 1fr; }
   .collage-item.large { grid-column: span 1; }
