@@ -325,33 +325,38 @@ h1, h2, h3, h4 { font-weight: 400; line-height: 1.1; }
   opacity: 0.5; z-index: 1;
 }
 
-/* ─── NETWORK TEXT OVERLAY (top of diagram) ─── */
+/* ─── NETWORK TEXT OVERLAY (top-centre of diagram) ─── */
 .network-text-overlay {
   position: absolute;
   top: 0; left: 0; right: 0;
   z-index: 10;
-  padding: 2.5rem 3rem 5rem;
+  padding: 2.2rem 3rem 7rem;
   background: linear-gradient(
     to bottom,
-    rgba(10,5,20,0.85) 0%,
-    rgba(10,5,20,0.5) 60%,
+    rgba(8,4,18,0.92) 0%,
+    rgba(8,4,18,0.75) 45%,
+    rgba(8,4,18,0.2) 75%,
     transparent 100%
   );
-  text-align: left;
+  text-align: center;
   pointer-events: none;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
 .network-overlay-title {
-  font-size: clamp(2rem, 4vw, 3.5rem) !important;
+  font-size: clamp(1.8rem, 3.2vw, 3rem) !important;
   color: #fff;
-  margin: 0 0 0.5rem;
+  margin: 0 0 0.4rem;
   line-height: 1.15;
 }
 .network-overlay-sub {
-  margin-top: 0.5rem !important;
-  font-size: clamp(0.95rem, 1.5vw, 1.15rem) !important;
+  margin-top: 0 !important;
+  font-size: clamp(0.85rem, 1.2vw, 1rem) !important;
   text-transform: none !important;
   letter-spacing: normal !important;
   color: var(--clr-primary);
+  font-weight: 600;
 }
 
 .network-svg { position: absolute; inset: 0; width: 100%; height: 100%; z-index: 2; filter: url(#neon-glow); }
@@ -391,10 +396,10 @@ h1, h2, h3, h4 { font-weight: 400; line-height: 1.1; }
   border-radius: 12px;
 }
 .center-node {
-  left: 50%; top: 50%; width: 32%; aspect-ratio: 1;
+  left: 50%; top: 55%; width: 18%; aspect-ratio: 1;
   background: rgba(15,10,35,0.85);
   border: 1px solid rgba(130,80,255,0.6);
-  box-shadow: 0 0 50px rgba(100,50,255,0.55), 0 0 100px rgba(100,50,255,0.2);
+  box-shadow: 0 0 40px rgba(100,50,255,0.55), 0 0 80px rgba(100,50,255,0.2);
   backdrop-filter: blur(10px); overflow: hidden;
 }
 .center-core-glow {
@@ -403,10 +408,10 @@ h1, h2, h3, h4 { font-weight: 400; line-height: 1.1; }
   animation: pulseGlow 3s ease-in-out infinite alternate;
 }
 .nexus-title {
-  font-family: var(--font-display); font-size: clamp(2.2rem, 3.5vw, 3.8rem);
+  font-family: var(--font-display); font-size: clamp(1rem, 1.6vw, 1.8rem);
   font-weight: 800; letter-spacing: 0.15em; color: #fff;
   position: relative; z-index: 2; margin: 0;
-  text-shadow: 0 0 15px rgba(0,255,255,0.7), 0 0 30px rgba(0,255,255,0.5), 0 0 60px rgba(0,255,255,0.2);
+  text-shadow: 0 0 12px rgba(0,255,255,0.7), 0 0 24px rgba(0,255,255,0.5), 0 0 48px rgba(0,255,255,0.2);
 }
 .outer-node {
   width: auto; min-width: 140px; padding: 0.5rem 1rem;
