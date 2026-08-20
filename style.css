@@ -358,21 +358,25 @@ h1, h2, h3, h4 { font-weight: 400; line-height: 1.1; }
   background: radial-gradient(circle at center, rgba(100,50,255,0.5) 0%, transparent 60%);
   animation: pulseGlow 3s ease-in-out infinite alternate;
 }
-.nexus-core-img {
-  width: 80%; height: 80%; object-fit: contain; position: relative; z-index: 2;
-  filter: drop-shadow(0 0 10px rgba(0,255,255,0.3));
+.nexus-title {
+  font-family: var(--font-display); font-size: clamp(1.5rem, 2vw, 2.5rem);
+  font-weight: 700; letter-spacing: 0.1em; color: #fff;
+  position: relative; z-index: 2; margin: 0;
+  text-shadow: 0 0 10px rgba(0,255,255,0.6), 0 0 20px rgba(0,255,255,0.4);
 }
 .outer-node {
-  width: 8%; aspect-ratio: 1; min-width: 40px;
+  width: auto; min-width: 140px; padding: 0.5rem 1rem;
   background: rgba(15,10,30,0.9);
-  border: 1px solid rgba(255,255,255,0.05);
+  border: 1px solid rgba(255,255,255,0.05); border-radius: 12px;
   box-shadow: 0 10px 20px rgba(0,0,0,0.5), inset 0 0 10px rgba(255,255,255,0.02);
   transition: transform 0.3s ease, box-shadow 0.3s ease;
   pointer-events: auto; cursor: none;
+  display: flex; align-items: center; gap: 0.75rem;
 }
-.outer-node i { font-size: 1.5rem; filter: drop-shadow(0 0 5px currentColor); }
+.outer-node i { font-size: 1.25rem; filter: drop-shadow(0 0 5px currentColor); }
+.node-label { font-size: 0.85rem; font-weight: 600; color: #fff; white-space: nowrap; }
 .outer-node:hover {
-  transform: translate(-50%, -50%) scale(1.1);
+  transform: translate(-50%, -50%) scale(1.05);
   box-shadow: 0 15px 30px rgba(100,50,255,0.3), inset 0 0 15px rgba(255,255,255,0.05);
 }
 

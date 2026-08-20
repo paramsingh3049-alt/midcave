@@ -300,29 +300,25 @@
               <!-- Track Lines -->
               <g class="network-tracks">
                 <!-- Left Side -->
-                <path d="M 50 50 L 45 50 Q 35 50 35 40 L 35 20" class="track-line" />
-                <path d="M 50 50 L 25 50 Q 15 50 15 45 L 15 35" class="track-line" />
-                <path d="M 50 50 L 25 50 Q 15 50 15 55 L 15 65" class="track-line" />
-                <path d="M 50 50 L 45 50 Q 35 50 35 60 L 35 80" class="track-line" />
+                <path d="M 50 50 L 35 50 Q 25 50 25 40 L 25 20" class="track-line" />
+                <path d="M 50 50 L 15 50" class="track-line" />
+                <path d="M 50 50 L 35 50 Q 25 50 25 60 L 25 80" class="track-line" />
                 
                 <!-- Right Side -->
-                <path d="M 50 50 L 55 50 Q 65 50 65 40 L 65 20" class="track-line" />
-                <path d="M 50 50 L 75 50 Q 85 50 85 45 L 85 35" class="track-line" />
-                <path d="M 50 50 L 75 50 Q 85 50 85 55 L 85 65" class="track-line" />
-                <path d="M 50 50 L 55 50 Q 65 50 65 60 L 65 80" class="track-line" />
+                <path d="M 50 50 L 65 50 Q 75 50 75 40 L 75 20" class="track-line" />
+                <path d="M 50 50 L 85 50" class="track-line" />
+                <path d="M 50 50 L 65 50 Q 75 50 75 60 L 75 80" class="track-line" />
               </g>
 
               <!-- Animated Particles -->
               <g class="network-particles">
-                <path d="M 50 50 L 45 50 Q 35 50 35 40 L 35 20" class="net-particle p1" />
-                <path d="M 50 50 L 25 50 Q 15 50 15 45 L 15 35" class="net-particle p2" />
-                <path d="M 50 50 L 25 50 Q 15 50 15 55 L 15 65" class="net-particle p3" />
-                <path d="M 50 50 L 45 50 Q 35 50 35 60 L 35 80" class="net-particle p4" />
+                <path d="M 50 50 L 35 50 Q 25 50 25 40 L 25 20" class="net-particle p1" />
+                <path d="M 50 50 L 15 50" class="net-particle p2" />
+                <path d="M 50 50 L 35 50 Q 25 50 25 60 L 25 80" class="net-particle p3" />
                 
-                <path d="M 50 50 L 55 50 Q 65 50 65 40 L 65 20" class="net-particle p5" />
-                <path d="M 50 50 L 75 50 Q 85 50 85 45 L 85 35" class="net-particle p6" />
-                <path d="M 50 50 L 75 50 Q 85 50 85 55 L 85 65" class="net-particle p7" />
-                <path d="M 50 50 L 55 50 Q 65 50 65 60 L 65 80" class="net-particle p8" />
+                <path d="M 50 50 L 65 50 Q 75 50 75 40 L 75 20" class="net-particle p4" />
+                <path d="M 50 50 L 85 50" class="net-particle p5" />
+                <path d="M 50 50 L 65 50 Q 75 50 75 60 L 75 80" class="net-particle p6" />
               </g>
             </svg>
 
@@ -331,20 +327,36 @@
               <!-- Center Node -->
               <div class="net-node center-node">
                 <div class="center-core-glow"></div>
-                <img src="nexus_core.png" alt="NEXUS Core" class="nexus-core-img" />
+                <h3 class="nexus-title">NEXUS</h3>
               </div>
               
               <!-- Outer Nodes (Left) -->
-              <div class="net-node outer-node" style="left: 35%; top: 20%;"><i class="fa fa-cogs" style="color: #ff6b6b;"></i></div>
-              <div class="net-node outer-node" style="left: 15%; top: 35%;"><i class="fa fa-globe" style="color: #4facfe;"></i></div>
-              <div class="net-node outer-node" style="left: 15%; top: 65%;"><i class="fa fa-shield-alt" style="color: #f6d365;"></i></div>
-              <div class="net-node outer-node" style="left: 35%; top: 80%;"><i class="fa fa-share-alt" style="color: #ff9a9e;"></i></div>
+              <div class="net-node outer-node" style="left: 25%; top: 20%;">
+                <i class="fa fa-brain" style="color: #4facfe;"></i>
+                <span class="node-label">AI & ML</span>
+              </div>
+              <div class="net-node outer-node" style="left: 15%; top: 50%;">
+                <i class="fa fa-chart-bar" style="color: #f6d365;"></i>
+                <span class="node-label">Data Analytics</span>
+              </div>
+              <div class="net-node outer-node" style="left: 25%; top: 80%;">
+                <i class="fa fa-shield-alt" style="color: #ff6b6b;"></i>
+                <span class="node-label">Cybersecurity</span>
+              </div>
               
               <!-- Outer Nodes (Right) -->
-              <div class="net-node outer-node" style="left: 65%; top: 20%;"><i class="fa fa-layer-group" style="color: #a18cd1;"></i></div>
-              <div class="net-node outer-node" style="left: 85%; top: 35%;"><i class="fa fa-tachometer-alt" style="color: #4facfe;"></i></div>
-              <div class="net-node outer-node" style="left: 85%; top: 65%;"><i class="fa fa-cube" style="color: #f6d365;"></i></div>
-              <div class="net-node outer-node" style="left: 65%; top: 80%;"><i class="fa fa-shopping-bag" style="color: #43e97b;"></i></div>
+              <div class="net-node outer-node" style="left: 75%; top: 20%;">
+                <i class="fa fa-link" style="color: #a18cd1;"></i>
+                <span class="node-label">Blockchain</span>
+              </div>
+              <div class="net-node outer-node" style="left: 85%; top: 50%;">
+                <i class="fa fa-project-diagram" style="color: #43e97b;"></i>
+                <span class="node-label">Network Edge</span>
+              </div>
+              <div class="net-node outer-node" style="left: 75%; top: 80%;">
+                <i class="fa fa-atom" style="color: #4facfe;"></i>
+                <span class="node-label">Quantum Computing</span>
+              </div>
             </div>
           </div>
         </div>
