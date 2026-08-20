@@ -21,7 +21,10 @@
   <!-- NAVIGATION -->
   <nav class="navbar" id="navbar">
     <div class="nav-container">
-      <a href="#hero" class="nav-brand"><img src="logo.png" alt="MIDCAV" class="brand-logo" /></a>
+      <a href="#hero" class="nav-brand">
+        <img src="logo.png" alt="MIDCAV" class="brand-logo" onerror="this.style.display='none'; this.nextElementSibling.style.display='inline';" />
+        <span class="fallback-text" style="display:none; font-family: var(--font-display); font-size: 1.5rem; font-weight: 600; letter-spacing: 0.05em;">MIDCAV<span style="color: var(--clr-primary);">.</span></span>
+      </a>
       
       <div class="nav-links">
         <a href="#hero">Home</a>
@@ -362,7 +365,8 @@
     <div class="container">
       <div class="footer-top pt-md pb-md">
         <div class="footer-brand">
-          <img src="logo.png" alt="MIDCAV" class="brand-logo footer-logo" />
+          <img src="logo.png" alt="MIDCAV" class="brand-logo footer-logo" onerror="this.style.display='none'; this.nextElementSibling.style.display='block';" />
+          <h3 class="fallback-text" style="display:none; font-family: var(--font-display); font-size: 1.5rem; margin-bottom: 0.5rem;">MIDCAV<span style="color: var(--clr-primary);">.</span></h3>
           <p>Digital Marketing + Creative Media + Technology Agency</p>
         </div>
         <div class="footer-links">
