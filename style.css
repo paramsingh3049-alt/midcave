@@ -368,34 +368,6 @@ h1, h2, h3, h4 { font-weight: 400; line-height: 1.1; }
   transform: translateY(0);
 }
 
-/* ─── BAAMANN LOGO OVERLAY ON BRAND CARD ─── */
-.brand-logo-overlay {
-  position: absolute;
-  inset: 0;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  pointer-events: none;
-  z-index: 2;
-}
-
-.brand-logo-overlay__img {
-  width: 55%;
-  height: auto;
-  object-fit: contain;
-  filter:
-    drop-shadow(0 0 12px rgba(180,130,40,0.6))
-    drop-shadow(0 2px 6px rgba(0,0,0,0.8));
-  transition: filter 0.65s ease, transform 0.65s cubic-bezier(0.2,0.8,0.2,1);
-  transform: scale(1);
-}
-
-.about-img-card--brand:hover .brand-logo-overlay__img {
-  transform: scale(1.1);
-  filter:
-    drop-shadow(0 0 20px rgba(200,150,50,0.8))
-    drop-shadow(0 2px 8px rgba(0,0,0,0.9));
-}
 
 
 /* ─── STATISTICS ─── */
