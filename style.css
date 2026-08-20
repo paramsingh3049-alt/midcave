@@ -387,6 +387,25 @@ h1, h2, h3, h4 { font-weight: 400; line-height: 1.1; }
   display: flex; align-items: flex-end; padding: 2rem;
 }
 .collage-overlay h4 { font-size: 1.25rem; font-weight: 500; }
+.seo-content-card.collage-item { grid-column: span 3; display: flex; align-items: stretch; justify-content: flex-end; }
+.seo-overlay-content {
+  position: absolute; right: 0; top: 0; bottom: 0;
+  width: 55%; padding: 4rem; display: flex; flex-direction: column; justify-content: center;
+  background: linear-gradient(to right, rgba(10,8,18,0) 0%, rgba(10,8,18,0.85) 40%, rgba(10,8,18,0.95) 100%);
+  z-index: 1; pointer-events: none;
+}
+.seo-overlay-content h3 {
+  font-family: var(--font-display); font-size: clamp(2rem, 4vw, 3rem);
+  color: #fff; line-height: 1.1; margin-bottom: 1rem;
+  background: linear-gradient(135deg, #fff 0%, var(--clr-primary-light) 100%);
+  -webkit-background-clip: text; -webkit-text-fill-color: transparent;
+  transform: translateY(20px); opacity: 0; transition: all 0.8s var(--ease-out); transition-delay: 0.2s;
+}
+.seo-overlay-content p {
+  font-size: 1.1rem; color: var(--clr-text-muted); line-height: 1.6; max-width: 450px;
+  transform: translateY(20px); opacity: 0; transition: all 0.8s var(--ease-out); transition-delay: 0.4s;
+}
+.collage-item:hover .seo-overlay-content h3, .collage-item:hover .seo-overlay-content p { transform: translateY(0); opacity: 1; }
 
 /* ─── SOCIAL MEDIA GRID ─── */
 .social-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 1rem; margin-top: 4rem; }
