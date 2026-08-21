@@ -228,27 +228,118 @@ document.querySelectorAll('a[href^="#"]').forEach(anchor => {
 });
 
 /* ─────────────────────────────────────────────────────────────── */
-/*  MIDCAV SEQUENTIAL DIMENSION GLOW                               */
+/*  3D CUBE CAROUSEL INTERACTION                                   */
 /* ─────────────────────────────────────────────────────────────── */
-(function initDimGlow() {
-  const cards = document.querySelectorAll('.dim-card');
-  if (!cards.length) return;
+(function initCubeCarousel() {
+  const carousel = document.getElementById('cube-carousel');
+  if (!carousel) return;
 
-  let currentIndex = 0;
+  const cubes = carousel.querySelectorAll('.cube');
+  const totalCubes = cubes.length;
+  const theta = 360 / totalCubes;
+  let radius = window.innerWidth < 768 ? 180 : 300;
 
-  function activateCard(index) {
-    cards.forEach((c) => c.classList.remove('dim-active'));
-    cards[index].classList.add('dim-active');
+  let currentAngle = 0;
+  let targetAngle = 0;
+  let isDragging = false;
+  let startX = 0;
+  let startAngle = 0;
+  let animationFrameId = null;
+
+  function setupCubes() {
+    radius = window.innerWidth < 768 ? 160 : 300;
+    cubes.forEach((cube, i) => {
+      cube.style.transform = `rotateY(${i * theta}deg) translateZ(${radius}px)`;
+    });
+    updateCarousel(true);
   }
 
-  // Start immediately with M
-  activateCard(0);
+  window.addEventListener('resize', setupCubes);
 
-  // Advance every 1100ms — slow, cinematic, premium
-  setInterval(() => {
-    currentIndex = (currentIndex + 1) % cards.length;
-    activateCard(currentIndex);
-  }, 1100);
+  function updateCarousel(instant = false) {
+    if (!instant) {
+      currentAngle += (targetAngle - currentAngle) * 0.08;
+    } else {
+      currentAngle = targetAngle;
+    }
+
+    carousel.style.transform = `translateZ(${-radius}px) rotateY(${currentAngle}deg)`;
+
+    // Determine which cube is facing front
+    let normalized = ((-currentAngle % 360) + 360) % 360; 
+    let activeIndex = Math.round(normalized / theta) % totalCubes;
+
+    cubes.forEach((cube, i) => {
+      if (i === activeIndex) {
+        cube.classList.add('active');
+        cube.style.transform = `rotateY(${i * theta}deg) translateZ(${radius + 40}px) scale(1.05)`;
+      } else {
+        cube.classList.remove('active');
+        cube.style.transform = `rotateY(${i * theta}deg) translateZ(${radius}px) scale(1)`;
+      }
+    });
+
+    if (Math.abs(targetAngle - currentAngle) > 0.01) {
+      animationFrameId = requestAnimationFrame(() => updateCarousel(false));
+    }
+  }
+
+  // Drag Interactions
+  const onDragStart = (x) => {
+    isDragging = true;
+    startX = x;
+    startAngle = targetAngle;
+    carousel.style.cursor = 'grabbing';
+    if(animationFrameId) cancelAnimationFrame(animationFrameId);
+  };
+
+  const onDragMove = (x) => {
+    if (!isDragging) return;
+    const deltaX = x - startX;
+    targetAngle = startAngle + (deltaX * 0.5);
+    updateCarousel(false);
+  };
+
+  const onDragEnd = () => {
+    if (!isDragging) return;
+    isDragging = false;
+    carousel.style.cursor = 'grab';
+    
+    // Snap to nearest face
+    const snapAngle = Math.round(targetAngle / theta) * theta;
+    targetAngle = snapAngle;
+    updateCarousel(false);
+  };
+
+  carousel.addEventListener('mousedown', (e) => onDragStart(e.clientX));
+  window.addEventListener('mousemove', (e) => onDragMove(e.clientX));
+  window.addEventListener('mouseup', onDragEnd);
+
+  carousel.addEventListener('touchstart', (e) => onDragStart(e.touches[0].clientX), {passive: true});
+  window.addEventListener('touchmove', (e) => onDragMove(e.touches[0].clientX), {passive: true});
+  window.addEventListener('touchend', onDragEnd);
+
+  // Scroll Interaction
+  let lastScrollY = window.scrollY;
+  window.addEventListener('scroll', () => {
+    const currentScrollY = window.scrollY;
+    if (currentScrollY < window.innerHeight) {
+       const delta = currentScrollY - lastScrollY;
+       targetAngle -= delta * 0.15;
+       updateCarousel(false);
+    }
+    lastScrollY = currentScrollY;
+    
+    clearTimeout(window.scrollSnapTimeout);
+    window.scrollSnapTimeout = setTimeout(() => {
+        if(!isDragging) {
+            targetAngle = Math.round(targetAngle / theta) * theta;
+            updateCarousel(false);
+        }
+    }, 400);
+  }, {passive: true});
+
+  setupCubes();
 })();
 
 /* ─────────────────────────────────────────────────────────────── */
