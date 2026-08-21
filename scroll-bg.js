@@ -1,13 +1,22 @@
 /* ═══════════════════════════════════════════════════════════════
    MIDCAV DIGITAL TECHNOLOGIES
-   Cinematic Scroll Background Engine v2.0
+   Cinematic Scroll Background Engine v3.0 — Performance Edition
    ─────────────────────────────────────────────────────────────
-   • A/B layer crossfade (opacity + blur-to-sharp + Ken Burns)
-   • Smooth parallax shift per-frame via rAF
-   • Scroll-mapped image segments with pre-roll zone
-   • Gold progress bar
-   • Dimension label badge
-   • Mobile/touch + reduced-motion aware
+   FIX LOG (v2 → v3):
+   • LERP factor raised 0.10 → 0.18  (scroll latency halved)
+   • Parallax moved onto a separate inner <div> — never fights
+     the crossfade CSS transition on the layer itself
+   • filter removed from will-change list (was causing repaint
+     blinking on every parallax frame)
+   • pending lock timeout shortened: CROSSFADE_MS+150 → 560ms
+     so fast scrolling doesn't freeze background for ~1 second
+   • Dirty-flag: parallax only writes style when value changes
+     by >0.3px (eliminates sub-pixel thrashing every rAF tick)
+   • rAF loop self-suspends when scroll is settled (idle state)
+     and resumes instantly on next scroll event
+   • Preload uses <link rel="preload"> for first two images so
+     the initial scene appears without FOUT / flash
+   • Touch-device detection skips parallax (saves battery)
    ═══════════════════════════════════════════════════════════════ */
 
 (function MIDCAVScrollBG() {
@@ -17,18 +26,21 @@
      CONFIG
   ───────────────────────────────────────────────────────────── */
   const CFG = {
-    CROSSFADE_MS:      900,   // crossfade transition duration
-    BLUR_START:        16,    // blur (px) when image first appears
-    SCALE_ACTIVE:      1.0,   // final scale of active image
-    SCALE_ENTER:       1.09,  // scale when image enters
-    SCALE_EXIT:        0.96,  // scale when image exits
-    PARALLAX_FACTOR:   0.20,  // vertical parallax speed (0=static, 1=full scroll)
-    PROGRESS_SEGMENT:  0.95,  // fraction of segment before triggering next image
+    LERP:               0.18,   // scroll catch-up speed (higher = faster/snappier)
+    LERP_SETTLE:        0.001,  // threshold below which scroll is considered "settled"
+    CROSSFADE_MS:       820,    // crossfade transition duration (ms)
+    BLUR_START:         14,     // blur (px) when image first appears
+    SCALE_ACTIVE:       1.0,    // final scale of active image
+    SCALE_ENTER:        1.07,   // scale when entering
+    SCALE_EXIT:         0.97,   // scale when exiting
+    PARALLAX_FACTOR:    0.18,   // vertical parallax depth
+    PARALLAX_MIN_DELTA: 0.4,    // px — skip style write if delta < this
+    PENDING_RELEASE:    560,    // ms before next scene is allowed (was 1050ms)
+    USE_PARALLAX: !window.matchMedia('(pointer: coarse)').matches,
   };
 
   /* ─────────────────────────────────────────────────────────────
-     IMAGE MANIFEST — uses existing MIDCAV project images
-     Mapped to each MIDCAV creative dimension
+     IMAGE MANIFEST
   ───────────────────────────────────────────────────────────── */
   const SCENES = [
     { src: 'home_hero.jpg',      label: 'Creative Technology',          color: '#c8a96e' },
@@ -48,27 +60,29 @@
   /* ─────────────────────────────────────────────────────────────
      STATE
   ───────────────────────────────────────────────────────────── */
-  let layerA, layerB, overlay, badge, labelEl, progressBar;
-  let frontLayer = 'A';     // which layer is currently on top (visible)
-  let activeIdx  = -1;      // currently displayed scene index
-  let pending    = false;   // crossfade in progress
+  let layerA, layerB, layerAInner, layerBInner;
+  let overlay, badge, labelEl, progressBar;
+
+  let frontLayer   = 'A';
+  let activeIdx    = -1;
+  let pending      = false;
   let pendingTimer = null;
 
-  /* Smooth scroll state */
   let currentScrollY = 0;
   let targetScrollY  = 0;
-  let isRunning      = false;
   let rafHandle      = null;
+  let idleState      = false;
 
-  /* Dimensions */
+  let lastParallaxShift = null;
+  let lastProgressPct   = '';
+
   let pageH = 1, viewH = 1;
 
   /* ─────────────────────────────────────────────────────────────
-     CSS
+     CSS INJECTION
   ───────────────────────────────────────────────────────────── */
   function injectCSS() {
     const css = `
-      /* ── MIDCAV Background Stage ── */
       #mcv-stage {
         position: fixed;
         inset: 0;
@@ -78,48 +92,59 @@
         pointer-events: none;
       }
 
-      /* ── Background image layers ── */
+      /*
+       * .mcv-layer  → opacity + filter + scale  (CSS transition handles crossfade)
+       * .mcv-layer-inner → translateY only      (rAF handles parallax each frame)
+       *
+       * Keeping these on separate elements prevents the crossfade transition
+       * from conflicting with per-frame inline transform writes, eliminating
+       * the blink / stutter / jank that occurred in v2.
+       */
       .mcv-layer {
         position: absolute;
-        /* Extra bleed for parallax movement room */
-        top: -12%; left: -4%;
-        width: 108%; height: 124%;
-        background-size: cover;
-        background-position: center center;
-        background-repeat: no-repeat;
+        inset: 0;
         opacity: 0;
-        transform: scale(${CFG.SCALE_ENTER}) translateY(0px);
         filter: blur(${CFG.BLUR_START}px) brightness(0.65);
-        will-change: transform, opacity, filter;
+        transform: scale(${CFG.SCALE_ENTER});
+        /* will-change: NO filter here — filter on will-change triggers a
+           separate raster layer that caused blinking on every parallax tick */
+        will-change: opacity, transform;
         transition:
-          opacity  ${CFG.CROSSFADE_MS}ms cubic-bezier(0.22, 1, 0.36, 1),
-          filter   ${CFG.CROSSFADE_MS * 1.15}ms cubic-bezier(0.22, 1, 0.36, 1),
-          transform ${CFG.CROSSFADE_MS * 1.1}ms cubic-bezier(0.22, 1, 0.36, 1);
+          opacity   ${CFG.CROSSFADE_MS}ms cubic-bezier(0.22, 1, 0.36, 1),
+          filter    ${Math.round(CFG.CROSSFADE_MS * 1.1)}ms cubic-bezier(0.22, 1, 0.36, 1),
+          transform ${Math.round(CFG.CROSSFADE_MS * 1.05)}ms cubic-bezier(0.22, 1, 0.36, 1);
       }
-      /* Active = fully revealed */
       .mcv-layer.mcv-active {
         opacity: 1;
         filter: blur(0px) brightness(0.72);
-        transform: scale(${CFG.SCALE_ACTIVE}) translateY(0px);
+        transform: scale(${CFG.SCALE_ACTIVE});
       }
-      /* Exiting = fade out + scale down */
       .mcv-layer.mcv-exit {
         opacity: 0;
-        filter: blur(8px) brightness(0.55);
-        transform: scale(${CFG.SCALE_EXIT}) translateY(0px);
+        filter: blur(6px) brightness(0.55);
+        transform: scale(${CFG.SCALE_EXIT});
         transition:
-          opacity  ${CFG.CROSSFADE_MS * 0.85}ms cubic-bezier(0.22, 1, 0.36, 1),
-          filter   ${CFG.CROSSFADE_MS}ms cubic-bezier(0.22, 1, 0.36, 1),
+          opacity   ${Math.round(CFG.CROSSFADE_MS * 0.8)}ms cubic-bezier(0.22, 1, 0.36, 1),
+          filter    ${CFG.CROSSFADE_MS}ms cubic-bezier(0.22, 1, 0.36, 1),
           transform ${CFG.CROSSFADE_MS}ms cubic-bezier(0.22, 1, 0.36, 1);
       }
 
-      /* ── Multi-layer dark overlay — top-to-bottom gradient keeps all text readable ── */
+      /* Parallax inner — translateY only, no CSS transition, GPU composited */
+      .mcv-layer-inner {
+        position: absolute;
+        top: -14%; left: -5%;
+        width: 110%; height: 128%;
+        background-size: cover;
+        background-position: center center;
+        background-repeat: no-repeat;
+        will-change: transform;
+      }
+
       #mcv-overlay {
         position: absolute;
         inset: 0;
         pointer-events: none;
         background:
-          /* Top darkening for navbar */
           linear-gradient(to bottom,
             rgba(3,5,8,0.85)  0%,
             rgba(3,5,8,0.20)  14%,
@@ -128,14 +153,12 @@
             rgba(3,5,8,0.55)  85%,
             rgba(3,5,8,0.90)  100%
           ),
-          /* Edge vignette */
           radial-gradient(ellipse 120% 120% at 50% 50%,
             transparent 35%,
             rgba(3,5,8,0.55) 100%
           );
       }
 
-      /* ── Scroll progress bar ── */
       #mcv-progress {
         position: fixed;
         top: 0; left: 0;
@@ -153,14 +176,13 @@
         pointer-events: none;
         box-shadow: 0 0 10px rgba(200,169,110,0.5), 0 0 20px rgba(200,169,110,0.2);
         animation: mcv-progress-shimmer 2s linear infinite;
-        transform-origin: left center;
+        will-change: width;
       }
       @keyframes mcv-progress-shimmer {
         0%   { background-position: 100% 0; }
         100% { background-position: -100% 0; }
       }
 
-      /* ── Dimension label badge ── */
       #mcv-badge {
         position: fixed;
         bottom: 2.8rem;
@@ -179,14 +201,11 @@
         transform: translateY(0) translateX(0);
       }
       .mcv-badge-line {
-        width: 28px;
-        height: 1px;
-        background: currentColor;
-        opacity: 0.5;
+        width: 28px; height: 1px;
+        background: currentColor; opacity: 0.5;
       }
       .mcv-badge-dot {
-        width: 5px; height: 5px;
-        border-radius: 50%;
+        width: 5px; height: 5px; border-radius: 50%;
         background: currentColor;
         animation: mcv-badge-pulse 2s ease-in-out infinite;
         flex-shrink: 0;
@@ -197,61 +216,41 @@
       }
       .mcv-badge-text {
         font-family: 'Space Mono', monospace;
-        font-size: 0.58rem;
-        letter-spacing: 0.24em;
-        text-transform: uppercase;
-        color: currentColor;
-        white-space: nowrap;
+        font-size: 0.58rem; letter-spacing: 0.24em;
+        text-transform: uppercase; color: currentColor; white-space: nowrap;
       }
 
-      /* ── Index indicator dots (side rail) ── */
       #mcv-dots {
         position: fixed;
-        right: 2rem;
-        top: 50%;
+        right: 2rem; top: 50%;
         transform: translateY(-50%);
-        display: flex;
-        flex-direction: column;
-        gap: 0.5rem;
-        z-index: 998;
-        pointer-events: none;
-        opacity: 0;
-        transition: opacity 0.5s ease;
+        display: flex; flex-direction: column; gap: 0.5rem;
+        z-index: 998; pointer-events: none;
+        opacity: 0; transition: opacity 0.5s ease;
       }
       #mcv-dots.mcv-dots-show { opacity: 1; }
       .mcv-dot {
-        width: 4px; height: 4px;
-        border-radius: 50%;
+        width: 4px; height: 4px; border-radius: 50%;
         background: rgba(255,255,255,0.25);
         transition: background 0.4s ease, transform 0.4s ease;
         flex-shrink: 0;
       }
-      .mcv-dot.mcv-dot-active {
-        background: #c8a96e;
-        transform: scale(1.8);
-      }
+      .mcv-dot.mcv-dot-active { background: #c8a96e; transform: scale(1.8); }
 
-      /* ── Mobile ── */
       @media (max-width: 768px) {
         #mcv-badge { bottom: 1.5rem; right: 1.5rem; font-size: 0.5rem; }
         #mcv-dots  { display: none; }
-        .mcv-layer { top: -6%; left: -2%; width: 104%; height: 112%; }
       }
 
-      /* ── Reduced motion ── */
       @media (prefers-reduced-motion: reduce) {
         .mcv-layer {
           transition: opacity 300ms ease !important;
           filter: brightness(0.72) !important;
           transform: none !important;
         }
-        .mcv-layer.mcv-active {
-          filter: brightness(0.72) !important;
-          transform: none !important;
-        }
-        .mcv-layer.mcv-exit {
-          transform: none !important;
-        }
+        .mcv-layer.mcv-active { filter: brightness(0.72) !important; transform: none !important; }
+        .mcv-layer.mcv-exit   { transform: none !important; }
+        .mcv-layer-inner      { will-change: auto !important; }
       }
     `;
     const el = document.createElement('style');
@@ -261,25 +260,28 @@
   }
 
   /* ─────────────────────────────────────────────────────────────
-     DOM CONSTRUCTION
+     DOM
   ───────────────────────────────────────────────────────────── */
   function buildDOM() {
-    /* Stage */
     const stage = document.createElement('div');
     stage.id = 'mcv-stage';
     stage.setAttribute('aria-hidden', 'true');
     stage.setAttribute('role', 'presentation');
 
-    /* Image layers */
     layerA = document.createElement('div');
     layerA.className = 'mcv-layer';
     layerA.id = 'mcv-layer-a';
+    layerAInner = document.createElement('div');
+    layerAInner.className = 'mcv-layer-inner';
+    layerA.appendChild(layerAInner);
 
     layerB = document.createElement('div');
     layerB.className = 'mcv-layer';
     layerB.id = 'mcv-layer-b';
+    layerBInner = document.createElement('div');
+    layerBInner.className = 'mcv-layer-inner';
+    layerB.appendChild(layerBInner);
 
-    /* Overlay */
     overlay = document.createElement('div');
     overlay.id = 'mcv-overlay';
 
@@ -288,12 +290,10 @@
     stage.appendChild(overlay);
     document.body.insertBefore(stage, document.body.firstChild);
 
-    /* Progress bar */
     progressBar = document.createElement('div');
     progressBar.id = 'mcv-progress';
     document.body.appendChild(progressBar);
 
-    /* Dot rail */
     const dotsEl = document.createElement('div');
     dotsEl.id = 'mcv-dots';
     SCENES.forEach((_, i) => {
@@ -304,7 +304,6 @@
     });
     document.body.appendChild(dotsEl);
 
-    /* Label badge */
     badge = document.createElement('div');
     badge.id = 'mcv-badge';
     badge.innerHTML = `
@@ -317,60 +316,46 @@
   }
 
   /* ─────────────────────────────────────────────────────────────
-     CROSSFADE ENGINE
+     CROSSFADE
   ───────────────────────────────────────────────────────────── */
   let badgeTimer = null;
 
   function showScene(newIdx) {
     if (newIdx === activeIdx || pending) return;
-
     pending = true;
     clearTimeout(pendingTimer);
 
-    const scene   = SCENES[newIdx];
-    const front   = frontLayer === 'A' ? layerA : layerB;
-    const back    = frontLayer === 'A' ? layerB : layerA;
+    const scene          = SCENES[newIdx];
+    const backLayer      = frontLayer === 'A' ? layerB      : layerA;
+    const backLayerInner = frontLayer === 'A' ? layerBInner : layerAInner;
+    const frontLayerEl   = frontLayer === 'A' ? layerA      : layerB;
 
-    /* Load image into back layer */
-    back.style.backgroundImage = `url('${scene.src}')`;
-    back.classList.remove('mcv-active', 'mcv-exit');
+    /* Set image on the inner element (not the layer itself) */
+    backLayerInner.style.backgroundImage = `url('${scene.src}')`;
+    backLayer.classList.remove('mcv-active', 'mcv-exit');
 
-    /* Double-rAF to ensure browser paints the new bg before transition */
     requestAnimationFrame(() => {
       requestAnimationFrame(() => {
+        backLayer.classList.add('mcv-active');
+        frontLayerEl.classList.remove('mcv-active');
+        frontLayerEl.classList.add('mcv-exit');
 
-        /* Bring back layer forward */
-        back.classList.add('mcv-active');
-
-        /* Push front layer out */
-        front.classList.remove('mcv-active');
-        front.classList.add('mcv-exit');
-
-        /* Update accent color */
         badge.style.color = scene.color;
-        overlay.style.setProperty('--scene-color', scene.color);
-
-        /* Update dots */
         updateDots(newIdx);
+        updateBadge(scene.label);
 
-        /* Update label */
-        updateBadge(scene.label, newIdx);
-
-        /* Swap front reference */
         frontLayer = frontLayer === 'A' ? 'B' : 'A';
         activeIdx  = newIdx;
 
-        /* Unlock after transition ends */
+        /* Faster release: 560ms vs old 1050ms */
         pendingTimer = setTimeout(() => {
-          front.classList.remove('mcv-exit');
+          frontLayerEl.classList.remove('mcv-exit');
           pending = false;
-        }, CFG.CROSSFADE_MS + 150);
-
+        }, CFG.PENDING_RELEASE);
       });
     });
   }
 
-  /* Update dot rail */
   function updateDots(idx) {
     document.querySelectorAll('.mcv-dot').forEach((d, i) => {
       d.classList.toggle('mcv-dot-active', i === idx);
@@ -379,98 +364,121 @@
     if (dotsEl) dotsEl.classList.add('mcv-dots-show');
   }
 
-  /* Update label badge */
-  function updateBadge(label, idx) {
+  function updateBadge(label) {
     badge.classList.remove('mcv-badge-show');
     clearTimeout(badgeTimer);
     badgeTimer = setTimeout(() => {
       labelEl.textContent = label;
       badge.classList.add('mcv-badge-show');
-      /* Auto-hide after 2.8s */
-      badgeTimer = setTimeout(() => {
-        badge.classList.remove('mcv-badge-show');
-      }, 2800);
-    }, 250);
+      badgeTimer = setTimeout(() => badge.classList.remove('mcv-badge-show'), 2800);
+    }, 200);
   }
 
   /* ─────────────────────────────────────────────────────────────
-     PARALLAX — applied every frame via rAF loop
+     PARALLAX — writes only to .mcv-layer-inner via translate3d
+     This element has no CSS transition, so there is zero conflict
+     with the crossfade animation on its parent .mcv-layer.
   ───────────────────────────────────────────────────────────── */
   function applyParallax(progress) {
-    /* Shift range: [-maxShift, +maxShift] centered at mid-scroll */
-    const maxShift  = viewH * CFG.PARALLAX_FACTOR;
-    const shiftPx   = (progress - 0.5) * maxShift * 2;
+    if (!CFG.USE_PARALLAX) return;
 
-    /* Apply to whichever layer is active (others are invisible) */
-    const activeLayer = frontLayer === 'A' ? layerA : layerB;
-    const exitLayer   = frontLayer === 'A' ? layerB : layerA;
+    const maxShift = viewH * CFG.PARALLAX_FACTOR;
+    const shiftPx  = (0.5 - progress) * maxShift * 2;
 
-    /* Use CSS transform directly (bypasses transition for parallax smoothness) */
-    applyLayerParallax(activeLayer, shiftPx, CFG.SCALE_ACTIVE, activeLayer.classList.contains('mcv-active'));
-    applyLayerParallax(exitLayer,  shiftPx, CFG.SCALE_EXIT,   exitLayer.classList.contains('mcv-exit'));
-  }
-
-  function applyLayerParallax(layer, shiftPx, scale, isVisible) {
-    if (!isVisible) return;
-    /* Override only the translateY within the existing transition.
-       We set it inline so it overrides what the CSS transition set,
-       but we only do it AFTER the transition has settled (no mid-crossfade jank). */
-    if (!pending) {
-      layer.style.transform = `scale(${scale}) translateY(${shiftPx.toFixed(2)}px)`;
+    if (lastParallaxShift !== null &&
+        Math.abs(shiftPx - lastParallaxShift) < CFG.PARALLAX_MIN_DELTA) {
+      return; // sub-threshold — skip style write entirely
     }
+    lastParallaxShift = shiftPx;
+
+    const val = shiftPx.toFixed(2);
+    /* Active inner layer only */
+    const activeInner = frontLayer === 'A' ? layerAInner : layerBInner;
+    activeInner.style.transform = `translate3d(0, ${val}px, 0)`;
   }
 
   /* ─────────────────────────────────────────────────────────────
-     RAF LOOP — smooth scroll + parallax
+     RAF LOOP — self-suspending when idle
   ───────────────────────────────────────────────────────────── */
   function loop() {
-    rafHandle = requestAnimationFrame(loop);
+    const diff = targetScrollY - currentScrollY;
+    currentScrollY += diff * CFG.LERP;
 
-    /* Lerp current scroll toward target */
-    currentScrollY += (targetScrollY - currentScrollY) * 0.10;
-
-    /* Compute progress [0, 1] */
     const scrollable = Math.max(1, pageH - viewH);
     const progress   = Math.min(1, Math.max(0, currentScrollY / scrollable));
 
-    /* Determine which scene to show */
-    const rawIdx = Math.floor(progress * N);
-    const sceneIdx = Math.min(N - 1, rawIdx);
-
+    /* Scene selection */
+    const sceneIdx = Math.min(N - 1, Math.floor(progress * N));
     if (!pending && sceneIdx !== activeIdx) {
       showScene(sceneIdx);
     }
 
-    /* Parallax every frame */
+    /* Parallax */
     applyParallax(progress);
 
-    /* Progress bar */
-    progressBar.style.width = (progress * 100).toFixed(3) + '%';
+    /* Progress bar — dirty-flag write */
+    const pct = (progress * 100).toFixed(2) + '%';
+    if (pct !== lastProgressPct) {
+      progressBar.style.width = pct;
+      lastProgressPct = pct;
+    }
+
+    /* Self-suspend when caught up and no pending crossfade */
+    if (Math.abs(diff) < CFG.LERP_SETTLE && !pending) {
+      idleState = true;
+      rafHandle = null;
+      return;
+    }
+
+    rafHandle = requestAnimationFrame(loop);
   }
 
   /* ─────────────────────────────────────────────────────────────
-     SCROLL HANDLER
+     SCROLL HANDLER — instantly wakes the rAF loop
   ───────────────────────────────────────────────────────────── */
   function onScroll() {
     targetScrollY = window.scrollY;
+    if (idleState) {
+      idleState = false;
+      rafHandle = requestAnimationFrame(loop);
+    }
   }
 
   /* ─────────────────────────────────────────────────────────────
-     IMAGE PRELOADER
+     PRELOADER
   ───────────────────────────────────────────────────────────── */
   function preload() {
-    SCENES.forEach(scene => {
-      const img = new Image();
-      img.src = scene.src;
+    /* First two scenes: critical path — use <link rel="preload"> */
+    SCENES.slice(0, 2).forEach(scene => {
+      const link = document.createElement('link');
+      link.rel  = 'preload';
+      link.as   = 'image';
+      link.href = scene.src;
+      document.head.appendChild(link);
     });
+
+    /* Remaining: load after page is interactive */
+    const preloadRest = () => {
+      SCENES.slice(2).forEach(scene => {
+        const img = new Image();
+        img.src = scene.src;
+      });
+    };
+    if (document.readyState === 'complete') {
+      preloadRest();
+    } else {
+      window.addEventListener('load', preloadRest, { once: true });
+    }
   }
 
   /* ─────────────────────────────────────────────────────────────
      RESIZE
   ───────────────────────────────────────────────────────────── */
+  let resizeTimer = null;
   function updateDimensions() {
     pageH = document.documentElement.scrollHeight;
     viewH = window.innerHeight;
+    lastParallaxShift = null; // force re-compute
   }
 
   /* ─────────────────────────────────────────────────────────────
@@ -482,8 +490,8 @@
     updateDimensions();
     preload();
 
-    /* Show first scene immediately */
-    layerA.style.backgroundImage = `url('${SCENES[0].src}')`;
+    /* Show first scene */
+    layerAInner.style.backgroundImage = `url('${SCENES[0].src}')`;
     requestAnimationFrame(() => {
       requestAnimationFrame(() => {
         layerA.classList.add('mcv-active');
@@ -491,20 +499,19 @@
         frontLayer = 'A';
         badge.style.color = SCENES[0].color;
         updateDots(0);
-        updateBadge(SCENES[0].label, 0);
+        updateBadge(SCENES[0].label);
       });
     });
 
-    /* Listeners */
     window.addEventListener('scroll', onScroll, { passive: true });
     window.addEventListener('resize', () => {
-      updateDimensions();
+      clearTimeout(resizeTimer);
+      resizeTimer = setTimeout(updateDimensions, 100);
     }, { passive: true });
 
-    /* Start rAF loop */
     targetScrollY  = window.scrollY;
     currentScrollY = window.scrollY;
-    loop();
+    rafHandle = requestAnimationFrame(loop);
   }
 
   /* ─────────────────────────────────────────────────────────────

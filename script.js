@@ -26,8 +26,7 @@
   function update() {
     currentX += (mouseX - currentX) * 0.15;
     currentY += (mouseY - currentY) * 0.15;
-    cursor.style.left = currentX + 'px';
-    cursor.style.top = currentY + 'px';
+    cursor.style.transform = `translate3d(${currentX}px, ${currentY}px, 0) translate(-50%, -50%)`;
     requestAnimationFrame(update);
   }
   update();
@@ -210,22 +209,36 @@
 })();
 
 /* ─────────────────────────────────────────────────────────────── */
-/*  SMOOTH ANCHOR SCROLLING                                        */
+/*  PREMIUM SMOOTH SCROLLING (LENIS)                               */
 /* ─────────────────────────────────────────────────────────────── */
-document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-  anchor.addEventListener('click', function (e) {
-    const target = document.querySelector(this.getAttribute('href'));
-    if (target) {
-      e.preventDefault();
-      const navH = 80; // --nav-h
-      const targetPos = target.getBoundingClientRect().top + window.scrollY - navH;
-      window.scrollTo({
-        top: targetPos,
-        behavior: 'smooth'
+(function initSmoothScroll() {
+  const script = document.createElement('script');
+  script.src = 'https://unpkg.com/lenis@1.1.13/dist/lenis.min.js';
+  script.onload = () => {
+    const lenis = new Lenis({
+      autoRaf: true,
+      duration: 1.2,
+      easing: (t) => Math.min(1, 1.001 - Math.pow(2, -10 * t)), // smooth ease-out
+      orientation: 'vertical',
+      gestureOrientation: 'vertical',
+      smoothWheel: true,
+      wheelMultiplier: 1.1, // slightly increased speed
+      touchMultiplier: 2,
+    });
+
+    // Anchor scrolling via Lenis
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+      anchor.addEventListener('click', function (e) {
+        const target = document.querySelector(this.getAttribute('href'));
+        if (target) {
+          e.preventDefault();
+          lenis.scrollTo(target, { offset: -80 });
+        }
       });
-    }
-  });
-});
+    });
+  };
+  document.head.appendChild(script);
+})();
 
 /* ─────────────────────────────────────────────────────────────── */
 /*  3D CUBE CAROUSEL INTERACTION                                   */
