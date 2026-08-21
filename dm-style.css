@@ -23,8 +23,21 @@
 .dm-page {
   background: var(--dm-bg);
   font-family: var(--dm-font);
+  cursor: none;
 }
 .dm-page * { box-sizing: border-box; }
+.dm-page a, .dm-page button { cursor: none; }
+
+/* ─── CUSTOM CURSOR ─── */
+#cursor {
+  position: fixed; top: 0; left: 0;
+  width: 12px; height: 12px;
+  background: rgba(0,229,255,0.8);
+  border-radius: 50%; pointer-events: none; z-index: 99999;
+  transition: width 0.3s ease, height 0.3s ease, background 0.3s ease, border 0.3s ease;
+  mix-blend-mode: screen;
+  will-change: transform;
+}
 
 /* ─── NAVIGATION (DM VERSION) ─── */
 .dm-navbar {
