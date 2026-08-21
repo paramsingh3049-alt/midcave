@@ -3,16 +3,21 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Digital Marketing - MIDCAV Digital Technologies</title>
+  <title>Digital Marketing – We Create Impact | MIDCAV Digital Technologies</title>
+  <meta name="description" content="MIDCAV Digital Marketing – strategy, creativity, and data-driven execution to grow your brand. Explore our services and start a project today." />
   <link rel="stylesheet" href="style.css" />
+  <link rel="stylesheet" href="dm-style.css" />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=Outfit:wght@300;400;600;700;800;900&display=swap" rel="stylesheet" />
 </head>
-<body>
+<body class="dm-page">
+
+  <!-- Custom Cursor -->
+  <div class="cursor-follower" id="cursor"></div>
 
   <!-- NAVIGATION -->
-  <nav id="navbar">
+  <nav id="navbar" class="dm-navbar">
     <div class="nav-logo">
       <span class="nav-logo-main"><a href="index.html">MIDCAV</a></span>
       <span class="nav-logo-sub">DIGITAL TECHNOLOGIES</span>
@@ -21,10 +26,12 @@
     <ul class="nav-links">
       <li><a href="index.html">Home</a></li>
       <li><a href="agency.html">Agency</a></li>
-      <li class="has-dropdown">
-        <a href="index.html#services">Services <svg width="10" height="6" viewBox="0 0 10 6" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M1 1L5 5L9 1" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
+      <li class="has-dropdown active">
+        <a href="digital-marketing.html">Digital Marketing <svg width="10" height="6" viewBox="0 0 10 6" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M1 1L5 5L9 1" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
         <div class="dropdown-menu">
-          <a href="digital-marketing.html">Digital Marketing</a>
+          <a href="digital-marketing.html" class="active">Overview</a>
+          <a href="dm-services.html">Our Services</a>
+          <a href="dm-strategy.html">Strategy &amp; Results</a>
         </div>
       </li>
       <li><a href="agency.html#work">Work</a></li>
@@ -32,115 +39,327 @@
     </ul>
 
     <div class="nav-actions">
-      <a href="agency.html#contact" class="nav-cta-outline">Let's Talk</a>
-      <button class="hamburger-btn">
-        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-          <path d="M4 6H20M4 12H20M4 18H20" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-        </svg>
+      <a href="agency.html#contact" class="nav-cta-btn" id="nav-lets-talk">Let's Talk</a>
+      <button class="hamburger-btn" id="hamburger-btn" aria-label="Open menu">
+        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 6H20M4 12H20M4 18H20"/></svg>
       </button>
     </div>
   </nav>
 
+  <!-- MOBILE MENU -->
+  <div class="dm-mobile-menu" id="dm-mobile-menu">
+    <a href="index.html">Home</a>
+    <a href="agency.html">Agency</a>
+    <a href="digital-marketing.html" class="active">Digital Marketing – Overview</a>
+    <a href="dm-services.html">Our Services</a>
+    <a href="dm-strategy.html">Strategy &amp; Results</a>
+    <a href="agency.html#work">Work</a>
+    <a href="agency.html#contact">Contact</a>
+  </div>
+
+  <!-- DM SUB NAV -->
+  <div class="dm-sub-nav" id="dm-sub-nav">
+    <div class="container">
+      <a href="digital-marketing.html" class="active" id="subnav-overview">Overview</a>
+      <a href="dm-services.html" id="subnav-services">Our Services</a>
+      <a href="dm-strategy.html" id="subnav-strategy">Strategy &amp; Results</a>
+    </div>
+  </div>
+
   <main>
-    <!-- HERO SECTION -->
-    <section id="hero" style="min-height: 70vh;">
-      <div class="hero-bg-container" style="width: 100%;">
-        <img src="hero_camera.jpg" alt="Digital Marketing" class="hero-bg-img" style="opacity: 0.5;" />
-        <div class="hero-fade-overlay" style="background: linear-gradient(0deg, var(--clr-bg) 0%, rgba(3,4,7,0.5) 100%);"></div>
-      </div>
 
-      <div class="hero-content">
-        <div class="hero-left" style="max-width: 800px;">
-          <div class="hero-label">GROWTH & VISIBILITY</div>
-          <h1 class="hero-headline">
-            DATA-DRIVEN CAMPAIGNS FOR<br />
-            <span class="grad">MAXIMUM IMPACT.</span>
+    <!-- ═══════════════════════════════════════ -->
+    <!-- HERO SECTION                            -->
+    <!-- ═══════════════════════════════════════ -->
+    <section class="dmh-section" id="dm-hero">
+      <!-- Ambient background orbs -->
+      <div class="dmh-orb dmh-orb-1"></div>
+      <div class="dmh-orb dmh-orb-2"></div>
+      <div class="dmh-grid-bg"></div>
+
+      <div class="container dmh-container">
+
+        <!-- LEFT: Text Content -->
+        <div class="dmh-text reveal-fade">
+          <div class="dmh-eyebrow">
+            <span class="dmh-dot"></span>
+            DIGITAL MARKETING
+            <span class="dmh-dot"></span>
+          </div>
+          <h1 class="dmh-headline">
+            We Don't Just <br/>Market.
+            <span class="dmh-accent">We Create Impact.</span>
           </h1>
-          <p class="hero-sub">
-            From SEO and content strategy to precision PPC and social media marketing. We engineer digital growth engines that convert attention into revenue.
+          <p class="dmh-sub">
+            We blend deep strategy, high-end creativity, and data-driven execution to accelerate your growth. Stand out in the digital noise and build an audience that converts — consistently.
           </p>
-        </div>
-      </div>
-    </section>
 
-    <!-- SERVICES CARDS STRIP -->
-    <section id="services-strip" style="margin-top: -120px;">
-      <div class="services-grid" style="grid-template-columns: repeat(4, 1fr);">
-        <!-- 01 SEO -->
-        <div class="service-card">
-          <div class="service-img" style="background-image: url('hero_monitor.jpg');"></div>
-          <div class="service-card-content">
-            <div class="service-icon"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.3-4.3"/></svg></div>
-            <div class="service-num">01</div>
-            <h3 class="service-title">Search Engine Optimization</h3>
-            <p class="service-desc">Dominate search rankings with technical, on-page, and off-page SEO strategies designed for long-term growth.</p>
-          </div>
-        </div>
-
-        <!-- 02 Social Media -->
-        <div class="service-card">
-          <div class="service-img" style="background-image: url('hero_team.jpg');"></div>
-          <div class="service-card-content">
-            <div class="service-icon"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"/></svg></div>
-            <div class="service-num">02</div>
-            <h3 class="service-title">Social Media Marketing</h3>
-            <p class="service-desc">Build loyal communities and amplify your brand voice across Instagram, LinkedIn, X, and TikTok.</p>
-          </div>
-        </div>
-
-        <!-- 03 PPC -->
-        <div class="service-card">
-          <div class="service-img" style="background-image: url('mockup1.jpg');"></div>
-          <div class="service-card-content">
-            <div class="service-icon"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2v20M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"/></svg></div>
-            <div class="service-num">03</div>
-            <h3 class="service-title">PPC & Paid Advertising</h3>
-            <p class="service-desc">Highly targeted ad campaigns that minimize customer acquisition costs and maximize return on ad spend.</p>
-          </div>
-        </div>
-
-        <!-- 04 Analytics -->
-        <div class="service-card">
-          <div class="service-img" style="background-image: url('hero_wave.jpg');"></div>
-          <div class="service-card-content">
-            <div class="service-icon"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="18" y1="20" x2="18" y2="10"/><line x1="12" y1="20" x2="12" y2="4"/><line x1="6" y1="20" x2="6" y2="14"/></svg></div>
-            <div class="service-num">04</div>
-            <h3 class="service-title">Analytics & Strategy</h3>
-            <p class="service-desc">Turn raw data into actionable insights with comprehensive tracking, reporting, and campaign optimization.</p>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <!-- ABOUT US & CTA SECTION -->
-    <section id="about-cta">
-      <div class="about-container">
-        <div class="about-left">
-          <div class="section-label">SCALE YOUR REACH</div>
-          <h2 class="section-title about-title">Stop guessing.<br/>Start growing.</h2>
-        </div>
-        <div class="about-mid">
-          <p class="about-desc">
-            We don't believe in vanity metrics. We focus on what matters: conversions, revenue, and sustainable market share growth through intelligent digital strategies.
-          </p>
-        </div>
-        <div class="about-right">
-          <div class="about-img-container">
-            <img src="stats_bg.jpg" alt="Marketing" class="about-img" />
-            <div class="cta-card">
-              <h3 class="cta-title">Ready for a<br/>marketing audit?</h3>
-              <p class="cta-desc">Let's analyze your current standing.</p>
-              <a href="index.html#contact" class="btn-outline-pill cta-btn">
-                Get Started <svg width="14" height="10" viewBox="0 0 14 10" fill="none"><path d="M1 5H13M13 5L9 1M13 5L9 9" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
-              </a>
+          <!-- Stats Row -->
+          <div class="dmh-stats-row">
+            <div class="dmh-stat-pill">
+              <span class="dmh-stat-num">240<span class="dmh-pct">%</span></span>
+              <span class="dmh-stat-lbl">Avg Engagement Growth</span>
+            </div>
+            <div class="dmh-divider-v"></div>
+            <div class="dmh-stat-pill">
+              <span class="dmh-stat-num">4.8<span class="dmh-pct">x</span></span>
+              <span class="dmh-stat-lbl">Average ROAS</span>
+            </div>
+            <div class="dmh-divider-v"></div>
+            <div class="dmh-stat-pill">
+              <span class="dmh-stat-num">120<span class="dmh-pct">+</span></span>
+              <span class="dmh-stat-lbl">Campaigns Launched</span>
             </div>
           </div>
+
+          <!-- CTA Buttons -->
+          <div class="dmh-ctas">
+            <a href="dm-services.html" class="dmh-btn-primary" id="cta-services">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="3" width="7" height="7"/><rect x="14" y="3" width="7" height="7"/><rect x="14" y="14" width="7" height="7"/><rect x="3" y="14" width="7" height="7"/></svg>
+              Our Services
+            </a>
+            <a href="agency.html#contact" class="dmh-btn-outline" id="cta-project">
+              Start a Project
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+            </a>
+          </div>
+        </div>
+
+        <!-- RIGHT: Visual -->
+        <div class="dmh-visual reveal-image">
+          <div class="dmh-img-wrapper">
+            <!-- Main hero image -->
+            <img src="dm_hero_new.jpg" alt="MIDCAV Digital Marketing Dashboard" class="dmh-main-img" />
+
+            <!-- Glow overlay -->
+            <div class="dmh-img-glow"></div>
+
+            <!-- Floating Analytics Cards -->
+            <div class="dmh-float-card dmh-fc-tl" id="fc-1">
+              <div class="dmh-fc-icon">
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#00e5ff" stroke-width="2"><polyline points="22 7 13.5 15.5 8.5 10.5 2 17"/><polyline points="16 7 22 7 22 13"/></svg>
+              </div>
+              <div>
+                <div class="dmh-fc-val">+240%</div>
+                <div class="dmh-fc-lbl">Engagement Growth</div>
+              </div>
+            </div>
+
+            <div class="dmh-float-card dmh-fc-br" id="fc-2">
+              <div class="dmh-fc-icon">
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#00e5ff" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="M12 8v4l3 3"/></svg>
+              </div>
+              <div>
+                <div class="dmh-fc-val">4.8x</div>
+                <div class="dmh-fc-lbl">ROAS Average</div>
+              </div>
+            </div>
+
+            <div class="dmh-float-card dmh-fc-mr" id="fc-3">
+              <div class="dmh-fc-icon">
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#00e5ff" stroke-width="2"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87M16 3.13a4 4 0 0 1 0 7.75"/></svg>
+              </div>
+              <div>
+                <div class="dmh-fc-val">50K+</div>
+                <div class="dmh-fc-lbl">Leads Generated</div>
+              </div>
+            </div>
+
+            <!-- Mini sparkline card -->
+            <div class="dmh-sparkline-card" id="fc-4">
+              <span class="dmh-sl-label">Campaign Performance</span>
+              <svg width="100" height="36" viewBox="0 0 100 36" fill="none">
+                <polyline points="0,30 15,22 28,24 42,12 56,15 70,6 85,8 100,2" stroke="#00e5ff" stroke-width="2" fill="none"/>
+                <polyline points="0,30 15,22 28,24 42,12 56,15 70,6 85,8 100,2 100,36 0,36" fill="rgba(0,229,255,0.08)"/>
+              </svg>
+              <span class="dmh-sl-stat">▲ 87% this month</span>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- ═══════════════════════════════════════ -->
+    <!-- WHAT WE DO STRIP                        -->
+    <!-- ═══════════════════════════════════════ -->
+    <section class="dmh-whatwedo" id="dm-whatwedo">
+      <div class="container">
+        <div class="dmh-section-header reveal-fade">
+          <p class="dmh-section-eyebrow">WHAT WE DO</p>
+          <h2 class="dmh-section-title">Full-Funnel Digital <em>Domination</em></h2>
+          <p class="dmh-section-desc">From awareness to conversion — we engineer every touchpoint for maximum impact across the entire customer journey.</p>
+        </div>
+
+        <div class="dmh-pillars-grid reveal-fade">
+
+          <div class="dmh-pillar-card" id="pillar-strategy">
+            <div class="dmh-pillar-icon">
+              <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M2 20h20M6 20V10l6-8 6 8v10"/><path d="M10 20v-5h4v5"/></svg>
+            </div>
+            <h3>Deep Strategy</h3>
+            <p>We begin with rigorous market research, competitive analysis, and audience mapping to build campaigns with precision targeting.</p>
+            <a href="dm-strategy.html" class="dmh-pillar-link">Learn more →</a>
+          </div>
+
+          <div class="dmh-pillar-card" id="pillar-creativity">
+            <div class="dmh-pillar-icon">
+              <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M12 2L2 7l10 5 10-5-10-5z"/><path d="M2 17l10 5 10-5"/><path d="M2 12l10 5 10-5"/></svg>
+            </div>
+            <h3>Creative Execution</h3>
+            <p>High-impact visuals, compelling copy, and memorable campaigns crafted to stop the scroll and drive genuine brand affinity.</p>
+            <a href="dm-services.html" class="dmh-pillar-link">Explore services →</a>
+          </div>
+
+          <div class="dmh-pillar-card" id="pillar-growth">
+            <div class="dmh-pillar-icon">
+              <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><polyline points="22 7 13.5 15.5 8.5 10.5 2 17"/><polyline points="16 7 22 7 22 13"/></svg>
+            </div>
+            <h3>Measurable Growth</h3>
+            <p>Every campaign is tracked, optimized, and reported. We are obsessed with your ROI and continuously push performance higher.</p>
+            <a href="dm-strategy.html" class="dmh-pillar-link">See results →</a>
+          </div>
+
+          <div class="dmh-pillar-card" id="pillar-data">
+            <div class="dmh-pillar-icon">
+              <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><ellipse cx="12" cy="5" rx="9" ry="3"/><path d="M21 12c0 1.66-4 3-9 3s-9-1.34-9-3"/><path d="M3 5v14c0 1.66 4 3 9 3s9-1.34 9-3V5"/></svg>
+            </div>
+            <h3>Data Intelligence</h3>
+            <p>Custom dashboards, real-time analytics, and actionable reporting ensure you always know what's working and what to scale.</p>
+            <a href="dm-strategy.html" class="dmh-pillar-link">Our analytics →</a>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- ═══════════════════════════════════════ -->
+    <!-- SERVICES PREVIEW STRIP                  -->
+    <!-- ═══════════════════════════════════════ -->
+    <section class="dmh-svc-preview" id="dm-services-preview">
+      <div class="container">
+        <div class="dmh-svc-preview-header reveal-fade">
+          <p class="dmh-section-eyebrow">OUR SERVICES</p>
+          <h2 class="dmh-section-title">Engineered For <em>Every Channel</em></h2>
+        </div>
+
+        <div class="dmh-svc-strip reveal-fade">
+          <a href="dm-services.html#social" class="dmh-svc-chip" id="chip-social">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="18" cy="5" r="3"/><circle cx="6" cy="12" r="3"/><circle cx="18" cy="19" r="3"/><line x1="8.59" y1="13.51" x2="15.42" y2="17.49"/><line x1="15.41" y1="6.51" x2="8.59" y2="10.49"/></svg>
+            Social Media Marketing
+          </a>
+          <a href="dm-services.html#seo" class="dmh-svc-chip" id="chip-seo">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
+            SEO
+          </a>
+          <a href="dm-services.html#paid" class="dmh-svc-chip" id="chip-paid">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><line x1="12" y1="8" x2="12" y2="16"/><line x1="8" y1="12" x2="16" y2="12"/></svg>
+            Paid Advertising
+          </a>
+          <a href="dm-services.html#content" class="dmh-svc-chip" id="chip-content">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 20h9"/><path d="M16.5 3.5a2.121 2.121 0 013 3L7 19l-4 1 1-4L16.5 3.5z"/></svg>
+            Content Marketing
+          </a>
+          <a href="dm-services.html#email" class="dmh-svc-chip" id="chip-email">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+            Email Marketing
+          </a>
+          <a href="dm-services.html#analytics" class="dmh-svc-chip" id="chip-analytics">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="18" y1="20" x2="18" y2="10"/><line x1="12" y1="20" x2="12" y2="4"/><line x1="6" y1="20" x2="6" y2="14"/></svg>
+            Analytics &amp; Reporting
+          </a>
+        </div>
+
+        <div class="dmh-svc-cta reveal-fade">
+          <a href="dm-services.html" class="dmh-btn-primary" id="btn-view-all-services">View All Services →</a>
+        </div>
+      </div>
+    </section>
+
+    <!-- ═══════════════════════════════════════ -->
+    <!-- PROCESS MINI PREVIEW                    -->
+    <!-- ═══════════════════════════════════════ -->
+    <section class="dmh-process-mini" id="dm-process-mini">
+      <div class="container">
+        <div class="dmh-section-header reveal-fade" style="text-align:center;">
+          <p class="dmh-section-eyebrow">OUR PROCESS</p>
+          <h2 class="dmh-section-title">The Blueprint For <em>Success</em></h2>
+        </div>
+
+        <div class="dmh-process-row reveal-fade">
+          <div class="dmh-process-item" id="proc-discover">
+            <div class="dmh-proc-num">01</div>
+            <div class="dmh-proc-icon">
+              <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
+            </div>
+            <h4>Discover</h4>
+            <p>Deep-dive research into your brand, market, and audience to uncover growth opportunities.</p>
+          </div>
+          <div class="dmh-proc-arrow">
+            <svg width="40" height="16" viewBox="0 0 40 16" fill="none"><path d="M0 8h36M28 2l8 6-8 6" stroke="#00e5ff" stroke-width="1.5" stroke-linecap="round"/></svg>
+          </div>
+          <div class="dmh-process-item" id="proc-strategy">
+            <div class="dmh-proc-num">02</div>
+            <div class="dmh-proc-icon">
+              <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M9 11l3 3L22 4"/><path d="M21 12v7a2 2 0 01-2 2H5a2 2 0 01-2-2V5a2 2 0 012-2h11"/></svg>
+            </div>
+            <h4>Strategy</h4>
+            <p>Build a tailored growth roadmap aligned to your business goals and target audience.</p>
+          </div>
+          <div class="dmh-proc-arrow">
+            <svg width="40" height="16" viewBox="0 0 40 16" fill="none"><path d="M0 8h36M28 2l8 6-8 6" stroke="#00e5ff" stroke-width="1.5" stroke-linecap="round"/></svg>
+          </div>
+          <div class="dmh-process-item" id="proc-execute">
+            <div class="dmh-proc-num">03</div>
+            <div class="dmh-proc-icon">
+              <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><polygon points="5 3 19 12 5 21 5 3"/></svg>
+            </div>
+            <h4>Execute</h4>
+            <p>Precision-crafted campaigns launched across the right channels with the right creative assets.</p>
+          </div>
+          <div class="dmh-proc-arrow">
+            <svg width="40" height="16" viewBox="0 0 40 16" fill="none"><path d="M0 8h36M28 2l8 6-8 6" stroke="#00e5ff" stroke-width="1.5" stroke-linecap="round"/></svg>
+          </div>
+          <div class="dmh-process-item" id="proc-optimize">
+            <div class="dmh-proc-num">04</div>
+            <div class="dmh-proc-icon">
+              <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M22 12h-4l-3 9L9 3l-3 9H2"/></svg>
+            </div>
+            <h4>Optimize</h4>
+            <p>Continuous A/B testing, performance analysis, and iterative improvements to compound results.</p>
+          </div>
+        </div>
+
+        <div class="dmh-process-cta reveal-fade">
+          <a href="dm-strategy.html" class="dmh-btn-outline" id="btn-strategy-results">Explore Strategy &amp; Results →</a>
         </div>
       </div>
     </section>
 
   </main>
-  
+
+  <!-- FOOTER -->
+  <footer class="dm-footer-new">
+    <div class="container">
+      <div class="dm-footer-inner">
+        <div class="dm-footer-brand">
+          <span class="dm-footer-logo">MIDCAV</span>
+          <p>Digital Technologies — Strategy · Creativity · Growth</p>
+        </div>
+        <div class="dm-footer-links">
+          <a href="digital-marketing.html">Overview</a>
+          <a href="dm-services.html">Services</a>
+          <a href="dm-strategy.html">Strategy</a>
+          <a href="agency.html#contact">Contact</a>
+        </div>
+      </div>
+      <div class="dm-footer-bottom">
+        <p>&copy; 2026 MIDCAV Digital Technologies. All rights reserved.</p>
+      </div>
+    </div>
+  </footer>
+
   <script src="script.js"></script>
+  <script src="dm-script.js"></script>
 </body>
 </html>

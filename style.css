@@ -960,3 +960,252 @@ h1, h2, h3, h4 { font-weight: 400; line-height: 1.1; }
   .dim-word { font-size: 0.5rem; letter-spacing: 0.12em; }
   .midcav-wordmark { margin-bottom: 2rem; }
 }
+
+/* ======================================================================= */
+/* DIGITAL MARKETING SECTION (3 PAGES)                                     */
+/* ======================================================================= */
+
+/* Sub Navigation */
+.dm-sub-nav {
+  background: rgba(6, 6, 12, 0.95);
+  backdrop-filter: blur(20px);
+  border-bottom: 1px solid rgba(0, 229, 255, 0.15);
+  position: sticky;
+  top: 80px;
+  z-index: 90;
+  padding: 15px 0;
+}
+.dm-sub-nav .container {
+  display: flex;
+  gap: 30px;
+  justify-content: center;
+}
+.dm-sub-nav a {
+  color: rgba(255, 255, 255, 0.6);
+  font-weight: 500;
+  font-size: 0.9rem;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  transition: all 0.3s ease;
+  position: relative;
+}
+.dm-sub-nav a:hover, .dm-sub-nav a.active {
+  color: #fff;
+}
+.dm-sub-nav a.active::after {
+  content: '';
+  position: absolute;
+  bottom: -18px;
+  left: 0;
+  width: 100%;
+  height: 2px;
+  background: var(--clr-primary);
+  box-shadow: 0 0 10px var(--clr-primary);
+}
+
+/* Common Layouts */
+.dm-page main {
+  padding-top: 40px;
+}
+.glow-text {
+  color: var(--clr-primary);
+  text-shadow: 0 0 15px rgba(0, 229, 255, 0.5);
+}
+
+/* Page 1: Hero Layout */
+.dm-hero-layout {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 60px;
+  align-items: center;
+  min-height: 70vh;
+}
+.dm-hero-content h1 {
+  font-size: 4rem;
+  line-height: 1.1;
+  font-weight: 800;
+  letter-spacing: -0.03em;
+  margin-top: 10px;
+}
+.dm-hero-content p {
+  font-size: 1.15rem;
+  color: rgba(255, 255, 255, 0.7);
+  max-width: 500px;
+}
+.dm-visual-wrapper {
+  position: relative;
+  width: 100%;
+}
+.main-dm-img {
+  width: 100%;
+  border-radius: 20px;
+  border: 1px solid rgba(0, 229, 255, 0.2);
+  box-shadow: 0 0 40px rgba(0, 229, 255, 0.15);
+}
+.floating-card {
+  position: absolute;
+  background: rgba(6, 6, 12, 0.7);
+  backdrop-filter: blur(15px);
+  border: 1px solid rgba(0, 229, 255, 0.3);
+  padding: 20px 25px;
+  border-radius: 15px;
+  box-shadow: 0 10px 30px rgba(0,0,0,0.5);
+  animation: float 6s ease-in-out infinite;
+}
+.stat-card-1 {
+  top: 10%;
+  left: -10%;
+}
+.stat-card-2 {
+  bottom: 10%;
+  right: -5%;
+  animation-delay: -3s;
+}
+.stat-value {
+  font-size: 2rem;
+  font-weight: 800;
+  line-height: 1;
+}
+.stat-label {
+  font-size: 0.8rem;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  color: rgba(255, 255, 255, 0.6);
+  margin-top: 5px;
+}
+
+/* Page 2: Services */
+.dm-services-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 30px;
+}
+.dm-service-card {
+  background: rgba(255, 255, 255, 0.02);
+  border: 1px solid rgba(255, 255, 255, 0.05);
+  border-radius: 20px;
+  overflow: hidden;
+  transition: all 0.4s ease;
+}
+.dm-service-card:hover {
+  transform: translateY(-10px);
+  border-color: rgba(0, 229, 255, 0.3);
+  box-shadow: 0 15px 40px rgba(0, 229, 255, 0.1);
+}
+.dm-svc-img {
+  width: 100%;
+  height: 200px;
+  background-size: cover;
+  background-position: center;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+}
+.dm-svc-content {
+  padding: 30px;
+}
+.dm-svc-content h3 {
+  font-size: 1.4rem;
+  margin-bottom: 15px;
+  color: #fff;
+}
+.dm-svc-content p {
+  font-size: 0.95rem;
+  color: rgba(255, 255, 255, 0.6);
+  line-height: 1.6;
+}
+
+/* Page 3: Strategy & Results */
+.dm-process-section .process-flow {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 20px;
+  flex-wrap: wrap;
+}
+.dm-process-section .process-step {
+  background: rgba(255, 255, 255, 0.03);
+  border: 1px solid rgba(0, 229, 255, 0.2);
+  padding: 30px 40px;
+  border-radius: 15px;
+  text-align: center;
+  position: relative;
+  overflow: hidden;
+}
+.dm-process-section .step-num {
+  font-size: 3rem;
+  font-weight: 900;
+  color: rgba(0, 229, 255, 0.1);
+  position: absolute;
+  top: -10px;
+  left: 10px;
+  z-index: 0;
+}
+.dm-process-section h4 {
+  font-size: 1.2rem;
+  margin: 0;
+  position: relative;
+  z-index: 1;
+  color: #fff;
+}
+.dm-process-section .process-arrow {
+  font-size: 1.5rem;
+  color: var(--clr-primary);
+  opacity: 0.7;
+}
+
+.strategy-item h3 {
+  font-size: 1.5rem;
+  margin-bottom: 10px;
+}
+.strategy-item p {
+  color: rgba(255, 255, 255, 0.6);
+  line-height: 1.7;
+}
+.platform-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+}
+.platform-tag {
+  background: rgba(0, 229, 255, 0.1);
+  border: 1px solid rgba(0, 229, 255, 0.3);
+  color: var(--clr-primary);
+  padding: 8px 16px;
+  border-radius: 50px;
+  font-size: 0.85rem;
+  font-weight: 600;
+}
+
+/* Responsive */
+@media (max-width: 1024px) {
+  .dm-hero-layout {
+    grid-template-columns: 1fr;
+    text-align: center;
+    gap: 40px;
+  }
+  .dm-hero-content p {
+    margin: 20px auto;
+  }
+  .hero-ctas {
+    justify-content: center !important;
+  }
+  .stat-card-1, .stat-card-2 {
+    position: relative;
+    top: auto; left: auto; bottom: auto; right: auto;
+    display: inline-block;
+    margin: 10px;
+  }
+  .dm-services-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+@media (max-width: 768px) {
+  .dm-hero-content h1 {
+    font-size: 2.5rem;
+  }
+  .dm-services-grid {
+    grid-template-columns: 1fr;
+  }
+  .dm-process-section .process-arrow {
+    display: none;
+  }
+}
