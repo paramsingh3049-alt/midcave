@@ -251,4 +251,51 @@ document.querySelectorAll('a[href^="#"]').forEach(anchor => {
   }, 1100);
 })();
 
+/* ─────────────────────────────────────────────────────────────── */
+/*  DIGITAL MARKETING EXPLORER INTERACTION                         */
+/* ─────────────────────────────────────────────────────────────── */
+(function initExplorer() {
+  const explorer = document.getElementById('dmExplorer');
+  if (!explorer) return;
+
+  let isDown = false;
+  let startX;
+  let scrollLeft;
+
+  // Mouse Wheel horizontal scroll
+  explorer.addEventListener('wheel', (e) => {
+    e.preventDefault();
+    explorer.scrollBy({
+      left: e.deltaY < 0 ? -100 : 100,
+      behavior: 'auto'
+    });
+  });
+
+  // Drag to scroll
+  explorer.addEventListener('mousedown', (e) => {
+    isDown = true;
+    explorer.style.cursor = 'grabbing';
+    startX = e.pageX - explorer.offsetLeft;
+    scrollLeft = explorer.scrollLeft;
+  });
+
+  explorer.addEventListener('mouseleave', () => {
+    isDown = false;
+    explorer.style.cursor = 'grab';
+  });
+
+  explorer.addEventListener('mouseup', () => {
+    isDown = false;
+    explorer.style.cursor = 'grab';
+  });
+
+  explorer.addEventListener('mousemove', (e) => {
+    if (!isDown) return;
+    e.preventDefault();
+    const x = e.pageX - explorer.offsetLeft;
+    const walk = (x - startX) * 2; // Scroll-fast
+    explorer.scrollLeft = scrollLeft - walk;
+  });
+})();
+
 console.log('%c MIDCAV . %c Premium Digital & Creative Agency', 'background:#8952ff;color:#fff;padding:4px 8px;font-weight:bold;border-radius:4px;', 'color:#8952ff;');
