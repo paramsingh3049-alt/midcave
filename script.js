@@ -376,6 +376,83 @@
     <div class="dm-explorer-group">${cardsHtml}</div>
     <div class="dm-explorer-group" aria-hidden="true">${cardsHtml}</div>
   </div>`;
+  
+  const track = explorer.querySelector('.dm-explorer-track');
+  const group = explorer.querySelector('.dm-explorer-group');
+  
+  let currentX = 0;
+  let isDragging = false;
+  let startX = 0;
+  let scrollSpeed = 0.5; // Auto-scroll speed
+  let interactDelay = 0;
+  let animationFrameId;
+
+  let groupWidth = group.offsetWidth;
+  window.addEventListener('resize', () => { groupWidth = group.offsetWidth; });
+
+  function loop() {
+    if (!isDragging) {
+      if (interactDelay > 0) {
+        interactDelay--;
+      } else {
+        currentX -= scrollSpeed;
+      }
+    }
+    
+    // Infinite loop check
+    if (groupWidth > 0) {
+      if (currentX <= -groupWidth) {
+        currentX += groupWidth;
+      } else if (currentX > 0) {
+        currentX -= groupWidth;
+      }
+    }
+    
+    track.style.transform = `translate3d(${currentX}px, 0, 0)`;
+    animationFrameId = requestAnimationFrame(loop);
+  }
+  
+  // Drag logic
+  const onDragStart = (e) => {
+    isDragging = true;
+    startX = e.type.includes('mouse') ? e.clientX : e.touches[0].clientX;
+    explorer.style.cursor = 'grabbing';
+    interactDelay = 120; // 2 seconds pause after drag
+  };
+
+  const onDragMove = (e) => {
+    if (!isDragging) return;
+    const x = e.type.includes('mouse') ? e.clientX : e.touches[0].clientX;
+    const deltaX = x - startX;
+    currentX += deltaX;
+    startX = x;
+    interactDelay = 120;
+  };
+
+  const onDragEnd = () => {
+    isDragging = false;
+    explorer.style.cursor = 'grab';
+    interactDelay = 120;
+  };
+  
+  explorer.style.cursor = 'grab';
+  explorer.addEventListener('mousedown', onDragStart);
+  window.addEventListener('mousemove', onDragMove);
+  window.addEventListener('mouseup', onDragEnd);
+  
+  explorer.addEventListener('touchstart', onDragStart, { passive: true });
+  window.addEventListener('touchmove', onDragMove, { passive: true });
+  window.addEventListener('touchend', onDragEnd);
+
+  // Allow mouse wheel scrolling
+  explorer.addEventListener('wheel', (e) => {
+    currentX -= e.deltaY * 0.5;
+    currentX -= e.deltaX * 0.5;
+    interactDelay = 120;
+    e.preventDefault();
+  }, { passive: false });
+  
+  animationFrameId = requestAnimationFrame(loop);
 })();
 
 console.log('%c MIDCAV . %c Premium Digital & Creative Agency', 'background:#8952ff;color:#fff;padding:4px 8px;font-weight:bold;border-radius:4px;', 'color:#8952ff;');

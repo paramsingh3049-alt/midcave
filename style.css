@@ -670,22 +670,13 @@ h1, h2, h3, h4 { font-weight: 400; line-height: 1.1; }
 .dm-explorer-track {
   display: flex;
   width: max-content;
-  animation: dmScrollInfinite 40s linear infinite;
-}
-
-.dm-explorer-track:hover {
-  animation-play-state: paused;
+  will-change: transform;
 }
 
 .dm-explorer-group {
   display: flex;
   gap: 2rem;
   padding-right: 2rem;
-}
-
-@keyframes dmScrollInfinite {
-  0% { transform: translateX(0); }
-  100% { transform: translateX(-50%); }
 }
 
 .dm-card {
