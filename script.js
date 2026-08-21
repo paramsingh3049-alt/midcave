@@ -209,36 +209,22 @@
 })();
 
 /* ─────────────────────────────────────────────────────────────── */
-/*  PREMIUM SMOOTH SCROLLING (LENIS)                               */
+/*  SMOOTH ANCHOR SCROLLING                                        */
 /* ─────────────────────────────────────────────────────────────── */
-(function initSmoothScroll() {
-  const script = document.createElement('script');
-  script.src = 'https://unpkg.com/lenis@1.1.13/dist/lenis.min.js';
-  script.onload = () => {
-    const lenis = new Lenis({
-      autoRaf: true,
-      duration: 1.2,
-      easing: (t) => Math.min(1, 1.001 - Math.pow(2, -10 * t)), // smooth ease-out
-      orientation: 'vertical',
-      gestureOrientation: 'vertical',
-      smoothWheel: true,
-      wheelMultiplier: 1.1, // slightly increased speed
-      touchMultiplier: 2,
-    });
-
-    // Anchor scrolling via Lenis
-    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-      anchor.addEventListener('click', function (e) {
-        const target = document.querySelector(this.getAttribute('href'));
-        if (target) {
-          e.preventDefault();
-          lenis.scrollTo(target, { offset: -80 });
-        }
+document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+  anchor.addEventListener('click', function (e) {
+    const target = document.querySelector(this.getAttribute('href'));
+    if (target) {
+      e.preventDefault();
+      const navH = 80; // --nav-h
+      const targetPos = target.getBoundingClientRect().top + window.scrollY - navH;
+      window.scrollTo({
+        top: targetPos,
+        behavior: 'smooth'
       });
-    });
-  };
-  document.head.appendChild(script);
-})();
+    }
+  });
+});
 
 /* ─────────────────────────────────────────────────────────────── */
 /*  3D CUBE CAROUSEL INTERACTION                                   */
@@ -443,14 +429,6 @@
   explorer.addEventListener('touchstart', onDragStart, { passive: true });
   window.addEventListener('touchmove', onDragMove, { passive: true });
   window.addEventListener('touchend', onDragEnd);
-
-  // Allow mouse wheel scrolling
-  explorer.addEventListener('wheel', (e) => {
-    currentX -= e.deltaY * 0.5;
-    currentX -= e.deltaX * 0.5;
-    interactDelay = 120;
-    e.preventDefault();
-  }, { passive: false });
   
   animationFrameId = requestAnimationFrame(loop);
 })();
