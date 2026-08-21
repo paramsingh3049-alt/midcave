@@ -246,23 +246,32 @@ document.querySelectorAll('a[href^="#"]').forEach(anchor => {
   let startAngle = 0;
   let animationFrameId = null;
 
+  let isScrolling = false;
+  let scrollTimeout = null;
+  let interactDelay = 0; // Frames to wait before resuming auto-rotate
+
   function setupCubes() {
     radius = window.innerWidth < 768 ? 160 : 300;
     cubes.forEach((cube, i) => {
       cube.style.transform = `rotateY(${i * theta}deg) translateZ(${radius}px)`;
     });
-    updateCarousel(true);
+    if (!animationFrameId) {
+      animationLoop();
+    }
   }
 
   window.addEventListener('resize', setupCubes);
 
-  function updateCarousel(instant = false) {
-    if (!instant) {
-      currentAngle += (targetAngle - currentAngle) * 0.08;
-    } else {
-      currentAngle = targetAngle;
+  function animationLoop() {
+    if (!isDragging && !isScrolling) {
+      if (interactDelay > 0) {
+        interactDelay--;
+      } else {
+        targetAngle -= 0.15; // Auto-scroll speed
+      }
     }
 
+    currentAngle += (targetAngle - currentAngle) * 0.08;
     carousel.style.transform = `translateZ(${-radius}px) rotateY(${currentAngle}deg)`;
 
     // Determine which cube is facing front
@@ -271,17 +280,15 @@ document.querySelectorAll('a[href^="#"]').forEach(anchor => {
 
     cubes.forEach((cube, i) => {
       if (i === activeIndex) {
-        cube.classList.add('active');
+        if (!cube.classList.contains('active')) cube.classList.add('active');
         cube.style.transform = `rotateY(${i * theta}deg) translateZ(${radius + 40}px) scale(1.05)`;
       } else {
-        cube.classList.remove('active');
+        if (cube.classList.contains('active')) cube.classList.remove('active');
         cube.style.transform = `rotateY(${i * theta}deg) translateZ(${radius}px) scale(1)`;
       }
     });
 
-    if (Math.abs(targetAngle - currentAngle) > 0.01) {
-      animationFrameId = requestAnimationFrame(() => updateCarousel(false));
-    }
+    animationFrameId = requestAnimationFrame(animationLoop);
   }
 
   // Drag Interactions
@@ -290,14 +297,14 @@ document.querySelectorAll('a[href^="#"]').forEach(anchor => {
     startX = x;
     startAngle = targetAngle;
     carousel.style.cursor = 'grabbing';
-    if(animationFrameId) cancelAnimationFrame(animationFrameId);
+    interactDelay = 120; // ~2 seconds pause
   };
 
   const onDragMove = (x) => {
     if (!isDragging) return;
     const deltaX = x - startX;
     targetAngle = startAngle + (deltaX * 0.5);
-    updateCarousel(false);
+    interactDelay = 120;
   };
 
   const onDragEnd = () => {
@@ -308,7 +315,7 @@ document.querySelectorAll('a[href^="#"]').forEach(anchor => {
     // Snap to nearest face
     const snapAngle = Math.round(targetAngle / theta) * theta;
     targetAngle = snapAngle;
-    updateCarousel(false);
+    interactDelay = 120;
   };
 
   carousel.addEventListener('mousedown', (e) => onDragStart(e.clientX));
@@ -324,17 +331,19 @@ document.querySelectorAll('a[href^="#"]').forEach(anchor => {
   window.addEventListener('scroll', () => {
     const currentScrollY = window.scrollY;
     if (currentScrollY < window.innerHeight) {
+       isScrolling = true;
        const delta = currentScrollY - lastScrollY;
        targetAngle -= delta * 0.15;
-       updateCarousel(false);
+       interactDelay = 120;
     }
     lastScrollY = currentScrollY;
     
-    clearTimeout(window.scrollSnapTimeout);
-    window.scrollSnapTimeout = setTimeout(() => {
+    clearTimeout(scrollTimeout);
+    scrollTimeout = setTimeout(() => {
+        isScrolling = false;
         if(!isDragging) {
             targetAngle = Math.round(targetAngle / theta) * theta;
-            updateCarousel(false);
+            interactDelay = 120;
         }
     }, 400);
   }, {passive: true});
