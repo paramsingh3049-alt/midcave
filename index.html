@@ -655,78 +655,82 @@
 
             <svg viewBox="0 0 100 100" class="network-svg" preserveAspectRatio="none">
               <defs>
-                <filter id="neon-glow" x="-50%" y="-50%" width="200%" height="200%">
-                  <feGaussianBlur stdDeviation="1.5" result="blur" />
+                <filter id="neon-blue-glow" x="-50%" y="-50%" width="200%" height="200%">
+                  <feGaussianBlur stdDeviation="1.2" result="blur" />
                   <feMerge>
                     <feMergeNode in="blur"/>
                     <feMergeNode in="SourceGraphic"/>
                   </feMerge>
                 </filter>
-                <linearGradient id="line-grad" x1="0%" y1="0%" x2="100%" y2="0%">
-                  <stop offset="0%" stop-color="#4a00e0" />
-                  <stop offset="50%" stop-color="#8e2de2" />
-                  <stop offset="100%" stop-color="#00ffff" />
-                </linearGradient>
               </defs>
               
-              <!-- Track Lines -->
-              <g class="network-tracks">
-                <!-- Left Side -->
-                <path d="M 50 50 L 35 50 Q 25 50 25 40 L 25 20" class="track-line" />
-                <path d="M 50 50 L 15 50" class="track-line" />
-                <path d="M 50 50 L 35 50 Q 25 50 25 60 L 25 80" class="track-line" />
-                
-                <!-- Right Side -->
-                <path d="M 50 50 L 65 50 Q 75 50 75 40 L 75 20" class="track-line" />
-                <path d="M 50 50 L 85 50" class="track-line" />
-                <path d="M 50 50 L 65 50 Q 75 50 75 60 L 75 80" class="track-line" />
+              <!-- Smooth Rotating Orbital Rings around Central Node -->
+              <g class="network-orbitals">
+                <circle cx="50" cy="58" r="16" class="orbit-ring r-inner" />
+                <circle cx="50" cy="58" r="22" class="orbit-ring r-mid" stroke-dasharray="2 4" />
+                <circle cx="50" cy="58" r="28" class="orbit-ring r-outer" stroke-dasharray="6 8" />
+                <circle cx="50" cy="58" r="34" class="orbit-ring r-faint" />
               </g>
 
-              <!-- Animated Particles -->
-              <g class="network-particles">
-                <path d="M 50 50 L 35 50 Q 25 50 25 40 L 25 20" class="net-particle p1" />
-                <path d="M 50 50 L 15 50" class="net-particle p2" />
-                <path d="M 50 50 L 35 50 Q 25 50 25 60 L 25 80" class="net-particle p3" />
+              <!-- Thinner Elegant Track Lines (Single Unified Neon Blue) -->
+              <g class="network-tracks">
+                <!-- Left Branches -->
+                <path d="M 50 58 L 32 58 Q 20 58 18 36" class="track-line" />
+                <path d="M 50 58 L 12 58" class="track-line" />
+                <path d="M 50 58 L 32 58 Q 20 58 18 80" class="track-line" />
                 
-                <path d="M 50 50 L 65 50 Q 75 50 75 40 L 75 20" class="net-particle p4" />
-                <path d="M 50 50 L 85 50" class="net-particle p5" />
-                <path d="M 50 50 L 65 50 Q 75 50 75 60 L 75 80" class="net-particle p6" />
+                <!-- Right Branches -->
+                <path d="M 50 58 L 68 58 Q 80 58 82 36" class="track-line" />
+                <path d="M 50 58 L 88 58" class="track-line" />
+                <path d="M 50 58 L 68 58 Q 80 58 82 80" class="track-line" />
+              </g>
+
+              <!-- Animated Neon-Blue Particles (Smooth continuous flow) -->
+              <g class="network-particles">
+                <path d="M 50 58 L 32 58 Q 20 58 18 36" class="net-particle p1" />
+                <path d="M 50 58 L 12 58" class="net-particle p2" />
+                <path d="M 50 58 L 32 58 Q 20 58 18 80" class="net-particle p3" />
+                
+                <path d="M 50 58 L 68 58 Q 80 58 82 36" class="net-particle p4" />
+                <path d="M 50 58 L 88 58" class="net-particle p5" />
+                <path d="M 50 58 L 68 58 Q 80 58 82 80" class="net-particle p6" />
               </g>
             </svg>
 
-            <!-- HTML Nodes -->
+            <!-- HTML Nodes (Larger & Unified Neon Blue Theme) -->
             <div class="net-nodes-wrapper">
-              <!-- Center Node -->
+              <!-- Center MIDGAV Node (Enlarged & Prominent) -->
               <div class="net-node center-node">
                 <div class="center-core-glow"></div>
-                <h3 class="nexus-title">MIDCAV</h3>
+                <div class="center-corner-accents"><span></span><span></span><span></span><span></span></div>
+                <h3 class="nexus-title">MIDGAV</h3>
               </div>
               
               <!-- Outer Nodes (Left) -->
-              <div class="net-node outer-node" style="left: 22%; top: 38%;">
-                <i class="fa fa-brain" style="color: #4facfe;"></i>
+              <div class="net-node outer-node node-left" style="left: 18%; top: 36%;">
+                <i class="fa fa-brain node-icon"></i>
                 <span class="node-label">AI &amp; ML</span>
               </div>
-              <div class="net-node outer-node" style="left: 12%; top: 57%;">
-                <i class="fa fa-chart-bar" style="color: #f6d365;"></i>
+              <div class="net-node outer-node node-left" style="left: 11%; top: 58%;">
+                <i class="fa fa-chart-bar node-icon"></i>
                 <span class="node-label">Data Analytics</span>
               </div>
-              <div class="net-node outer-node" style="left: 22%; top: 76%;">
-                <i class="fa fa-shield-alt" style="color: #ff6b6b;"></i>
+              <div class="net-node outer-node node-left" style="left: 18%; top: 80%;">
+                <i class="fa fa-shield-alt node-icon"></i>
                 <span class="node-label">Cybersecurity</span>
               </div>
               
               <!-- Outer Nodes (Right) -->
-              <div class="net-node outer-node" style="left: 78%; top: 38%;">
-                <i class="fa fa-link" style="color: #a18cd1;"></i>
+              <div class="net-node outer-node node-right" style="left: 82%; top: 36%;">
+                <i class="fa fa-link node-icon"></i>
                 <span class="node-label">Blockchain</span>
               </div>
-              <div class="net-node outer-node" style="left: 88%; top: 57%;">
-                <i class="fa fa-project-diagram" style="color: #43e97b;"></i>
+              <div class="net-node outer-node node-right" style="left: 89%; top: 58%;">
+                <i class="fa fa-project-diagram node-icon"></i>
                 <span class="node-label">Network Edge</span>
               </div>
-              <div class="net-node outer-node" style="left: 78%; top: 76%;">
-                <i class="fa fa-atom" style="color: #4facfe;"></i>
+              <div class="net-node outer-node node-right" style="left: 82%; top: 80%;">
+                <i class="fa fa-atom node-icon"></i>
                 <span class="node-label">Quantum Computing</span>
               </div>
             </div>
