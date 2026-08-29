@@ -277,86 +277,118 @@ document.querySelectorAll('a[href^="#"]').forEach(anchor => {
 })();
 
 /* ─────────────────────────────────────────────────────────────── */
-/*  DIGITAL MARKETING EXPLORER INTERACTION                         */
 /* ─────────────────────────────────────────────────────────────── */
-(function initExplorer() {
-  const explorer = document.getElementById('dmExplorer');
-  if (!explorer) return;
+/*  DIGITAL MARKETING 4-SLIDE INTERACTIVE CONTROLLER               */
+/* ─────────────────────────────────────────────────────────────── */
+(function initDMSlider() {
+  const sliderWrap = document.querySelector('.dm-slider-wrap');
+  if (!sliderWrap) return;
 
-  const cardsHtml = explorer.innerHTML;
-  explorer.innerHTML = `<div class="dm-explorer-track">
-    <div class="dm-explorer-group">${cardsHtml}</div>
-    <div class="dm-explorer-group" aria-hidden="true">${cardsHtml}</div>
-  </div>`;
-  
-  const track = explorer.querySelector('.dm-explorer-track');
-  const group = explorer.querySelector('.dm-explorer-group');
-  
-  let currentX = 0;
-  let isDragging = false;
-  let startX = 0;
-  let scrollSpeed = 0.5; // Auto-scroll speed
-  let interactDelay = 0;
-  let animationFrameId;
+  const track = document.getElementById('dmSlideTrack');
+  const slides = sliderWrap.querySelectorAll('.dm-slide-card');
+  const pills = sliderWrap.querySelectorAll('.dm-nav-pill');
+  const dots = sliderWrap.querySelectorAll('.dm-dot');
+  const prevBtn = document.getElementById('dmSlidePrev');
+  const nextBtn = document.getElementById('dmSlideNext');
 
-  let groupWidth = group.offsetWidth;
-  window.addEventListener('resize', () => { groupWidth = group.offsetWidth; });
+  let currentSlide = 0;
+  const totalSlides = slides.length;
+  if (totalSlides === 0) return;
 
-  function loop() {
-    if (!isDragging) {
-      if (interactDelay > 0) {
-        interactDelay--;
+  function goToSlide(index) {
+    if (index < 0) index = totalSlides - 1;
+    if (index >= totalSlides) index = 0;
+
+    currentSlide = index;
+
+    // Move track smoothly
+    if (track) {
+      track.style.transform = `translate3d(-${currentSlide * 100}%, 0, 0)`;
+    }
+
+    // Update active class on slides
+    slides.forEach((slide, i) => {
+      if (i === currentSlide) {
+        slide.classList.add('active');
       } else {
-        currentX -= scrollSpeed;
+        slide.classList.remove('active');
       }
-    }
-    
-    // Infinite loop check
-    if (groupWidth > 0) {
-      if (currentX <= -groupWidth) {
-        currentX += groupWidth;
-      } else if (currentX > 0) {
-        currentX -= groupWidth;
+    });
+
+    // Update nav pills
+    pills.forEach((pill, i) => {
+      if (i === currentSlide) {
+        pill.classList.add('active');
+      } else {
+        pill.classList.remove('active');
       }
-    }
-    
-    track.style.transform = `translate3d(${currentX}px, 0, 0)`;
-    animationFrameId = requestAnimationFrame(loop);
+    });
+
+    // Update dots
+    dots.forEach((dot, i) => {
+      if (i === currentSlide) {
+        dot.classList.add('active');
+      } else {
+        dot.classList.remove('active');
+      }
+    });
   }
-  
-  // Drag logic
-  const onDragStart = (e) => {
-    isDragging = true;
-    startX = e.type.includes('mouse') ? e.clientX : e.touches[0].clientX;
-    explorer.style.cursor = 'grabbing';
-    interactDelay = 120; // 2 seconds pause after drag
-  };
 
-  const onDragMove = (e) => {
-    if (!isDragging) return;
-    const x = e.type.includes('mouse') ? e.clientX : e.touches[0].clientX;
-    const deltaX = x - startX;
-    currentX += deltaX;
-    startX = x;
-    interactDelay = 120;
-  };
+  // Pill click listeners
+  pills.forEach((pill) => {
+    pill.addEventListener('click', () => {
+      const slideIndex = parseInt(pill.getAttribute('data-slide'), 10);
+      if (!isNaN(slideIndex)) {
+        goToSlide(slideIndex);
+      }
+    });
+  });
 
-  const onDragEnd = () => {
-    isDragging = false;
-    explorer.style.cursor = 'grab';
-    interactDelay = 120;
-  };
-  
-  explorer.style.cursor = 'grab';
-  explorer.addEventListener('mousedown', onDragStart);
-  window.addEventListener('mousemove', onDragMove);
-  window.addEventListener('mouseup', onDragEnd);
-  
-  explorer.addEventListener('touchstart', onDragStart, { passive: true });
-  window.addEventListener('touchmove', onDragMove, { passive: true });
-  window.addEventListener('touchend', onDragEnd);
-  
-  animationFrameId = requestAnimationFrame(loop);
+  // Dot click listeners
+  dots.forEach((dot) => {
+    dot.addEventListener('click', () => {
+      const dotIndex = parseInt(dot.getAttribute('data-index'), 10);
+      if (!isNaN(dotIndex)) {
+        goToSlide(dotIndex);
+      }
+    });
+  });
+
+  // Arrow click listeners
+  if (prevBtn) {
+    prevBtn.addEventListener('click', () => {
+      goToSlide(currentSlide - 1);
+    });
+  }
+
+  if (nextBtn) {
+    nextBtn.addEventListener('click', () => {
+      goToSlide(currentSlide + 1);
+    });
+  }
+
+  // Touch Swipe Support
+  let touchStartX = 0;
+  let touchEndX = 0;
+
+  sliderWrap.addEventListener('touchstart', (e) => {
+    touchStartX = e.changedTouches[0].screenX;
+  }, { passive: true });
+
+  sliderWrap.addEventListener('touchend', (e) => {
+    touchEndX = e.changedTouches[0].screenX;
+    const swipeDistance = touchStartX - touchEndX;
+    if (Math.abs(swipeDistance) > 40) {
+      if (swipeDistance > 0) {
+        goToSlide(currentSlide + 1); // Swipe left -> Next
+      } else {
+        goToSlide(currentSlide - 1); // Swipe right -> Prev
+      }
+    }
+  }, { passive: true });
+
+  // Initialize first slide
+  goToSlide(0);
 })();
 
 console.log('%c MIDCAV . %c Premium Digital & Creative Agency', 'background:#8952ff;color:#fff;padding:4px 8px;font-weight:bold;border-radius:4px;', 'color:#8952ff;');
