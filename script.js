@@ -227,127 +227,24 @@ document.querySelectorAll('a[href^="#"]').forEach(anchor => {
 });
 
 /* ─────────────────────────────────────────────────────────────── */
-/*  3D CUBE CAROUSEL INTERACTION                                   */
+/*  3D CARD SPREAD INTERACTION                                      */
 /* ─────────────────────────────────────────────────────────────── */
-(function initCubeCarousel() {
-  const carousel = document.getElementById('cube-carousel');
-  if (!carousel) return;
+(function initCardSpread() {
+  const spread = document.getElementById('card-spread');
+  if (!spread) return;
 
-  const cubes = carousel.querySelectorAll('.cube');
-  const totalCubes = cubes.length;
-  const theta = 360 / totalCubes;
-  let radius = window.innerWidth < 768 ? 180 : 300;
+  const cards = spread.querySelectorAll('.spread-card');
 
-  let currentAngle = 0;
-  let targetAngle = 0;
-  let isDragging = false;
-  let startX = 0;
-  let startAngle = 0;
-  let animationFrameId = null;
-
-  let isScrolling = false;
-  let scrollTimeout = null;
-  let interactDelay = 0; // Frames to wait before resuming auto-rotate
-
-  function setupCubes() {
-    radius = window.innerWidth < 768 ? 160 : 300;
-    cubes.forEach((cube, i) => {
-      cube.style.transform = `rotateY(${i * theta}deg) translateZ(${radius}px)`;
+  cards.forEach((card) => {
+    card.addEventListener('click', () => {
+      cards.forEach(c => c.classList.remove('active'));
+      card.classList.add('active');
     });
-    if (!animationFrameId) {
-      animationLoop();
-    }
-  }
-
-  window.addEventListener('resize', setupCubes);
-
-  function animationLoop() {
-    if (!isDragging && !isScrolling) {
-      if (interactDelay > 0) {
-        interactDelay--;
-      } else {
-        targetAngle -= 0.15; // Auto-scroll speed
-      }
-    }
-
-    currentAngle += (targetAngle - currentAngle) * 0.08;
-    carousel.style.transform = `translateZ(${-radius}px) rotateY(${currentAngle}deg)`;
-
-    // Determine which cube is facing front
-    let normalized = ((-currentAngle % 360) + 360) % 360; 
-    let activeIndex = Math.round(normalized / theta) % totalCubes;
-
-    cubes.forEach((cube, i) => {
-      if (i === activeIndex) {
-        if (!cube.classList.contains('active')) cube.classList.add('active');
-        cube.style.transform = `rotateY(${i * theta}deg) translateZ(${radius + 40}px) scale(1.05)`;
-      } else {
-        if (cube.classList.contains('active')) cube.classList.remove('active');
-        cube.style.transform = `rotateY(${i * theta}deg) translateZ(${radius}px) scale(1)`;
-      }
+    card.addEventListener('mouseenter', () => {
+      cards.forEach(c => c.classList.remove('active'));
+      card.classList.add('active');
     });
-
-    animationFrameId = requestAnimationFrame(animationLoop);
-  }
-
-  // Drag Interactions
-  const onDragStart = (x) => {
-    isDragging = true;
-    startX = x;
-    startAngle = targetAngle;
-    carousel.style.cursor = 'grabbing';
-    interactDelay = 120; // ~2 seconds pause
-  };
-
-  const onDragMove = (x) => {
-    if (!isDragging) return;
-    const deltaX = x - startX;
-    targetAngle = startAngle + (deltaX * 0.5);
-    interactDelay = 120;
-  };
-
-  const onDragEnd = () => {
-    if (!isDragging) return;
-    isDragging = false;
-    carousel.style.cursor = 'grab';
-    
-    // Snap to nearest face
-    const snapAngle = Math.round(targetAngle / theta) * theta;
-    targetAngle = snapAngle;
-    interactDelay = 120;
-  };
-
-  carousel.addEventListener('mousedown', (e) => onDragStart(e.clientX));
-  window.addEventListener('mousemove', (e) => onDragMove(e.clientX));
-  window.addEventListener('mouseup', onDragEnd);
-
-  carousel.addEventListener('touchstart', (e) => onDragStart(e.touches[0].clientX), {passive: true});
-  window.addEventListener('touchmove', (e) => onDragMove(e.touches[0].clientX), {passive: true});
-  window.addEventListener('touchend', onDragEnd);
-
-  // Scroll Interaction
-  let lastScrollY = window.scrollY;
-  window.addEventListener('scroll', () => {
-    const currentScrollY = window.scrollY;
-    if (currentScrollY < window.innerHeight) {
-       isScrolling = true;
-       const delta = currentScrollY - lastScrollY;
-       targetAngle -= delta * 0.15;
-       interactDelay = 120;
-    }
-    lastScrollY = currentScrollY;
-    
-    clearTimeout(scrollTimeout);
-    scrollTimeout = setTimeout(() => {
-        isScrolling = false;
-        if(!isDragging) {
-            targetAngle = Math.round(targetAngle / theta) * theta;
-            interactDelay = 120;
-        }
-    }, 400);
-  }, {passive: true});
-
-  setupCubes();
+  });
 })();
 
 /* ─────────────────────────────────────────────────────────────── */

@@ -215,118 +215,131 @@ h1, h2, h3, h4 { font-weight: 400; line-height: 1.1; }
   margin: 0;
 }
 
-/* ─── 3D CUBE CAROUSEL ─── */
-.cube-carousel-wrap {
+/* ─── SCALE DOT ─── */
+.scale-dot {
+  color: #00e5ff;
+  text-shadow: 0 0 20px rgba(0, 229, 255, 0.9), 0 0 40px rgba(0, 229, 255, 0.5);
+}
+
+/* ─── 3D CARD SPREAD ─── */
+.card-spread-wrap {
   width: 100%;
-  height: 380px;
-  perspective: 1200px;
+  height: 420px;
+  perspective: 1400px;
+  perspective-origin: 50% 60%;
   display: flex;
   justify-content: center;
-  align-items: center;
+  align-items: flex-end;
   margin-bottom: 3rem;
   overflow: visible;
   position: relative;
   z-index: 5;
 }
-.cube-carousel-wrap::after {
+
+/* Reflection glow under the cards */
+.card-spread-wrap::after {
   content: '';
   position: absolute;
-  bottom: -40px;
-  width: 80%;
-  height: 40px;
-  background: radial-gradient(ellipse at center, rgba(0, 229, 255, 0.2) 0%, transparent 70%);
-  filter: blur(15px);
+  bottom: -20px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 70%;
+  height: 30px;
+  background: radial-gradient(ellipse at center, rgba(0, 229, 255, 0.25) 0%, transparent 70%);
+  filter: blur(18px);
   pointer-events: none;
 }
 
-.cube-carousel {
+.card-spread {
   position: relative;
-  width: 200px;
-  height: 280px;
+  width: 100%;
+  max-width: 1100px;
+  height: 100%;
   transform-style: preserve-3d;
-  /* Rotation will be applied via JS */
-  cursor: grab;
-}
-.cube-carousel:active { cursor: grabbing; }
-
-.cube {
-  position: absolute;
-  top: 0; left: 0;
-  width: 100%; height: 100%;
-  transform-style: preserve-3d;
-  transition: opacity 0.5s ease, filter 0.5s ease;
-  /* Opacity for background cubes managed via JS */
+  display: flex;
+  justify-content: center;
+  align-items: flex-end;
 }
 
-.cube-face {
+/* Each 3D card */
+.spread-card {
+  position: absolute;
+  bottom: 0;
+  width: 160px;
+  height: 260px;
+  transform-style: preserve-3d;
+  transition: transform 0.5s ease, filter 0.5s ease;
+  cursor: pointer;
+}
+
+/* Position each card in the spread */
+.spread-card[data-index="0"] { transform: translateX(-440px) rotateY(25deg) translateZ(-60px) scale(0.88); }
+.spread-card[data-index="1"] { transform: translateX(-230px) rotateY(15deg) translateZ(-20px) scale(0.94); }
+.spread-card[data-index="2"] { transform: translateX(0px)    rotateY(0deg)  translateZ(20px)  scale(1.05); }
+.spread-card[data-index="3"] { transform: translateX(230px)  rotateY(-15deg) translateZ(-20px) scale(0.94); }
+.spread-card[data-index="4"] { transform: translateX(440px)  rotateY(-25deg) translateZ(-60px) scale(0.88); }
+.spread-card[data-index="5"] { transform: translateX(620px)  rotateY(-35deg) translateZ(-100px) scale(0.82); }
+
+/* Slight hover lift */
+.spread-card:hover {
+  filter: brightness(1.15);
+}
+
+/* Card faces */
+.card-face {
   position: absolute;
   width: 100%; height: 100%;
-  border-radius: 6px;
-  border: 1px solid rgba(255, 255, 255, 0.2);
-  background: rgba(12, 10, 24, 0.85);
+  border-radius: 8px;
+  border: 1px solid rgba(255, 255, 255, 0.15);
+  background: rgba(10, 8, 22, 0.88);
   backdrop-filter: blur(16px);
   -webkit-backdrop-filter: blur(16px);
   overflow: hidden;
-  box-shadow: inset 0 0 25px rgba(0,0,0,0.6), 0 10px 30px rgba(0,0,0,0.5);
+  box-shadow: inset 0 0 30px rgba(0,0,0,0.6), 0 15px 40px rgba(0,0,0,0.6);
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  transition: border-color 0.5s, box-shadow 0.5s;
+  backface-visibility: hidden;
+  -webkit-backface-visibility: hidden;
 }
 
-/* Front Face */
-.cube-face.front {
-  transform: translateZ(100px); /* Half of cube depth */
-}
-/* Right Face (Side image) */
-.cube-face.right {
-  transform: rotateY(90deg) translateZ(100px); /* Half of cube width */
+/* The side face (photo) shown at a 3D angle */
+.card-face.side {
+  transform: rotateY(90deg) translateZ(80px);
   background-size: cover;
   background-position: center;
-  border-color: rgba(0, 229, 255, 0.15);
+  border-color: rgba(0, 229, 255, 0.1);
   filter: brightness(0.8);
-}
-/* Back Face (Logo Panel) */
-.cube-face.back {
-  transform: rotateY(180deg) translateZ(100px);
-  background: rgba(6, 6, 12, 0.98);
-  border-color: rgba(0, 229, 255, 0.15);
-  box-shadow: inset 0 0 30px rgba(0, 229, 255, 0.1);
-}
-/* Left Face (Solid Panel) */
-.cube-face.left {
-  transform: rotateY(-90deg) translateZ(100px);
-  background: rgba(6, 6, 12, 0.95);
-  border-color: rgba(0, 229, 255, 0.05);
-}
-.cube-logo {
-  width: 70px;
-  height: auto;
-  opacity: 0.8;
-  filter: drop-shadow(0 0 15px rgba(0, 229, 255, 0.6));
+  width: 120px;
+  left: auto;
+  right: -60px;
 }
 
-/* Neon Edges for active cube (managed via .active class) */
-.cube.active .cube-face {
-  border-color: rgba(0, 229, 255, 0.7);
-  box-shadow: inset 0 0 30px rgba(0, 229, 255, 0.25), 0 0 40px rgba(0, 229, 255, 0.5), 0 20px 40px rgba(0,0,0,0.9);
+/* Active (center) card glows neon blue */
+.spread-card.active .card-face {
+  border-color: rgba(0, 229, 255, 0.75);
+  box-shadow:
+    inset 0 0 30px rgba(0, 229, 255, 0.2),
+    0 0 40px rgba(0, 229, 255, 0.55),
+    0 25px 50px rgba(0, 0, 0, 0.9);
 }
-.cube.active .cube-face::before {
+.spread-card.active .card-face::before {
   content: '';
   position: absolute;
   inset: 0;
-  border: 1px solid rgba(137, 82, 255, 0.5);
-  border-radius: 6px;
+  border: 1px solid rgba(137, 82, 255, 0.45);
+  border-radius: 8px;
   pointer-events: none;
 }
-.cube.active .cube-face.right {
+.spread-card.active .card-face.side {
   filter: brightness(1.1);
 }
 
+/* Card inner text */
 .dim-letter {
   font-family: var(--font-body);
-  font-size: 5.5rem;
+  font-size: 5rem;
   font-weight: 800;
   color: #fff;
   line-height: 1;
@@ -335,7 +348,7 @@ h1, h2, h3, h4 { font-weight: 400; line-height: 1.1; }
 }
 .dim-word {
   font-family: var(--font-body);
-  font-size: 1rem;
+  font-size: 0.9rem;
   font-weight: 700;
   letter-spacing: 0.2em;
   color: #fff;
@@ -343,13 +356,36 @@ h1, h2, h3, h4 { font-weight: 400; line-height: 1.1; }
 }
 .dim-desc {
   font-family: var(--font-body);
-  font-size: 0.65rem;
+  font-size: 0.6rem;
   color: rgba(255,255,255,0.5);
   text-transform: uppercase;
   letter-spacing: 0.1em;
+  text-align: center;
+  padding: 0 0.5rem;
 }
 
-/* Glass Neon Buttons */
+@media (max-width: 768px) {
+  .card-spread-wrap {
+    perspective: 900px;
+    height: 300px;
+  }
+  .spread-card {
+    width: 110px;
+    height: 180px;
+  }
+  .spread-card[data-index="0"] { transform: translateX(-295px) rotateY(25deg) translateZ(-40px) scale(0.82); }
+  .spread-card[data-index="1"] { transform: translateX(-155px) rotateY(15deg) translateZ(-10px) scale(0.90); }
+  .spread-card[data-index="2"] { transform: translateX(0px)    rotateY(0deg)  translateZ(10px)  scale(1.0); }
+  .spread-card[data-index="3"] { transform: translateX(155px)  rotateY(-15deg) translateZ(-10px) scale(0.90); }
+  .spread-card[data-index="4"] { transform: translateX(295px)  rotateY(-25deg) translateZ(-40px) scale(0.82); }
+  .spread-card[data-index="5"] { transform: translateX(420px)  rotateY(-35deg) translateZ(-70px) scale(0.74); }
+  .card-face.side { width: 80px; right: -40px; transform: rotateY(90deg) translateZ(55px); }
+  .dim-letter { font-size: 3.5rem; }
+  .dim-word { font-size: 0.75rem; }
+  .dim-desc { font-size: 0.5rem; display: none; }
+  .hero-ctas { flex-direction: column; width: 100%; padding: 0 2rem; }
+}
+
 .btn-glass-neon {
   background: rgba(255, 255, 255, 0.05);
   backdrop-filter: blur(12px);
