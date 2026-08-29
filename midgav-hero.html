@@ -1,4 +1,4 @@
-﻿<!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
@@ -20,9 +20,9 @@
     .grid-overlay{position:fixed;inset:0;z-index:1;pointer-events:none;background-image:linear-gradient(rgba(0,212,255,.03) 1px,transparent 1px),linear-gradient(90deg,rgba(0,212,255,.03) 1px,transparent 1px);background-size:60px 60px;mask-image:radial-gradient(ellipse 90% 80% at 50% 50%,black 30%,transparent 100%);-webkit-mask-image:radial-gradient(ellipse 90% 80% at 50% 50%,black 30%,transparent 100%)}
     .vignette{position:fixed;inset:0;z-index:2;pointer-events:none;background:radial-gradient(ellipse 70% 70% at 50% 50%,transparent 40%,rgba(4,6,14,.85) 100%)}
     nav{position:fixed;top:0;left:0;right:0;z-index:100;display:flex;align-items:center;justify-content:space-between;padding:0 3.5rem;height:72px;background:rgba(4,6,14,.65);backdrop-filter:blur(20px);-webkit-backdrop-filter:blur(20px);border-bottom:1px solid rgba(0,212,255,.08)}
-    .nav-logo{display:flex;align-items:center;gap:.6rem;text-decoration:none}
-    .nav-logo-mark{width:36px;height:36px;border:1.5px solid var(--blue);border-radius:8px;display:flex;align-items:center;justify-content:center;font-family:var(--font-main);font-size:1rem;font-weight:700;color:var(--blue);box-shadow:0 0 14px rgba(0,212,255,.35),inset 0 0 10px rgba(0,212,255,.08);letter-spacing:0}
-    .nav-logo-text{font-family:var(--font-main);font-size:1.05rem;font-weight:700;letter-spacing:.18em;color:var(--white)}
+    .nav-logo{display:flex;align-items:center;gap:.5rem;text-decoration:none}
+    .nav-logo-icon{height:38px;width:auto;object-fit:contain}
+    .nav-logo-wordmark{height:26px;width:auto;object-fit:contain}
     .nav-links{display:flex;align-items:center;gap:2.4rem;list-style:none}
     .nav-links a{font-family:var(--font-body);font-size:.78rem;font-weight:500;letter-spacing:.12em;text-transform:uppercase;color:var(--white-60);text-decoration:none;transition:color .3s}
     .nav-links a:hover{color:var(--blue)}
@@ -85,8 +85,8 @@
 
 <nav>
   <a href="#" class="nav-logo">
-    <div class="nav-logo-mark">M</div>
-    <span class="nav-logo-text">MIDGAV</span>
+    <img src="logo_icon.png" alt="MIDCAV" class="nav-logo-icon" />
+    <img src="logo_wordmark.png" alt="MIDCAV" class="nav-logo-wordmark" />
   </a>
   <ul class="nav-links">
     <li><a href="#">Home</a></li>
