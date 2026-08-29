@@ -65,310 +65,156 @@
     <div class="hero-overlay"></div>
     
     <div class="hero-content">
-      <!-- 3D Dimensional Scroller Showcase (M - I - D - C - A) -->
-      <div class="scroller-3d-wrap reveal-fade">
-        <div class="scroller-3d-viewport" id="scroller-3d-viewport">
-          <div class="scroller-3d-track" id="scroller-3d-track">
-            
-            <!-- GROUP 1 -->
-            <div class="scroller-3d-group">
-              <!-- M: METHOD -->
-              <div class="box-3d" data-letter="M">
-                <div class="box-3d-body">
-                  <div class="box-face box-front">
-                    <div class="box-edge-glow"></div>
-                    <span class="box-num">01 // STRATEGY</span>
-                    <div class="box-letter-wrap">
-                      <span class="box-letter">M</span>
-                      <span class="box-letter-depth">M</span>
-                    </div>
-                    <div class="box-word">METHOD</div>
-                    <div class="box-divider"></div>
-                    <p class="box-desc">Strategy That Works.</p>
-                    <div class="box-corner tl"></div>
-                    <div class="box-corner br"></div>
-                  </div>
-                  <div class="box-face box-side-right">
-                    <div class="box-side-img" style="background-image: url('midcav_core.jpg')"></div>
-                    <div class="box-side-shade"></div>
-                  </div>
-                  <div class="box-face box-top"></div>
-                  <div class="box-face box-bottom"></div>
-                  <div class="box-face box-back">
-                    <div class="box-back-img" style="background-image: url('midcav_core.jpg')"></div>
-                  </div>
-                </div>
-                <div class="box-reflection"></div>
-              </div>
+      <!-- 3D CUBE CAROUSEL SHOWCASE (M - I - D - C - A) -->
+      <div class="cube-stage-wrap reveal-fade">
+        <div class="stage-neon-ring"></div>
+        <div class="stage-floor-glow"></div>
 
-              <!-- I: IMAGE -->
-              <div class="box-3d" data-letter="I">
-                <div class="box-3d-body">
-                  <div class="box-face box-front">
-                    <div class="box-edge-glow"></div>
-                    <span class="box-num">02 // VISUALS</span>
-                    <div class="box-letter-wrap">
-                      <span class="box-letter">I</span>
-                      <span class="box-letter-depth">I</span>
-                    </div>
-                    <div class="box-word">IMAGE</div>
-                    <div class="box-divider"></div>
-                    <p class="box-desc">Visuals That Speak.</p>
-                    <div class="box-corner tl"></div>
-                    <div class="box-corner br"></div>
-                  </div>
-                  <div class="box-face box-side-right">
-                    <div class="box-side-img" style="background-image: url('hero_camera.jpg')"></div>
-                    <div class="box-side-shade"></div>
-                  </div>
-                  <div class="box-face box-top"></div>
-                  <div class="box-face box-bottom"></div>
-                  <div class="box-face box-back">
-                    <div class="box-back-img" style="background-image: url('hero_camera.jpg')"></div>
-                  </div>
-                </div>
-                <div class="box-reflection"></div>
-              </div>
+        <!-- Left / Right Nav Arrows (as in reference image) -->
+        <button class="stage-arrow prev" id="stagePrev" aria-label="Rotate Left">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M15 18l-6-6 6-6"/></svg>
+        </button>
+        <button class="stage-arrow next" id="stageNext" aria-label="Rotate Right">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 18l6-6-6-6"/></svg>
+        </button>
 
-              <!-- D: DESIGN (Focal Highlight) -->
-              <div class="box-3d focal-highlight" data-letter="D">
-                <div class="box-3d-body">
-                  <div class="box-face box-front">
-                    <div class="box-badge-live"></div>
-                    <div class="box-edge-glow"></div>
-                    <span class="box-num">03 // EXPERIENCE</span>
-                    <div class="box-letter-wrap">
-                      <span class="box-letter">D</span>
-                      <span class="box-letter-depth">D</span>
-                    </div>
-                    <div class="box-word">DESIGN</div>
-                    <div class="box-divider"></div>
-                    <p class="box-desc">Design That Defines.</p>
-                    <div class="box-corner tl"></div>
-                    <div class="box-corner br"></div>
-                  </div>
-                  <div class="box-face box-side-right">
-                    <div class="box-side-img" style="background-image: url('tech_dashboard.jpg')"></div>
-                    <div class="box-side-shade"></div>
-                  </div>
-                  <div class="box-face box-top"></div>
-                  <div class="box-face box-bottom"></div>
-                  <div class="box-face box-back">
-                    <div class="box-back-img" style="background-image: url('tech_dashboard.jpg')"></div>
-                  </div>
-                </div>
-                <div class="box-reflection"></div>
+        <div class="cube-stage" id="cubeStage">
+          
+          <!-- CUBE 1: M (METHOD) -->
+          <div class="stage-cube-slot slot-0" data-index="0">
+            <div class="cube-3d-box" data-angle="0">
+              <div class="cube-face front">
+                <div class="cube-leds"><span></span><span></span><span></span></div>
+                <div class="cube-letter">M</div>
+                <div class="cube-word">METHOD</div>
+                <p class="cube-desc">Strategy That<br/>Works.</p>
               </div>
-
-              <!-- C: CONTENT -->
-              <div class="box-3d" data-letter="C">
-                <div class="box-3d-body">
-                  <div class="box-face box-front">
-                    <div class="box-edge-glow"></div>
-                    <span class="box-num">04 // NARRATIVE</span>
-                    <div class="box-letter-wrap">
-                      <span class="box-letter">C</span>
-                      <span class="box-letter-depth">C</span>
-                    </div>
-                    <div class="box-word">CONTENT</div>
-                    <div class="box-divider"></div>
-                    <p class="box-desc">Stories That Connect.</p>
-                    <div class="box-corner tl"></div>
-                    <div class="box-corner br"></div>
-                  </div>
-                  <div class="box-face box-side-right">
-                    <div class="box-side-img" style="background-image: url('marketing_dashboard.jpg')"></div>
-                    <div class="box-side-shade"></div>
-                  </div>
-                  <div class="box-face box-top"></div>
-                  <div class="box-face box-bottom"></div>
-                  <div class="box-face box-back">
-                    <div class="box-back-img" style="background-image: url('marketing_dashboard.jpg')"></div>
-                  </div>
-                </div>
-                <div class="box-reflection"></div>
+              <div class="cube-face right" style="background-image: url('midcav_core.jpg')">
+                <div class="face-glass-glare"></div>
               </div>
-
-              <!-- A: AUDIO -->
-              <div class="box-3d" data-letter="A">
-                <div class="box-3d-body">
-                  <div class="box-face box-front">
-                    <div class="box-edge-glow"></div>
-                    <span class="box-num">05 // ACOUSTICS</span>
-                    <div class="box-letter-wrap">
-                      <span class="box-letter">A</span>
-                      <span class="box-letter-depth">A</span>
-                    </div>
-                    <div class="box-word">AUDIO</div>
-                    <div class="box-divider"></div>
-                    <p class="box-desc">Sound That Resonates.</p>
-                    <div class="box-corner tl"></div>
-                    <div class="box-corner br"></div>
-                  </div>
-                  <div class="box-face box-side-right">
-                    <div class="box-side-img" style="background-image: url('audio_studio.jpg')"></div>
-                    <div class="box-side-shade"></div>
-                  </div>
-                  <div class="box-face box-top"></div>
-                  <div class="box-face box-bottom"></div>
-                  <div class="box-face box-back">
-                    <div class="box-back-img" style="background-image: url('audio_studio.jpg')"></div>
-                  </div>
+              <div class="cube-face back">
+                <div class="cube-back-logo">
+                  <span class="back-logo-text">M</span>
+                  <span class="back-logo-sub">METHODOLOGY</span>
                 </div>
-                <div class="box-reflection"></div>
               </div>
+              <div class="cube-face left" style="background-image: url('about_digital_tech.jpg')">
+                <div class="face-glass-glare"></div>
+              </div>
+              <div class="cube-face top"></div>
+              <div class="cube-face bottom"></div>
             </div>
-
-            <!-- GROUP 2 (DUPLICATE FOR SEAMLESS INFINITE LOOP) -->
-            <div class="scroller-3d-group" aria-hidden="true">
-              <!-- M: METHOD -->
-              <div class="box-3d" data-letter="M">
-                <div class="box-3d-body">
-                  <div class="box-face box-front">
-                    <div class="box-edge-glow"></div>
-                    <span class="box-num">01 // STRATEGY</span>
-                    <div class="box-letter-wrap">
-                      <span class="box-letter">M</span>
-                      <span class="box-letter-depth">M</span>
-                    </div>
-                    <div class="box-word">METHOD</div>
-                    <div class="box-divider"></div>
-                    <p class="box-desc">Strategy That Works.</p>
-                    <div class="box-corner tl"></div>
-                    <div class="box-corner br"></div>
-                  </div>
-                  <div class="box-face box-side-right">
-                    <div class="box-side-img" style="background-image: url('midcav_core.jpg')"></div>
-                    <div class="box-side-shade"></div>
-                  </div>
-                  <div class="box-face box-top"></div>
-                  <div class="box-face box-bottom"></div>
-                  <div class="box-face box-back">
-                    <div class="box-back-img" style="background-image: url('midcav_core.jpg')"></div>
-                  </div>
-                </div>
-                <div class="box-reflection"></div>
-              </div>
-
-              <!-- I: IMAGE -->
-              <div class="box-3d" data-letter="I">
-                <div class="box-3d-body">
-                  <div class="box-face box-front">
-                    <div class="box-edge-glow"></div>
-                    <span class="box-num">02 // VISUALS</span>
-                    <div class="box-letter-wrap">
-                      <span class="box-letter">I</span>
-                      <span class="box-letter-depth">I</span>
-                    </div>
-                    <div class="box-word">IMAGE</div>
-                    <div class="box-divider"></div>
-                    <p class="box-desc">Visuals That Speak.</p>
-                    <div class="box-corner tl"></div>
-                    <div class="box-corner br"></div>
-                  </div>
-                  <div class="box-face box-side-right">
-                    <div class="box-side-img" style="background-image: url('hero_camera.jpg')"></div>
-                    <div class="box-side-shade"></div>
-                  </div>
-                  <div class="box-face box-top"></div>
-                  <div class="box-face box-bottom"></div>
-                  <div class="box-face box-back">
-                    <div class="box-back-img" style="background-image: url('hero_camera.jpg')"></div>
-                  </div>
-                </div>
-                <div class="box-reflection"></div>
-              </div>
-
-              <!-- D: DESIGN (Focal Highlight) -->
-              <div class="box-3d focal-highlight" data-letter="D">
-                <div class="box-3d-body">
-                  <div class="box-face box-front">
-                    <div class="box-badge-live"></div>
-                    <div class="box-edge-glow"></div>
-                    <span class="box-num">03 // EXPERIENCE</span>
-                    <div class="box-letter-wrap">
-                      <span class="box-letter">D</span>
-                      <span class="box-letter-depth">D</span>
-                    </div>
-                    <div class="box-word">DESIGN</div>
-                    <div class="box-divider"></div>
-                    <p class="box-desc">Design That Defines.</p>
-                    <div class="box-corner tl"></div>
-                    <div class="box-corner br"></div>
-                  </div>
-                  <div class="box-face box-side-right">
-                    <div class="box-side-img" style="background-image: url('tech_dashboard.jpg')"></div>
-                    <div class="box-side-shade"></div>
-                  </div>
-                  <div class="box-face box-top"></div>
-                  <div class="box-face box-bottom"></div>
-                  <div class="box-face box-back">
-                    <div class="box-back-img" style="background-image: url('tech_dashboard.jpg')"></div>
-                  </div>
-                </div>
-                <div class="box-reflection"></div>
-              </div>
-
-              <!-- C: CONTENT -->
-              <div class="box-3d" data-letter="C">
-                <div class="box-3d-body">
-                  <div class="box-face box-front">
-                    <div class="box-edge-glow"></div>
-                    <span class="box-num">04 // NARRATIVE</span>
-                    <div class="box-letter-wrap">
-                      <span class="box-letter">C</span>
-                      <span class="box-letter-depth">C</span>
-                    </div>
-                    <div class="box-word">CONTENT</div>
-                    <div class="box-divider"></div>
-                    <p class="box-desc">Stories That Connect.</p>
-                    <div class="box-corner tl"></div>
-                    <div class="box-corner br"></div>
-                  </div>
-                  <div class="box-face box-side-right">
-                    <div class="box-side-img" style="background-image: url('marketing_dashboard.jpg')"></div>
-                    <div class="box-side-shade"></div>
-                  </div>
-                  <div class="box-face box-top"></div>
-                  <div class="box-face box-bottom"></div>
-                  <div class="box-face box-back">
-                    <div class="box-back-img" style="background-image: url('marketing_dashboard.jpg')"></div>
-                  </div>
-                </div>
-                <div class="box-reflection"></div>
-              </div>
-
-              <!-- A: AUDIO -->
-              <div class="box-3d" data-letter="A">
-                <div class="box-3d-body">
-                  <div class="box-face box-front">
-                    <div class="box-edge-glow"></div>
-                    <span class="box-num">05 // ACOUSTICS</span>
-                    <div class="box-letter-wrap">
-                      <span class="box-letter">A</span>
-                      <span class="box-letter-depth">A</span>
-                    </div>
-                    <div class="box-word">AUDIO</div>
-                    <div class="box-divider"></div>
-                    <p class="box-desc">Sound That Resonates.</p>
-                    <div class="box-corner tl"></div>
-                    <div class="box-corner br"></div>
-                  </div>
-                  <div class="box-face box-side-right">
-                    <div class="box-side-img" style="background-image: url('audio_studio.jpg')"></div>
-                    <div class="box-side-shade"></div>
-                  </div>
-                  <div class="box-face box-top"></div>
-                  <div class="box-face box-bottom"></div>
-                  <div class="box-face box-back">
-                    <div class="box-back-img" style="background-image: url('audio_studio.jpg')"></div>
-                  </div>
-                </div>
-                <div class="box-reflection"></div>
-              </div>
-            </div>
-
+            <div class="cube-ground-reflection"></div>
           </div>
+
+          <!-- CUBE 2: I (IMAGE) -->
+          <div class="stage-cube-slot slot-1" data-index="1">
+            <div class="cube-3d-box" data-angle="0">
+              <div class="cube-face front">
+                <div class="cube-leds"><span></span><span></span><span></span></div>
+                <div class="cube-letter">I</div>
+                <div class="cube-word">IMAGE</div>
+                <p class="cube-desc">Visuals That<br/>Speak.</p>
+              </div>
+              <div class="cube-face right" style="background-image: url('hero_camera.jpg')">
+                <div class="face-glass-glare"></div>
+              </div>
+              <div class="cube-face back">
+                <div class="cube-back-logo">
+                  <span class="back-logo-text">I</span>
+                  <span class="back-logo-sub">VISUAL IDENTITY</span>
+                </div>
+              </div>
+              <div class="cube-face left" style="background-image: url('workspace_vibe.jpg')">
+                <div class="face-glass-glare"></div>
+              </div>
+              <div class="cube-face top"></div>
+              <div class="cube-face bottom"></div>
+            </div>
+            <div class="cube-ground-reflection"></div>
+          </div>
+
+          <!-- CUBE 3: D (DESIGN - CENTER HERO) -->
+          <div class="stage-cube-slot slot-2 focal-hero" data-index="2">
+            <div class="cube-3d-box" data-angle="0">
+              <div class="cube-face front">
+                <div class="cube-leds"><span></span><span></span><span></span></div>
+                <div class="cube-letter">D</div>
+                <div class="cube-word">DESIGN</div>
+                <p class="cube-desc">Design That<br/>Defines.</p>
+              </div>
+              <div class="cube-face right" style="background-image: url('tech_dashboard.jpg')">
+                <div class="face-glass-glare"></div>
+              </div>
+              <div class="cube-face back">
+                <div class="cube-back-logo">
+                  <span class="back-logo-text">D</span>
+                  <span class="back-logo-sub">EXPERIENCE</span>
+                </div>
+              </div>
+              <div class="cube-face left" style="background-image: url('about_web_app.jpg')">
+                <div class="face-glass-glare"></div>
+              </div>
+              <div class="cube-face top"></div>
+              <div class="cube-face bottom"></div>
+            </div>
+            <div class="cube-ground-reflection"></div>
+          </div>
+
+          <!-- CUBE 4: C (CONTENT) -->
+          <div class="stage-cube-slot slot-3" data-index="3">
+            <div class="cube-3d-box" data-angle="0">
+              <div class="cube-face front">
+                <div class="cube-leds"><span></span><span></span><span></span></div>
+                <div class="cube-letter">C</div>
+                <div class="cube-word">CONTENT</div>
+                <p class="cube-desc">Stories That<br/>Connect.</p>
+              </div>
+              <div class="cube-face right" style="background-image: url('marketing_dashboard.jpg')">
+                <div class="face-glass-glare"></div>
+              </div>
+              <div class="cube-face back">
+                <div class="cube-back-logo">
+                  <span class="back-logo-text">C</span>
+                  <span class="back-logo-sub">NARRATIVE</span>
+                </div>
+              </div>
+              <div class="cube-face left" style="background-image: url('dm_content.jpg')">
+                <div class="face-glass-glare"></div>
+              </div>
+              <div class="cube-face top"></div>
+              <div class="cube-face bottom"></div>
+            </div>
+            <div class="cube-ground-reflection"></div>
+          </div>
+
+          <!-- CUBE 5: A (AUDIO) -->
+          <div class="stage-cube-slot slot-4" data-index="4">
+            <div class="cube-3d-box" data-angle="0">
+              <div class="cube-face front">
+                <div class="cube-leds"><span></span><span></span><span></span></div>
+                <div class="cube-letter">A</div>
+                <div class="cube-word">AUDIO</div>
+                <p class="cube-desc">Sound That<br/>Resonates.</p>
+              </div>
+              <div class="cube-face right" style="background-image: url('audio_studio.jpg')">
+                <div class="face-glass-glare"></div>
+              </div>
+              <div class="cube-face back">
+                <div class="cube-back-logo">
+                  <span class="back-logo-text">A</span>
+                  <span class="back-logo-sub">ACOUSTICS</span>
+                </div>
+              </div>
+              <div class="cube-face left" style="background-image: url('hero_wave.jpg')">
+                <div class="face-glass-glare"></div>
+              </div>
+              <div class="cube-face top"></div>
+              <div class="cube-face bottom"></div>
+            </div>
+            <div class="cube-ground-reflection"></div>
+          </div>
+
         </div>
       </div>
 

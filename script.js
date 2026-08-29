@@ -227,40 +227,129 @@ document.querySelectorAll('a[href^="#"]').forEach(anchor => {
 });
 
 /* ─────────────────────────────────────────────────────────────── */
-/*  3D DIMENSIONAL SCROLLER INTERACTION                            */
+/*  3D CUBE CAROUSEL STAGE INTERACTION                             */
 /* ─────────────────────────────────────────────────────────────── */
-(function init3DScroller() {
-  const viewport = document.getElementById('scroller-3d-viewport');
-  const track = document.getElementById('scroller-3d-track');
-  if (!viewport || !track) return;
+(function initCubeCarouselStage() {
+  const stage = document.getElementById('cubeStage');
+  if (!stage) return;
 
-  const boxes = track.querySelectorAll('.box-3d');
+  const cubes = stage.querySelectorAll('.cube-3d-box');
+  const slots = stage.querySelectorAll('.stage-cube-slot');
+  const prevBtn = document.getElementById('stagePrev');
+  const nextBtn = document.getElementById('stageNext');
 
-  // Interactive 3D tilt on hover
-  boxes.forEach((box) => {
-    const body = box.querySelector('.box-3d-body');
-    if (!body) return;
+  let baseAngle = 0;
+  let isHovered = false;
+  let isDragging = false;
+  let startX = 0;
+  let currentDragAngle = 0;
+  let autoRotateSpeed = 0.2; // Smooth continuous degrees per frame
 
-    box.addEventListener('mousemove', (e) => {
-      const rect = box.getBoundingClientRect();
+  function updateCubes() {
+    cubes.forEach((cube) => {
+      if (!cube._isMouseOver) {
+        cube.style.transform = `rotateY(${baseAngle + currentDragAngle}deg)`;
+      }
+    });
+  }
+
+  // Continuous smooth linear animation loop (no position jumping)
+  function animate() {
+    if (!isHovered && !isDragging) {
+      baseAngle = (baseAngle + autoRotateSpeed) % 360;
+      updateCubes();
+    }
+    requestAnimationFrame(animate);
+  }
+  requestAnimationFrame(animate);
+
+  // Hover & 3D Tilt interaction
+  cubes.forEach((cube, idx) => {
+    cube.addEventListener('mouseenter', () => {
+      isHovered = true;
+      cube._isMouseOver = true;
+    });
+
+    cube.addEventListener('mousemove', (e) => {
+      const rect = cube.getBoundingClientRect();
       const x = e.clientX - rect.left;
       const y = e.clientY - rect.top;
       const centerX = rect.width / 2;
       const centerY = rect.height / 2;
-      const rotateX = ((y - centerY) / centerY) * -12;
-      const rotateY = ((x - centerX) / centerX) * 15;
+      const rotateX = ((y - centerY) / centerY) * -14;
+      const rotateY = ((x - centerX) / centerX) * 20;
 
-      body.style.transform = `rotateX(${rotateX}deg) rotateY(${rotateY}deg) scale(1.05)`;
+      cube.style.transform = `rotateY(${baseAngle + currentDragAngle + rotateY}deg) rotateX(${rotateX}deg)`;
     });
 
-    box.addEventListener('mouseleave', () => {
-      body.style.transform = '';
+    cube.addEventListener('mouseleave', () => {
+      isHovered = false;
+      cube._isMouseOver = false;
+      cube.style.transform = `rotateY(${baseAngle + currentDragAngle}deg)`;
     });
 
-    box.addEventListener('click', () => {
-      boxes.forEach(b => b.classList.remove('focal-highlight'));
-      box.classList.add('focal-highlight');
+    cube.addEventListener('click', () => {
+      slots.forEach(s => s.classList.remove('focal-hero'));
+      const parentSlot = cube.closest('.stage-cube-slot');
+      if (parentSlot) parentSlot.classList.add('focal-hero');
     });
+  });
+
+  // Prev / Next 90-degree snap buttons (as in reference image)
+  if (prevBtn) {
+    prevBtn.addEventListener('click', () => {
+      baseAngle -= 90;
+      updateCubes();
+    });
+  }
+  if (nextBtn) {
+    nextBtn.addEventListener('click', () => {
+      baseAngle += 90;
+      updateCubes();
+    });
+  }
+
+  // Touch / Drag interaction on stage
+  stage.addEventListener('mousedown', (e) => {
+    isDragging = true;
+    startX = e.clientX;
+    currentDragAngle = 0;
+  });
+
+  window.addEventListener('mousemove', (e) => {
+    if (!isDragging) return;
+    const deltaX = e.clientX - startX;
+    currentDragAngle = deltaX * 0.4;
+    updateCubes();
+  });
+
+  window.addEventListener('mouseup', () => {
+    if (!isDragging) return;
+    isDragging = false;
+    baseAngle += currentDragAngle;
+    currentDragAngle = 0;
+  });
+
+  stage.addEventListener('touchstart', (e) => {
+    if (e.touches.length > 0) {
+      isDragging = true;
+      startX = e.touches[0].clientX;
+      currentDragAngle = 0;
+    }
+  }, { passive: true });
+
+  window.addEventListener('touchmove', (e) => {
+    if (!isDragging || e.touches.length === 0) return;
+    const deltaX = e.touches[0].clientX - startX;
+    currentDragAngle = deltaX * 0.4;
+    updateCubes();
+  }, { passive: true });
+
+  window.addEventListener('touchend', () => {
+    if (!isDragging) return;
+    isDragging = false;
+    baseAngle += currentDragAngle;
+    currentDragAngle = 0;
   });
 })();
 
