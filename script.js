@@ -227,22 +227,39 @@ document.querySelectorAll('a[href^="#"]').forEach(anchor => {
 });
 
 /* ─────────────────────────────────────────────────────────────── */
-/*  3D CARD SPREAD INTERACTION                                      */
+/*  3D DIMENSIONAL SCROLLER INTERACTION                            */
 /* ─────────────────────────────────────────────────────────────── */
-(function initCardSpread() {
-  const spread = document.getElementById('card-spread');
-  if (!spread) return;
+(function init3DScroller() {
+  const viewport = document.getElementById('scroller-3d-viewport');
+  const track = document.getElementById('scroller-3d-track');
+  if (!viewport || !track) return;
 
-  const cards = spread.querySelectorAll('.spread-card');
+  const boxes = track.querySelectorAll('.box-3d');
 
-  cards.forEach((card) => {
-    card.addEventListener('click', () => {
-      cards.forEach(c => c.classList.remove('active'));
-      card.classList.add('active');
+  // Interactive 3D tilt on hover
+  boxes.forEach((box) => {
+    const body = box.querySelector('.box-3d-body');
+    if (!body) return;
+
+    box.addEventListener('mousemove', (e) => {
+      const rect = box.getBoundingClientRect();
+      const x = e.clientX - rect.left;
+      const y = e.clientY - rect.top;
+      const centerX = rect.width / 2;
+      const centerY = rect.height / 2;
+      const rotateX = ((y - centerY) / centerY) * -12;
+      const rotateY = ((x - centerX) / centerX) * 15;
+
+      body.style.transform = `rotateX(${rotateX}deg) rotateY(${rotateY}deg) scale(1.05)`;
     });
-    card.addEventListener('mouseenter', () => {
-      cards.forEach(c => c.classList.remove('active'));
-      card.classList.add('active');
+
+    box.addEventListener('mouseleave', () => {
+      body.style.transform = '';
+    });
+
+    box.addEventListener('click', () => {
+      boxes.forEach(b => b.classList.remove('focal-highlight'));
+      box.classList.add('focal-highlight');
     });
   });
 })();
