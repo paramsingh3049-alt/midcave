@@ -1,0 +1,273 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>MIDGAV | Premium Creative & Digital Agency</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&family=Space+Grotesk:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
+  <style>
+    *,*::before,*::after{margin:0;padding:0;box-sizing:border-box}
+    :root{
+      --blue:#00d4ff;--blue-glow:rgba(0,212,255,.55);--purple:#7b52ff;
+      --bg:#04060e;--glass:rgba(6,14,30,.72);--glass-border:rgba(0,212,255,.22);
+      --white:#fff;--white-60:rgba(255,255,255,.6);--white-30:rgba(255,255,255,.3);
+      --font-main:'Space Grotesk',sans-serif;--font-body:'Plus Jakarta Sans',sans-serif;
+    }
+    html,body{height:100%;overflow-x:hidden;background:var(--bg);color:var(--white);font-family:var(--font-body);-webkit-font-smoothing:antialiased}
+    #hero-canvas{position:fixed;inset:0;z-index:0;pointer-events:none}
+    .grid-overlay{position:fixed;inset:0;z-index:1;pointer-events:none;background-image:linear-gradient(rgba(0,212,255,.03) 1px,transparent 1px),linear-gradient(90deg,rgba(0,212,255,.03) 1px,transparent 1px);background-size:60px 60px;mask-image:radial-gradient(ellipse 90% 80% at 50% 50%,black 30%,transparent 100%);-webkit-mask-image:radial-gradient(ellipse 90% 80% at 50% 50%,black 30%,transparent 100%)}
+    .vignette{position:fixed;inset:0;z-index:2;pointer-events:none;background:radial-gradient(ellipse 70% 70% at 50% 50%,transparent 40%,rgba(4,6,14,.85) 100%)}
+    nav{position:fixed;top:0;left:0;right:0;z-index:100;display:flex;align-items:center;justify-content:space-between;padding:0 3.5rem;height:72px;background:rgba(4,6,14,.65);backdrop-filter:blur(20px);-webkit-backdrop-filter:blur(20px);border-bottom:1px solid rgba(0,212,255,.08)}
+    .nav-logo{display:flex;align-items:center;gap:.6rem;text-decoration:none}
+    .nav-logo-mark{width:36px;height:36px;border:1.5px solid var(--blue);border-radius:8px;display:flex;align-items:center;justify-content:center;font-family:var(--font-main);font-size:1rem;font-weight:700;color:var(--blue);box-shadow:0 0 14px rgba(0,212,255,.35),inset 0 0 10px rgba(0,212,255,.08);letter-spacing:0}
+    .nav-logo-text{font-family:var(--font-main);font-size:1.05rem;font-weight:700;letter-spacing:.18em;color:var(--white)}
+    .nav-links{display:flex;align-items:center;gap:2.4rem;list-style:none}
+    .nav-links a{font-family:var(--font-body);font-size:.78rem;font-weight:500;letter-spacing:.12em;text-transform:uppercase;color:var(--white-60);text-decoration:none;transition:color .3s}
+    .nav-links a:hover{color:var(--blue)}
+    .nav-cta{font-family:var(--font-body);font-size:.75rem;font-weight:600;letter-spacing:.1em;text-transform:uppercase;color:var(--blue);text-decoration:none;border:1px solid rgba(0,212,255,.45);padding:.55rem 1.4rem;border-radius:50px;transition:all .3s;white-space:nowrap}
+    .nav-cta:hover{background:rgba(0,212,255,.1);box-shadow:0 0 20px rgba(0,212,255,.3)}
+    .hero{position:relative;z-index:10;min-height:100svh;display:flex;flex-direction:column;align-items:center;justify-content:center;padding:100px 2rem 80px;text-align:center;overflow:hidden}
+    .hero::before{content:'';position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);width:min(800px,90vw);height:min(500px,60vh);background:radial-gradient(ellipse at center,rgba(0,212,255,.09) 0%,rgba(123,82,255,.05) 40%,transparent 70%);pointer-events:none;filter:blur(40px);animation:orbPulse 6s ease-in-out infinite alternate}
+    @keyframes orbPulse{from{opacity:.6;transform:translate(-50%,-50%) scale(1)}to{opacity:1;transform:translate(-50%,-50%) scale(1.08)}}
+    .hero-top-tag{display:flex;align-items:center;gap:.75rem;margin-bottom:2.4rem;opacity:0;animation:fadeUp .8s ease forwards .3s}
+    .hero-top-tag::before,.hero-top-tag::after{content:'';flex:1;max-width:60px;height:1px;background:linear-gradient(90deg,transparent,rgba(0,212,255,.5))}
+    .hero-top-tag::after{background:linear-gradient(90deg,rgba(0,212,255,.5),transparent)}
+    .hero-top-tag span{font-family:var(--font-body);font-size:.68rem;font-weight:600;letter-spacing:.28em;text-transform:uppercase;color:var(--blue)}
+    .hero-title{display:flex;align-items:center;justify-content:center;gap:clamp(.6rem,2.5vw,2rem);margin-bottom:1.4rem;opacity:0;animation:fadeUp .9s ease forwards .55s}
+    .hero-letter{font-family:var(--font-main);font-size:clamp(4.5rem,11vw,10rem);font-weight:700;line-height:1;color:#fff;text-shadow:0 0 30px rgba(255,255,255,.15),0 2px 4px rgba(0,0,0,.5);position:relative;display:inline-block;user-select:none}
+    .hero-sep{width:1px;height:clamp(40px,7vw,80px);background:linear-gradient(to bottom,transparent,rgba(0,212,255,.4),transparent);flex-shrink:0;align-self:center}
+    .hero-subtitle{font-family:var(--font-body);font-size:clamp(.65rem,1.6vw,.82rem);font-weight:500;letter-spacing:.32em;text-transform:uppercase;color:var(--white-60);margin-bottom:4rem;opacity:0;animation:fadeUp .9s ease forwards .75s}
+    .hero-subtitle .dot{color:var(--blue);margin:0 .5rem;font-size:.5rem;vertical-align:middle}
+    .cards-row{display:flex;align-items:flex-end;justify-content:center;gap:clamp(.6rem,1.5vw,1.1rem);width:100%;max-width:1100px;margin-bottom:3.8rem;opacity:0;animation:fadeUp 1s ease forwards .95s;perspective:1200px}
+    .service-card{flex:1;min-width:0;max-width:200px;min-height:300px;background:var(--glass);border:1px solid var(--glass-border);border-radius:16px;padding:2rem 1.2rem 1.8rem;display:flex;flex-direction:column;align-items:center;text-align:center;backdrop-filter:blur(18px);-webkit-backdrop-filter:blur(18px);position:relative;overflow:hidden;cursor:pointer;transition:transform .4s cubic-bezier(.22,1,.36,1),border-color .4s,box-shadow .4s}
+    .service-card::before{content:'';position:absolute;top:0;left:0;width:60%;height:40%;background:linear-gradient(135deg,rgba(255,255,255,.06) 0%,transparent 60%);border-radius:16px 0 0 0;pointer-events:none}
+    .service-card::after{content:'';position:absolute;bottom:-20px;left:50%;transform:translateX(-50%);width:80%;height:40px;background:radial-gradient(ellipse at center,rgba(0,212,255,.12) 0%,transparent 70%);filter:blur(8px);pointer-events:none;transition:opacity .4s;opacity:0}
+    .service-card:hover::after,.service-card.active::after{opacity:1}
+    .service-card:hover{transform:translateY(-10px) scale(1.02);border-color:rgba(0,212,255,.5);box-shadow:0 20px 50px rgba(0,0,0,.5),0 0 30px rgba(0,212,255,.15),inset 0 0 20px rgba(0,212,255,.05)}
+    .service-card.active{border-color:rgba(0,212,255,.65);box-shadow:0 0 0 1px rgba(123,82,255,.3),0 0 40px rgba(0,212,255,.3),0 25px 60px rgba(0,0,0,.7),inset 0 0 30px rgba(0,212,255,.07);min-height:330px;transform:translateY(-14px)}
+    .service-card.active .card-letter{text-shadow:0 0 20px rgba(0,212,255,.8),0 0 60px rgba(0,212,255,.4),0 0 100px rgba(0,212,255,.2)}
+    .service-card.active .card-line{background:linear-gradient(90deg,transparent,var(--blue),transparent);box-shadow:0 0 12px rgba(0,212,255,.6)}
+    .card-edge{position:absolute;top:0;left:12%;right:12%;height:1px;background:linear-gradient(90deg,transparent,rgba(0,212,255,.25),transparent);transition:background .4s,box-shadow .4s}
+    .service-card.active .card-edge{background:linear-gradient(90deg,transparent,rgba(0,212,255,.9),transparent);box-shadow:0 0 14px rgba(0,212,255,.5)}
+    .card-letter{font-family:var(--font-main);font-size:clamp(3rem,6vw,5rem);font-weight:700;line-height:1;color:rgba(255,255,255,.92);text-shadow:0 0 30px rgba(0,212,255,.25);margin-bottom:.75rem;margin-top:.2rem;transition:text-shadow .4s,color .4s}
+    .card-line{width:32px;height:1px;background:linear-gradient(90deg,transparent,rgba(0,212,255,.45),transparent);margin-bottom:.75rem;transition:background .4s,box-shadow .4s}
+    .card-word{font-family:var(--font-main);font-size:clamp(.55rem,1.1vw,.75rem);font-weight:600;letter-spacing:.22em;text-transform:uppercase;color:var(--white);margin-bottom:.6rem}
+    .card-desc{font-family:var(--font-body);font-size:clamp(.52rem,1vw,.65rem);font-weight:400;color:var(--white-60);letter-spacing:.04em;line-height:1.55}
+    .card-badge{position:absolute;top:14px;right:14px;width:7px;height:7px;border-radius:50%;background:var(--blue);box-shadow:0 0 10px var(--blue);animation:badgePulse 2s ease-in-out infinite}
+    @keyframes badgePulse{0%,100%{box-shadow:0 0 6px var(--blue);transform:scale(1)}50%{box-shadow:0 0 16px var(--blue),0 0 30px rgba(0,212,255,.4);transform:scale(1.3)}}
+    .hero-cta-wrap{opacity:0;animation:fadeUp 1s ease forwards 1.5s}
+    .hero-cta{display:inline-flex;align-items:center;gap:.7rem;font-family:var(--font-body);font-size:.8rem;font-weight:600;letter-spacing:.15em;text-transform:uppercase;color:#fff;text-decoration:none;padding:1rem 2.6rem;border-radius:50px;position:relative;overflow:hidden;background:rgba(0,212,255,.08);border:1px solid rgba(0,212,255,.5);transition:all .4s ease;backdrop-filter:blur(10px)}
+    .hero-cta::before{content:'';position:absolute;inset:0;background:linear-gradient(90deg,transparent 0%,rgba(0,212,255,.15) 50%,transparent 100%);transform:translateX(-100%);transition:transform .6s ease}
+    .hero-cta:hover{background:rgba(0,212,255,.14);border-color:rgba(0,212,255,.85);box-shadow:0 0 30px rgba(0,212,255,.4),0 8px 30px rgba(0,0,0,.4);transform:translateY(-3px);color:#fff}
+    .hero-cta:hover::before{transform:translateX(100%)}
+    .cta-arrow{display:inline-flex;transition:transform .3s}
+    .hero-cta:hover .cta-arrow{transform:translateX(4px)}
+    .energy-bar{position:absolute;bottom:0;left:0;right:0;height:1px;background:linear-gradient(90deg,transparent 0%,rgba(0,212,255,0) 10%,rgba(0,212,255,.6) 50%,rgba(0,212,255,0) 90%,transparent 100%);animation:energyScan 4s linear infinite}
+    @keyframes energyScan{0%{opacity:.3}50%{opacity:1}100%{opacity:.3}}
+    .scroll-hint{position:absolute;bottom:2rem;left:50%;transform:translateX(-50%);display:flex;flex-direction:column;align-items:center;gap:.4rem;opacity:0;animation:fadeIn 1s ease forwards 2.2s}
+    .scroll-hint span{font-size:.6rem;letter-spacing:.2em;text-transform:uppercase;color:var(--white-30)}
+    .scroll-mouse{width:20px;height:30px;border:1px solid rgba(0,212,255,.3);border-radius:10px;position:relative}
+    .scroll-mouse::after{content:'';position:absolute;top:5px;left:50%;transform:translateX(-50%);width:2px;height:6px;background:var(--blue);border-radius:2px;animation:scrollDot 2s ease-in-out infinite}
+    @keyframes scrollDot{0%,100%{top:5px;opacity:1}80%{top:16px;opacity:0}}
+    @keyframes fadeUp{from{opacity:0;transform:translateY(28px)}to{opacity:1;transform:translateY(0)}}
+    @keyframes fadeIn{from{opacity:0}to{opacity:1}}
+    @media(max-width:900px){nav{padding:0 1.5rem}.nav-links{display:none}.cards-row{gap:.5rem}.service-card{padding:1.5rem .8rem 1.4rem;min-height:240px}.service-card.active{min-height:265px}}
+    @media(max-width:640px){.hero{padding:88px 1rem 80px}.hero-sep{display:none}.hero-subtitle{font-size:.58rem;letter-spacing:.18em}}
+  </style>
+</head>
+<body>
+
+<canvas id="hero-canvas"></canvas>
+<div class="grid-overlay"></div>
+<div class="vignette"></div>
+
+<nav>
+  <a href="#" class="nav-logo">
+    <div class="nav-logo-mark">M</div>
+    <span class="nav-logo-text">MIDGAV</span>
+  </a>
+  <ul class="nav-links">
+    <li><a href="#">Home</a></li>
+    <li><a href="#">Work</a></li>
+    <li><a href="#">Services</a></li>
+    <li><a href="#">About</a></li>
+    <li><a href="#">Contact</a></li>
+  </ul>
+  <a href="#" class="nav-cta">Start a Project</a>
+</nav>
+
+<section class="hero">
+
+  <div class="hero-top-tag">
+    <span>Creative Digital Agency &nbsp;&bull;&nbsp; Est. 2024</span>
+  </div>
+
+  <div class="hero-title">
+    <span class="hero-letter">M</span>
+    <span class="hero-sep"></span>
+    <span class="hero-letter">I</span>
+    <span class="hero-sep"></span>
+    <span class="hero-letter">D</span>
+    <span class="hero-sep"></span>
+    <span class="hero-letter">G</span>
+    <span class="hero-sep"></span>
+    <span class="hero-letter">A</span>
+    <span class="hero-sep"></span>
+    <span class="hero-letter">V</span>
+  </div>
+
+  <p class="hero-subtitle">
+    Create<span class="dot">&#9679;</span>Design<span class="dot">&#9679;</span>Develop<span class="dot">&#9679;</span>Amplify
+  </p>
+
+  <div class="cards-row">
+
+    <div class="service-card">
+      <div class="card-edge"></div>
+      <div class="card-letter">M</div>
+      <div class="card-line"></div>
+      <div class="card-word">Method</div>
+      <div class="card-desc">Strategy That Works.</div>
+    </div>
+
+    <div class="service-card">
+      <div class="card-edge"></div>
+      <div class="card-letter">I</div>
+      <div class="card-line"></div>
+      <div class="card-word">Image</div>
+      <div class="card-desc">Visuals That Speak.</div>
+    </div>
+
+    <div class="service-card active">
+      <div class="card-edge"></div>
+      <div class="card-badge"></div>
+      <div class="card-letter">D</div>
+      <div class="card-line"></div>
+      <div class="card-word">Design</div>
+      <div class="card-desc">Design That Defines.</div>
+    </div>
+
+    <div class="service-card">
+      <div class="card-edge"></div>
+      <div class="card-letter">C</div>
+      <div class="card-line"></div>
+      <div class="card-word">Content</div>
+      <div class="card-desc">Stories That Connect.</div>
+    </div>
+
+    <div class="service-card">
+      <div class="card-edge"></div>
+      <div class="card-letter">A</div>
+      <div class="card-line"></div>
+      <div class="card-word">Audio</div>
+      <div class="card-desc">Sound That Resonates.</div>
+    </div>
+
+  </div>
+
+  <div class="hero-cta-wrap">
+    <a href="#" class="hero-cta">
+      Explore Our Work
+      <span class="cta-arrow">&#8594;</span>
+    </a>
+  </div>
+
+  <div class="energy-bar"></div>
+
+  <div class="scroll-hint">
+    <div class="scroll-mouse"></div>
+    <span>Scroll</span>
+  </div>
+
+</section>
+
+<script>
+(function(){
+  const canvas=document.getElementById('hero-canvas');
+  const ctx=canvas.getContext('2d');
+  let W,H,particles,waves;
+
+  function resize(){W=canvas.width=window.innerWidth;H=canvas.height=window.innerHeight;}
+  window.addEventListener('resize',()=>{resize();init();});
+  resize();
+
+  function makeParticle(){
+    return{x:Math.random()*W,y:Math.random()*H,r:Math.random()*1.4+0.3,
+      vx:(Math.random()-.5)*.25,vy:-(Math.random()*.35+.05),
+      alpha:Math.random()*.5+.1,maxLife:Math.random()*300+150,age:0,
+      hue:Math.random()<.8?195:260};
+  }
+  function makeWave(i){
+    return{amp:Math.random()*28+14,freq:Math.random()*.006+.003,
+      speed:Math.random()*.004+.002,phase:(i/5)*Math.PI*2,
+      y:H*(.42+i*.07),alpha:.03+Math.random()*.04,width:Math.random()*1.2+.4};
+  }
+  function init(){particles=Array.from({length:140},makeParticle);waves=Array.from({length:5},(_,i)=>makeWave(i));}
+  init();
+
+  function drawParticles(){
+    particles.forEach((p,idx)=>{
+      p.age++;p.x+=p.vx;p.y+=p.vy;
+      const lr=p.age/p.maxLife;
+      const fade=lr<.15?lr/.15:lr>.75?1-(lr-.75)/.25:1;
+      ctx.beginPath();ctx.arc(p.x,p.y,p.r,0,Math.PI*2);
+      ctx.fillStyle=`hsla(${p.hue},100%,70%,${p.alpha*fade})`;ctx.fill();
+      if(p.age>=p.maxLife||p.y<-10||p.x<-10||p.x>W+10){
+        particles[idx]=makeParticle();
+        particles[idx].y=Math.random()>.5?H+5:Math.random()*H;
+      }
+    });
+  }
+  function drawWaves(){
+    waves.forEach(w=>{
+      w.phase+=w.speed;ctx.beginPath();ctx.moveTo(0,w.y);
+      for(let x=0;x<=W;x+=4){ctx.lineTo(x,w.y+Math.sin(x*w.freq+w.phase)*w.amp);}
+      ctx.strokeStyle=`rgba(0,212,255,${w.alpha})`;ctx.lineWidth=w.width;ctx.stroke();
+    });
+  }
+  function drawConnections(){
+    const nb=particles.filter(p=>p.y>H*.3&&p.y<H*.85);
+    for(let i=0;i<nb.length;i++){
+      for(let j=i+1;j<nb.length;j++){
+        const dx=nb[i].x-nb[j].x,dy=nb[i].y-nb[j].y,d=Math.sqrt(dx*dx+dy*dy);
+        if(d<90){ctx.beginPath();ctx.moveTo(nb[i].x,nb[i].y);ctx.lineTo(nb[j].x,nb[j].y);
+          ctx.strokeStyle=`rgba(0,212,255,${.04*(1-d/90)})`;ctx.lineWidth=.5;ctx.stroke();}
+      }
+    }
+  }
+
+  function loop(){
+    ctx.clearRect(0,0,W,H);
+    drawWaves();drawConnections();drawParticles();
+    requestAnimationFrame(loop);
+  }
+  loop();
+
+  document.querySelectorAll('.service-card').forEach(card=>{
+    card.addEventListener('mousemove',e=>{
+      const r=card.getBoundingClientRect();
+      const dx=(e.clientX-(r.left+r.width/2))/(r.width/2);
+      const dy=(e.clientY-(r.top+r.height/2))/(r.height/2);
+      card.style.transform=`perspective(600px) rotateX(${-dy*7}deg) rotateY(${dx*7}deg) translateY(-10px) scale(1.02)`;
+    });
+    card.addEventListener('mouseleave',()=>{
+      card.style.transform=card.classList.contains('active')?'translateY(-14px)':'';
+    });
+    card.addEventListener('click',()=>{
+      document.querySelectorAll('.service-card').forEach(c=>{
+        c.classList.remove('active');c.style.transform='';
+        const b=c.querySelector('.card-badge');if(b)b.remove();
+      });
+      card.classList.add('active');card.style.transform='translateY(-14px)';
+      if(!card.querySelector('.card-badge')){
+        const b=document.createElement('div');b.className='card-badge';card.appendChild(b);
+      }
+    });
+  });
+})();
+</script>
+
+</body>
+</html>
