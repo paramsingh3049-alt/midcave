@@ -2226,7 +2226,7 @@ body {
   .dm-slide-viewport {
     height: auto !important;
     overflow: hidden;
-    border-radius: 16px;
+    border-radius: 18px;
   }
 
   /* 2 — Track height matches card content */
@@ -2240,7 +2240,7 @@ body {
     height: auto !important;
   }
 
-  /* 4 — Grid: fluid — drop position:absolute & transform:scale */
+  /* 4 — Grid: fluid layout, slightly larger padding & gap */
   .dm-slide-grid {
     position: relative !important;
     left: auto !important;
@@ -2249,43 +2249,43 @@ body {
     width: 100% !important;
     height: auto !important;
     display: grid !important;
-    grid-template-columns: 1.2fr 0.8fr !important;
-    gap: 1rem !important;
-    padding: 1.4rem 1.2rem !important;
-    border-radius: 16px !important;
+    grid-template-columns: 1.15fr 0.85fr !important;
+    gap: 1.2rem !important;
+    padding: 1.6rem 1.4rem !important;
+    border-radius: 18px !important;
     align-items: center !important;
   }
 
-  /* 5 — Info column typography */
+  /* 5 — Info column typography (slightly larger) */
   .dm-slide-badge {
-    font-size: 0.65rem !important;
-    padding: 0.28rem 0.65rem !important;
-    margin-bottom: 0.6rem !important;
+    font-size: 0.68rem !important;
+    padding: 0.3rem 0.7rem !important;
+    margin-bottom: 0.65rem !important;
   }
 
   .dm-slide-heading {
-    font-size: clamp(1.15rem, 4.5vw, 1.5rem) !important;
-    margin-bottom: 0.55rem !important;
-    line-height: 1.2 !important;
+    font-size: clamp(1.25rem, 5vw, 1.65rem) !important;
+    margin-bottom: 0.6rem !important;
+    line-height: 1.15 !important;
   }
 
   .dm-slide-summary {
-    font-size: 0.72rem !important;
-    line-height: 1.5 !important;
-    margin-bottom: 0.9rem !important;
+    font-size: 0.75rem !important;
+    line-height: 1.55 !important;
+    margin-bottom: 1rem !important;
     max-width: 100% !important;
   }
 
-  /* 6 — Deliverables: single-column within the info column */
+  /* 6 — Deliverables: single-column, slightly more breathing room */
   .dm-deliverables-list {
     grid-template-columns: 1fr !important;
-    gap: 0.45rem !important;
-    margin-bottom: 1rem !important;
+    gap: 0.5rem !important;
+    margin-bottom: 1.1rem !important;
   }
 
   .dm-deliv-item {
-    padding: 0.45rem 0.65rem !important;
-    border-radius: 6px !important;
+    padding: 0.5rem 0.7rem !important;
+    border-radius: 7px !important;
   }
 
   .dm-deliv-item .deliv-dot {
@@ -2294,34 +2294,50 @@ body {
   }
 
   .dm-deliv-item .deliv-name {
-    font-size: 0.72rem !important;
+    font-size: 0.74rem !important;
   }
 
   /* 7 — CTA button */
   .dm-slide-action .btn-glass-neon {
-    font-size: 0.65rem !important;
-    padding: 0.6rem 1rem !important;
+    font-size: 0.68rem !important;
+    padding: 0.65rem 1.1rem !important;
     letter-spacing: 0.08em !important;
   }
 
-  /* 8 — Media image */
+  /* 8 — Media column: full image visible, no cropping */
+  .dm-media-frame {
+    /* give the frame a dark bg so contain-mode blank areas blend in */
+    background: rgba(6, 9, 22, 0.95) !important;
+    border-radius: 12px !important;
+    overflow: hidden !important;
+  }
+
   .dm-media-frame img {
-    height: 180px !important;
-    object-fit: cover !important;
+    width: 100% !important;
+    height: 200px !important;
+    object-fit: contain !important;   /* full image, no cropping */
+    object-position: center !important;
+    display: block !important;
   }
 
   .dm-media-stats {
-    padding: 1rem 0.75rem 0.7rem !important;
+    position: relative !important;   /* pull out of absolute so it sits below img */
+    bottom: auto !important;
+    background: rgba(6, 9, 20, 0.92) !important;
+    padding: 0.75rem !important;
+    display: flex !important;
+    justify-content: space-around !important;
     gap: 0.5rem !important;
+    border-top: 1px solid rgba(0, 229, 255, 0.15) !important;
   }
 
   .dm-stat-box .stat-v {
-    font-size: 1.1rem !important;
+    font-size: 1.15rem !important;
     margin-bottom: 0.15rem !important;
   }
 
   .dm-stat-box .stat-l {
-    font-size: 0.58rem !important;
+    font-size: 0.6rem !important;
   }
 
   /* 9 — Slider wrapper: minimal side padding for max card width */
@@ -2331,12 +2347,12 @@ body {
 
   /* 10 — Footer nav controls */
   .dm-slider-footer {
-    margin-top: 1.2rem !important;
-    gap: 1.2rem !important;
+    margin-top: 1.3rem !important;
+    gap: 1.3rem !important;
   }
 
   .dm-slide-arrow {
-    width: 38px !important;
-    height: 38px !important;
+    width: 40px !important;
+    height: 40px !important;
   }
 }
