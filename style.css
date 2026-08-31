@@ -2206,6 +2206,7 @@ body {
   padding: 0;
 }
 
+
 .dm-slide-dots .dm-dot.active {
   width: 32px;
   border-radius: 20px;
@@ -2213,3 +2214,129 @@ body {
   box-shadow: 0 0 15px rgba(0, 229, 255, 0.8);
 }
 
+/* ═══════════════════════════════════════════════════════════════
+   DM SLIDER — MOBILE FULL-FLUID OVERRIDE (max-width: 768px)
+   Drops the desktop-scale transform. Card fills viewport width
+   with natural auto height, giving ~25-30% more visual size.
+   Desktop layout and JS scale engine remain completely untouched.
+   ═══════════════════════════════════════════════════════════════ */
+@media (max-width: 768px) {
+
+  /* 1 — Viewport: auto height so the card drives its own size */
+  .dm-slide-viewport {
+    height: auto !important;
+    overflow: hidden;
+    border-radius: 16px;
+  }
+
+  /* 2 — Track height matches card content */
+  .dm-slide-track {
+    height: auto;
+  }
+
+  /* 3 — Each slide card: full viewport width, auto height */
+  .dm-slide-card {
+    min-width: 100%;
+    height: auto !important;
+  }
+
+  /* 4 — Grid: fluid — drop position:absolute & transform:scale */
+  .dm-slide-grid {
+    position: relative !important;
+    left: auto !important;
+    top: auto !important;
+    transform: none !important;
+    width: 100% !important;
+    height: auto !important;
+    display: grid !important;
+    grid-template-columns: 1.2fr 0.8fr !important;
+    gap: 1rem !important;
+    padding: 1.4rem 1.2rem !important;
+    border-radius: 16px !important;
+    align-items: center !important;
+  }
+
+  /* 5 — Info column typography */
+  .dm-slide-badge {
+    font-size: 0.65rem !important;
+    padding: 0.28rem 0.65rem !important;
+    margin-bottom: 0.6rem !important;
+  }
+
+  .dm-slide-heading {
+    font-size: clamp(1.15rem, 4.5vw, 1.5rem) !important;
+    margin-bottom: 0.55rem !important;
+    line-height: 1.2 !important;
+  }
+
+  .dm-slide-summary {
+    font-size: 0.72rem !important;
+    line-height: 1.5 !important;
+    margin-bottom: 0.9rem !important;
+    max-width: 100% !important;
+  }
+
+  /* 6 — Deliverables: single-column within the info column */
+  .dm-deliverables-list {
+    grid-template-columns: 1fr !important;
+    gap: 0.45rem !important;
+    margin-bottom: 1rem !important;
+  }
+
+  .dm-deliv-item {
+    padding: 0.45rem 0.65rem !important;
+    border-radius: 6px !important;
+  }
+
+  .dm-deliv-item .deliv-dot {
+    width: 5px !important;
+    height: 5px !important;
+  }
+
+  .dm-deliv-item .deliv-name {
+    font-size: 0.72rem !important;
+  }
+
+  /* 7 — CTA button */
+  .dm-slide-action .btn-glass-neon {
+    font-size: 0.65rem !important;
+    padding: 0.6rem 1rem !important;
+    letter-spacing: 0.08em !important;
+  }
+
+  /* 8 — Media image */
+  .dm-media-frame img {
+    height: 180px !important;
+    object-fit: cover !important;
+  }
+
+  .dm-media-stats {
+    padding: 1rem 0.75rem 0.7rem !important;
+    gap: 0.5rem !important;
+  }
+
+  .dm-stat-box .stat-v {
+    font-size: 1.1rem !important;
+    margin-bottom: 0.15rem !important;
+  }
+
+  .dm-stat-box .stat-l {
+    font-size: 0.58rem !important;
+  }
+
+  /* 9 — Slider wrapper: minimal side padding for max card width */
+  .dm-slider-wrap {
+    padding: 0 0.5rem !important;
+  }
+
+  /* 10 — Footer nav controls */
+  .dm-slider-footer {
+    margin-top: 1.2rem !important;
+    gap: 1.2rem !important;
+  }
+
+  .dm-slide-arrow {
+    width: 38px !important;
+    height: 38px !important;
+  }
+}
