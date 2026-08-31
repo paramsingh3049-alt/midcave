@@ -111,9 +111,13 @@ body:has(a:hover) .cursor-follower, body:has(button:hover) .cursor-follower {
 }
 
 /* ─── TYPOGRAPHY ─── */
+h1 { font-size: clamp(2.8rem, 5.5vw, 5rem); }
+h2 { font-size: clamp(2.2rem, 4vw, 3.8rem); }
+h3 { font-size: clamp(1.6rem, 2.8vw, 2.6rem); }
+h4 { font-size: clamp(1.3rem, 2vw, 2rem); }
 h1, h2, h3, h4 { font-weight: 400; line-height: 1.1; }
 .section-title {
-  font-family: var(--font-display); font-size: clamp(2.5rem, 5vw, 4.5rem);
+  font-family: var(--font-display); font-size: clamp(3rem, 6vw, 5.5rem);
   margin-bottom: 1.5rem; letter-spacing: -0.02em;
 }
 .section-title em { font-style: italic; color: var(--clr-primary-light); }
@@ -691,7 +695,7 @@ h1, h2, h3, h4 { font-weight: 400; line-height: 1.1; }
 }
 
 .network-overlay-title {
-  font-size: clamp(2rem, 3.5vw, 3.4rem) !important;
+  font-size: clamp(2.5rem, 4.2vw, 4.2rem) !important;
   color: #ffffff;
   margin: 0 0 0.35rem;
   line-height: 1.15;
@@ -880,7 +884,7 @@ h1, h2, h3, h4 { font-weight: 400; line-height: 1.1; }
 
 .nexus-title {
   font-family: var(--font-display);
-  font-size: clamp(1.4rem, 2.2vw, 2.4rem);
+  font-size: clamp(1.8rem, 2.8vw, 3rem);
   font-weight: 800;
   letter-spacing: 0.18em;
   color: #ffffff;
@@ -1357,7 +1361,7 @@ body {
   .pt-lg { padding-top: clamp(2.5rem, 8vw, 4rem); }
   .pb-lg { padding-bottom: clamp(2.5rem, 8vw, 4rem); }
   .section-title {
-    font-size: clamp(1.6rem, 6vw, 2.4rem);
+    font-size: clamp(2rem, 7vw, 3rem);
     word-break: break-word;
     overflow-wrap: break-word;
   }
