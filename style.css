@@ -1554,7 +1554,28 @@ body {
   .video-thumb { height: 180px; }
 
   /* === CREATIVE TECHNOLOGY SECTION === */
-  .technology-section .container { padding: 0 0.85rem; }
+  .technology-section {
+    min-height: auto !important;
+    height: auto !important;
+    padding: 2.5rem 0 1rem 0 !important;
+  }
+  .technology-section .container {
+    padding: 0 !important;
+    max-width: 100% !important;
+    width: 100% !important;
+  }
+  .tech-split {
+    gap: 0 !important;
+  }
+  .tech-split .split-visuals {
+    border-radius: 0 !important;
+    height: calc(570px * var(--net-scale)) !important;
+  }
+  .interactive-network {
+    border-radius: 0 !important;
+    border-left: none !important;
+    border-right: none !important;
+  }
   /* === PORTFOLIO SECTION === */
   .portfolio-header {
     flex-direction: column;

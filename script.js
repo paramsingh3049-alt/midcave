@@ -18,7 +18,8 @@
     // DM Slider (1150px native width, 580px native height)
     const pad = vw <= 768 ? 32 : 64;
     const dmScale  = Math.min(1, (vw - pad) / 1150);
-    const netScale = Math.min(1, (vw - pad) / 1200);
+    // On mobile, use vw / 1120 for Creative Technology to make it larger and fit edge-to-edge
+    const netScale = vw <= 768 ? Math.min(1, vw / 1120) : Math.min(1, (vw - pad) / 1200);
 
     root.style.setProperty('--dm-scale',  dmScale);
     root.style.setProperty('--net-scale', netScale);
