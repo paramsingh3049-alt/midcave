@@ -43,19 +43,6 @@
   --dm-scale: 1;
 }
 
-@media (max-width: 1240px) {
-  :root {
-    --net-scale: calc((100vw - 64px) / 1200);
-    --dm-scale: calc((100vw - 64px) / 1150);
-  }
-}
-@media (max-width: 768px) {
-  :root {
-    --net-scale: calc((100vw - 32px) / 1200);
-    --dm-scale: calc((100vw - 32px) / 1150);
-  }
-}
-
 /* ─── LIGHT THEME OVERRIDES ─── */
 :root[data-theme="light"] {
   --clr-bg:           #ffffff;

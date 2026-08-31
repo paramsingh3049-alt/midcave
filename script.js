@@ -5,6 +5,30 @@
 'use strict';
 
 /* ─────────────────────────────────────────────────────────────── */
+/*  RESPONSIVE SCALE ENGINE                                         */
+/*  Sets --dm-scale and --net-scale as true unitless numbers        */
+/*  (CSS calc() cannot produce unitless results from lengths)       */
+/* ─────────────────────────────────────────────────────────────── */
+(function initSectionScale() {
+  const root = document.documentElement;
+
+  function updateScales() {
+    const vw = window.innerWidth;
+
+    // DM Slider (1150px native width, 580px native height)
+    const pad = vw <= 768 ? 32 : 64;
+    const dmScale  = Math.min(1, (vw - pad) / 1150);
+    const netScale = Math.min(1, (vw - pad) / 1200);
+
+    root.style.setProperty('--dm-scale',  dmScale);
+    root.style.setProperty('--net-scale', netScale);
+  }
+
+  updateScales();
+  window.addEventListener('resize', updateScales, { passive: true });
+})();
+
+/* ─────────────────────────────────────────────────────────────── */
 /*  CUSTOM CURSOR                                                  */
 /* ─────────────────────────────────────────────────────────────── */
 (function initCursor() {
