@@ -1,0 +1,171 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>MIDCAV Logo Animation</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    body {
+      background: #080b14;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      min-height: 100vh;
+      font-family: 'Plus Jakarta Sans', sans-serif;
+      overflow: hidden;
+    }
+
+    /* SCENE */
+    .logo-scene {
+      display: flex;
+      align-items: center;
+      gap: 18px;
+      position: relative;
+      animation: logoFloat 3s ease-in-out 2.6s infinite alternate;
+    }
+
+    /* ICON BLOCK */
+    .icon-wrap {
+      width: 56px;
+      height: 56px;
+      opacity: 0;
+      transform: translateY(-80px) scaleY(1.4);
+      animation:
+        iconDrop 0.55s cubic-bezier(0.22, 1, 0.36, 1) 0.1s forwards,
+        iconGlow 1.2s ease-in-out 2.8s infinite alternate;
+    }
+    .icon-wrap img {
+      width: 100%;
+      height: 100%;
+      object-fit: contain;
+      display: block;
+    }
+
+    /* LETTERS */
+    .letters-wrap {
+      display: flex;
+      align-items: baseline;
+      gap: 1px;
+    }
+
+    .letter {
+      display: inline-block;
+      font-family: 'Plus Jakarta Sans', sans-serif;
+      font-size: 3rem;
+      font-weight: 700;
+      color: #ffffff;
+      letter-spacing: 0.06em;
+      opacity: 0;
+      transform: translateY(-120px) scaleY(1.5);
+      transform-origin: bottom center;
+      will-change: transform, opacity;
+    }
+
+    .letter:nth-child(1) { animation: letterDrop 0.55s cubic-bezier(0.22,1,0.36,1) 0.35s forwards, letterBounce 0.35s ease 0.9s, letterGlow 1.2s ease-in-out 2.9s infinite alternate; }
+    .letter:nth-child(2) { animation: letterDrop 0.55s cubic-bezier(0.22,1,0.36,1) 0.52s forwards, letterBounce 0.35s ease 1.07s, letterGlow 1.2s ease-in-out 3.0s infinite alternate; }
+    .letter:nth-child(3) { animation: letterDrop 0.55s cubic-bezier(0.22,1,0.36,1) 0.69s forwards, letterBounce 0.35s ease 1.24s, letterGlow 1.2s ease-in-out 3.1s infinite alternate; }
+    .letter:nth-child(4) { animation: letterDrop 0.55s cubic-bezier(0.22,1,0.36,1) 0.86s forwards, letterBounce 0.35s ease 1.41s, letterGlow 1.2s ease-in-out 3.2s infinite alternate; }
+    .letter:nth-child(5) { animation: letterDrop 0.55s cubic-bezier(0.22,1,0.36,1) 1.03s forwards, letterBounce 0.35s ease 1.58s, letterGlow 1.2s ease-in-out 3.3s infinite alternate; }
+    .letter:nth-child(6) { animation: letterDrop 0.55s cubic-bezier(0.22,1,0.36,1) 1.20s forwards, letterBounce 0.35s ease 1.75s, letterGlow 1.2s ease-in-out 3.4s infinite alternate; }
+
+    /* TAGLINE */
+    .tagline {
+      font-size: 0.68rem;
+      font-weight: 500;
+      color: #00e5ff;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      padding-left: 12px;
+      border-left: 1px solid rgba(0,229,255,0.35);
+      white-space: nowrap;
+      opacity: 0;
+      transform: translateX(-10px);
+      animation: taglineIn 0.6s ease 2.0s forwards;
+      align-self: center;
+    }
+
+    /* SHINE SWEEP */
+    .shine {
+      position: absolute;
+      top: 0; left: -100%;
+      width: 60%;
+      height: 100%;
+      background: linear-gradient(105deg, transparent 30%, rgba(255,255,255,0.18) 50%, transparent 70%);
+      opacity: 0;
+      pointer-events: none;
+      border-radius: 4px;
+      animation: shineSweep 0.9s ease 2.25s forwards;
+    }
+
+    /* KEYFRAMES */
+    @keyframes iconDrop {
+      0%   { opacity: 0; transform: translateY(-80px) scaleY(1.4) scaleX(0.8); }
+      60%  { opacity: 1; transform: translateY(8px)  scaleY(0.75) scaleX(1.15); }
+      78%  { transform: translateY(-10px) scaleY(1.1) scaleX(0.93); }
+      90%  { transform: translateY(4px)  scaleY(0.95) scaleX(1.03); }
+      100% { opacity: 1; transform: translateY(0)    scaleY(1)    scaleX(1); }
+    }
+
+    @keyframes letterDrop {
+      0%   { opacity: 0; transform: translateY(-120px) scaleY(1.5) scaleX(0.8); }
+      60%  { opacity: 1; transform: translateY(10px)   scaleY(0.72) scaleX(1.18); }
+      75%  { transform: translateY(-14px) scaleY(1.12) scaleX(0.92); }
+      88%  { transform: translateY(5px)   scaleY(0.94) scaleX(1.04); }
+      100% { opacity: 1; transform: translateY(0)     scaleY(1)    scaleX(1); }
+    }
+
+    @keyframes letterBounce {
+      0%   { transform: translateY(0) scaleY(1) scaleX(1); }
+      35%  { transform: translateY(-8px) scaleY(1.06) scaleX(0.96); }
+      65%  { transform: translateY(3px) scaleY(0.97) scaleX(1.02); }
+      100% { transform: translateY(0) scaleY(1) scaleX(1); }
+    }
+
+    @keyframes iconGlow {
+      from { filter: drop-shadow(0 0 6px rgba(0,229,255,0.4)); }
+      to   { filter: drop-shadow(0 0 18px rgba(0,229,255,0.9)); }
+    }
+
+    @keyframes letterGlow {
+      from { text-shadow: 0 0 0px transparent; }
+      to   { text-shadow: 0 0 18px rgba(255,255,255,0.25), 0 0 35px rgba(0,229,255,0.15); }
+    }
+
+    @keyframes taglineIn {
+      to { opacity: 0.85; transform: translateX(0); }
+    }
+
+    @keyframes shineSweep {
+      0%   { left: -100%; opacity: 1; }
+      100% { left: 160%;  opacity: 1; }
+    }
+
+    @keyframes logoFloat {
+      from { transform: translateY(0px); }
+      to   { transform: translateY(-6px); }
+    }
+  </style>
+</head>
+<body>
+  <div class="logo-scene">
+    <div class="shine"></div>
+    <div class="icon-wrap">
+      <img src="logo_icon.png" alt="MIDCAV icon" />
+    </div>
+    <div class="letters-wrap">
+      <span class="letter">M</span>
+      <span class="letter">I</span>
+      <span class="letter">D</span>
+      <span class="letter">C</span>
+      <span class="letter">A</span>
+      <span class="letter">V</span>
+    </div>
+    <span class="tagline">Digital Technologies</span>
+  </div>
+</body>
+</html>
