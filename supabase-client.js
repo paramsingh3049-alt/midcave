@@ -9,8 +9,8 @@
 // Found in your Supabase Dashboard: Project Settings -> API
 // ==============================================================================
 window.MIDCAV_SUPABASE_CONFIG = {
-  url: "YOUR_SUPABASE_PROJECT_URL", // e.g. "https://jxfukjvyjlhjqceqhsfh.supabase.co"
-  anonKey: "YOUR_SUPABASE_ANON_KEY" // e.g. "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6Imp4ZnVranZ5amxoanFjZXFoc2ZoIiwicm9sZSI6ImFub24iLCJpYXQiOjE3ODgyNjcxNzYsImV4cCI6MjEwMzg0MzE3Nn0.6MYpqM_KJCAoq3_4Qx175I523tiWmRZ80C7GOGdeEzE"
+  url: "https://jxfukjvyjlhjqceqhsfh.supabase.co",
+  anonKey: "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6Imp4ZnVranZ5amxoanFjZXFoc2ZoIiwicm9sZSI6ImFub24iLCJpYXQiOjE3ODgyNjcxNzYsImV4cCI6MjEwMzg0MzE3Nn0.6MYpqM_KJCAoq3_4Qx175I523tiWmRZ80C7GOGdeEzE"
 };
 
 (function initContactFormHandler() {
