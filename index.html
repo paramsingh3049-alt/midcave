@@ -875,8 +875,11 @@
               <label for="message">Message</label>
               <textarea id="message" rows="4" placeholder="Tell us about your project..." required></textarea>
             </div>
-            <button type="submit" class="btn btn-primary w-100">Start a Project</button>
-            <div id="form-success" class="form-success" style="display:none; margin-top:1rem;">Your message has been sent successfully.</div>
+            <button type="submit" class="btn btn-primary w-100" id="contact-submit-btn">
+              <span>Start a Project</span>
+            </button>
+            <div id="form-success" class="form-feedback form-success" style="display:none;">Your message has been sent successfully.</div>
+            <div id="form-error" class="form-feedback form-error" style="display:none;"></div>
           </form>
         </div>
       </div>
@@ -910,6 +913,9 @@
     </div>
   </footer>
 
+  <!-- Supabase JS Client & App Scripts -->
+  <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2.39.8/dist/umd/supabase.min.js"></script>
+  <script src="supabase-client.js"></script>
   <script src="script.js"></script>
 </body>
 </html>
